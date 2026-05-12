@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEFL Reading Practice - Academic Topics | kamponginggrispare.com">
+  <meta name="keywords" content="TOEFL reading, academic reading, reading comprehension">
+  <meta name="author" content="kamponginggrispare.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEFL Reading - Academic Topics (4/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Same CSS as previous pages */
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#dc2626] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEFL test title">
+        TOEFL Reading Test - Academic Topics (4/5)
+      </div>
+      <progress id="progressBar" max="3600" value="3600" aria-label="TOEFL test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="3600" aria-valuenow="3600"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 60 menit<br />
+        <span id="timeDisplay" style="">1Jam 0Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      
+    </section>
+    
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="toefl-reading-5.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "Artificial Intelligence and Machine Learning",
+        text: `Artificial Intelligence (AI) refers to the simulation of human intelligence in machines programmed to think and learn like humans. Machine Learning (ML), a subset of AI, involves algorithms that improve automatically through experience and data usage. These technologies are transforming numerous sectors including healthcare, finance, transportation, and education.
+
+AI systems can be categorized into narrow AI, designed for specific tasks like image recognition or language translation, and general AI, which would possess human-like cognitive abilities across diverse domains. Current applications primarily involve narrow AI, with technologies like natural language processing enabling chatbots and virtual assistants, computer vision facilitating facial recognition, and recommendation systems personalizing content.
+
+Machine learning approaches include supervised learning (using labeled datasets), unsupervised learning (finding patterns in unlabeled data), and reinforcement learning (learning through trial and error with rewards). Deep learning, utilizing neural networks with multiple layers, has driven recent AI advances in areas such as autonomous vehicles and medical diagnosis.
+
+Ethical considerations surrounding AI include algorithmic bias, privacy concerns, job displacement, and accountability for AI decisions. As AI capabilities advance, developing appropriate regulations and ethical frameworks becomes increasingly important to ensure these technologies benefit society while minimizing potential harms.`,
+        questions: [
+          {
+            id: 1,
+            text: "What is Machine Learning?",
+            options: [
+              "A subset of AI that improves through experience",
+              "A type of computer hardware",
+              "A programming language",
+              "A data storage technology"
+            ],
+            correct: 0
+          },
+          {
+            id: 2,
+            text: "What is the difference between narrow AI and general AI?",
+            options: [
+              "Narrow AI is for specific tasks, general AI has human-like abilities",
+              "Narrow AI is slower than general AI",
+              "General AI is only for scientific research",
+              "Narrow AI requires more data than general AI"
+            ],
+            correct: 0
+          },
+          {
+            id: 3,
+            text: "Which technology enables chatbots and virtual assistants?",
+            options: [
+              "Natural language processing",
+              "Computer vision",
+              "Blockchain",
+              "Quantum computing"
+            ],
+            correct: 0
+          },
+          {
+            id: 4,
+            text: "What does reinforcement learning involve?",
+            options: [
+              "Learning through trial and error with rewards",
+              "Using only labeled datasets",
+              "Copying human brain structure exactly",
+              "Following predetermined rules without adaptation"
+            ],
+            correct: 0
+          },
+          {
+            id: 5,
+            text: "What ethical consideration is mentioned regarding AI?",
+            options: [
+              "Algorithmic bias",
+              "Energy consumption only",
+              "Hardware costs",
+              "Software compatibility"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Photosynthesis and Plant Biology",
+        text: `Photosynthesis is the biochemical process by which plants, algae, and some bacteria convert light energy into chemical energy, producing oxygen and organic compounds. This fundamental process sustains virtually all life on Earth by providing both energy and oxygen. The overall reaction involves carbon dioxide and water producing glucose and oxygen using light energy.
+
+The process occurs in chloroplasts, organelles containing chlorophyll that capture light energy. Photosynthesis consists of two main stages: light-dependent reactions that capture energy and produce ATP and NADPH, and light-independent reactions (the Calvin cycle) that use these products to fix carbon dioxide into organic molecules.
+
+Factors affecting photosynthesis rate include light intensity, carbon dioxide concentration, temperature, and water availability. Each factor can become limiting when insufficient, constraining the overall rate regardless of other conditions. Understanding these limitations has practical applications in agriculture and forestry.
+
+Plants have evolved various adaptations to optimize photosynthesis under different environmental conditions. C3 plants are most common in temperate climates, while C4 plants like corn and sugarcane have specialized mechanisms that reduce photorespiration in hot environments. CAM plants such as cacti open their stomata at night to minimize water loss in arid conditions.`,
+        questions: [
+          {
+            id: 6,
+            text: "What does photosynthesis produce?",
+            options: [
+              "Oxygen and organic compounds",
+              "Carbon dioxide and water",
+              "Nitrogen and minerals",
+              "Methane and hydrogen"
+            ],
+            correct: 0
+          },
+          {
+            id: 7,
+            text: "Where does photosynthesis occur in plant cells?",
+            options: [
+              "Mitochondria",
+              "Chloroplasts",
+              "Nucleus",
+              "Ribosomes"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What are the two main stages of photosynthesis?",
+            options: [
+              "Light-dependent and light-independent reactions",
+              "Day and night phases",
+              "Growth and reproduction stages",
+              "Water and nutrient absorption"
+            ],
+            correct: 0
+          },
+          {
+            id: 9,
+            text: "Which factor can limit photosynthesis rate?",
+            options: [
+              "Light intensity",
+              "Soil color",
+              "Wind speed",
+              "Atmospheric pressure"
+            ],
+            correct: 0
+          },
+          {
+            id: 10,
+            text: "What adaptation do CAM plants have?",
+            options: [
+              "Open stomata at night to minimize water loss",
+              "Extra thick leaves for storage",
+              "Deep root systems only",
+              "Rapid flowering cycles"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Economic Theories and Market Systems",
+        text: `Economic theories provide frameworks for understanding how societies allocate scarce resources to satisfy unlimited wants. Classical economics, developed by Adam Smith and David Ricardo, emphasized free markets and the concept of the "invisible hand" guiding self-interested behavior toward social benefit. This tradition influenced laissez-faire policies with minimal government intervention.
+
+Keynesian economics, developed in response to the Great Depression, argued that aggregate demand determines economic output and that governments should intervene during recessions through fiscal and monetary policies. This approach dominated economic policy from the 1940s through the 1970s and has seen renewed interest during recent economic crises.
+
+Neoclassical economics integrates classical principles with mathematical rigor, emphasizing market equilibrium, rational choice, and marginal analysis. Monetarism, associated with Milton Friedman, focuses on money supply's role in inflation and advocates for rules-based monetary policy.
+
+Alternative perspectives include behavioral economics, which incorporates psychological insights into economic decision-making, and institutional economics, which emphasizes the role of social and legal institutions in shaping economic outcomes. Understanding these diverse theories helps explain different approaches to economic policy and their consequences for growth, stability, and distribution.`,
+        questions: [
+          {
+            id: 11,
+            text: "What did classical economics emphasize?",
+            options: [
+              "Government control of all resources",
+              "Free markets and minimal intervention",
+              "Complete wealth redistribution",
+              "Elimination of private property"
+            ],
+            correct: 1
+          },
+          {
+            id: 12,
+            text: "What concept is associated with Adam Smith?",
+            options: [
+              "The invisible hand",
+              "The visible fist",
+              "The closed economy",
+              "The planned market"
+            ],
+            correct: 0
+          },
+          {
+            id: 13,
+            text: "How did Keynesian economics respond to the Great Depression?",
+            options: [
+              "By advocating for government intervention",
+              "By calling for less regulation",
+              "By promoting international isolation",
+              "By suggesting tax increases only"
+            ],
+            correct: 0
+          },
+          {
+            id: 14,
+            text: "What does neoclassical economics emphasize?",
+            options: [
+              "Market equilibrium and rational choice",
+              "Complete government planning",
+              "Elimination of money systems",
+              "Non-mathematical approaches only"
+            ],
+            correct: 0
+          },
+          {
+            id: 15,
+            text: "What does behavioral economics incorporate?",
+            options: [
+              "Psychological insights into decision-making",
+              "Biological determinants only",
+              "Geographical factors",
+              "Historical events exclusively"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Oceanography and Marine Science",
+        text: `Oceanography is the scientific study of oceans, encompassing biological, chemical, geological, and physical processes in marine environments. The world's oceans cover approximately 71% of Earth's surface and play crucial roles in regulating climate, supporting biodiversity, and providing resources.
+
+Ocean currents, driven by wind, temperature, salinity differences, and Earth's rotation, redistribute heat around the planet, influencing global climate patterns. The thermohaline circulation, sometimes called the "global conveyor belt," moves water between surface and deep oceans over centuries, transporting heat, nutrients, and dissolved gases.
+
+Marine ecosystems range from sunlit surface waters with high productivity to dark deep-sea environments where organisms adapt to extreme pressure, cold temperatures, and limited food. Coral reefs, estuaries, and mangrove forests are among the most productive marine habitats, supporting diverse biological communities.
+
+Human impacts on oceans include overfishing, pollution, habitat destruction, and climate change effects such as ocean acidification and warming. Marine protected areas, sustainable fishing practices, and pollution reduction efforts are essential for conserving ocean health and the ecosystem services oceans provide to humanity.`,
+        questions: [
+          {
+            id: 16,
+            text: "What percentage of Earth's surface do oceans cover?",
+            options: [
+              "Approximately 50%",
+              "Approximately 61%",
+              "Approximately 71%",
+              "Approximately 81%"
+            ],
+            correct: 2
+          },
+          {
+            id: 17,
+            text: "What drives ocean currents?",
+            options: [
+              "Wind, temperature, salinity, and Earth's rotation",
+              "Lunar gravity only",
+              "Marine animal movements",
+              "Underwater volcanic activity exclusively"
+            ],
+            correct: 0
+          },
+          {
+            id: 18,
+            text: "What is the thermohaline circulation?",
+            options: [
+              "A surface-only current system",
+              "The global conveyor belt moving water between surface and deep oceans",
+              "A tidal phenomenon",
+              "A seasonal upwelling process"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "Which marine habitats are mentioned as highly productive?",
+            options: [
+              "Coral reefs, estuaries, and mangrove forests",
+              "Open ocean gyres only",
+              "Deep sea trenches exclusively",
+              "Polar ice caps"
+            ],
+            correct: 0
+          },
+          {
+            id: 20,
+            text: "What human impact on oceans is mentioned?",
+            options: [
+              "Overfishing and pollution",
+              "Increased ocean salinity",
+              "Decreased water pressure",
+              "Reduced wave activity"
+            ],
+            correct: 0
+          }
+        ]
+      }
+    ];
+
+    // Same JavaScript functions as previous pages
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('toefl_reading_4_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('toefl_reading_4_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toefl_reading_4_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEFL Reading - Academic Topics
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 60 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        const storageKey = 'toefl_reading_4_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

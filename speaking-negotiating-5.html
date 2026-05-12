@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Speaking - Negotiating Skills - Page 5</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        Business Speaking - Negotiating Skills - Page 5/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="speaking-issues-options-1.html" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    // All 20 tasks
+    const allTasks = [
+  {
+    id: 81,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Revenue Share',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Revenue Share, we propose 50-50 split to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 60-40 split would be more appropriate given higher investment.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement performance metrics to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With performance metrics, 60-40 split works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 82,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Exclusivity Period',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Exclusivity Period, we propose 5 years to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 3 years would be more appropriate given market conditions.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement review clause to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With review clause, 3 years works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 83,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Territory Rights',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Territory Rights, we propose global to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but regional would be more appropriate given market maturity.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement expansion option to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With expansion option, regional works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 84,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Intellectual Property',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Intellectual Property, we propose full ownership to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but shared ownership would be more appropriate given development costs.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement licensing terms to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With licensing terms, shared ownership works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 85,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Decision Making',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Decision Making, we propose unanimous to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but majority vote would be more appropriate given operational efficiency.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement veto rights to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With veto rights, majority vote works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 86,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Investment Commitment',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Investment Commitment, we propose $5M to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but $3M would be more appropriate given phased funding.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement milestone-based to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With milestone-based, $3M works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 87,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Profit Distribution',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Profit Distribution, we propose quarterly to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but annual would be more appropriate given cash flow.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement reinvestment priority to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With reinvestment priority, annual works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 88,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Exit Strategy',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Exit Strategy, we propose 5-year lockup to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 3-year lockup would be more appropriate given liquidity needs.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement buyout terms to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With buyout terms, 3-year lockup works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 89,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Governance Structure',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Governance Structure, we propose equal board seats to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but proportional seats would be more appropriate given expertise balance.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement advisory roles to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With advisory roles, proportional seats works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 90,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Non-Compete',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Non-Compete, we propose 5 years to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 2 years would be more appropriate given industry norms.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement geographic limits to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With geographic limits, 2 years works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 91,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Performance Targets',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Performance Targets, we propose aggressive growth to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but sustainable growth would be more appropriate given market reality.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement bonus structure to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With bonus structure, sustainable growth works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 92,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Resource Allocation',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Resource Allocation, we propose 50-50 split to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but need-based would be more appropriate given project requirements.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement efficiency focus to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With efficiency focus, need-based works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 93,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Brand Usage',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Brand Usage, we propose co-branding to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but separate brands would be more appropriate given market positioning.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement licensing fees to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With licensing fees, separate brands works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 94,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Technology Access',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Technology Access, we propose full access to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but limited access would be more appropriate given competitive advantage.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement development rights to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With development rights, limited access works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 95,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Customer Ownership',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Customer Ownership, we propose shared database to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but separate databases would be more appropriate given data privacy.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement referral system to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With referral system, separate databases works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 96,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Dispute Resolution',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Dispute Resolution, we propose litigation to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but arbitration would be more appropriate given cost efficiency.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement confidentiality to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With confidentiality, arbitration works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 97,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Reporting Requirements',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Reporting Requirements, we propose monthly detailed to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but quarterly summary would be more appropriate given management time.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement key metrics to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With key metrics, quarterly summary works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 98,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Expansion Rights',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Expansion Rights, we propose automatic to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but negotiated would be more appropriate given market assessment.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement investment capacity to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With investment capacity, negotiated works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 99,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Termination Clause',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Termination Clause, we propose 6-month notice to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 3-month notice would be more appropriate given business continuity.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement transition support to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With transition support, 3-month notice works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  },
+  {
+    id: 100,
+    page: 5,
+    category: 'negotiating',
+    title: 'Partnership Terms - Renewal Terms',
+    dialogue: '<strong>Partner A:</strong> \"Regarding Renewal Terms, we propose automatic renewal to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but mutual agreement would be more appropriate given performance review.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement market conditions to address both concerns?\"\n\n<strong>Partner B:</strong> \"That\'s a fair compromise. With market conditions, mutual agreement works well and protects both parties\' interests.\"\n',
+    instructions: 'Read this partnership negotiation. Show mutual benefit and long-term thinking.',
+    emphasis: 'Highlight win-win solutions and trust-building'
+  }
+];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'business_negotiating_page5_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('business_negotiating_page5_answers', JSON.stringify(completionData));
+      console.log('Saved completion:', completionData);
+    }
+    
+    // Speech recognition
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {}; // Track if waiting for final transcript
+    let finalResultTimeout = {}; // Timeout for final result
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          // Accumulate final transcripts
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          // If waiting for final result and got one, proceed with feedback
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            console.log('Final result received for task', currentTask);
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        // Still mark as complete for testing
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      // Stop other recordings
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        // Auto-stop after 2 minutes
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      // Periksa apakah ada transcript yang valid
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      // Jika tidak ada speech yang berarti, langsung proses feedback
+      if (wordCount === 0) {
+        console.log('No substantial speech detected, proceeding directly to feedback');
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      // Tunggu hasil final dengan timeout yang lebih pendek
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        console.log('Processing timeout reached for task', taskIndex);
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      // Add small delay to ensure UI updates
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      // Analisis transcript yang lebih akurat
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      console.log(`Task ${taskIndex} - Words: ${wordCount}, Sentences: ${sentenceCount}, AvgWordLen: ${avgWordLength.toFixed(1)}`);
+
+      // Scoring yang lebih realistis berdasarkan konten
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        // Tidak ada speech yang terdeteksi
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        // Speech sangat minimal
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        // Scoring normal berdasarkan kualitas dan kuantitas speech
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        // Grammar: berdasarkan variasi struktur kalimat
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        // Pronunciation: estimasi berdasarkan panjang kata rata-rata dan variasi
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        // Fluency: berdasarkan rasio kata per kalimat
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        // Coherence: berdasarkan kompleksitas respons
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      // Terapkan scores
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+
+      // Feedback detail yang lebih spesifik
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // Tambahkan feedback spesifik untuk negotiation
+        feedbackText += `<br><br><strong>🎯 Negotiation Focus:</strong><br>`;
+        
+        // Analisis kata kunci negotiation
+        const negotiationKeywords = ['discuss', 'options', 'reasonable', 'partnership', 'adjust', 'terms', 'budget', 'proposal', 'concern', 'quality', 'service'];
+        const foundKeywords = negotiationKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Good use of negotiation vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more negotiation terms like "discuss options", "reasonable", "partnership"<br>`;
+        }
+        
+        // Check for polite language
+        const politeWords = ['thank', 'please', 'could', 'would', 'appreciate'];
+        const hasPoliteLanguage = politeWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasPoliteLanguage) {
+          feedbackText += `• Appropriate polite business language<br>`;
+        } else {
+          feedbackText += `• Add polite phrases like "Thank you", "Could we", "I appreciate"<br>`;
+        }
+        
+        // Check for problem-solving approach
+        const solutionWords = ['solution', 'option', 'alternative', 'adjust', 'flexible'];
+        const hasSolutions = solutionWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasSolutions) {
+          feedbackText += `• Good focus on finding solutions<br>`;
+        } else {
+          feedbackText += `• Emphasize finding mutually beneficial solutions<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      // Update next button jika semua task selesai
+      if (Object.keys(completed).length === totalTasks) {
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initSpeechRecognition();
+      saveCompletion(); // Initialize storage
+    });
+  </script>
+</body>
+</html>

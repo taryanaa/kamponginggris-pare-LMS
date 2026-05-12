@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEIC Reading Practice - Climate Adaptation | kamponginggrispare.com">
+  <meta name="keywords" content="TOEIC reading, academic English, climate adaptation, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEIC Reading Practice - Climate Adaptation | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Same styles as previous reading pages */
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow: 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; }
+    .reading-content { margin-bottom: 1rem; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+    .reading-content, .question-card { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEIC Reading test title">
+        TOEIC Reading Practice - Climate Adaptation (3/5)
+      </div>
+      <progress id="progressBar" max="4500" value="0" aria-label="TOEIC Reading test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="4500" aria-valuenow="0"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 75 menit<br />
+        <span id="timeDisplay" style="">1Jam 15Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="reading_academic_4.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next reading section">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "Urban Climate Adaptation Strategies",
+        content: `
+          <p>As global temperatures continue to rise, cities worldwide are implementing innovative climate adaptation strategies to address increasing frequency of extreme weather events, sea-level rise, and urban heat island effects. These strategies represent a fundamental shift from reactive disaster response to proactive resilience planning.</p>
+          
+          <p>Green infrastructure has emerged as a cornerstone of urban climate adaptation. Cities like Singapore and Copenhagen have integrated extensive green roofs, permeable pavements, and urban forests into their planning. These measures not only reduce flooding risks but also mitigate urban heat island effects, with studies showing temperature reductions of up to 4°C in well-vegetated areas compared to conventional urban surfaces.</p>
+          
+          <p>Coastal cities face particular challenges from sea-level rise. Rotterdam's "water plazas" and New York's Big U proposal exemplify adaptive approaches that incorporate flood protection into public spaces. These projects combine engineered solutions with natural systems, creating multi-functional infrastructure that provides both protection and community benefits.</p>
+          
+          <p>Economic considerations are crucial in adaptation planning. The Global Commission on Adaptation estimates that investing $1.8 trillion in climate adaptation between 2020 and 2030 could generate $7.1 trillion in net benefits. However, funding gaps remain significant, particularly in developing countries where adaptation needs are greatest.</p>
+        `,
+        questions: [
+          {
+            id: 1,
+            text: "What is the main topic of this passage?",
+            options: [
+              "Urban planning trends",
+              "Climate adaptation strategies in cities",
+              "Economic benefits of green infrastructure",
+              "Coastal city development"
+            ],
+            correct: 1
+          },
+          {
+            id: 2,
+            text: "What temperature reduction can green infrastructure achieve?",
+            options: [
+              "Up to 2°C",
+              "Up to 3°C",
+              "Up to 4°C",
+              "Up to 5°C"
+            ],
+            correct: 2
+          },
+          {
+            id: 3,
+            text: "Which cities are mentioned as examples of green infrastructure?",
+            options: [
+              "Singapore and Copenhagen",
+              "Tokyo and Berlin",
+              "London and Paris",
+              "New York and Rotterdam"
+            ],
+            correct: 0
+          },
+          {
+            id: 4,
+            text: "What is the estimated return on adaptation investment?",
+            options: [
+              "$4.1 trillion from $1.8 trillion",
+              "$5.3 trillion from $1.8 trillion",
+              "$6.2 trillion from $1.8 trillion",
+              "$7.1 trillion from $1.8 trillion"
+            ],
+            correct: 3
+          },
+          {
+            id: 5,
+            text: "What challenge do coastal cities specifically face?",
+            options: [
+              "Urban heat islands",
+              "Air pollution",
+              "Sea-level rise",
+              "Water scarcity"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Agricultural Adaptation to Climate Change",
+        content: `
+          <p>Climate change poses significant threats to global food security through altered precipitation patterns, increased temperature extremes, and changing pest and disease dynamics. Agricultural adaptation strategies are evolving to address these challenges while maintaining productivity and supporting rural livelihoods.</p>
+          
+          <p>Crop diversification and genetic improvement represent key adaptation approaches. Researchers are developing climate-resilient crop varieties through both conventional breeding and biotechnology. Drought-tolerant maize and flood-resistant rice varieties have shown yield advantages of 15-25% under stress conditions compared to conventional varieties.</p>
+          
+          <p>Water management innovations are critical in regions facing increased water scarcity. Drip irrigation systems can improve water use efficiency by 30-50% compared to traditional flood irrigation. Soil moisture conservation techniques, including conservation tillage and organic amendments, further enhance water retention and reduce irrigation requirements.</p>
+          
+          <p>Indigenous knowledge systems offer valuable insights for climate adaptation. Traditional farming practices, such as the zai pit system in West Africa and waru waru raised fields in South America, demonstrate sophisticated understanding of local environmental conditions. Integrating these traditional approaches with modern science creates robust adaptation strategies.</p>
+        `,
+        questions: [
+          {
+            id: 6,
+            text: "What is the primary focus of this passage?",
+            options: [
+              "Agricultural technology",
+              "Climate adaptation in agriculture",
+              "Crop genetic improvement",
+              "Water management systems"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "What yield advantage do climate-resilient crops show?",
+            options: [
+              "5-15% under stress",
+              "10-20% under stress",
+              "15-25% under stress",
+              "20-30% under stress"
+            ],
+            correct: 2
+          },
+          {
+            id: 8,
+            text: "How much can drip irrigation improve water efficiency?",
+            options: [
+              "20-40%",
+              "25-45%",
+              "30-50%",
+              "35-55%"
+            ],
+            correct: 2
+          },
+          {
+            id: 9,
+            text: "What traditional system is mentioned from West Africa?",
+            options: [
+              "Zai pit system",
+              "Waru waru fields",
+              "Terrace farming",
+              "Crop rotation"
+            ],
+            correct: 0
+          },
+          {
+            id: 10,
+            text: "What climate threat specifically affects agriculture?",
+            options: [
+              "Changing pest dynamics",
+              "Soil erosion",
+              "Deforestation",
+              "Urban expansion"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Community-Based Adaptation Approaches",
+        content: `
+          <p>Community-based adaptation recognizes that local communities possess detailed knowledge of their environments and are often the first to experience climate impacts. This approach emphasizes participatory planning and local capacity building rather than top-down technological solutions.</p>
+          
+          <p>Successful community adaptation projects share several characteristics: they integrate local knowledge with scientific information, build on existing social networks and institutions, and address multiple community priorities simultaneously. In Nepal, community forestry programs have simultaneously enhanced carbon sequestration, reduced landslide risks, and provided sustainable livelihoods.</p>
+          
+          <p>Gender considerations are crucial in community adaptation. Women often have distinct vulnerabilities to climate impacts due to gendered roles in water collection, agriculture, and household management. However, they also possess specialized knowledge and play key roles in community resilience. Programs that specifically engage women in adaptation planning have shown higher success rates and more sustainable outcomes.</p>
+          
+          <p>Monitoring and evaluation present challenges for community-based approaches. Traditional metrics may not capture important social and cultural dimensions of adaptation success. Participatory monitoring systems that engage community members in defining and tracking success indicators are increasingly recognized as essential for meaningful adaptation assessment.</p>
+        `,
+        questions: [
+          {
+            id: 11,
+            text: "What is the main concept discussed in this passage?",
+            options: [
+              "Government-led adaptation",
+              "Community-based adaptation",
+              "Technological solutions",
+              "International cooperation"
+            ],
+            correct: 1
+          },
+          {
+            id: 12,
+            text: "What country is mentioned for successful community forestry?",
+            options: [
+              "India",
+              "Bangladesh",
+              "Nepal",
+              "Indonesia"
+            ],
+            correct: 2
+          },
+          {
+            id: 13,
+            text: "Why are gender considerations important in adaptation?",
+            options: [
+              "Women have distinct vulnerabilities and knowledge",
+              "Women control most community resources",
+              "Men are less affected by climate change",
+              "Gender equality is a development goal"
+            ],
+            correct: 0
+          },
+          {
+            id: 14,
+            text: "What challenge is mentioned for community-based approaches?",
+            options: [
+              "Lack of community interest",
+              "Insufficient funding",
+              "Monitoring and evaluation",
+              "Technological limitations"
+            ],
+            correct: 2
+          },
+          {
+            id: 15,
+            text: "What characterizes successful community adaptation projects?",
+            options: [
+              "They use only local knowledge",
+              "They address single issues",
+              "They integrate local and scientific knowledge",
+              "They focus only on technological solutions"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Economic Instruments for Climate Adaptation",
+        content: `
+          <p>Economic instruments are increasingly important for financing and incentivizing climate adaptation. These mechanisms range from public funding to market-based approaches that create financial incentives for adaptation actions.</p>
+          
+          <p>Climate risk insurance has emerged as a key tool for transferring adaptation costs. Index-based insurance, which triggers payments based on objective weather indicators rather than individual losses, has shown promise in agricultural contexts. In Ethiopia and Kenya, such programs have helped smallholder farmers recover from drought losses more quickly and maintain productive investments.</p>
+          
+          <p>Payment for ecosystem services (PES) schemes create economic value for adaptation benefits. Watershed protection programs, where downstream water users pay upstream landowners for conservation practices, simultaneously enhance water security and provide livelihood alternatives. Costa Rica's national PES program has been particularly successful, protecting over one million hectares of forest.</p>
+          
+          <p>Green bonds and climate funds represent growing sources of adaptation finance. The green bond market exceeded $500 billion in 2021, with increasing allocation to adaptation projects. However, only about 10% of climate finance currently flows to adaptation, compared to 90% for mitigation, highlighting significant funding gaps.</p>
+        `,
+        questions: [
+          {
+            id: 16,
+            text: "What is the primary focus of this passage?",
+            options: [
+              "Climate insurance programs",
+              "Economic instruments for adaptation",
+              "International climate funds",
+              "Market-based conservation"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "What is index-based insurance?",
+            options: [
+              "Insurance based on individual losses",
+              "Insurance based on weather indicators",
+              "Government-subsidized insurance",
+              "Community-managed insurance"
+            ],
+            correct: 1
+          },
+          {
+            id: 18,
+            text: "Which country has a successful national PES program?",
+            options: [
+              "Brazil",
+              "Costa Rica",
+              "Mexico",
+              "Colombia"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "What was the green bond market size in 2021?",
+            options: [
+              "Over $300 billion",
+              "Over $400 billion",
+              "Over $500 billion",
+              "Over $600 billion"
+            ],
+            correct: 2
+          },
+          {
+            id: 20,
+            text: "What percentage of climate finance goes to adaptation?",
+            options: [
+              "About 5%",
+              "About 10%",
+              "About 15%",
+              "About 20%"
+            ],
+            correct: 1
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('toeic_academic_reading_3_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('toeic_academic_reading_3_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toeic_academic_reading_3_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEIC Reading Comprehension - Climate Adaptation (B2)
+          </p>
+          <p class="text-center mb-3">
+            Read the following academic passage and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-content">
+            ${reading.content}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-sm font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    // Validation functions
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 75 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    // Save answers to localStorage when Next button is clicked
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      // Only save if all questions are answered
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save to localStorage with page-specific key
+        const pageNum = window.location.pathname.match(/reading_academic_(\d+)\.html/)[1];
+        const storageKey = pageNum === '1' ? 'academic_reading_1-1_answers' : `academic_reading_1-${pageNum}_answers`;
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+</script>
+</body>
+</html>

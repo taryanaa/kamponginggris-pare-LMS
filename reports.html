@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports - Kampong Inggris Pare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
+      min-height: 100vh;
+      margin: 0 !important;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: 4px 0 20px rgba(59, 130, 246, 0.1);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    .sidebar.collapsed {
+      transform: translateX(-100%);
+    }
+    .sidebar-header {
+      padding: 2rem 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      margin: 1rem;
+    }
+    .sidebar-header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .sidebar-nav {
+      padding: 1rem 0;
+    }
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      color: #64748b;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+    }
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      border-left-color: #3b82f6;
+      transform: translateX(5px);
+    }
+    .sidebar-nav i {
+      width: 20px;
+      font-size: 1.1rem;
+    }
+    .main-content {
+      margin-left: 280px;
+      padding: 2rem;
+      min-height: 100vh;
+      transition: margin-left 0.3s ease;
+    }
+    .main-content.expanded {
+      margin-left: 0;
+    }
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    .report-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 2rem;
+    }
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .score-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-radius: 12px;
+      border: 2px solid #e2e8f0;
+    }
+    .score-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+    }
+    .score-label {
+      font-size: 0.9rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .progress-bar {
+      background: #e2e8f0;
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #059669);
+      transition: width 0.5s ease;
+      border-radius: 5px;
+    }
+    .chart-placeholder {
+      height: 300px;
+      background: linear-gradient(135deg, #f0f7ff, #e0f2fe);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 1.1rem;
+      border: 2px dashed #cbd5e1;
+    }
+    .recent-tests {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+    }
+    .test-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .test-item:last-child {
+      border-bottom: none;
+    }
+    .test-date {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+    }
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1001;
+      background: transparent;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      padding: 0.75rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+      transition: all 0.3s ease;
+    }
+    .mobile-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .main-content {
+        margin-left: 0;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .score-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      .header h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <!-- Mobile Toggle Button -->
+  <button class="mobile-toggle" id="mobileToggle">
+    <i class="fas fa-bars text-xl"></i>
+  </button>
+
+  <!-- Overlay for Mobile -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="./img1.png" alt="Logo" class="w-20 h-20">
+      <h2 class="text-lg font-semibold text-gray-800">Dashboard</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Overview</span>
+      </a>
+      <a href="page1.html">
+        <i class="fas fa-clipboard-check"></i>
+        <span>Placement Test</span>
+      </a>
+      <a href="page2.html">
+        <i class="fas fa-level-up-alt"></i>
+        <span>Level Test</span>
+      </a>
+      <a href="ielts-a2-listening-1.html">
+        <i class="fas fa-tasks"></i>
+        <span>Exam Process</span>
+      </a>
+      <a href="mentor-talk.html">
+        <i class="fas fa-comments"></i>
+        <span>Mentor Talk</span>
+      </a>
+      <a href="reports.html" class="active">
+        <i class="fas fa-chart-bar"></i>
+        <span>Reports</span>
+      </a>
+      <a href="profile-update.html">
+        <i class="fas fa-user-edit"></i>
+        <span>Update Profile</span>
+      </a>
+      <a href="#" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContent">
+    <!-- Header -->
+    <header class="header">
+      <div class="flex items-center gap-4">
+        <h1 class="text-2xl font-bold text-gray-800">Learning Reports</h1>
+      </div>
+      <div class="user-info">
+        <span class="text-sm text-gray-600">Welcome, John Doe</span>
+        <div class="user-avatar">JD</div>
+      </div>
+    </header>
+
+    <!-- Overall Progress -->
+    <div class="report-card animate-slide-up">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Overall Progress</h2>
+      <p class="text-gray-600 mb-4">Your current learning journey status. No tests completed yet.</p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 0%;"></div>
+      </div>
+      <p class="text-sm text-gray-500 mt-2">0% Complete - Start your first test to see progress</p>
+      <a href="dashboard.html" class="btn-primary mt-4">Back to Dashboard</a>
+    </div>
+
+    <!-- Test Scores -->
+    <div class="report-card animate-slide-up" style="animation-delay: 0.1s;">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Test Scores</h2>
+      <div class="score-grid">
+        <div class="score-item">
+          <div class="score-value">0</div>
+          <div class="score-label">Placement Test</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value">0</div>
+          <div class="score-label">Level Test</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value">0</div>
+          <div class="score-label">IELTS Listening</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value">0</div>
+          <div class="score-label">IELTS Reading</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value">0</div>
+          <div class="score-label">IELTS Writing</div>
+        </div>
+        <div class="score-item">
+          <div class="score-value">0</div>
+          <div class="score-label">IELTS Speaking</div>
+        </div>
+      </div>
+      <p class="text-gray-600 mt-4">No scores available yet. Complete tests to view detailed results and band scores.</p>
+    </div>
+
+    <!-- Progress Charts -->
+    <div class="report-card animate-slide-up" style="animation-delay: 0.2s;">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Progress Charts</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-3">Skills Progress</h3>
+          <div class="chart-placeholder">
+            <div class="text-center">
+              <i class="fas fa-chart-line text-4xl mb-2 text-gray-400"></i>
+              <p>No data available</p>
+              <p class="text-sm">Complete assessments to see your skill development over time</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-3">Test Performance</h3>
+          <div class="chart-placeholder">
+            <div class="text-center">
+              <i class="fas fa-chart-bar text-4xl mb-2 text-gray-400"></i>
+              <p>No data available</p>
+              <p class="text-sm">Take tests to view performance trends and comparisons</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Tests -->
+    <div class="recent-tests animate-slide-up" style="animation-delay: 0.3s;">
+      <h2 class="text-2xl font-semibold mb-6 text-gray-800">Recent Tests</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <p class="text-center text-gray-500 py-8">
+          <i class="fas fa-clipboard-list text-4xl mb-4"></i>
+          No tests completed yet. Your test history will appear here once you start taking assessments.
+        </p>
+      </div>
+      <div class="flex justify-end mt-4">
+        <a href="page1.html" class="btn-primary">Take Placement Test</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Mobile Sidebar Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const mainContent = document.getElementById('mainContent');
+
+    mobileToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('open');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+    });
+
+    // Sidebar Navigation
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('.sidebar-nav a.active').classList.remove('active');
+        link.classList.add('active');
+        
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('open');
+          overlay.classList.remove('open');
+        }
+        
+        const href = link.getAttribute('href');
+        if (href !== '#') {
+          window.location.href = href;
+        }
+      });
+    });
+
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'index.html';
+      }
+    }
+
+    // Initial Load Animation
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.5s ease';
+      document.body.style.opacity = '1';
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

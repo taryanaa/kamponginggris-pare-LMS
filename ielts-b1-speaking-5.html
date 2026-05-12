@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS B1 Speaking - Culture & Global Topics - Page 5</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+    .completion-message { 
+      background: linear-gradient(135deg, #dbeafe 0%, #f0fdf4 100%);
+      border: 2px solid #10b981;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#dc2626] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        IELTS B1 Speaking - Culture & Global Topics - FINAL PAGE 5/5
+      </div>
+    </section>
+
+    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+      <div class="flex items-center justify-center">
+        <i class="fas fa-flag-checkered text-yellow-500 mr-2"></i>
+        <p class="text-sm font-semibold text-center">Final Page - Complete all tasks to finish your speaking practice!</p>
+      </div>
+    </div>
+
+    <div id="tasksContainer"></div>
+
+    <div id="completionMessage" class="completion-message">
+      <i class="fas fa-trophy text-green-500 text-4xl mb-4"></i>
+      <h3 class="text-xl font-bold text-green-700 mb-2">Congratulations! 🎉</h3>
+      <p class="text-green-600 mb-4">You have completed all 5 pages of IELTS B1 Speaking Practice</p>
+      <div class="bg-white rounded-lg p-4 inline-block mb-4">
+        <p class="text-sm text-gray-700"><strong>Total Practice Completed:</strong> 25 speaking tasks</p>
+        <p class="text-sm text-gray-700"><strong>Topics Covered:</strong> Personal Experiences, Social Issues, Technology, Education, Culture</p>
+      </div>
+      <a href="ielts-b1-results.html" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center">
+        <i class="fas fa-check-circle mr-2"></i>Finish Test & View Results
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // All 20 tasks for IELTS B1 Speaking - Culture & Global Topics
+    const allTasks = [
+      {
+        id: 81,
+        page: 5,
+        category: 'speaking',
+        title: 'Cultural Traditions',
+        dialogue: '<strong>Examiner:</strong> "What cultural traditions are important in your country?"\n\n<strong>Candidate:</strong> "Traditional ceremonies, religious festivals, and family gatherings are very significant in our culture."\n\n<strong>Examiner:</strong> "How are these traditions changing?"\n\n<strong>Candidate:</strong> "While core values remain, modern influences are making some traditions more simplified and adapted to urban life."',
+        instructions: 'Discuss important cultural traditions and their evolution.',
+        emphasis: 'Use cultural vocabulary and change-related language'
+      },
+      {
+        id: 82,
+        page: 5,
+        category: 'speaking',
+        title: 'Global Citizenship',
+        dialogue: '<strong>Examiner:</strong> "What does being a global citizen mean to you?"\n\n<strong>Candidate:</strong> "It means understanding global issues, respecting cultural differences, and taking responsibility for worldwide challenges."\n\n<strong>Examiner:</strong> "How can people become better global citizens?"\n\n<strong>Candidate:</strong> "By learning about other cultures, staying informed about global issues, and making environmentally conscious choices."',
+        instructions: 'Discuss global citizenship and personal responsibility.',
+        emphasis: 'Use global awareness vocabulary and action-oriented language'
+      },
+      {
+        id: 83,
+        page: 5,
+        category: 'speaking',
+        title: 'Traditional Food',
+        dialogue: '<strong>Examiner:</strong> "What traditional foods represent your culture?"\n\n<strong>Candidate:</strong> "Dishes like rendang and satay are iconic, using local spices and cooking methods passed through generations."\n\n<strong>Examiner:</strong> "How important is food in cultural identity?"\n\n<strong>Candidate:</strong> "Extremely important - traditional recipes preserve history and bring people together across generations."',
+        instructions: 'Discuss traditional foods and cultural significance.',
+        emphasis: 'Use culinary vocabulary and cultural identity terms'
+      },
+      {
+        id: 84,
+        page: 5,
+        category: 'speaking',
+        title: 'Climate Change',
+        dialogue: '<strong>Examiner:</strong> "How concerned are you about climate change?"\n\n<strong>Candidate:</strong> "Very concerned, as we\'re already seeing effects like extreme weather and rising sea levels in our region."\n\n<strong>Examiner:</strong> "What actions can individuals take?"\n\n<strong>Candidate:</strong> "Reducing energy consumption, using public transport, and supporting sustainable products can make a difference."',
+        instructions: 'Discuss climate change concerns and individual actions.',
+        emphasis: 'Use environmental vocabulary and solution-oriented language'
+      },
+      {
+        id: 85,
+        page: 5,
+        category: 'speaking',
+        title: 'Cultural Exchange',
+        dialogue: '<strong>Examiner:</strong> "Have you experienced cultural exchange?"\n\n<strong>Candidate:</strong> "Yes, through international students at university and trying different cuisines from around the world."\n\n<strong>Examiner:</strong> "What are the benefits of cultural exchange?"\n\n<strong>Candidate:</strong> "It broadens perspectives, reduces prejudice, and fosters mutual understanding between different communities."',
+        instructions: 'Discuss cultural exchange experiences and benefits.',
+        emphasis: 'Use intercultural vocabulary and benefit language'
+      },
+      {
+        id: 86,
+        page: 5,
+        category: 'speaking',
+        title: 'Globalization Effects',
+        dialogue: '<strong>Examiner:</strong> "How has globalization affected your country?"\n\n<strong>Candidate:</strong> "It has brought economic opportunities and cultural diversity but also challenges to local industries and traditions."\n\n<strong>Examiner:</strong> "Do you think globalization is positive?"\n\n<strong>Candidate:</strong> "Mostly positive for economic development, but we need to preserve cultural heritage and ensure fair benefits."',
+        instructions: 'Discuss globalization impacts and perspectives.',
+        emphasis: 'Use globalization vocabulary and balanced evaluation'
+      },
+      {
+        id: 87,
+        page: 5,
+        category: 'speaking',
+        title: 'Traditional Arts',
+        dialogue: '<strong>Examiner:</strong> "What traditional arts are practiced in your culture?"\n\n<strong>Candidate:</strong> "Batik making, traditional dance, and wood carving are important art forms with deep cultural meanings."\n\n<strong>Examiner:</strong> "Are young people interested in these arts?"\n\n<strong>Candidate:</strong> "Interest is growing again as people recognize their cultural value, though modern forms are more popular."',
+        instructions: 'Discuss traditional arts and youth engagement.',
+        emphasis: 'Use artistic vocabulary and generational perspective'
+      },
+      {
+        id: 88,
+        page: 5,
+        category: 'speaking',
+        title: 'International Travel',
+        dialogue: '<strong>Examiner:</strong> "What countries would you like to visit and why?"\n\n<strong>Candidate:</strong> "Japan for its unique blend of tradition and technology, and Italy for its rich history and cuisine."\n\n<strong>Examiner:</strong> "How does travel broaden perspectives?"\n\n<strong>Candidate:</strong> "It exposes you to different ways of life, challenges assumptions, and develops cultural sensitivity."',
+        instructions: 'Discuss travel aspirations and educational value.',
+        emphasis: 'Use travel vocabulary and perspective-building language'
+      },
+      {
+        id: 89,
+        page: 5,
+        category: 'speaking',
+        title: 'Cultural Preservation',
+        dialogue: '<strong>Examiner:</strong> "How can traditional cultures be preserved?"\n\n<strong>Candidate:</strong> "Through education, documentation, and supporting artisans and cultural practitioners in their work."\n\n<strong>Examiner:</strong> "Why is cultural preservation important?"\n\n<strong>Candidate:</strong> "It maintains diversity, provides historical continuity, and enriches global cultural heritage."',
+        instructions: 'Discuss cultural preservation methods and importance.',
+        emphasis: 'Use preservation vocabulary and heritage terms'
+      },
+      {
+        id: 90,
+        page: 5,
+        category: 'speaking',
+        title: 'Global Communication',
+        dialogue: '<strong>Examiner:</strong> "How has technology improved global communication?"\n\n<strong>Candidate:</strong> "Instant messaging and video calls have made cross-cultural communication immediate and more personal."\n\n<strong>Examiner:</strong> "What challenges remain in global communication?"\n\n<strong>Candidate:</strong> "Language barriers, cultural misunderstandings, and unequal internet access in different regions."',
+        instructions: 'Discuss global communication advances and challenges.',
+        emphasis: 'Use communication technology vocabulary and problem identification'
+      },
+      {
+        id: 91,
+        page: 5,
+        category: 'speaking',
+        title: 'Cultural Heritage Sites',
+        dialogue: '<strong>Examiner:</strong> "What important cultural heritage sites exist in your country?"\n\n<strong>Candidate:</strong> "Ancient temples, historical palaces, and traditional villages are preserved as important cultural landmarks."\n\n<strong>Examiner:</strong> "Why should these sites be protected?"\n\n<strong>Candidate:</strong> "They represent our history, attract tourism, and educate future generations about cultural roots."',
+        instructions: 'Discuss cultural heritage sites and protection importance.',
+        emphasis: 'Use heritage vocabulary and conservation language'
+      },
+      {
+        id: 92,
+        page: 5,
+        category: 'speaking',
+        title: 'International Cooperation',
+        dialogue: '<strong>Examiner:</strong> "What global issues require international cooperation?"\n\n<strong>Candidate:</strong> "Climate change, pandemic response, and poverty reduction need coordinated global efforts to solve effectively."\n\n<strong>Examiner:</strong> "How can countries work better together?"\n\n<strong>Candidate:</strong> "Through shared research, fair trade agreements, and respecting different perspectives in decision-making."',
+        instructions: 'Discuss global issues requiring cooperation and solutions.',
+        emphasis: 'Use international relations vocabulary and collaborative language'
+      },
+      {
+        id: 93,
+        page: 5,
+        category: 'speaking',
+        title: 'Cultural Adaptation',
+        dialogue: '<strong>Examiner:</strong> "How do people adapt when moving to different cultures?"\n\n<strong>Candidate:</strong> "By learning local customs, being open-minded, and finding balance between old and new cultural practices."\n\n<strong>Examiner:</strong> "What challenges do immigrants face?"\n\n<strong>Candidate:</strong> "Language barriers, homesickness, and understanding subtle cultural norms can be difficult initially."',
+        instructions: 'Discuss cultural adaptation processes and challenges.',
+        emphasis: 'Use adaptation vocabulary and empathy language'
+      },
+      {
+        id: 94,
+        page: 5,
+        category: 'speaking',
+        title: 'Global Media',
+        dialogue: '<strong>Examiner:</strong> "How does global media influence local cultures?"\n\n<strong>Candidate:</strong> "It introduces new ideas and lifestyles but can also overshadow local media and traditional entertainment forms."\n\n<strong>Examiner:</strong> "Is this influence positive?"\n\n<strong>Candidate:</strong> "It has both benefits like exposure to diverse perspectives and risks of cultural homogenization."',
+        instructions: 'Discuss global media influence and cultural impact.',
+        emphasis: 'Use media influence vocabulary and critical analysis'
+      },
+      {
+        id: 95,
+        page: 5,
+        category: 'speaking',
+        title: 'Traditional Clothing',
+        dialogue: '<strong>Examiner:</strong> "What traditional clothing is worn in your culture?"\n\n<strong>Candidate:</strong> "Batik shirts and traditional woven fabrics are worn for special occasions and cultural ceremonies."\n\n<strong>Examiner:</strong> "Is traditional clothing still relevant today?"\n\n<strong>Candidate:</strong> "Yes, it maintains cultural identity and is increasingly valued as fashionable and meaningful attire."',
+        instructions: 'Discuss traditional clothing and modern relevance.',
+        emphasis: 'Use fashion vocabulary and cultural significance terms'
+      },
+      {
+        id: 96,
+        page: 5,
+        category: 'speaking',
+        title: 'Global Citizenship Education',
+        dialogue: '<strong>Examiner:</strong> "Should global citizenship be taught in schools?"\n\n<strong>Candidate:</strong> "Absolutely, it prepares students for an interconnected world and develops empathy and critical thinking."\n\n<strong>Examiner:</strong> "What should this education include?"\n\n<strong>Candidate:</strong> "Cultural awareness, environmental responsibility, and understanding global economic and social systems."',
+        instructions: 'Discuss global citizenship education importance and content.',
+        emphasis: 'Use educational philosophy vocabulary and global perspective'
+      },
+      {
+        id: 97,
+        page: 5,
+        category: 'speaking',
+        title: 'Cultural Stereotypes',
+        dialogue: '<strong>Examiner:</strong> "How can cultural stereotypes be overcome?"\n\n<strong>Candidate:</strong> "Through personal interactions, education about different cultures, and media that shows diverse perspectives."\n\n<strong>Examiner:</strong> "Why are stereotypes harmful?"\n\n<strong>Candidate:</strong> "They create prejudice, limit understanding, and prevent genuine appreciation of cultural diversity."',
+        instructions: 'Discuss cultural stereotypes and solutions.',
+        emphasis: 'Use stereotype vocabulary and solution-oriented thinking'
+      },
+      {
+        id: 98,
+        page: 5,
+        category: 'speaking',
+        title: 'International Languages',
+        dialogue: '<strong>Examiner:</strong> "How important is English as a global language?"\n\n<strong>Candidate:</strong> "Very important for international business, academic exchange, and cross-cultural communication worldwide."\n\n<strong>Examiner:</strong> "Should everyone learn a second language?"\n\n<strong>Candidate:</strong> "Yes, it enhances cognitive abilities and provides access to different cultures and perspectives."',
+        instructions: 'Discuss global languages and second language learning.',
+        emphasis: 'Use language learning vocabulary and global communication terms'
+      },
+      {
+        id: 99,
+        page: 5,
+        category: 'speaking',
+        title: 'Cultural Festivals',
+        dialogue: '<strong>Examiner:</strong> "What international festivals interest you?"\n\n<strong>Candidate:</strong> "I\'m fascinated by festivals like Diwali, Carnival, and Chinese New Year for their vibrant traditions and cultural significance."\n\n<strong>Examiner:</strong> "How do festivals promote cultural understanding?"\n\n<strong>Candidate:</strong> "They allow people to experience different traditions firsthand and appreciate cultural diversity through celebration."',
+        instructions: 'Discuss international festivals and cultural exchange.',
+        emphasis: 'Use festival vocabulary and intercultural understanding language'
+      },
+      {
+        id: 100,
+        page: 5,
+        category: 'speaking',
+        title: 'Global Future',
+        dialogue: '<strong>Examiner:</strong> "What are your hopes for the global future?"\n\n<strong>Candidate:</strong> "I hope for greater international cooperation, environmental sustainability, and respect for cultural diversity worldwide."\n\n<strong>Examiner:</strong> "How can individuals contribute to a better global future?"\n\n<strong>Candidate:</strong> "By making ethical choices, learning about global issues, and building bridges across cultural differences."',
+        instructions: 'Discuss hopes for global future and individual contributions.',
+        emphasis: 'Use future-oriented vocabulary and personal responsibility language'
+      }
+    ];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'ielts_b1_speaking_page5_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Final Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString(),
+        finalPage: true
+      };
+      localStorage.setItem('ielts_b1_speaking_page5_answers', JSON.stringify(completionData));
+      
+      // Mark test as completed
+      localStorage.setItem('ielts_b1_speaking_test_completed', 'true');
+    }
+    
+    function showCompletionMessage() {
+      const completionMessage = document.getElementById('completionMessage');
+      completionMessage.style.display = 'block';
+      
+      // Scroll to completion message
+      completionMessage.scrollIntoView({ behavior: 'smooth' });
+      
+      // Don't auto-redirect, let user click the button
+    }
+    
+    // Speech recognition system
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {};
+    let finalResultTimeout = {};
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      if (wordCount === 0) {
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+      
+      // Store scores in localStorage for results page
+      localStorage.setItem(`ielts_b1_speaking_page5_task${taskIndex}_grammar`, grammarScore);
+      localStorage.setItem(`ielts_b1_speaking_page5_task${taskIndex}_pronunciation`, pronunciationScore);
+      localStorage.setItem(`ielts_b1_speaking_page5_task${taskIndex}_fluency`, fluencyScore);
+      localStorage.setItem(`ielts_b1_speaking_page5_task${taskIndex}_coherence`, coherenceScore);
+
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // Culture & Global topics specific feedback
+        feedbackText += `<br><br><strong>🎯 Culture & Global Vocabulary:</strong><br>`;
+        
+        const cultureKeywords = ['culture', 'tradition', 'global', 'international', 'diversity', 'heritage', 'custom', 'identity', 'exchange', 'understanding'];
+        const foundKeywords = cultureKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Excellent use of culture and global topics vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more cultural terms like "tradition", "heritage", "diversity", "exchange"<br>`;
+        }
+        
+        // Check for global perspective
+        const globalWords = ['worldwide', 'international', 'global', 'cross-cultural', 'multicultural'];
+        const hasGlobalPerspective = globalWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasGlobalPerspective) {
+          feedbackText += `• Good demonstration of global thinking and international awareness<br>`;
+        } else {
+          feedbackText += `• Include more global perspective when discussing cultural and international topics<br>`;
+        }
+        
+        // Check for cultural sensitivity
+        const sensitivityWords = ['respect', 'understand', 'appreciate', 'value', 'acknowledge'];
+        const hasCulturalSensitivity = sensitivityWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasCulturalSensitivity) {
+          feedbackText += `• Shows good cultural sensitivity and appreciation for diversity<br>`;
+        } else {
+          feedbackText += `• Express cultural respect and appreciation when discussing different traditions<br>`;
+        }
+
+        // Final page encouragement
+        if (Object.keys(completed).length === totalTasks - 1) {
+          feedbackText += `<br><strong>🌟 Final Task Almost Complete!</strong><br>`;
+          feedbackText += `You're about to finish all 5 pages of speaking practice!`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      // Check if all tasks are completed
+      if (Object.keys(completed).length === totalTasks) {
+        showCompletionMessage();
+        
+        // Add celebration effect
+        setTimeout(() => {
+          confettiEffect();
+        }, 1000);
+      }
+    }
+    
+    function confettiEffect() {
+      // Simple celebration effect
+      const completionMessage = document.getElementById('completionMessage');
+      completionMessage.style.animation = 'pulse 2s infinite';
+      
+      // Create floating emojis
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+          const emoji = document.createElement('div');
+          emoji.innerHTML = '🎉';
+          emoji.style.position = 'fixed';
+          emoji.style.left = Math.random() * window.innerWidth + 'px';
+          emoji.style.top = '-50px';
+          emoji.style.fontSize = '2rem';
+          emoji.style.zIndex = '1000';
+          emoji.style.animation = `floatDown ${2 + Math.random() * 2}s linear forwards`;
+          document.body.appendChild(emoji);
+          
+          // Remove emoji after animation
+          setTimeout(() => {
+            emoji.remove();
+          }, 4000);
+        }, i * 200);
+      }
+      
+      // Add CSS for animation
+      if (!document.querySelector('#confettiStyles')) {
+        const style = document.createElement('style');
+        style.id = 'confettiStyles';
+        style.textContent = `
+          @keyframes floatDown {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(${window.innerHeight}px) rotate(360deg); opacity: 0; }
+          }
+          @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initSpeechRecognition();
+      saveCompletion();
+      
+      // Check if this is the final page completion
+      const allCompleted = localStorage.getItem('ielts_b1_speaking_test_completed');
+      if (allCompleted) {
+        showCompletionMessage();
+      }
+    });
+  </script>
+</body>
+</html>

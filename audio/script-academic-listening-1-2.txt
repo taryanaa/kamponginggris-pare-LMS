@@ -1,0 +1,13 @@
+Academic Listening Script: Research Survey Methodology - Part 2
+
+Dr. Chen: Now, regarding sampling methods, what would you recommend for longitudinal studies? We have several doctoral students planning multi-year research projects.
+
+Professor Martinez: For longitudinal studies, I strongly recommend stratified sampling. It ensures that we maintain representative subgroups throughout the study period, even if we experience some participant dropout. Random sampling alone isn't sufficient when you need to track changes over time across different demographic categories.
+
+Dr. Chen: That makes sense. And what about response rates? I know there's ongoing debate about what constitutes an acceptable response rate for academic validity.
+
+Professor Martinez: Current research suggests we need at least 70% response rate to ensure validity in most academic contexts. Anything below 50% raises serious questions about representativeness, and below 30% is generally considered unreliable for drawing meaningful conclusions.
+
+Dr. Chen: I've also been thinking about the timing of survey distribution. Does it matter when we send out surveys to students?
+
+Professor Martinez: Absolutely! Timing is crucial. Avoid exam periods, holidays, and the beginning or end of semesters when students are overwhelmed. Mid-semester periods typically yield the best response rates and more thoughtful answers.

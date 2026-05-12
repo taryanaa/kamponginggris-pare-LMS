@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEIC Reading Practice - The Darien Project | kamponginggrispare.com">
+  <meta name="keywords" content="TOEIC reading, academic English, Darien Project, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEIC Reading Practice - The Darien Project | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow: 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; }
+    .reading-content { margin-bottom: 1rem; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+    .reading-content, .question-card { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEIC Reading test title">
+        TOEIC Reading Practice - The Darien Project (1/5)
+      </div>
+      <progress id="progressBar" max="4500" value="0" aria-label="TOEIC Reading test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="4500" aria-valuenow="0"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 75 menit<br />
+        <span id="timeDisplay" style="">1Jam 15Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="reading_academic_2.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next reading section">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "The Darien Gap Migration Crisis",
+        content: `
+          <p>The Darien Gap, a dense jungle region spanning the border between Colombia and Panama, has become one of the world's most dangerous migration routes. Despite its treacherous terrain, lack of infrastructure, and presence of criminal elements, over 250,000 migrants crossed through this region in 2022 alone, representing a dramatic increase from previous years.</p>
+          
+          <p>This migration phenomenon presents complex challenges for regional governments and international organizations. Migrants, primarily from Venezuela, Haiti, and various African and Asian countries, undertake the week-long journey through the jungle facing extreme weather conditions, river crossings, and the constant threat of robbery and violence. Many travelers report paying smugglers substantial sums, only to be abandoned midway through the journey.</p>
+          
+          <p>Humanitarian organizations have established limited aid stations along the route, providing basic medical care, food, and water. However, the scale of migration has overwhelmed existing capacity, leading to calls for coordinated international response and safer migration alternatives.</p>
+          
+          <p>The reasons behind choosing this dangerous route are multifaceted. Strict visa requirements in other Central American countries, coupled with misinformation about the journey's difficulty, contribute to migrants' decisions to attempt the Darien crossing. Additionally, worsening economic conditions and political instability in home countries continue to drive migration northward.</p>
+        `,
+        questions: [
+          {
+            id: 1,
+            text: "What is the main topic of this passage?",
+            options: [
+              "Economic development in Central America",
+              "Environmental conservation in the Darien region",
+              "Migration through the Darien Gap",
+              "Tourism infrastructure in Panama"
+            ],
+            correct: 2
+          },
+          {
+            id: 2,
+            text: "According to the passage, how many migrants crossed the Darien Gap in 2022?",
+            options: [
+              "Over 100,000",
+              "Over 150,000",
+              "Over 200,000",
+              "Over 250,000"
+            ],
+            correct: 3
+          },
+          {
+            id: 3,
+            text: "What challenges do migrants face in the Darien Gap?",
+            options: [
+              "Language barriers and cultural differences",
+              "Extreme weather and criminal threats",
+              "High transportation costs and visa issues",
+              "Food shortages and accommodation problems"
+            ],
+            correct: 1
+          },
+          {
+            id: 4,
+            text: "Which countries are mentioned as origin points for migrants?",
+            options: [
+              "Mexico and Guatemala",
+              "Venezuela and Haiti",
+              "Brazil and Argentina",
+              "Cuba and Dominican Republic"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "What has been the response to the migration crisis?",
+            options: [
+              "Complete border closure by Panama",
+              "Establishment of humanitarian aid stations",
+              "Military intervention by the United Nations",
+              "Construction of safe passage tunnels"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Environmental Impact of the Darien Migration",
+        content: `
+          <p>The unprecedented migration through the Darien Gap has raised significant environmental concerns among conservationists and local communities. The region, known for its rich biodiversity and pristine ecosystems, faces mounting pressure from the continuous flow of travelers.</p>
+          
+          <p>Environmental impact studies have documented several concerning trends. The accumulation of non-biodegradable waste along migration routes has contaminated water sources and affected wildlife habitats. Deforestation for temporary camps and cooking fires has accelerated soil erosion in vulnerable areas. Additionally, noise pollution and human presence have disrupted migratory patterns of several endangered species.</p>
+          
+          <p>Local indigenous communities, who have traditionally served as guardians of these forests, report diminishing fish stocks and game animals, affecting their food security and cultural practices. Some communities have organized clean-up initiatives, but the scale of waste exceeds local capacity.</p>
+          
+          <p>Conservation organizations advocate for sustainable waste management solutions and environmental education programs targeting migrants. However, the immediate humanitarian needs often take precedence over environmental considerations in crisis response planning.</p>
+        `,
+        questions: [
+          {
+            id: 6,
+            text: "What environmental concern is NOT mentioned in the passage?",
+            options: [
+              "Water source contamination",
+              "Air pollution from vehicles",
+              "Soil erosion from deforestation",
+              "Disruption of wildlife patterns"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "How have local indigenous communities been affected?",
+            options: [
+              "Improved tourism revenue",
+              "Diminished food resources",
+              "Increased employment opportunities",
+              "Better infrastructure development"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What solution do conservation organizations advocate?",
+            options: [
+              "Relocation of indigenous communities",
+              "Construction of permanent shelters",
+              "Sustainable waste management",
+              "Complete restriction of migration"
+            ],
+            correct: 2
+          },
+          {
+            id: 9,
+            text: "What is the primary focus of crisis response planning?",
+            options: [
+              "Environmental protection",
+              "Humanitarian needs",
+              "Economic development",
+              "Political solutions"
+            ],
+            correct: 1
+          },
+          {
+            id: 10,
+            text: "Who traditionally serves as guardians of the Darien forests?",
+            options: [
+              "International conservation groups",
+              "Government agencies",
+              "Local indigenous communities",
+              "United Nations organizations"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Economic Dimensions of the Darien Migration",
+        content: `
+          <p>The migration through the Darien Gap has created complex economic dynamics affecting multiple stakeholders. While the journey represents immense personal cost for migrants, it has simultaneously generated informal economic opportunities for local populations and criminal networks.</p>
+          
+          <p>Smuggling operations have become increasingly sophisticated, with some estimates suggesting criminal groups earn over $50 million annually from guiding migrants through the jungle. These operations range from individual guides charging modest fees to organized networks offering 'package deals' that include transportation, food, and 'protection' during the journey.</p>
+          
+          <p>Local communities experience mixed economic impacts. Some residents benefit from selling supplies to migrants, while others face increased competition for limited resources and rising local prices. The presence of migrants has also strained public services, particularly healthcare facilities that treat injuries and illnesses sustained during the journey.</p>
+          
+          <p>International aid organizations have injected significant funds into the region, creating temporary employment opportunities for translators, drivers, and support staff. However, critics argue that this creates dependency rather than sustainable development.</p>
+        `,
+        questions: [
+          {
+            id: 11,
+            text: "What is the estimated annual earnings of smuggling operations mentioned?",
+            options: [
+              "Over $20 million",
+              "Over $35 million",
+              "Over $50 million",
+              "Over $65 million"
+            ],
+            correct: 2
+          },
+          {
+            id: 12,
+            text: "What economic opportunity has emerged for local communities?",
+            options: [
+              "Manufacturing exports",
+              "Selling supplies to migrants",
+              "Tourism development",
+              "Agricultural expansion"
+            ],
+            correct: 1
+          },
+          {
+            id: 13,
+            text: "Which public service is specifically mentioned as being strained?",
+            options: [
+              "Educational facilities",
+              "Healthcare facilities",
+              "Transportation systems",
+              "Law enforcement agencies"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "What criticism is mentioned regarding international aid?",
+            options: [
+              "It is insufficient to meet needs",
+              "It creates dependency",
+              "It is poorly distributed",
+              "It lacks proper oversight"
+            ],
+            correct: 1
+          },
+          {
+            id: 15,
+            text: "What do 'package deals' from smuggling networks include?",
+            options: [
+              "Legal documentation and housing",
+              "Transportation and protection",
+              "Job placement and training",
+              "Education and healthcare"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Policy Responses to Darien Migration",
+        content: `
+          <p>Governments and international organizations have implemented various policy responses to address the Darien Gap migration crisis, with mixed results. These approaches range from enforcement measures to humanitarian assistance and regional cooperation initiatives.</p>
+          
+          <p>Panama has established 'controlled flow' policies that register migrants and provide limited humanitarian assistance while restricting their movement through the country. Colombia has increased border surveillance and attempted to dismantle smuggling networks, though the vast, remote terrain makes enforcement challenging.</p>
+          
+          <p>Regional cooperation efforts include the Los Angeles Declaration on Migration and Protection, signed by twenty countries in 2022. This framework aims to address root causes of migration, expand legal pathways, and improve border management. However, implementation has been slow, and funding commitments have fallen short of requirements.</p>
+          
+          <p>Human rights organizations criticize some policy responses for prioritizing border security over migrant protection. They document cases of pushbacks, detention in inadequate facilities, and limited access to asylum procedures. Advocates call for policies that respect international protection obligations while addressing the complex drivers of migration.</p>
+        `,
+        questions: [
+          {
+            id: 16,
+            text: "What is Panama's 'controlled flow' policy?",
+            options: [
+              "Complete border closure",
+              "Registration with restricted movement",
+              "Unlimited humanitarian access",
+              "Forced return of all migrants"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "How many countries signed the Los Angeles Declaration?",
+            options: [
+              "Fifteen",
+              "Twenty",
+              "Twenty-five",
+              "Thirty"
+            ],
+            correct: 1
+          },
+          {
+            id: 18,
+            text: "What challenge does Colombia face in border enforcement?",
+            options: [
+              "Lack of political will",
+              "Vast and remote terrain",
+              "Insufficient legal framework",
+              "International opposition"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "What do human rights organizations criticize?",
+            options: [
+              "Prioritizing border security over protection",
+              "Providing too much assistance to migrants",
+              "Focusing only on root causes",
+              "Ignoring environmental impacts"
+            ],
+            correct: 0
+          },
+          {
+            id: 20,
+            text: "What do advocates call for in migration policies?",
+            options: [
+              "Stricter enforcement measures",
+              "Respect for international obligations",
+              "Elimination of asylum systems",
+              "Regional economic development only"
+            ],
+            correct: 1
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('toeic_academic_reading_1_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('toeic_academic_reading_1_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toeic_academic_reading_1_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEIC Reading Comprehension - The Darien Project (B2)
+          </p>
+          <p class="text-center mb-3">
+            Read the following academic passage and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-content">
+            ${reading.content}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-sm font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    // Validation functions
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 75 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    // Save answers to localStorage when Next button is clicked
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      // Only save if all questions are answered
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save to localStorage with page-specific key
+        const pageNum = window.location.pathname.match(/reading_academic_(\d+)\.html/)[1];
+        const storageKey = pageNum === '1' ? 'academic_reading_1-1_answers' : `academic_reading_1-${pageNum}_answers`;
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+</script>
+</body>
+</html>

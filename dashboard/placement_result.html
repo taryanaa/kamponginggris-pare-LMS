@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Placement Test Results</title>
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAiCAYAAADRcLDBAAAEs2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIgogICAgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIKICAgZXhpZjpQaXhlbFhEaW1lbnNpb249IjMzIgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMzQiCiAgIGV4aWY6Q29sb3JTcGFjZT0iMSIKICAgdGlmZjpJbWFnZVdpZHRoPSIzMyIKICAgdGlmZjpJbWFnZUxlbmd0aD0iMzQiCiAgIHRpZmY6UmVzb2x1dGlvblVuaXQ9IjIiCiAgIHRpZmY6WFJlc29sdXRpb249Ijk2LjAiCiAgIHRpZmY6WVJlc29sdXRpb249Ijk2LjAiCiAgIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiCiAgIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiCiAgIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMzFUMTA6NTA6MjMrMDI6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJwcm9kdWNlZCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWZmaW5pdHkgRGVzaWduZXIgMS4xMC4xIgogICAgICBzdEV2dDp3aGVuPSIyMDIyLTAzLTMxVDEwOjUwOjIzKzAyOjAwIi8+CiAgICA8L3JkZjpTZXE+CiAgIDwveG1wTU06SGlzdG9yeT4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz5V57uAAAABgmlDQ1BzUkdCIElFQzYxOTY2LTIuMQAAKJF1kc8rRFEUxz9maORHo1hYKC9hISNGTWwsRn4VFmOUX5uZZ36oeTOv954kW2WrKLHxa8FfwFZZK0WkZClrYoOe87ypmWTO7dzzud97z+nec8ETzaiaWd4NWtYyIiNhZWZ2TvE946WZSjqoj6mmPjE1HKWkfdxR5sSbgFOr9Ll/rXoxYapQVik8oOqGJTwqPL5i6Q5vCzeo6dii8KlwpyEXFL519LjLLw4nXP5y2IhGBsFTJ6ykijhexGra0ITl5bRqmWU1fx/nJTWJ7PSUxBbxJkwijBBGYYwhBgnRQ7/MIQIE6ZIVJfK7f/MnyUmuKrPOKgZLpEhj0SnqslRPSEyKnpCRYdXp/9++msneoFu9JgwVT7b91ga+LfjetO3PQ9v+PgLvI1xkC/m5A+h7F30zoLXug38dzi4LWnwHzjeg8UGPGbFfySvuSSbh9QRqZ6H+Gqrm3Z7l9zm+h+iafNUV7O5Bu5z3L/wAdthn7QIme0YAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAJTSURBVFiF7Zi9axRBGIefEw2IdxFBRQsLWUTBaywSK4ubdSGVIY1Y6HZql8ZKCGIqwX/AYLmCgVQKfiDn7jZeEQMWfsSAHAiKqPiB5mIgELWYOW5vzc3O7niHhT/YZvY37/swM/vOzJbIqVq9uQ04CYwCI8AhYAlYAB4Dc7HnrOSJWcoJcBS4ARzQ2F4BZ2LPmTeNuykHwEWgkQGAet9QfiMZjUSt3hwD7psGTWgs9pwH1hC1enMYeA7sKwDxBqjGnvNdZzKZjqmCAKh+U1kmEwi3IEBbIsugnY5avTkEtIAtFhBrQCX2nLVehqyRqFoCAAwBh3WGLAhbgCRIYYinwLolwLqKUwwi9pxV4KUlxKKKUwxC6ZElRCPLYAJxGfhSEOCz6m8HEXvOB2CyIMSk6m8HoXQTmMkJcA2YNTHm3MongOvATo3tE3A29pxbpnFzQSiQPcB55IFmFNgFfEQeahaAGZMpsIJIAZWAHcDX2HN+2cT6r39GxmvC9aPNwH5gO1BOPFuBVWAZue0vA9+A12EgjPadnhCuH1WAE8ivYAQ4ohKaagV4gvxi5oG7YSA2vApsCOH60WngKrA3R9IsvQUuhIGY00K4flQG7gHH/mLytB4C42EgfrQb0mV7us8AAMeBS8mGNMR4nwHamtBB7B4QRNdaS0M8GxDEog7iyoAguvJ0QYSBuAOcAt71Kfl7wA8DcTvZ2KtOlJEr+ByyQtqqhTyHTIeB+ONeqi3brh+VgIN0fohUgWGggizZFTplu12yW8iy/YLOGWMpDMTPXnl+Az9vj2HERYqPAAAAAElFTkSuQmCC" type="image/png">
+    <link rel="stylesheet" href="./assets/compiled/css/app.css">
+    <link rel="stylesheet" href="./assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="./assets/compiled/css/iconly.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        .test-type-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        
+        .toeic-badge { background-color: #e3f2fd; color: #1976d2; border: 1px solid #bbdefb; }
+        .ielts-badge { background-color: #e8f5e9; color: #388e3c; border: 1px solid #c8e6c9; }
+        .practical-badge { background-color: #fff3e0; color: #f57c00; border: 1px solid #ffe0b2; }
+        .business-badge { background-color: #f3e5f5; color: #7b1fa2; border: 1px solid #e1bee7; }
+        .basic-badge { background-color: #e0f2f1; color: #00796b; border: 1px solid #b2dfdb; }
+        .toefl-badge { background-color: #fff8e1; color: #ff8f00; border: 1px solid #ffecb3; }
+        .academic-badge { background-color: #fce4ec; color: #c2185b; border: 1px solid #f8bbd9; }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        #resultsTable {
+            margin-bottom: 0;
+            font-size: 13px;
+        }
+        
+        #resultsTable th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 2px solid #dee2e6;
+            white-space: nowrap;
+            padding: 12px 8px;
+        }
+        
+        #resultsTable td {
+            vertical-align: middle;
+            padding: 10px 8px;
+            white-space: nowrap;
+        }
+        
+        #resultsTable tbody tr:hover {
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+        
+        .api-status {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            border: 1px solid;
+        }
+        
+        .api-online {
+            background-color: #e8f5e8;
+            border-color: #4caf50;
+            color: #2e7d32;
+        }
+        
+        .api-offline {
+            background-color: #ffebee;
+            border-color: #f44336;
+            color: #c62828;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-online { background-color: #4caf50; }
+        .status-offline { background-color: #f44336; }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .detail-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        
+        .detail-section h6 {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            color: #495057;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .detail-value {
+            color: #6c757d;
+            text-align: right;
+        }
+        
+        .score-box {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .score-box .score-value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .score-box .score-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #eef2f7;
+            padding: 1.25rem 1.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <script src="assets/static/js/initTheme.js"></script>
+    <div id="app">
+        <div id="sidebar">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header position-relative">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="logo">
+                            <a href="index.html"><img src="./assets/compiled/png/logo.png" alt="Logo" style="height: 60px; width: auto;"></a>
+                        </div>
+                        <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21">
+                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path>
+                                    <g transform="translate(-210 -1)">
+                                        <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                                        <circle cx="220.5" cy="11.5" r="4"></circle>
+                                        <path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="form-check form-switch fs-6">
+                                <input class="form-check-input me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z"></path>
+                            </svg>
+                        </div>
+                        <div class="sidebar-toggler x">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+                        <li class="sidebar-item">
+                            <a href="index-admin.html" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item active">
+                            <a href="placement_result.html" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-plus-fill"></i>
+                                <span>Placement Results</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="add-user.html" class='sidebar-link'>
+                                <i class="bi bi-person-plus-fill"></i>
+                                <span>Add User</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="input-exam.html" class='sidebar-link'>
+                                <i class="bi bi-journal-plus"></i>
+                                <span>Add Exam</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="data-account.html" class='sidebar-link'>
+                                <i class="bi bi-database-fill"></i>
+                                <span>Data Accounts</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="auth-login.html" class='sidebar-link'>
+                                <i class="bi bi-door-open-fill"></i>
+                                <span>Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            
+            <div class="page-heading">
+                <h3>Placement Test Results & Certificates</h3>
+                <p class="text-muted">Complete management system for all test results</p>
+            </div>
+            
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12">
+                        <!-- API Status -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">API Connection Status</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="apiStatus" class="api-status">
+                                    <div class="spinner" style="width: 20px; height: 20px; display: inline-block; margin-right: 10px;"></div>
+                                    Checking API connection...
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Filters -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">Filter Results</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="testType" class="form-label">Test Type</label>
+                                        <select class="form-control" id="testType">
+                                            <option value="all">All Tests</option>
+                                            <option value="toefl">TOEFL Preparation</option>
+                                            <option value="academic">Academic English</option>
+                                            <option value="basic-english">Basic English</option>
+                                            <option value="practical">Practical English</option>
+                                            <option value="toeic">TOEIC</option>
+                                            <option value="ielts-a2">IELTS A2</option>
+                                            <option value="ielts-b1">IELTS B1</option>
+                                            <option value="business">Business Speaking</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="dateFrom" class="form-label">Date From</label>
+                                        <input type="date" class="form-control" id="dateFrom">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="dateTo" class="form-label">Date To</label>
+                                        <input type="date" class="form-control" id="dateTo">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">&nbsp;</label>
+                                        <button class="btn btn-primary w-100" id="applyFilters">
+                                            <i class="bi bi-funnel"></i> Apply Filters
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <button class="btn btn-outline-secondary btn-sm" id="refreshData">
+                                            <i class="bi bi-arrow-clockwise"></i> Refresh
+                                        </button>
+                                        <span class="ms-3 text-muted">Last updated: <span id="lastUpdated">-</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Results Table -->
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Test Results</h5>
+                                <span class="badge bg-primary" id="resultsCount">0 results</span>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="loadingResults" class="text-center py-5">
+                                    <div class="spinner"></div>
+                                    <p class="mt-3">Loading results...</p>
+                                </div>
+                                <div id="errorContainer" style="display: none;"></div>
+                                <div id="resultsContainer" style="display: none;">
+                                    <div class="table-container">
+                                            <table class="table table-striped table-hover mb-0" id="resultsTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Phone/WhatsApp</th>
+                                                        <th>Test Type</th>
+                                                        <th>Overall Score</th>
+                                                        <th>Level</th>
+                                                        <th>Band/Percentage</th>
+                                                        <th>Listening</th>
+                                                        <th>Reading</th>
+                                                        <th>Writing</th>
+                                                        <th>Speaking</th>
+                                                        <th>Grammar</th>
+                                                        <th>Vocabulary</th>
+                                                        <th>Pronoun</th>  <!-- KOLOM BARU -->
+                                                        <th>Test Date</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="resultsTableBody">
+                                                </tbody>
+                                            </table>
+                                                                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 @Kampong Inggris Pare</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Detail Modal -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Test Result Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="detailModalBody"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/static/js/components/dark.js"></script>
+    <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/compiled/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        const API_BASE_URL = 'https://kamponginggrispare.com/index.php/api';
+        
+        let allResults = [];
+        
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('Initializing Placement Results System');
+            
+            const today = new Date();
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(today.getDate() - 30);
+            document.getElementById('dateFrom').value = thirtyDaysAgo.toISOString().split('T')[0];
+            document.getElementById('dateTo').value = today.toISOString().split('T')[0];
+            
+            document.getElementById('applyFilters').addEventListener('click', loadResults);
+            document.getElementById('refreshData').addEventListener('click', loadResults);
+            
+            await testAPIConnection();
+            await loadResults();
+        });
+        
+        async function testAPIConnection() {
+            try {
+                updateAPIStatus('checking', 'Checking API connection...');
+                const response = await fetch(API_BASE_URL.replace('/api', '') + '/health');
+                const data = await response.json();
+                
+                if (data.status === 'healthy') {
+                    updateAPIStatus('online', 'API Online - Database: ' + data.database);
+                    return true;
+                } else {
+                    throw new Error('API unhealthy');
+                }
+            } catch (error) {
+                console.error('API Connection failed:', error);
+                updateAPIStatus('offline', 'Connection failed: ' + error.message);
+                return false;
+            }
+        }
+        
+        function updateAPIStatus(status, message) {
+            const apiStatus = document.getElementById('apiStatus');
+            let html = '';
+            let statusClass = '';
+            
+            if (status === 'online') {
+                html = '<span class="status-indicator status-online"></span>' + message;
+                statusClass = 'api-online';
+            } else if (status === 'offline') {
+                html = '<span class="status-indicator status-offline"></span>' + message;
+                statusClass = 'api-offline';
+            } else {
+                html = '<div class="spinner" style="width: 12px; height: 12px; display: inline-block; margin-right: 8px;"></div>' + message;
+            }
+            
+            apiStatus.className = 'api-status ' + statusClass;
+            apiStatus.innerHTML = html;
+        }
+        
+        async function loadResults() {
+            console.log('Loading results...');
+            
+            document.getElementById('loadingResults').style.display = 'block';
+            document.getElementById('resultsContainer').style.display = 'none';
+            document.getElementById('errorContainer').style.display = 'none';
+            
+            try {
+                const testType = document.getElementById('testType').value;
+                const dateFrom = document.getElementById('dateFrom').value;
+                const dateTo = document.getElementById('dateTo').value;
+                
+                const params = new URLSearchParams();
+                if (testType !== 'all') params.append('test_type', testType);
+                if (dateFrom) params.append('date_from', dateFrom);
+                if (dateTo) params.append('date_to', dateTo);
+                
+                const url = API_BASE_URL + '/placement-results?' + params.toString();
+                console.log('Fetching:', url);
+                
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                
+                const data = await response.json();
+                console.log('Data received:', data);
+                
+                if (data.status === 'success') {
+                    allResults = data.results || [];
+                    displayResults(allResults);
+                    document.getElementById('resultsCount').textContent = data.count + ' results';
+                    document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+                } else {
+                    throw new Error(data.message || 'Unknown error');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showError(error.message);
+            } finally {
+                document.getElementById('loadingResults').style.display = 'none';
+            }
+        }
+        
+function displayResults(results) {
+    const tbody = document.getElementById('resultsTableBody');
+    
+    if (!results || results.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="17" class="text-center py-4"><div class="text-muted"><i class="bi bi-inbox" style="font-size: 48px;"></i><p>No results found</p></div></td></tr>';
+        document.getElementById('resultsContainer').style.display = 'block';
+        return;
+    }
+    
+    let html = '';
+    results.forEach(function(result) {
+        const badgeClass = getBadgeClass(result.test_type);
+        const testDate = formatDate(result.test_date);
+        
+        html += '<tr onclick="viewDetails(\'' + result.id + '\', \'' + result.test_type + '\')">';
+        html += '<td><strong>' + result.id + '</strong></td>';
+        html += '<td>' + (result.name || 'N/A') + '</td>';
+        html += '<td>' + (result.email || 'N/A') + '</td>';
+        html += '<td>' + (result.phone || result.whatsapp || 'N/A') + '</td>';
+        html += '<td><span class="test-type-badge ' + badgeClass + '">' + (result.test_type || '').toUpperCase() + '</span></td>';
+        html += '<td><strong>' + (result.overall_score || 'N/A') + '</strong></td>';
+        html += '<td>' + (result.level || result.overall_level || 'N/A') + '</td>';
+        html += '<td>' + formatScoreDisplay(result) + '</td>';
+        html += '<td>' + getSkillScore(result, 'listening') + '</td>';
+        html += '<td>' + getSkillScore(result, 'reading') + '</td>';
+        html += '<td>' + getSkillScore(result, 'writing') + '</td>';
+        html += '<td>' + getSkillScore(result, 'speaking') + '</td>';
+        html += '<td>' + getSkillScore(result, 'grammar') + '</td>';
+        html += '<td>' + getSkillScore(result, 'vocab') + '</td>';
+        html += '<td>' + getSkillScore(result, 'pronoun') + '</td>';  // KOLOM BARU
+        html += '<td>' + testDate + '</td>';
+        html += '<td><button class="btn btn-sm btn-primary" onclick="event.stopPropagation(); generateCertificate(\'' + result.id + '\', \'' + result.test_type + '\')" title="Certificate"><i class="bi bi-award"></i></button></td>';
+        html += '</tr>';
+    });
+    
+    tbody.innerHTML = html;
+    document.getElementById('resultsContainer').style.display = 'block';
+}
+        
+        function formatScoreDisplay(result) {
+            if (result.overall_band) return 'Band ' + result.overall_band;
+            if (result.percentage) return result.percentage + '%';
+            if (result.total_percentage) return result.total_percentage + '%';
+            if (result.overall_percent) return result.overall_percent + '%';
+            return 'N/A';
+        }
+        
+        function getSkillScore(result, skill) {
+            // Khusus untuk pronoun/pronunciation
+            if (skill === 'pronoun') {
+                const pronounKeys = [
+                    'pronoun_score',
+                    'pronoun_correct', 
+                    'pronoun_percentage',
+                    'pronunciation_correct',
+                    'pronunciation_score',
+                    'pronunciation_percentage'
+                ];
+                
+                for (let i = 0; i < pronounKeys.length; i++) {
+                    const key = pronounKeys[i];
+                    if (result[key] !== undefined && result[key] !== null && result[key] !== '') {
+                        return result[key];
+                    }
+                }
+                return '-';
+            }
+            
+            // Untuk skill lainnya
+            const keys = [
+                skill + '_score',
+                skill + '_correct',
+                skill + '_percentage',
+                skill + '_percent',
+                skill + '_ielts',
+                skill + '_toeic',
+                skill + '_level'
+            ];
+            
+            for (let i = 0; i < keys.length; i++) {
+                if (result[keys[i]] !== undefined && result[keys[i]] !== null && result[keys[i]] !== '') {
+                    return result[keys[i]];
+                }
+            }
+            
+            return '-';
+        }
+        
+        function formatDate(dateStr) {
+            if (!dateStr) return 'N/A';
+            try {
+                return new Date(dateStr).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+            } catch (e) {
+                return dateStr;
+            }
+        }
+        
+        function getBadgeClass(testType) {
+            const map = {
+                'toeic': 'toeic-badge',
+                'ielts-a2': 'ielts-badge',
+                'ielts-b1': 'ielts-badge',
+                'practical': 'practical-badge',
+                'practical-english': 'practical-badge',
+                'business': 'business-badge',
+                'business-speaking': 'business-badge',
+                'basic-english': 'basic-badge',
+                'toefl': 'toefl-badge',
+                'academic': 'academic-badge'
+            };
+            return map[testType] || 'toeic-badge';
+        }
+        
+        function showError(message) {
+            const errorContainer = document.getElementById('errorContainer');
+            errorContainer.innerHTML = '<div class="alert alert-danger m-3"><i class="bi bi-exclamation-triangle"></i> <strong>Error:</strong> ' + message + '</div>';
+            errorContainer.style.display = 'block';
+        }
+        
+        function viewDetails(id, testType) {
+            console.log('Viewing details:', testType, '#' + id);
+            
+            const result = allResults.find(function(r) {
+                return r.id == id && r.test_type === testType;
+            });
+            
+            if (!result) {
+                alert('Result not found');
+                return;
+            }
+            
+            const modalBody = document.getElementById('detailModalBody');
+            
+            let html = '<div class="row">';
+            html += '<div class="col-md-6">';
+            html += '<div class="detail-section">';
+            html += '<h6><i class="bi bi-person-fill"></i> Student Information</h6>';
+            html += '<div class="detail-row"><span class="detail-label">ID:</span><span class="detail-value">' + result.id + '</span></div>';
+            html += '<div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">' + (result.name || 'N/A') + '</span></div>';
+            html += '<div class="detail-row"><span class="detail-label">Email:</span><span class="detail-value">' + (result.email || 'N/A') + '</span></div>';
+            html += '<div class="detail-row"><span class="detail-label">Phone/WhatsApp:</span><span class="detail-value">' + (result.phone || result.whatsapp || 'N/A') + '</span></div>';
+            html += '<div class="detail-row"><span class="detail-label">Test Date:</span><span class="detail-value">' + formatDate(result.test_date) + '</span></div>';
+            html += '</div></div>';
+            html += '<div class="col-md-6">';
+            html += '<div class="score-box">';
+            html += '<div class="score-value">' + (result.overall_score || 'N/A') + '</div>';
+            html += '<div class="score-label">' + (result.level || result.overall_level || 'Overall Score') + '</div>';
+            html += '</div></div></div>';
+            
+            html += '<div class="row mt-3">';
+            
+            // UPDATED: Tambahkan pronoun dalam daftar skills
+            const skills = ['listening', 'reading', 'writing', 'speaking', 'grammar', 'vocab', 'pronoun'];
+            let hasSkills = false;
+            
+            for (let i = 0; i < skills.length; i++) {
+                const skill = skills[i];
+                const score = getSkillScore(result, skill);
+                
+                // Dapatkan data tambahan
+                let percentage = null;
+                let level = null;
+                
+                if (skill === 'pronoun') {
+                    percentage = result.pronoun_percentage || result.pronunciation_percentage;
+                    level = result.pronoun_level || result.pronunciation_level;
+                } else {
+                    percentage = result[skill + '_percentage'] || result[skill + '_percent'];
+                    level = result[skill + '_level'];
+                }
+                
+                if (score !== '-' || percentage || level) {
+                    hasSkills = true;
+                    html += '<div class="col-md-3 mb-3"><div class="detail-section">';
+                    
+                    // Label yang lebih bagus
+                    let skillLabel = skill;
+                    if (skill === 'vocab') skillLabel = 'Vocabulary';
+                    if (skill === 'pronoun') skillLabel = 'Pronunciation';
+                    
+                    html += '<h6 class="text-capitalize">' + skillLabel + '</h6>';
+                    html += '<div class="detail-row"><span class="detail-label">Score:</span><span class="detail-value"><strong>' + score + '</strong></span></div>';
+                    
+                    if (percentage) {
+                        html += '<div class="detail-row"><span class="detail-label">Accuracy:</span><span class="detail-value">' + percentage + '%</span></div>';
+                    }
+                    if (level) {
+                        html += '<div class="detail-row"><span class="detail-label">Level:</span><span class="detail-value">' + level + '</span></div>';
+                    }
+                    html += '</div></div>';
+                }
+            }
+            
+            if (!hasSkills) {
+                html += '<div class="col-12"><p class="text-muted">No skill breakdown available</p></div>';
+            }
+            
+            html += '</div>';
+            
+            modalBody.innerHTML = html;
+            
+            const modal = new bootstrap.Modal(document.getElementById('detailModal'));
+            modal.show();
+        }
+        
+        async function generateCertificate(id, testType) {
+            console.log('Generating certificate:', testType, '#' + id);
+            
+            const result = allResults.find(function(r) {
+                return r.id == id && r.test_type === testType;
+            });
+            
+            if (!result) {
+                alert('Result not found');
+                return;
+            }
+            
+            try {
+                const signatureBase64 = await loadImageAsBase64('ttd.png');
+                const stempelBase64 = await loadImageAsBase64('stempel.png');
+                
+                await generatePDFCertificate(result, signatureBase64, stempelBase64);
+                
+                alert('Certificate generated successfully!');
+            } catch (error) {
+                console.error('Error generating certificate:', error);
+                alert('Error generating certificate: ' + error.message);
+            }
+        }
+        
+        function loadImageAsBase64(url) {
+            return new Promise(function(resolve, reject) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.responseType = 'arraybuffer';
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const arrayBuffer = xhr.response;
+                        const bytes = new Uint8Array(arrayBuffer);
+                        let binary = '';
+                        for (let i = 0; i < bytes.byteLength; i++) {
+                            binary += String.fromCharCode(bytes[i]);
+                        }
+                        const base64 = btoa(binary);
+                        const extension = url.split('.').pop().toLowerCase();
+                        const mimeType = extension === 'png' ? 'image/png' : 'image/jpeg';
+                        resolve('data:' + mimeType + ';base64,' + base64);
+                    } else {
+                        reject(new Error('Failed to load image: ' + url));
+                    }
+                };
+                xhr.onerror = reject;
+                xhr.send();
+            });
+        }
+        
+        async function generatePDFCertificate(result, signatureBase64, stempelBase64) {
+            var jsPDF = window.jspdf.jsPDF;
+            var doc = new jsPDF('p', 'mm', 'a4');
+            var pageWidth = doc.internal.pageSize.width;
+            var pageHeight = doc.internal.pageSize.height;
+            var margin = 15;
+
+            doc.setFillColor(248, 250, 252);
+            doc.rect(0, 0, pageWidth, pageHeight, 'F');
+
+            doc.setDrawColor(59, 130, 246);
+            doc.setLineWidth(2);
+            doc.rect(margin, margin, pageWidth - 2*margin, pageHeight - 2*margin);
+
+            doc.setDrawColor(99, 102, 241);
+            doc.setLineWidth(0.5);
+            doc.rect(margin + 3, margin + 3, pageWidth - 2*(margin + 3), pageHeight - 2*(margin + 3));
+
+            var yPos = margin + 25;
+
+            doc.setFillColor(30, 58, 138);
+            doc.rect(margin + 5, yPos - 15, pageWidth - 2*(margin + 5), 40, 'F');
+
+            doc.setFontSize(22);
+            doc.setTextColor(255, 255, 255);
+            doc.setFont('helvetica', 'bold');
+            doc.text('CERTIFICATE OF ACHIEVEMENT', pageWidth / 2, yPos, { align: 'center' });
+            
+            doc.setFontSize(14);
+            doc.setTextColor(200, 220, 255);
+            doc.setFont('helvetica', 'normal');
+            var testTypeUpper = (result.test_type || '').toUpperCase();
+            doc.text(testTypeUpper + ' Proficiency Assessment', pageWidth / 2, yPos + 8, { align: 'center' });
+            
+            doc.setDrawColor(255, 215, 0);
+            doc.setLineWidth(1.5);
+            doc.line(margin + 20, yPos + 15, pageWidth - (margin + 20), yPos + 15);
+            
+            yPos += 30;
+
+            doc.setFontSize(14);
+            doc.setTextColor(51, 65, 85);
+            doc.setFont('helvetica', 'bold');
+            doc.text('This certificate is proudly presented to:', pageWidth / 2, yPos, { align: 'center' });
+            yPos += 12;
+
+            doc.setFontSize(20);
+            doc.setTextColor(30, 58, 138);
+            doc.setFont('helvetica', 'bold');
+            var nameUpper = (result.name || 'Test Taker').toUpperCase();
+            doc.text(nameUpper, pageWidth / 2, yPos, { align: 'center' });
+            yPos += 25;
+
+            doc.setFontSize(10);
+            doc.setTextColor(71, 85, 105);
+            doc.setFont('helvetica', 'normal');
+            var achievementDesc = 'for successfully completing the ' + testTypeUpper + ' Test with proficiency at ' + (result.level || result.overall_level || result.overall_score) + ' level.';
+            doc.text(achievementDesc, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+            yPos += 15;
+
+            doc.setDrawColor(99, 102, 241);
+            doc.setLineWidth(0.5);
+            doc.line(margin + 15, yPos, pageWidth - (margin + 15), yPos);
+            yPos += 15;
+
+            doc.setFontSize(10);
+            doc.setTextColor(51, 65, 85);
+            doc.setFont('helvetica', 'bold');
+            doc.text('TEST RESULTS:', pageWidth / 2, yPos, { align: 'center' });
+            yPos += 8;
+
+            doc.setFontSize(9);
+            doc.setTextColor(51, 65, 85);
+            doc.setFont('helvetica', 'bold');
+
+            doc.text('Test Date: ' + formatDate(result.test_date), pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+            yPos += 10;
+
+            doc.text('Overall Score: ' + (result.overall_score || 'N/A'), pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+            yPos += 10;
+
+            if (result.level || result.overall_level) {
+                doc.text('Level: ' + (result.level || result.overall_level), pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+                yPos += 10;
+            }
+
+            if (result.overall_band) {
+                doc.text('Band Score: ' + result.overall_band, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+                yPos += 10;
+            } else if (result.percentage || result.total_percentage) {
+                doc.text('Percentage: ' + (result.percentage || result.total_percentage) + '%', pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+                yPos += 10;
+            }
+
+            var skills = [
+                { key: 'listening', label: 'Listening' },
+                { key: 'reading', label: 'Reading' },
+                { key: 'writing', label: 'Writing' },
+                { key: 'speaking', label: 'Speaking' },
+                { key: 'grammar', label: 'Grammar' },
+                { key: 'vocab', label: 'Vocabulary' },
+                { key: 'pronoun', label: 'Pronunciation' }
+            ];
+
+            for (var i = 0; i < skills.length; i++) {
+                var skill = skills[i];
+                var score = getSkillScore(result, skill.key);
+                var percentage = result[skill.key + '_percentage'] || result[skill.key + '_percent'];
+                var level = result[skill.key + '_level'];
+                
+                if (score !== '-' || percentage || level) {
+                    var skillText = skill.label + ': ';
+                    if (score !== '-') skillText += score;
+                    if (percentage) skillText += ' (' + percentage + '%)';
+                    if (level) skillText += ' - ' + level;
+                    
+                    doc.text(skillText, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+                    yPos += 8;
+                }
+            }
+
+            yPos += 12;
+
+            doc.setFontSize(8);
+            doc.setTextColor(71, 85, 105);
+            doc.setFont('helvetica', 'normal');
+            var descriptionText = 'This certificate acknowledges the candidate language proficiency and serves as a reference for appropriate learning pathways.';
+            doc.text(descriptionText, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+            yPos += 30;
+
+            var bottomLineY = pageHeight - margin - 50;
+            doc.setDrawColor(59, 130, 246);
+            doc.setLineWidth(1);
+            doc.line(margin + 5, bottomLineY, pageWidth - (margin + 5), bottomLineY);
+            yPos = bottomLineY + 10;
+
+            if (signatureBase64) {
+                try {
+                    var signatureWidth = 50;
+                    var signatureHeight = 25;
+                    var signatureX = (pageWidth - signatureWidth) / 2;
+                    
+                    if (yPos + signatureHeight < pageHeight - margin) {
+                        doc.addImage(signatureBase64, 'JPEG', signatureX, yPos, signatureWidth, signatureHeight);
+                        
+                        if (stempelBase64) {
+                            try {
+                                var stempelWidth = 35;
+                                var stempelHeight = 35;
+                                var stempelX = signatureX + 2;
+                                var stempelY = yPos - 1;
+                                
+                                if (stempelY + stempelHeight < pageHeight - margin) {
+                                    doc.addImage(stempelBase64, 'PNG', stempelX, stempelY, stempelWidth, stempelHeight);
+                                }
+                            } catch (stempelError) {
+                                console.warn('Error adding stempel:', stempelError);
+                            }
+                        }
+                        
+                        yPos += signatureHeight + 5;
+                    }
+                } catch (imgError) {
+                    console.warn('Error adding signature:', imgError);
+                }
+            } else {
+                doc.setFontSize(10);
+                doc.setTextColor(107, 114, 128);
+                doc.setFont('helvetica', 'italic');
+                doc.text('Director Signature', pageWidth / 2, yPos, { align: 'center' });
+                yPos += 12;
+            }
+
+            var orgY = Math.min(yPos + 10, pageHeight - margin - 5);
+            doc.setFontSize(10);
+            doc.setTextColor(30, 58, 138);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Kampong Inggris Pare', pageWidth / 2, orgY, { align: 'center' });
+
+            var sanitizedName = (result.name || 'Test_Taker').replace(/[^a-zA-Z0-9]/g, '_');
+            var fileName = result.test_type + '-certificate-' + sanitizedName + '.pdf';
+            doc.save(fileName);
+            
+            console.log('Certificate saved: ' + fileName);
+        }
+    </script>
+</body>
+</html>

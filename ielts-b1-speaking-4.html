@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS B1 Speaking - Education & Career - Page 4</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        IELTS B1 Speaking - Education & Career Development - Page 4/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="ielts-b1-speaking-5.html" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    // All 20 tasks for IELTS B1 Speaking - Education & Career
+    const allTasks = [
+      {
+        id: 61,
+        page: 4,
+        category: 'speaking',
+        title: 'Favorite School Subject',
+        dialogue: '<strong>Examiner:</strong> "What was your favorite subject in school?"\n\n<strong>Candidate:</strong> "I really enjoyed mathematics because I liked solving problems and the logical thinking it required."\n\n<strong>Examiner:</strong> "How has this subject been useful in your life?"\n\n<strong>Candidate:</strong> "It developed my analytical skills which help me in daily decision-making and problem-solving at work."',
+        instructions: 'Discuss your favorite school subject and its usefulness.',
+        emphasis: 'Use education vocabulary and practical application language'
+      },
+      {
+        id: 62,
+        page: 4,
+        category: 'speaking',
+        title: 'Career Choice',
+        dialogue: '<strong>Examiner:</strong> "Why did you choose your current career path?"\n\n<strong>Candidate:</strong> "I chose business management because I enjoy working with people and solving organizational challenges."\n\n<strong>Examiner:</strong> "What skills are important in your field?"\n\n<strong>Candidate:</strong> "Communication, leadership, and strategic thinking are essential for success in management roles."',
+        instructions: 'Discuss your career choice and required skills.',
+        emphasis: 'Use career vocabulary and skill description language'
+      },
+      {
+        id: 63,
+        page: 4,
+        category: 'speaking',
+        title: 'Higher Education',
+        dialogue: '<strong>Examiner:</strong> "Do you think university education is necessary for success?"\n\n<strong>Candidate:</strong> "It provides valuable knowledge and opportunities, but practical experience and skills are equally important."\n\n<strong>Examiner:</strong> "What are the benefits of higher education?"\n\n<strong>Candidate:</strong> "It develops critical thinking, provides specialized knowledge, and often leads to better career opportunities."',
+        instructions: 'Discuss the importance of higher education.',
+        emphasis: 'Use academic vocabulary and balanced arguments'
+      },
+      {
+        id: 64,
+        page: 4,
+        category: 'speaking',
+        title: 'Work Environment',
+        dialogue: '<strong>Examiner:</strong> "What kind of work environment do you prefer?"\n\n<strong>Candidate:</strong> "I thrive in collaborative environments where teamwork and open communication are encouraged."\n\n<strong>Examiner:</strong> "How does environment affect productivity?"\n\n<strong>Candidate:</strong> "A positive environment boosts motivation and creativity, while negative atmospheres can reduce efficiency."',
+        instructions: 'Discuss work environment preferences and effects.',
+        emphasis: 'Use workplace vocabulary and cause-effect language'
+      },
+      {
+        id: 65,
+        page: 4,
+        category: 'speaking',
+        title: 'Skill Development',
+        dialogue: '<strong>Examiner:</strong> "What new skills are you currently learning?"\n\n<strong>Candidate:</strong> "I\'m improving my digital marketing skills and learning data analysis to stay competitive in my field."\n\n<strong>Examiner:</strong> "Why is continuous learning important?"\n\n<strong>Candidate:</strong> "It helps adapt to changing job markets and opens up new career advancement opportunities."',
+        instructions: 'Discuss skill development and lifelong learning.',
+        emphasis: 'Use learning vocabulary and importance expressions'
+      },
+      {
+        id: 66,
+        page: 4,
+        category: 'speaking',
+        title: 'Work-Life Balance',
+        dialogue: '<strong>Examiner:</strong> "How do you maintain work-life balance?"\n\n<strong>Candidate:</strong> "I set clear boundaries, prioritize tasks, and make time for hobbies and family activities."\n\n<strong>Examiner:</strong> "Why is this balance important?"\n\n<strong>Candidate:</strong> "It prevents burnout, improves mental health, and maintains overall life satisfaction."',
+        instructions: 'Discuss work-life balance strategies and importance.',
+        emphasis: 'Use balance vocabulary and health-related terms'
+      },
+      {
+        id: 67,
+        page: 4,
+        category: 'speaking',
+        title: 'Educational System',
+        dialogue: '<strong>Examiner:</strong> "What improvements would you suggest for the education system?"\n\n<strong>Candidate:</strong> "More practical skills training, updated curriculum, and better teacher-student ratios would be beneficial."\n\n<strong>Examiner:</strong> "How should education prepare students for the future?"\n\n<strong>Candidate:</strong> "It should focus on critical thinking, adaptability, and digital literacy alongside traditional knowledge."',
+        instructions: 'Discuss education system improvements and future preparation.',
+        emphasis: 'Use educational reform vocabulary and future orientation'
+      },
+      {
+        id: 68,
+        page: 4,
+        category: 'speaking',
+        title: 'Career Change',
+        dialogue: '<strong>Examiner:</strong> "Would you consider changing careers in the future?"\n\n<strong>Candidate:</strong> "Yes, if an opportunity aligns with my interests and offers better growth potential, I would consider it."\n\n<strong>Examiner:</strong> "What factors influence career decisions?"\n\n<strong>Candidate:</strong> "Personal interest, work-life balance, growth opportunities, and financial stability are key factors."',
+        instructions: 'Discuss career change possibilities and decision factors.',
+        emphasis: 'Use career transition vocabulary and decision-making language'
+      },
+      {
+        id: 69,
+        page: 4,
+        category: 'speaking',
+        title: 'Online Education',
+        dialogue: '<strong>Examiner:</strong> "What are the advantages of online education?"\n\n<strong>Candidate:</strong> "Flexibility, accessibility, and often lower costs make online learning attractive to many students."\n\n<strong>Examiner:</strong> "Are there any disadvantages?"\n\n<strong>Candidate:</strong> "Lack of personal interaction, self-discipline requirements, and technical issues can be challenging."',
+        instructions: 'Discuss advantages and disadvantages of online education.',
+        emphasis: 'Use e-learning vocabulary and balanced analysis'
+      },
+      {
+        id: 70,
+        page: 4,
+        category: 'speaking',
+        title: 'Professional Goals',
+        dialogue: '<strong>Examiner:</strong> "What are your professional goals for the next five years?"\n\n<strong>Candidate:</strong> "I aim to move into a leadership position and complete professional certifications in my field."\n\n<strong>Examiner:</strong> "How do you plan to achieve these goals?"\n\n<strong>Candidate:</strong> "Through continuous learning, networking, and taking on challenging projects to demonstrate capability."',
+        instructions: 'Discuss professional goals and achievement plans.',
+        emphasis: 'Use goal-setting vocabulary and future planning language'
+      },
+      {
+        id: 71,
+        page: 4,
+        category: 'speaking',
+        title: 'Teacher Influence',
+        dialogue: '<strong>Examiner:</strong> "Did any teacher significantly influence your education?"\n\n<strong>Candidate:</strong> "My high school English teacher inspired my love for languages and encouraged critical thinking."\n\n<strong>Examiner:</strong> "What qualities make a good teacher?"\n\n<strong>Candidate:</strong> "Patience, passion for the subject, good communication skills, and the ability to inspire students."',
+        instructions: 'Discuss influential teachers and teaching qualities.',
+        emphasis: 'Use teaching vocabulary and personal influence language'
+      },
+      {
+        id: 72,
+        page: 4,
+        category: 'speaking',
+        title: 'Job Satisfaction',
+        dialogue: '<strong>Examiner:</strong> "What factors contribute to job satisfaction?"\n\n<strong>Candidate:</strong> "Work-life balance, recognition, growth opportunities, and positive workplace relationships are key."\n\n<strong>Examiner:</strong> "How important is salary compared to other factors?"\n\n<strong>Candidate:</strong> "Salary is important for financial security, but job satisfaction often depends more on non-monetary factors."',
+        instructions: 'Discuss job satisfaction factors and priorities.',
+        emphasis: 'Use employment vocabulary and comparative language'
+      },
+      {
+        id: 73,
+        page: 4,
+        category: 'speaking',
+        title: 'Vocational Training',
+        dialogue: '<strong>Examiner:</strong> "How valuable is vocational training compared to academic education?"\n\n<strong>Candidate:</strong> "Vocational training provides practical skills that are immediately applicable in specific industries."\n\n<strong>Examiner:</strong> "Should more students consider vocational paths?"\n\n<strong>Candidate:</strong> "Yes, especially for hands-on careers where practical skills are more valuable than theoretical knowledge."',
+        instructions: 'Discuss vocational training value and relevance.',
+        emphasis: 'Use vocational education vocabulary and practical focus'
+      },
+      {
+        id: 74,
+        page: 4,
+        category: 'speaking',
+        title: 'Teamwork Skills',
+        dialogue: '<strong>Examiner:</strong> "How important are teamwork skills in the workplace?"\n\n<strong>Candidate:</strong> "Extremely important as most projects require collaboration and diverse perspectives for success."\n\n<strong>Examiner:</strong> "How can teamwork skills be developed?"\n\n<strong>Candidate:</strong> "Through group projects, communication exercises, and learning to appreciate different working styles."',
+        instructions: 'Discuss teamwork importance and development.',
+        emphasis: 'Use collaboration vocabulary and skill development language'
+      },
+      {
+        id: 75,
+        page: 4,
+        category: 'speaking',
+        title: 'Study Habits',
+        dialogue: '<strong>Examiner:</strong> "What study methods work best for you?"\n\n<strong>Candidate:</strong> "I prefer active learning techniques like summarizing information and teaching concepts to others."\n\n<strong>Examiner:</strong> "How have your study habits changed over time?"\n\n<strong>Candidate:</strong> "I\'ve become more organized and now use digital tools to enhance my learning efficiency."',
+        instructions: 'Discuss effective study methods and evolution.',
+        emphasis: 'Use learning methodology vocabulary and change language'
+      },
+      {
+        id: 76,
+        page: 4,
+        category: 'speaking',
+        title: 'Career Advice',
+        dialogue: '<strong>Examiner:</strong> "What advice would you give to someone starting their career?"\n\n<strong>Candidate:</strong> "Be open to learning, build a strong network, and don\'t be afraid to take calculated risks."\n\n<strong>Examiner:</strong> "How important is mentorship in career development?"\n\n<strong>Candidate:</strong> "Very important - mentors provide guidance, share experience, and help navigate career challenges."',
+        instructions: 'Discuss career advice and mentorship importance.',
+        emphasis: 'Use advisory language and professional development terms'
+      },
+      {
+        id: 77,
+        page: 4,
+        category: 'speaking',
+        title: 'Educational Technology',
+        dialogue: '<strong>Examiner:</strong> "How has technology changed education?"\n\n<strong>Candidate:</strong> "It has made learning more accessible, interactive, and personalized through various digital platforms."\n\n<strong>Examiner:</strong> "What technological tools do you find most useful for learning?"\n\n<strong>Candidate:</strong> "Online research databases, educational apps, and video conferencing for remote learning are very helpful."',
+        instructions: 'Discuss technology impact on education and useful tools.',
+        emphasis: 'Use ed-tech vocabulary and tool evaluation language'
+      },
+      {
+        id: 78,
+        page: 4,
+        category: 'speaking',
+        title: 'Workplace Challenges',
+        dialogue: '<strong>Examiner:</strong> "What challenges do people commonly face at work?"\n\n<strong>Candidate:</strong> "Time management, communication issues, and adapting to changing requirements are common challenges."\n\n<strong>Examiner:</strong> "How can these challenges be overcome?"\n\n<strong>Candidate:</strong> "Through better planning, developing soft skills, and maintaining a positive, adaptable mindset."',
+        instructions: 'Discuss workplace challenges and solutions.',
+        emphasis: 'Use problem-solving vocabulary and workplace terminology'
+      },
+      {
+        id: 79,
+        page: 4,
+        category: 'speaking',
+        title: 'Lifelong Learning',
+        dialogue: '<strong>Examiner:</strong> "Why is lifelong learning important in today\'s world?"\n\n<strong>Candidate:</strong> "Rapid technological changes and evolving job markets require continuous skill updates and adaptation."\n\n<strong>Examiner:</strong> "How do you engage in lifelong learning?"\n\n<strong>Candidate:</strong> "Through online courses, professional workshops, reading, and learning from colleagues\' experiences."',
+        instructions: 'Discuss lifelong learning importance and practices.',
+        emphasis: 'Use continuous education vocabulary and personal development terms'
+      },
+      {
+        id: 80,
+        page: 4,
+        category: 'speaking',
+        title: 'Career Success',
+        dialogue: '<strong>Examiner:</strong> "How do you define career success?"\n\n<strong>Candidate:</strong> "For me, it\'s about personal fulfillment, positive impact, and continuous growth rather than just financial achievement."\n\n<strong>Examiner:</strong> "What role does happiness play in career success?"\n\n<strong>Candidate:</strong> "Crucial role - sustainable success requires enjoying what you do and finding meaning in your work."',
+        instructions: 'Discuss career success definitions and happiness role.',
+        emphasis: 'Use success vocabulary and personal fulfillment language'
+      }
+    ];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'ielts_b1_speaking_page4_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('ielts_b1_speaking_page4_answers', JSON.stringify(completionData));
+    }
+    
+    // Speech recognition system (identical to previous pages)
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {};
+    let finalResultTimeout = {};
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      if (wordCount === 0) {
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+      
+      // Store scores in localStorage for results page
+      localStorage.setItem(`ielts_b1_speaking_page4_task${taskIndex}_grammar`, grammarScore);
+      localStorage.setItem(`ielts_b1_speaking_page4_task${taskIndex}_pronunciation`, pronunciationScore);
+      localStorage.setItem(`ielts_b1_speaking_page4_task${taskIndex}_fluency`, fluencyScore);
+      localStorage.setItem(`ielts_b1_speaking_page4_task${taskIndex}_coherence`, coherenceScore);
+
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // Education & Career specific feedback
+        feedbackText += `<br><br><strong>🎯 Education & Career Vocabulary:</strong><br>`;
+        
+        const educationKeywords = ['education', 'learning', 'skills', 'development', 'career', 'professional', 'training', 'knowledge', 'qualifications', 'experience'];
+        const foundKeywords = educationKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Good use of education and career vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more education terms like "skills", "development", "training", "qualifications"<br>`;
+        }
+        
+        // Check for goal-oriented language
+        const goalWords = ['goal', 'aim', 'objective', 'plan', 'strategy', 'target', 'achieve'];
+        const hasGoalLanguage = goalWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasGoalLanguage) {
+          feedbackText += `• Good use of goal-setting and planning language<br>`;
+        } else {
+          feedbackText += `• Include more goal-oriented language when discussing career and education plans<br>`;
+        }
+        
+        // Check for skill development discussion
+        const skillWords = ['improve', 'develop', 'enhance', 'learn', 'practice', 'master'];
+        const hasSkillDevelopment = skillWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasSkillDevelopment) {
+          feedbackText += `• Good focus on skill development and improvement<br>`;
+        } else {
+          feedbackText += `• Discuss specific skills and how to develop them for career advancement<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      if (Object.keys(completed).length === totalTasks) {
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initSpeechRecognition();
+      saveCompletion();
+    });
+  </script>
+</body>
+</html>

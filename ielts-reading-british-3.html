@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="IELTS A2 Reading Practice - British Culture | kamponginggrispare.com">
+  <meta name="keywords" content="IELTS reading, A2 English, British culture, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS A2 Reading - British Culture (3/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="IELTS test title">
+        IELTS A2 Reading Test - British Culture (3/5)
+      </div>
+      <progress id="progressBar" max="1800" value="1800" aria-label="IELTS test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="1800" aria-valuenow="1800"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 30 menit<br />
+        <span id="timeDisplay" style="">0Jam 30Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="ielts-reading-british-4.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "British Music and Arts",
+        text: `Britain has a rich musical heritage with many famous bands and musicians. The Beatles from Liverpool are perhaps the most famous British band, revolutionizing pop music in the 1960s. Other iconic British bands include The Rolling Stones, Queen, and The Who.
+
+In classical music, Britain has produced famous composers like Edward Elgar and Benjamin Britten. The Proms, an eight-week summer season of daily orchestral classical music concerts, is a major British cultural event held at the Royal Albert Hall in London.
+
+British theatre is world-renowned, especially London's West End, which is comparable to Broadway in New York. Shakespeare's plays are regularly performed at the Globe Theatre, a reconstruction of the original Elizabethan theatre.
+
+The UK also has many famous art galleries and museums, most of which offer free admission. The British Museum in London houses a vast collection of world art and artifacts, while the National Gallery displays Western European painting from the 13th to 19th centuries.`,
+        questions: [
+          {
+            id: 1,
+            text: "Which city are The Beatles from?",
+            options: [
+              "London",
+              "Manchester",
+              "Liverpool",
+              "Birmingham"
+            ],
+            correct: 2
+          },
+          {
+            id: 2,
+            text: "What is The Proms?",
+            options: [
+              "A football competition",
+              "A classical music event",
+              "A theatre festival",
+              "An art exhibition"
+            ],
+            correct: 1
+          },
+          {
+            id: 3,
+            text: "Where is London's theatre district?",
+            options: [
+              "East End",
+              "West End",
+              "North End",
+              "South End"
+            ],
+            correct: 1
+          },
+          {
+            id: 4,
+            text: "What can you see at the Globe Theatre?",
+            options: [
+              "Modern plays",
+              "Shakespeare's plays",
+              "Musical concerts",
+              "Art exhibitions"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "What is special about many British museums?",
+            options: [
+              "They are very small",
+              "They charge high fees",
+              "They offer free admission",
+              "They are only open weekends"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "British Shopping Culture",
+        text: `Shopping is a popular activity in Britain, with various options available from large department stores to small independent shops. High streets are found in most towns and cities, featuring a mix of chain stores and local businesses.
+
+Department stores like Harrods and Selfridges in London are famous worldwide. Harrods in Knightsbridge is particularly known for its luxury goods and impressive food halls. These large stores often have multiple floors selling everything from clothing to furniture.
+
+Markets are another important part of British shopping culture. Borough Market in London is famous for food, while Camden Market is known for alternative fashion and crafts. Many towns have regular street markets selling fresh produce, clothing, and household items.
+
+Charity shops are common on British high streets. These shops sell donated second-hand items, with the money raised going to charitable causes. They are popular for finding bargains and are considered environmentally friendly as they promote recycling.`,
+        questions: [
+          {
+            id: 6,
+            text: "What are high streets?",
+            options: [
+              "Mountain roads",
+              "Main shopping streets",
+              "Highway systems",
+              "Shopping malls"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "Which department store is in Knightsbridge?",
+            options: [
+              "Selfridges",
+              "Harrods",
+              "Marks & Spencer",
+              "John Lewis"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What is Borough Market famous for?",
+            options: [
+              "Clothing",
+              "Food",
+              "Antiques",
+              "Books"
+            ],
+            correct: 1
+          },
+          {
+            id: 9,
+            text: "What do charity shops sell?",
+            options: [
+              "New luxury items",
+              "Donated second-hand items",
+              "Only clothes",
+              "Imported goods"
+            ],
+            correct: 1
+          },
+          {
+            id: 10,
+            text: "Why are charity shops considered environmentally friendly?",
+            options: [
+              "They use solar power",
+              "They promote recycling",
+              "They sell organic products",
+              "They are very small"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "British Pub Culture",
+        text: `The pub (public house) is an important part of British culture and social life. Pubs are not just places to drink alcohol but also social centers where people meet friends, eat food, and sometimes play games like darts or pool.
+
+Traditional pubs often have cozy interiors with wooden beams, fireplaces, and comfortable seating. Many serve traditional British food like fish and chips, pies, and Sunday roasts. Some pubs also have beer gardens for outdoor drinking in good weather.
+
+Pubs typically open from around 11 am to 11 pm, though hours can vary. Unlike many countries, in Britain you usually order and pay for drinks at the bar rather than having table service. It's common to tip the bar staff by saying "and one for yourself" meaning they can have a drink too.
+
+The legal drinking age in Britain is 18, and pubs will ask for identification if they think someone looks under 25. Many pubs also host events like quiz nights, live music, or charity fundraisers, making them community hubs.`,
+        questions: [
+          {
+            id: 11,
+            text: "What is a pub?",
+            options: [
+              "A private house",
+              "A public house",
+              "A restaurant",
+              "A hotel"
+            ],
+            correct: 1
+          },
+          {
+            id: 12,
+            text: "What can you do in a pub besides drinking?",
+            options: [
+              "Eat food and socialize",
+              "Watch movies",
+              "Go swimming",
+              "Play football"
+            ],
+            correct: 0
+          },
+          {
+            id: 13,
+            text: "How do you usually order drinks in a British pub?",
+            options: [
+              "At the table",
+              "At the bar",
+              "Through an app",
+              "By shouting"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "What is the legal drinking age in Britain?",
+            options: [
+              "16",
+              "18",
+              "21",
+              "25"
+            ],
+            correct: 1
+          },
+          {
+            id: 15,
+            text: "What events might pubs host?",
+            options: [
+              "Quiz nights and live music",
+              "Sports matches",
+              "Business meetings",
+              "Art classes"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "British Wildlife and Countryside",
+        text: `Despite being a densely populated country, Britain has beautiful countryside and diverse wildlife. The countryside is protected through national parks and areas of outstanding natural beauty. There are 15 national parks in Britain, including the Lake District, Snowdonia, and the Yorkshire Dales.
+
+Common wildlife includes foxes, badgers, deer, and various bird species. Hedgehogs are particularly loved in Britain, though their numbers have been declining. In spring, bluebells create beautiful carpets of blue in woodlands, while daffodils are a common sight in gardens and parks.
+
+The British coastline offers dramatic cliffs, sandy beaches, and coastal paths for walking. The South West Coast Path is England's longest waymarked footpath, running for 630 miles along the coastline.
+
+Country pubs and tea rooms are popular stops for people exploring the countryside. Walking is a favorite British pastime, with many people enjoying weekend walks in the countryside followed by a pub lunch or afternoon tea.`,
+        questions: [
+          {
+            id: 16,
+            text: "How many national parks are there in Britain?",
+            options: [
+              "10",
+              "15",
+              "20",
+              "25"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "Which animal is particularly loved in Britain?",
+            options: [
+              "Fox",
+              "Badger",
+              "Hedgehog",
+              "Deer"
+            ],
+            correct: 2
+          },
+          {
+            id: 18,
+            text: "What flowers create blue carpets in woodlands?",
+            options: [
+              "Daffodils",
+              "Bluebells",
+              "Roses",
+              "Tulips"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "What is the South West Coast Path?",
+            options: [
+              "A road for cars",
+              "A cycling route",
+              "A walking footpath",
+              "A railway line"
+            ],
+            correct: 2
+          },
+          {
+            id: 20,
+            text: "What is a favorite British pastime?",
+            options: [
+              "Swimming",
+              "Walking",
+              "Cycling",
+              "Running"
+            ],
+            correct: 1
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('ielts_british_reading_3_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('ielts_british_reading_3_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('ielts_british_reading_3_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            IELTS A2 Reading - British Culture
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 11-15.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 11}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 11}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 30 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save score with standardized key
+        const storageKey = 'ielts_a2_reading_3_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Academic Listening Script: Research Survey Methodology - Part 3
+
+Professor Martinez: Before we finish, I wanted to ask about pilot testing. Some students seem to think it's optional or just a formality.
+
+Dr. Chen: Oh, pilot testing is absolutely crucial! I always tell students that the best way to pilot test a survey is to use a small representative sample - maybe 5-10% of your intended population. Testing with colleagues only isn't sufficient because they're too familiar with academic language and concepts.
+
+Professor Martinez: Exactly. You need to test with people who match your actual target demographic. I've seen too many surveys fail because researchers assumed their questions were clear when they weren't.
+
+Dr. Chen: What about survey length? I notice students often create surveys that are far too long.
+
+Professor Martinez: That's a critical issue. Research shows that response quality drops significantly after 15-20 minutes. I recommend keeping surveys under 50 questions for most academic purposes, and always include a progress indicator so respondents know how much time they have left.
+
+Dr. Chen: And what about incentives? Do they really improve response rates?
+
+Professor Martinez: They can, but they need to be appropriate for your population. Small monetary incentives or course credit work well for students, but professional populations might respond better to receiving a summary of results.

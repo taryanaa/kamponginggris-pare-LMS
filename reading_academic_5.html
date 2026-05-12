@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEIC Reading Practice - Sustainable Development | kamponginggrispare.com">
+  <meta name="keywords" content="TOEIC reading, academic English, sustainable development, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEIC Reading Practice - Sustainable Development | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Same styles as previous reading pages */
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow: 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: '#10b981'; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; }
+    .reading-content { margin-bottom: 1rem; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+    .reading-content, .question-card { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEIC Reading test title">
+        TOEIC Reading Practice - Sustainable Development (5/5)
+      </div>
+      <progress id="progressBar" max="4500" value="0" aria-label="TOEIC Reading test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="4500" aria-valuenow="0"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 75 menit<br />
+        <span id="timeDisplay" style="">1Jam 15Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="academic-results.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Finish test">
+      Finish Test
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "The Sustainable Development Goals Framework",
+        content: `
+          <p>The United Nations Sustainable Development Goals (SDGs) represent a comprehensive global framework for addressing the world's most pressing challenges by 2030. Adopted by all UN member states in 2015, the 17 goals integrate economic, social, and environmental dimensions of sustainable development, recognizing their interdependence.</p>
+          
+          <p>The SDGs build upon the earlier Millennium Development Goals but incorporate several significant advancements. They apply universally to all countries, not just developing nations, and emphasize the interconnectedness of different development challenges. Goal 13 (Climate Action), for example, directly relates to Goal 2 (Zero Hunger) through climate impacts on agricultural productivity, and to Goal 6 (Clean Water and Sanitation) through changing precipitation patterns.</p>
+          
+          <p>Implementation progress has been mixed across different goals and regions. Significant advances have been made in reducing extreme poverty (Goal 1), with the global poverty rate falling from 10.1% in 2015 to 8.6% in 2018. However, progress on climate action (Goal 13) and reducing inequality (Goal 10) has been insufficient, with CO2 emissions continuing to rise and income inequality increasing in many countries.</p>
+          
+          <p>The COVID-19 pandemic reversed progress on several goals, particularly those related to poverty, health, and education. An additional 119-124 million people were pushed back into extreme poverty in 2020, while disruptions to health services threatened decades of progress in reducing child mortality and improving maternal health.</p>
+        `,
+        questions: [
+          {
+            id: 1,
+            text: "How many Sustainable Development Goals are there?",
+            options: [
+              "15 goals",
+              "16 goals",
+              "17 goals",
+              "18 goals"
+            ],
+            correct: 2
+          },
+          {
+            id: 2,
+            text: "When were the SDGs adopted by UN member states?",
+            options: [
+              "2010",
+              "2015",
+              "2020",
+              "2025"
+            ],
+            correct: 1
+          },
+          {
+            id: 3,
+            text: "What was the global poverty rate in 2018?",
+            options: [
+              "6.8%",
+              "7.6%",
+              "8.6%",
+              "9.6%"
+            ],
+            correct: 2
+          },
+          {
+            id: 4,
+            text: "Which goal is specifically mentioned as relating to climate impacts on agriculture?",
+            options: [
+              "Goal 1 and Goal 2",
+              "Goal 2 and Goal 13",
+              "Goal 6 and Goal 13",
+              "Goal 7 and Goal 13"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "How many additional people were pushed into extreme poverty in 2020?",
+            options: [
+              "80-90 million",
+              "100-110 million",
+              "119-124 million",
+              "130-140 million"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Circular Economy Principles",
+        content: `
+          <p>The circular economy represents a fundamental shift from the traditional linear "take-make-dispose" model to a system that eliminates waste and circulates resources. This approach aims to decouple economic growth from resource consumption and environmental degradation through innovative business models and design principles.</p>
+          
+          <p>Core circular economy strategies include designing out waste and pollution, keeping products and materials in use, and regenerating natural systems. Companies adopting circular principles have demonstrated significant economic benefits, with studies showing potential cost savings of 20-30% on materials for manufacturers and 5-10% increases in revenue through circular business models.</p>
+          
+          <p>The Ellen MacArthur Foundation estimates that transitioning to a circular economy could generate $4.5 trillion in economic benefits by 2030. In the European Union alone, implementing circular economy principles could create 700,000 new jobs while reducing greenhouse gas emissions by 48% by 2030 compared to 2012 levels.</p>
+          
+          <p>Successful circular economy initiatives span multiple sectors. In the fashion industry, clothing rental and resale markets are growing 20 times faster than traditional retail. In electronics, manufacturers are increasingly designing products for disassembly and implementing take-back programs that recover valuable materials like gold, silver, and rare earth elements.</p>
+        `,
+        questions: [
+          {
+            id: 6,
+            text: "What is the main concept discussed in this passage?",
+            options: [
+              "Linear economic models",
+              "Circular economy principles",
+              "Traditional manufacturing",
+              "Environmental regulations"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "What potential cost savings can manufacturers achieve through circular principles?",
+            options: [
+              "10-20% on materials",
+              "20-30% on materials",
+              "30-40% on materials",
+              "40-50% on materials"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What economic benefits could the circular economy generate by 2030?",
+            options: [
+              "$2.5 trillion",
+              "$3.5 trillion",
+              "$4.5 trillion",
+              "$5.5 trillion"
+            ],
+            correct: 2
+          },
+          {
+            id: 9,
+            text: "How many new jobs could the circular economy create in the EU?",
+            options: [
+              "500,000 jobs",
+              "600,000 jobs",
+              "700,000 jobs",
+              "800,000 jobs"
+            ],
+            correct: 2
+          },
+          {
+            id: 10,
+            text: "How much faster is clothing rental growing compared to traditional retail?",
+            options: [
+              "10 times faster",
+              "15 times faster",
+              "20 times faster",
+              "25 times faster"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Sustainable Urban Development",
+        content: `
+          <p>Sustainable urban development addresses the environmental, social, and economic challenges of rapidly growing cities, which currently house 55% of the world's population and are projected to accommodate 68% by 2050. This approach integrates compact urban form, efficient resource use, and inclusive planning to create livable, resilient cities.</p>
+          
+          <p>Transit-oriented development (TOD) has emerged as a key strategy for reducing urban carbon footprints while improving quality of life. Cities implementing TOD principles have demonstrated 20-40% reductions in per capita transportation emissions compared to conventional suburban development patterns. Copenhagen's finger plan, which concentrates development along public transit corridors, has enabled 45% of residents to commute by bicycle despite the city's northern climate.</p>
+          
+          <p>Green building standards have transformed urban construction practices. LEED-certified buildings consume 25% less energy and 11% less water than conventional buildings, while generating 34% lower greenhouse gas emissions. The widespread adoption of these standards has created a $100 billion global market for green building products and services.</p>
+          
+          <p>Urban agriculture and green infrastructure provide multiple sustainability benefits. Rooftop farms and community gardens can supply 15-20% of a city's vegetable consumption while reducing the urban heat island effect and managing stormwater. Singapore's ambitious "Garden City" vision aims to increase green cover from 47% to 70% by 2030, integrating nature throughout the urban fabric.</p>
+        `,
+        questions: [
+          {
+            id: 11,
+            text: "What percentage of the world's population lives in cities currently?",
+            options: [
+              "45%",
+              "50%",
+              "55%",
+              "60%"
+            ],
+            correct: 2
+          },
+          {
+            id: 12,
+            text: "What emission reductions can transit-oriented development achieve?",
+            options: [
+              "10-30% per capita",
+              "20-40% per capita",
+              "30-50% per capita",
+              "40-60% per capita"
+            ],
+            correct: 1
+          },
+          {
+            id: 13,
+            text: "How much less energy do LEED-certified buildings consume?",
+            options: [
+              "20% less energy",
+              "25% less energy",
+              "30% less energy",
+              "35% less energy"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "What is the global market size for green building products?",
+            options: [
+              "$75 billion",
+              "$100 billion",
+              "$125 billion",
+              "$150 billion"
+            ],
+            correct: 1
+          },
+          {
+            id: 15,
+            text: "What percentage of vegetable consumption can urban agriculture supply?",
+            options: [
+              "10-15%",
+              "15-20%",
+              "20-25%",
+              "25-30%"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Corporate Sustainability Reporting",
+        content: `
+          <p>Corporate sustainability reporting has evolved from voluntary environmental disclosures to comprehensive frameworks that integrate environmental, social, and governance (ESG) factors into mainstream financial reporting. This transformation reflects growing recognition that sustainability performance directly impacts long-term financial viability and risk management.</p>
+          
+          <p>The Global Reporting Initiative (GRI) remains the most widely adopted sustainability reporting framework, used by 75% of the world's largest 250 corporations. However, convergence toward integrated reporting that combines financial and sustainability information is accelerating, with 90% of S&P 500 companies now publishing sustainability reports compared to just 20% in 2011.</p>
+          
+          <p>Regulatory mandates are driving increased standardization and comparability of sustainability disclosures. The European Union's Sustainable Finance Disclosure Regulation (SFDR) requires financial market participants to disclose sustainability risks and impacts, while the proposed Corporate Sustainability Reporting Directive (CSRD) will extend mandatory ESG reporting to approximately 50,000 companies.</p>
+          
+          <p>Investor demand for ESG information continues to grow, with sustainable investment assets reaching $35.3 trillion in major markets in 2020, representing 36% of all professionally managed assets. Companies with strong ESG performance demonstrate lower capital costs and reduced volatility, with high-ESG-rated companies showing 25% lower stock price volatility during market downturns.</p>
+        `,
+        questions: [
+          {
+            id: 16,
+            text: "What does ESG stand for in corporate reporting?",
+            options: [
+              "Environmental, Social, Governance",
+              "Economic, Sustainable, Global",
+              "Enterprise, Strategy, Growth",
+              "Efficiency, Standards, Guidelines"
+            ],
+            correct: 0
+          },
+          {
+            id: 17,
+            text: "What percentage of the world's largest corporations use GRI reporting?",
+            options: [
+              "65%",
+              "70%",
+              "75%",
+              "80%"
+            ],
+            correct: 2
+          },
+          {
+            id: 18,
+            text: "What percentage of S&P 500 companies publish sustainability reports?",
+            options: [
+              "75%",
+              "80%",
+              "85%",
+              "90%"
+            ],
+            correct: 3
+          },
+          {
+            id: 19,
+            text: "How many companies will be covered by the EU's CSRD?",
+            options: [
+              "30,000 companies",
+              "40,000 companies",
+              "50,000 companies",
+              "60,000 companies"
+            ],
+            correct: 2
+          },
+          {
+            id: 20,
+            text: "What was the value of sustainable investment assets in 2020?",
+            options: [
+              "$25.3 trillion",
+              "$30.3 trillion",
+              "$35.3 trillion",
+              "$40.3 trillion"
+            ],
+            correct: 2
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('toeic_academic_reading_5_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('toeic_academic_reading_5_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toeic_academic_reading_5_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEIC Reading Comprehension - Sustainable Development (B2)
+          </p>
+          <p class="text-center mb-3">
+            Read the following academic passage and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-content">
+            ${reading.content}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-sm font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    // Validation functions
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 75 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    // Save answers to localStorage when Next button is clicked
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      // Only save if all questions are answered
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save to localStorage with page-specific key
+        const pageNum = window.location.pathname.match(/reading_academic_(\d+)\.html/)[1];
+        const storageKey = pageNum === '1' ? 'academic_reading_1-1_answers' : `academic_reading_1-${pageNum}_answers`;
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+</script>
+</body>
+</html>

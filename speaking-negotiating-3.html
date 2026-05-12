@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Speaking - Negotiating Skills - Page 3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        Business Speaking - Negotiating Skills - Page 3/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="speaking-negotiating-4.html" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    // All 20 tasks
+    const allTasks = [
+  {
+    id: 41,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Annual Marketing',
+    dialogue: '<strong>Manager:</strong> \"The proposed Annual Marketing budget of $500K exceeds our allocation. We need to bring it down to $450K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could reduce channels or focus on digital to meet $450K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With focus on digital, we maintain quality on essentials while staying within $450K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 42,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - IT Upgrade',
+    dialogue: '<strong>Manager:</strong> \"The proposed IT Upgrade budget of $200K exceeds our allocation. We need to bring it down to $175K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could phased approach or essential systems to meet $175K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With essential systems, we maintain quality on essentials while staying within $175K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 43,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Office Renovation',
+    dialogue: '<strong>Manager:</strong> \"The proposed Office Renovation budget of $150K exceeds our allocation. We need to bring it down to $130K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could standard materials or key areas only to meet $130K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With key areas only, we maintain quality on essentials while staying within $130K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 44,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Training Budget',
+    dialogue: '<strong>Manager:</strong> \"The proposed Training Budget budget of $80K exceeds our allocation. We need to bring it down to $70K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could online courses or core competencies to meet $70K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With core competencies, we maintain quality on essentials while staying within $70K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 45,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Research Project',
+    dialogue: '<strong>Manager:</strong> \"The proposed Research Project budget of $300K exceeds our allocation. We need to bring it down to $260K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could smaller sample or focused objectives to meet $260K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With focused objectives, we maintain quality on essentials while staying within $260K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 46,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Event Budget',
+    dialogue: '<strong>Manager:</strong> \"The proposed Event Budget budget of $100K exceeds our allocation. We need to bring it down to $85K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could venue change or streamlined program to meet $85K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With streamlined program, we maintain quality on essentials while staying within $85K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 47,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Consulting Fees',
+    dialogue: '<strong>Manager:</strong> \"The proposed Consulting Fees budget of $250K exceeds our allocation. We need to bring it down to $220K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could junior consultants or defined scope to meet $220K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With defined scope, we maintain quality on essentials while staying within $220K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 48,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Software Licenses',
+    dialogue: '<strong>Manager:</strong> \"The proposed Software Licenses budget of $120K exceeds our allocation. We need to bring it down to $105K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could fewer users or essential features to meet $105K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With essential features, we maintain quality on essentials while staying within $105K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 49,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Equipment Purchase',
+    dialogue: '<strong>Manager:</strong> \"The proposed Equipment Purchase budget of $180K exceeds our allocation. We need to bring it down to $160K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could refurbished items or priority equipment to meet $160K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With priority equipment, we maintain quality on essentials while staying within $160K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 50,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Travel Budget',
+    dialogue: '<strong>Manager:</strong> \"The proposed Travel Budget budget of $90K exceeds our allocation. We need to bring it down to $75K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could economy class or essential trips to meet $75K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With essential trips, we maintain quality on essentials while staying within $75K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 51,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Advertising Campaign',
+    dialogue: '<strong>Manager:</strong> \"The proposed Advertising Campaign budget of $400K exceeds our allocation. We need to bring it down to $350K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could fewer platforms or targeted approach to meet $350K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With targeted approach, we maintain quality on essentials while staying within $350K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 52,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Security System',
+    dialogue: '<strong>Manager:</strong> \"The proposed Security System budget of $160K exceeds our allocation. We need to bring it down to $140K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could basic features or critical areas to meet $140K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With critical areas, we maintain quality on essentials while staying within $140K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 53,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Website Development',
+    dialogue: '<strong>Manager:</strong> \"The proposed Website Development budget of $70K exceeds our allocation. We need to bring it down to $60K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could template use or core functionality to meet $60K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With core functionality, we maintain quality on essentials while staying within $60K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 54,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Legal Services',
+    dialogue: '<strong>Manager:</strong> \"The proposed Legal Services budget of $110K exceeds our allocation. We need to bring it down to $95K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could fixed scope or preventive focus to meet $95K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With preventive focus, we maintain quality on essentials while staying within $95K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 55,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Recruitment',
+    dialogue: '<strong>Manager:</strong> \"The proposed Recruitment budget of $50K exceeds our allocation. We need to bring it down to $42K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could internal sourcing or key positions to meet $42K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With key positions, we maintain quality on essentials while staying within $42K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 56,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Insurance Premium',
+    dialogue: '<strong>Manager:</strong> \"The proposed Insurance Premium budget of $85K exceeds our allocation. We need to bring it down to $75K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could higher deductible or essential coverage to meet $75K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With essential coverage, we maintain quality on essentials while staying within $75K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 57,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Maintenance Contract',
+    dialogue: '<strong>Manager:</strong> \"The proposed Maintenance Contract budget of $95K exceeds our allocation. We need to bring it down to $82K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could quarterly service or critical equipment to meet $82K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With critical equipment, we maintain quality on essentials while staying within $82K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 58,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Professional Development',
+    dialogue: '<strong>Manager:</strong> \"The proposed Professional Development budget of $60K exceeds our allocation. We need to bring it down to $52K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could group training or priority skills to meet $52K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With priority skills, we maintain quality on essentials while staying within $52K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 59,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Quality Control',
+    dialogue: '<strong>Manager:</strong> \"The proposed Quality Control budget of $75K exceeds our allocation. We need to bring it down to $65K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could sampling approach or high-risk areas to meet $65K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With high-risk areas, we maintain quality on essentials while staying within $65K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  },
+  {
+    id: 60,
+    page: 3,
+    category: 'negotiating',
+    title: 'Budget Negotiation - Sustainability Initiative',
+    dialogue: '<strong>Manager:</strong> \"The proposed Sustainability Initiative budget of $130K exceeds our allocation. We need to bring it down to $115K.\"\n\n<strong>Vendor:</strong> \"I understand the constraint. We could pilot program or quick wins to meet $115K.\"\n\n<strong>Manager:</strong> \"The second option aligns better with our priorities. What\'s the trade-off?\"\n\n<strong>Vendor:</strong> \"With quick wins, we maintain quality on essentials while staying within $115K. We can expand later if needed.\"\n',
+    instructions: 'Read this budget negotiation. Emphasize cost-consciousness and value.',
+    emphasis: 'Show understanding of financial constraints'
+  }
+];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'business_negotiating_page3_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('business_negotiating_page3_answers', JSON.stringify(completionData));
+      console.log('Saved completion:', completionData);
+    }
+    
+    // Speech recognition
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {}; // Track if waiting for final transcript
+    let finalResultTimeout = {}; // Timeout for final result
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          // Accumulate final transcripts
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          // If waiting for final result and got one, proceed with feedback
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            console.log('Final result received for task', currentTask);
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        // Still mark as complete for testing
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      // Stop other recordings
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        // Auto-stop after 2 minutes
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      // Periksa apakah ada transcript yang valid
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      // Jika tidak ada speech yang berarti, langsung proses feedback
+      if (wordCount === 0) {
+        console.log('No substantial speech detected, proceeding directly to feedback');
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      // Tunggu hasil final dengan timeout yang lebih pendek
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        console.log('Processing timeout reached for task', taskIndex);
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      // Add small delay to ensure UI updates
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      // Analisis transcript yang lebih akurat
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      console.log(`Task ${taskIndex} - Words: ${wordCount}, Sentences: ${sentenceCount}, AvgWordLen: ${avgWordLength.toFixed(1)}`);
+
+      // Scoring yang lebih realistis berdasarkan konten
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        // Tidak ada speech yang terdeteksi
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        // Speech sangat minimal
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        // Scoring normal berdasarkan kualitas dan kuantitas speech
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        // Grammar: berdasarkan variasi struktur kalimat
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        // Pronunciation: estimasi berdasarkan panjang kata rata-rata dan variasi
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        // Fluency: berdasarkan rasio kata per kalimat
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        // Coherence: berdasarkan kompleksitas respons
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      // Terapkan scores
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+
+      // Feedback detail yang lebih spesifik
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // Tambahkan feedback spesifik untuk negotiation
+        feedbackText += `<br><br><strong>🎯 Negotiation Focus:</strong><br>`;
+        
+        // Analisis kata kunci negotiation
+        const negotiationKeywords = ['discuss', 'options', 'reasonable', 'partnership', 'adjust', 'terms', 'budget', 'proposal', 'concern', 'quality', 'service'];
+        const foundKeywords = negotiationKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Good use of negotiation vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more negotiation terms like "discuss options", "reasonable", "partnership"<br>`;
+        }
+        
+        // Check for polite language
+        const politeWords = ['thank', 'please', 'could', 'would', 'appreciate'];
+        const hasPoliteLanguage = politeWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasPoliteLanguage) {
+          feedbackText += `• Appropriate polite business language<br>`;
+        } else {
+          feedbackText += `• Add polite phrases like "Thank you", "Could we", "I appreciate"<br>`;
+        }
+        
+        // Check for problem-solving approach
+        const solutionWords = ['solution', 'option', 'alternative', 'adjust', 'flexible'];
+        const hasSolutions = solutionWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasSolutions) {
+          feedbackText += `• Good focus on finding solutions<br>`;
+        } else {
+          feedbackText += `• Emphasize finding mutually beneficial solutions<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      // Update next button jika semua task selesai
+      if (Object.keys(completed).length === totalTasks) {
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initSpeechRecognition();
+      saveCompletion(); // Initialize storage
+    });
+  </script>
+</body>
+</html>

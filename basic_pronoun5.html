@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Basic English Pronunciation Practice | kamponginggrispare.com">
+  <meta name="keywords" content="basic english, pronunciation practice, english test">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basic English - Pronunciation (5/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .pronunciation-word { font-size: 1.25rem; font-weight: bold; text-align: center; margin: 1rem 0; color: #1e293b; }
+    .pronunciation-audio { background: #f8fafc; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; text-align: center; }
+    .audio-btn { background: #3b82f6; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.375rem; cursor: pointer; font-weight: 600; margin: 0.5rem; }
+    .audio-btn:hover { background: #2563eb; }
+    .audio-btn:disabled { background: #94a3b8; cursor: not-allowed; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold">
+        Basic English - Pronunciation Test (5/5)
+      </div>
+      <progress id="progressBar" max="1800" value="1800"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" id="countdownText">
+        Duration 30 minutes<br />
+        <span id="timeDisplay">0Hours 30Minutes 0Seconds</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" id="mainCard">
+      
+    </section>
+    
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="basic_reading1.html" id="nextBtn" class="btn-animate inline-block text-center">
+      Next Test
+    </a>
+  </div>
+
+  <script>
+    const pronunciationData = [
+      {
+        id: 11,
+        title: "Advanced Pronunciation Patterns",
+        words: [
+          { word: "entrepreneur", correct: 0 },
+          { word: "mischievous", correct: 1 },
+          { word: "epitome", correct: 2 },
+          { word: "quinoa", correct: 3 }
+        ],
+        questions: [
+          {
+            id: 81,
+            text: "How many syllables are in 'entrepreneur'?",
+            options: ["3", "4", "5", "6"],
+            correct: 1
+          },
+          {
+            id: 82,
+            text: "Which syllable is stressed in 'mischievous'?",
+            options: ["First", "Second", "Third", "Fourth"],
+            correct: 0
+          },
+          {
+            id: 83,
+            text: "How is 'epitome' pronounced?",
+            options: ["eh-PIT-oh-mee", "EP-i-tome", "epi-TOME", "e-PIT-o-me"],
+            correct: 0
+          },
+          {
+            id: 84,
+            text: "How is 'quinoa' pronounced?",
+            options: ["KEEN-wah", "kwin-OH-ah", "KWI-no-ah", "kee-NO-ah"],
+            correct: 0
+          },
+          {
+            id: 85,
+            text: "Which word is stressed on the second syllable?",
+            options: ["DEvelop", "deCIDE", "MANage", "BEgin"],
+            correct: 1
+          },
+          {
+            id: 86,
+            text: "Which word has the 'sh' sound?",
+            options: ["conscious", "anxious", "ocean", "all of them"],
+            correct: 3
+          },
+          {
+            id: 87,
+            text: "Which word rhymes with 'cough'?",
+            options: ["through", "tough", "though", "bough"],
+            correct: 1
+          },
+          {
+            id: 88,
+            text: "Which word has a silent 'g'?",
+            options: ["gnome", "sign", "foreign", "all of them"],
+            correct: 3
+          },
+          {
+            id: 89,
+            text: "Which word is pronounced with three syllables?",
+            options: ["interesting", "chocolate", "vegetable", "all of them"],
+            correct: 3
+          },
+          {
+            id: 90,
+            text: "Which word has the same vowel sound as 'bird'?",
+            options: ["beard", "heard", "weird", "cared"],
+            correct: 1
+          },
+          {
+            id: 91,
+            text: "Which word is commonly mispronounced?",
+            options: ["nuclear", "library", "February", "all of them"],
+            correct: 3
+          },
+          {
+            id: 92,
+            text: "Which word has the 'zh' sound?",
+            options: ["pleasure", "measure", "treasure", "all of them"],
+            correct: 3
+          },
+          {
+            id: 93,
+            text: "Which word is stressed on the first syllable?",
+            options: ["phoTOgraphy", "ecoNOMic", "MANagement", "deVELopment"],
+            correct: 2
+          },
+          {
+            id: 94,
+            text: "Which word has a different vowel sound?",
+            options: ["bear", "bare", "beer", "pair"],
+            correct: 2
+          },
+          {
+            id: 95,
+            text: "Which word has the most silent letters?",
+            options: ["knight", "psychology", "Wednesday", "island"],
+            correct: 2
+          },
+          {
+            id: 96,
+            text: "Which word rhymes with 'laughter'?",
+            options: ["daughter", "slaughter", "after", "all of them"],
+            correct: 3
+          },
+          {
+            id: 97,
+            text: "Which word has the 'kw' sound?",
+            options: ["queen", "quick", "question", "all of them"],
+            correct: 3
+          },
+          {
+            id: 98,
+            text: "Which word is pronounced with a silent 'r'?",
+            options: ["car", "far", "bird", "none of them"],
+            correct: 3
+          },
+          {
+            id: 99,
+            text: "Which word has the same ending sound as 'orange'?",
+            options: ["strange", "range", "change", "all of them"],
+            correct: 3
+          },
+          {
+            id: 100,
+            text: "Which word is the most challenging to pronounce?",
+            options: ["entrepreneur", "mischievous", "epitome", "quinoa"],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 12,
+        title: "Final Pronunciation Review",
+        words: [
+          { word: "anemone", correct: 0 },
+          { word: "squirrel", correct: 1 },
+          { word: "rural", correct: 2 },
+          { word: "sixth", correct: 3 }
+        ],
+        questions: [
+          {
+            id: 101,
+            text: "How many syllables are in 'anemone'?",
+            options: ["3", "4", "5", "6"],
+            correct: 1
+          },
+          {
+            id: 102,
+            text: "Which syllable is stressed in 'squirrel'?",
+            options: ["First", "Second", "Both", "Neither"],
+            correct: 0
+          },
+          {
+            id: 103,
+            text: "How is 'rural' pronounced?",
+            options: ["ROO-ral", "RUR-al", "ru-RAL", "RURAL"],
+            correct: 1
+          },
+          {
+            id: 104,
+            text: "How is 'sixth' pronounced?",
+            options: ["siksth", "sikth", "sixth", "sisth"],
+            correct: 0
+          },
+          {
+            id: 105,
+            text: "Which word is often considered difficult to pronounce?",
+            options: ["rural", "squirrel", "anemone", "all of them"],
+            correct: 3
+          },
+          {
+            id: 106,
+            text: "Which word has a silent letter?",
+            options: "anemone",
+            options: ["anemone", "squirrel", "rural", "sixth"],
+            correct: 0
+          },
+          {
+            id: 107,
+            text: "Which word has the 'skw' sound?",
+            options: ["squirrel", "square", "squid", "all of them"],
+            correct: 3
+          },
+          {
+            id: 108,
+            text: "Which word rhymes with 'journal'?",
+            options: ["rural", "coral", "moral", "none of them"],
+            correct: 3
+          },
+          {
+            id: 109,
+            text: "Which word has the most consonant clusters?",
+            options: ["sixth", "rural", "squirrel", "anemone"],
+            correct: 0
+          },
+          {
+            id: 110,
+            text: "Which word is stressed on the second syllable?",
+            options: ["ANemone", "squirREL", "RUral", "SIXTH"],
+            correct: 0
+          },
+          {
+            id: 111,
+            text: "Which word has the same vowel sound as 'bird'?",
+            options: ["squirrel", "rural", "anemone", "sixth"],
+            correct: 0
+          },
+          {
+            id: 112,
+            text: "Which word is commonly mispronounced by non-native speakers?",
+            options: ["rural", "squirrel", "sixth", "all of them"],
+            correct: 3
+          },
+          {
+            id: 113,
+            text: "Which word has the 'ks' sound?",
+            options: ["sixth", "box", "tax", "all of them"],
+            correct: 3
+          },
+          {
+            id: 114,
+            text: "Which word has three syllables?",
+            options: ["anemone", "squirrel", "rural", "sixth"],
+            correct: 0
+          },
+          {
+            id: 115,
+            text: "Which word is the most challenging for pronunciation?",
+            options: ["rural", "squirrel", "anemone", "sixth"],
+            correct: 0
+          },
+          {
+            id: 116,
+            text: "Which word has a silent 'e'?",
+            options: ["anemone", "squirrel", "rural", "sixth"],
+            correct: 0
+          },
+          {
+            id: 117,
+            text: "Which word rhymes with 'circle'?",
+            options: ["squirrel", "rural", "anemone", "sixth"],
+            correct: 0
+          },
+          {
+            id: 118,
+            text: "Which word has the 'r' sound repeated?",
+            options: ["rural", "squirrel", "anemone", "sixth"],
+            correct: 0
+          },
+          {
+            id: 119,
+            text: "Which word is often shortened in casual speech?",
+            options: ["anemone", "squirrel", "rural", "sixth"],
+            correct: 3
+          },
+          {
+            id: 120,
+            text: "Which word completes this tongue twister: 'The ___ ___ ran around the ___ area'?",
+            options: ["sixth sick sheik's", "sixth sheep's sixth", "sick sixth sheik's", "sheep's sixth sick"],
+            correct: 0
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedPronunciation = localStorage.getItem('basic_english_pronoun_5_selected');
+      
+      let selectedPronunciation;
+      if (storedPronunciation) {
+        selectedPronunciation = pronunciationData.find(pronunciation => pronunciation.id === parseInt(storedPronunciation));
+      } else {
+        const randomPronunciationIndex = Math.floor(Math.random() * pronunciationData.length);
+        selectedPronunciation = pronunciationData[randomPronunciationIndex];
+        localStorage.setItem('basic_english_pronoun_5_selected', selectedPronunciation.id.toString());
+      }
+      
+      displayPronunciation(selectedPronunciation);
+      const selectedQuestions = selectRandomQuestions(selectedPronunciation.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('basic_english_pronoun_5_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayPronunciation(pronunciation) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const pronunciationElement = document.createElement('div');
+      pronunciationElement.className = 'pronunciation-selection';
+      pronunciationElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            Basic English Pronunciation Test
+          </p>
+          <p class="text-center mb-3">
+            Listen to the words and answer questions 1-5.
+          </p>
+          <p class="font-bold mb-2">${pronunciation.title}</p>
+          
+          <div class="pronunciation-words">
+            ${pronunciation.words.map((wordObj, index) => `
+              <div class="pronunciation-item mb-4">
+                <div class="pronunciation-word">${wordObj.word}</div>
+                <div class="pronunciation-audio">
+                  <button class="audio-btn play-word-btn" data-word="${wordObj.word}">
+                    <i class="fas fa-volume-up mr-2"></i>Listen to "${wordObj.word}"
+                  </button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          
+          <div class="text-sm text-gray-600 text-center">
+            <p><strong>Instructions:</strong> Click the buttons to hear each word pronounced. Pay attention to silent letters and stress patterns.</p>
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(pronunciationElement);
+      
+      // Initialize audio functionality
+      initializeWordAudio();
+    }
+
+    function initializeWordAudio() {
+      const playButtons = document.querySelectorAll('.play-word-btn');
+      
+      playButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const word = this.getAttribute('data-word');
+          speakWord(word);
+        });
+      });
+    }
+
+    function speakWord(word) {
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.rate = 0.8;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+      utterance.lang = 'en-US';
+      
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 30 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Hours ${minutes}Minutes ${seconds}Seconds`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        localStorage.setItem('basic_english_pronoun_5_answers', JSON.stringify({ correct, total }));
+        
+        calculateTotalScore();
+      }
+    });
+
+    function calculateTotalScore() {
+      let totalCorrect = 0;
+      let totalQuestions = 0;
+      
+      for (let i = 1; i <= 5; i++) {
+        const stored = localStorage.getItem(`basic_english_pronoun_${i}_answers`);
+        if (stored) {
+          const result = JSON.parse(stored);
+          totalCorrect += result.correct;
+          totalQuestions += result.total;
+        }
+      }
+      
+      localStorage.setItem('basic_english_pronoun_final_score', JSON.stringify({
+        correct: totalCorrect,
+        total: totalQuestions,
+        percentage: Math.round((totalCorrect / totalQuestions) * 100)
+      }));
+    }
+  </script>
+</body>
+</html>

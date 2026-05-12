@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="IELTS A2 Reading Practice - British Culture | kamponginggrispare.com">
+  <meta name="keywords" content="IELTS reading, A2 English, British culture, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS A2 Reading - British Culture (2/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="IELTS test title">
+        IELTS A2 Reading Test - British Culture (2/5)
+      </div>
+      <progress id="progressBar" max="1800" value="1800" aria-label="IELTS test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="1800" aria-valuenow="1800"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 30 menit<br />
+        <span id="timeDisplay" style="">0Jam 30Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="ielts-reading-british-3.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "British Weather and Climate",
+        text: `British weather is famous for being changeable and often rainy. The climate in Britain is temperate maritime, which means it is generally mild with cool winters and warm summers. However, the weather can change quickly throughout the day.
+
+Rain is common throughout the year, but especially in autumn and winter. The west of Britain tends to be wetter than the east. Snow is not very common in most parts of Britain, especially in southern areas. When it does snow, it often causes disruption to transport.
+
+British people often talk about the weather because it changes so frequently. It's common to experience sunshine, rain, and clouds all in one day. This changeable weather has influenced British culture and habits. Many British people carry umbrellas with them, just in case it rains.
+
+Despite the reputation for bad weather, Britain has beautiful sunny days too, especially in spring and summer. The summer months from June to August are generally the warmest and sunniest, with temperatures averaging around 20°C.`,
+        questions: [
+          {
+            id: 1,
+            text: "What is British weather famous for?",
+            options: [
+              "Being always sunny",
+              "Being changeable and rainy",
+              "Being very cold",
+              "Being very hot"
+            ],
+            correct: 1
+          },
+          {
+            id: 2,
+            text: "When is rain especially common in Britain?",
+            options: [
+              "Only in summer",
+              "In autumn and winter",
+              "Only in spring",
+              "Never in winter"
+            ],
+            correct: 1
+          },
+          {
+            id: 3,
+            text: "Which part of Britain is wetter?",
+            options: [
+              "The east",
+              "The west",
+              "The north",
+              "The south"
+            ],
+            correct: 1
+          },
+          {
+            id: 4,
+            text: "What do many British people carry with them?",
+            options: [
+              "Sunglasses",
+              "Umbrellas",
+              "Winter coats",
+              "Fans"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "What are the warmest months in Britain?",
+            options: [
+              "December to February",
+              "March to May",
+              "June to August",
+              "September to November"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "British Transport System",
+        text: `Britain has an extensive transport system that includes trains, buses, and the London Underground. The railway network covers most of the country, connecting cities and towns. Train travel is popular for longer journeys, though it can be expensive.
+
+The London Underground, also known as the Tube, is the world's oldest underground railway system. It opened in 1863 and now has 11 lines serving 272 stations. The Tube is an efficient way to travel around London, though it can be very crowded during rush hours.
+
+Red double-decker buses are iconic symbols of London. They operate throughout the city and are a popular way for both tourists and locals to get around. Many other cities in Britain also have bus systems that serve local communities.
+
+For longer distances, Britain has motorways and A-roads that connect different parts of the country. Driving is on the left-hand side of the road in Britain, which can be confusing for visitors from countries that drive on the right.`,
+        questions: [
+          {
+            id: 6,
+            text: "What is the London Underground also called?",
+            options: [
+              "The Metro",
+              "The Subway",
+              "The Tube",
+              "The Underground Railway"
+            ],
+            correct: 2
+          },
+          {
+            id: 7,
+            text: "When did the London Underground open?",
+            options: [
+              "1900",
+              "1863",
+              "1920",
+              "1950"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What are the iconic red buses in London called?",
+            options: [
+              "Single-decker buses",
+              "Double-decker buses",
+              "Tourist buses",
+              "City buses"
+            ],
+            correct: 1
+          },
+          {
+            id: 9,
+            text: "Which side of the road do British people drive on?",
+            options: [
+              "The right side",
+              "The left side",
+              "The middle",
+              "It depends on the city"
+            ],
+            correct: 1
+          },
+          {
+            id: 10,
+            text: "What is mentioned about train travel in Britain?",
+            options: [
+              "It is always cheap",
+              "It can be expensive",
+              "It is not available",
+              "It is only for tourists"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "British Sports and Leisure",
+        text: `Sports play an important role in British culture. Football (soccer) is the most popular sport in Britain. The English Premier League is one of the most famous football leagues in the world. Many British people support local football teams and watch matches on weekends.
+
+Cricket is another traditional British sport, especially popular in summer. Matches can last for several days in the longer format of the game. Rugby is also popular, with two main forms: rugby union and rugby league.
+
+Tennis is famous because of the Wimbledon Championships, which take place in London every summer. Wimbledon is the oldest tennis tournament in the world and is known for its traditions, such as players wearing white and eating strawberries and cream.
+
+Besides watching sports, many British people enjoy participating in activities like walking, cycling, and going to the gym. Parks are popular places for relaxation and exercise, especially in cities where green spaces provide a break from urban life.`,
+        questions: [
+          {
+            id: 11,
+            text: "What is the most popular sport in Britain?",
+            options: [
+              "Cricket",
+              "Football",
+              "Tennis",
+              "Rugby"
+            ],
+            correct: 1
+          },
+          {
+            id: 12,
+            text: "When is cricket especially popular?",
+            options: [
+              "In winter",
+              "In summer",
+              "In spring",
+              "All year round"
+            ],
+            correct: 1
+          },
+          {
+            id: 13,
+            text: "What is Wimbledon?",
+            options: [
+              "A football stadium",
+              "A tennis tournament",
+              "A cricket ground",
+              "A rugby field"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "What color do players wear at Wimbledon?",
+            options: [
+              "Blue",
+              "Red",
+              "White",
+              "Green"
+            ],
+            correct: 2
+          },
+          {
+            id: 15,
+            text: "What do people traditionally eat at Wimbledon?",
+            options: [
+              "Fish and chips",
+              "Strawberries and cream",
+              "Sandwiches",
+              "Ice cream"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "British Politeness and Manners",
+        text: `British people are known for their politeness and good manners. Saying "please", "thank you", and "sorry" is very common in everyday interactions. Even when bumping into someone accidentally, British people often say "sorry".
+
+Queuing (standing in line) is taken very seriously in Britain. People wait patiently in queues for buses, in shops, and at other public places. Pushing ahead in a queue is considered very rude.
+
+British people value privacy and personal space. They often avoid asking personal questions when they first meet someone. Small talk about the weather is common as it's considered a safe and neutral topic.
+
+Punctuality is important in British culture. Being on time for appointments, meetings, and social gatherings shows respect for other people's time. However, for some informal social events like parties, arriving a few minutes late is sometimes acceptable.`,
+        questions: [
+          {
+            id: 16,
+            text: "What are British people known for?",
+            options: [
+              "Being loud",
+              "Politeness and good manners",
+              "Being always late",
+              "Not saying thank you"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "What do British people do when they accidentally bump into someone?",
+            options: [
+              "Laugh",
+              "Say nothing",
+              "Say 'sorry'",
+              "Get angry"
+            ],
+            correct: 2
+          },
+          {
+            id: 18,
+            text: "How do British people feel about queuing?",
+            options: [
+              "They don't like it",
+              "They take it seriously",
+              "They ignore queues",
+              "They think it's unnecessary"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "What is a common small talk topic in Britain?",
+            options: [
+              "Politics",
+              "Religion",
+              "The weather",
+              "Personal income"
+            ],
+            correct: 2
+          },
+          {
+            id: 20,
+            text: "What is important in British culture regarding time?",
+            options: [
+              "Being fashionably late",
+              "Punctuality",
+              "Arriving very early",
+              "Not watching the clock"
+            ],
+            correct: 1
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('ielts_british_reading_2_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('ielts_british_reading_2_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('ielts_british_reading_2_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            IELTS A2 Reading - British Culture
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 6-10.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 6}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 6}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 30 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save score with standardized key
+        const storageKey = 'ielts_a2_reading_2_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

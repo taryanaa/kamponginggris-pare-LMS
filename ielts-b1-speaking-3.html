@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS B1 Speaking - Technology & Modern Life - Page 3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        IELTS B1 Speaking - Technology & Modern Life - Page 3/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="ielts-b1-speaking-4.html" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    // All 20 tasks for IELTS B1 Speaking - Technology & Modern Life
+    const allTasks = [
+      {
+        id: 41,
+        page: 3,
+        category: 'speaking',
+        title: 'Smartphone Usage',
+        dialogue: '<strong>Examiner:</strong> "How do you use your smartphone in daily life?"\n\n<strong>Candidate:</strong> "I use it for communication, navigation, online banking, and staying updated with news and social media."\n\n<strong>Examiner:</strong> "Has smartphone usage changed social interactions?"\n\n<strong>Candidate:</strong> "Yes, it allows constant connectivity but can reduce quality face-to-face communication."',
+        instructions: 'Discuss smartphone usage and its social impact.',
+        emphasis: 'Use technology vocabulary and balanced arguments'
+      },
+      {
+        id: 42,
+        page: 3,
+        category: 'speaking',
+        title: 'Online Shopping',
+        dialogue: '<strong>Examiner:</strong> "Do you prefer online or traditional shopping?"\n\n<strong>Candidate:</strong> "I prefer online shopping for convenience, but I enjoy traditional markets for social experience."\n\n<strong>Examiner:</strong> "What are the advantages of online shopping?"\n\n<strong>Candidate:</strong> "It saves time, offers more choices, and often has better prices than physical stores."',
+        instructions: 'Compare online and traditional shopping.',
+        emphasis: 'Use comparison language and advantage vocabulary'
+      },
+      {
+        id: 43,
+        page: 3,
+        category: 'speaking',
+        title: 'Social Media Impact',
+        dialogue: '<strong>Examiner:</strong> "How has social media affected relationships?"\n\n<strong>Candidate:</strong> "It helps maintain long-distance connections but can create unrealistic expectations in relationships."\n\n<strong>Examiner:</strong> "Do you think social media is mostly positive or negative?"\n\n<strong>Candidate:</strong> "It has both aspects - great for information sharing but concerning for mental health and privacy."',
+        instructions: 'Discuss social media impact on relationships.',
+        emphasis: 'Use relationship vocabulary and balanced evaluation'
+      },
+      {
+        id: 44,
+        page: 3,
+        category: 'speaking',
+        title: 'Remote Work',
+        dialogue: '<strong>Examiner:</strong> "What are the benefits of remote work?"\n\n<strong>Candidate:</strong> "Flexibility, no commuting time, and better work-life balance are significant advantages."\n\n<strong>Examiner:</strong> "Are there any disadvantages?"\n\n<strong>Candidate:</strong> "Isolation, difficulty separating work from personal life, and technical issues can be challenging."',
+        instructions: 'Discuss advantages and disadvantages of remote work.',
+        emphasis: 'Use work vocabulary and balanced analysis'
+      },
+      {
+        id: 45,
+        page: 3,
+        category: 'speaking',
+        title: 'Artificial Intelligence',
+        dialogue: '<strong>Examiner:</strong> "How is AI changing our lives?"\n\n<strong>Candidate:</strong> "AI improves efficiency in many areas but raises concerns about job displacement and privacy."\n\n<strong>Examiner:</strong> "Are you optimistic about AI development?"\n\n<strong>Candidate:</strong> "Cautiously optimistic - it offers great potential but requires careful regulation and ethical guidelines."',
+        instructions: 'Discuss AI impact and your perspective.',
+        emphasis: 'Use technology vocabulary and cautious language'
+      },
+      {
+        id: 46,
+        page: 3,
+        category: 'speaking',
+        title: 'Digital Payments',
+        dialogue: '<strong>Examiner:</strong> "Do you use digital payment methods?"\n\n<strong>Candidate:</strong> "Yes, I use mobile banking and e-wallets regularly for their convenience and security features."\n\n<strong>Examiner:</strong> "How have digital payments changed spending habits?"\n\n<strong>Candidate:</strong> "They make transactions faster but can lead to impulsive spending since money feels less tangible."',
+        instructions: 'Discuss digital payment usage and effects.',
+        emphasis: 'Use financial vocabulary and cause-effect language'
+      },
+      {
+        id: 47,
+        page: 3,
+        category: 'speaking',
+        title: 'Internet Access',
+        dialogue: '<strong>Examiner:</strong> "How important is internet access in modern life?"\n\n<strong>Candidate:</strong> "Extremely important for education, work, communication, and accessing essential services."\n\n<strong>Examiner:</strong> "What challenges come with internet dependency?"\n\n<strong>Candidate:</strong> "Security risks, misinformation spread, and digital divide between different regions and age groups."',
+        instructions: 'Discuss internet importance and challenges.',
+        emphasis: 'Use importance expressions and problem vocabulary'
+      },
+      {
+        id: 48,
+        page: 3,
+        category: 'speaking',
+        title: 'Video Streaming',
+        dialogue: '<strong>Examiner:</strong> "Do you prefer streaming services or traditional TV?"\n\n<strong>Candidate:</strong> "I prefer streaming services because I can watch what I want, when I want, without commercials."\n\n<strong>Examiner:</strong> "How has streaming changed entertainment?"\n\n<strong>Candidate:</strong> "It has made entertainment more personalized and global, allowing access to international content."',
+        instructions: 'Compare streaming and traditional entertainment.',
+        emphasis: 'Use preference language and change vocabulary'
+      },
+      {
+        id: 49,
+        page: 3,
+        category: 'speaking',
+        title: 'Smart Home Devices',
+        dialogue: '<strong>Examiner:</strong> "Do you use any smart home devices?"\n\n<strong>Candidate:</strong> "I use smart lights and a voice assistant to control home appliances and get information quickly."\n\n<strong>Examiner:</strong> "What are the benefits of smart home technology?"\n\n<strong>Candidate:</strong> "Energy efficiency, convenience, and enhanced security through remote monitoring and control."',
+        instructions: 'Discuss smart home device usage and benefits.',
+        emphasis: 'Use technology vocabulary and advantage language'
+      },
+      {
+        id: 50,
+        page: 3,
+        category: 'speaking',
+        title: 'Online Learning',
+        dialogue: '<strong>Examiner:</strong> "Have you tried online learning?"\n\n<strong>Candidate:</strong> "Yes, I\'ve taken several online courses to improve my skills and knowledge in specific areas."\n\n<strong>Examiner:</strong> "How does online learning compare to traditional classrooms?"\n\n<strong>Candidate:</strong> "It offers flexibility and accessibility but lacks the personal interaction and immediate feedback of classrooms."',
+        instructions: 'Compare online and traditional learning methods.',
+        emphasis: 'Use education vocabulary and comparison structures'
+      },
+      {
+        id: 51,
+        page: 3,
+        category: 'speaking',
+        title: 'Digital Privacy',
+        dialogue: '<strong>Examiner:</strong> "How concerned are you about digital privacy?"\n\n<strong>Candidate:</strong> "Quite concerned, as personal data collection has become widespread without clear user consent."\n\n<strong>Examiner:</strong> "What can individuals do to protect their privacy online?"\n\n<strong>Candidate:</strong> "Use strong passwords, enable two-factor authentication, and be cautious about sharing personal information."',
+        instructions: 'Discuss digital privacy concerns and protection.',
+        emphasis: 'Use security vocabulary and precaution language'
+      },
+      {
+        id: 52,
+        page: 3,
+        category: 'speaking',
+        title: 'Gaming Technology',
+        dialogue: '<strong>Examiner:</strong> "Do you play video games? Why or why not?"\n\n<strong>Candidate:</strong> "I play occasionally for relaxation and to connect with friends through multiplayer games."\n\n<strong>Examiner:</strong> "How has gaming technology evolved?"\n\n<strong>Candidate:</strong> "From simple graphics to immersive virtual reality experiences with realistic physics and AI opponents."',
+        instructions: 'Discuss gaming habits and technology evolution.',
+        emphasis: 'Use gaming vocabulary and development language'
+      },
+      {
+        id: 53,
+        page: 3,
+        category: 'speaking',
+        title: 'Technology in Healthcare',
+        dialogue: '<strong>Examiner:</strong> "How is technology improving healthcare?"\n\n<strong>Candidate:</strong> "Telemedicine, electronic records, and wearable health monitors are making healthcare more accessible and efficient."\n\n<strong>Examiner:</strong> "What are the limitations of technology in healthcare?"\n\n<strong>Candidate:</strong> "Lack of personal touch, technical failures, and privacy concerns about sensitive health data."',
+        instructions: 'Discuss technology applications in healthcare.',
+        emphasis: 'Use medical vocabulary and limitation language'
+      },
+      {
+        id: 54,
+        page: 3,
+        category: 'speaking',
+        title: 'E-books vs Physical Books',
+        dialogue: '<strong>Examiner:</strong> "Do you prefer e-books or physical books?"\n\n<strong>Candidate:</strong> "I prefer physical books for the tactile experience, but e-books are convenient for travel and storage."\n\n<strong>Examiner:</strong> "How has digital reading changed reading habits?"\n\n<strong>Candidate:</strong> "It has made reading more accessible but may affect concentration and comprehension compared to physical books."',
+        instructions: 'Compare digital and physical reading experiences.',
+        emphasis: 'Use reading vocabulary and preference structures'
+      },
+      {
+        id: 55,
+        page: 3,
+        category: 'speaking',
+        title: 'Technology and Education',
+        dialogue: '<strong>Examiner:</strong> "How has technology changed education methods?"\n\n<strong>Candidate:</strong> "Interactive learning platforms, online resources, and digital collaboration tools have transformed traditional teaching."\n\n<strong>Examiner:</strong> "Are these changes beneficial?"\n\n<strong>Candidate:</strong> "Mostly beneficial as they make learning more engaging and accessible, though digital literacy becomes essential."',
+        instructions: 'Discuss technology impact on education methods.',
+        emphasis: 'Use educational technology vocabulary and evaluation'
+      },
+      {
+        id: 56,
+        page: 3,
+        category: 'speaking',
+        title: 'Digital Photography',
+        dialogue: '<strong>Examiner:</strong> "Do you take photos with your phone or a camera?"\n\n<strong>Candidate:</strong> "I mostly use my smartphone because it\'s always available and the quality has improved significantly."\n\n<strong>Examiner:</strong> "How has digital photography changed how we capture memories?"\n\n<strong>Candidate:</strong> "We take many more photos but may value individual images less compared to film photography days."',
+        instructions: 'Discuss photography habits and changes.',
+        emphasis: 'Use photography vocabulary and comparison language'
+      },
+      {
+        id: 57,
+        page: 3,
+        category: 'speaking',
+        title: 'Technology in Transportation',
+        dialogue: '<strong>Examiner:</strong> "How has technology improved transportation?"\n\n<strong>Candidate:</strong> "Navigation apps, ride-sharing services, and electric vehicles have made travel more efficient and eco-friendly."\n\n<strong>Examiner:</strong> "What future transportation technologies excite you?"\n\n<strong>Candidate:</strong> "Autonomous vehicles and hyperloop technology could revolutionize how we commute and travel long distances."',
+        instructions: 'Discuss transportation technology and future prospects.',
+        emphasis: 'Use transportation vocabulary and future tenses'
+      },
+      {
+        id: 58,
+        page: 3,
+        category: 'speaking',
+        title: 'Social Media and News',
+        dialogue: '<strong>Examiner:</strong> "Do you get news from social media?"\n\n<strong>Candidate:</strong> "I use social media for quick updates but verify important news through reliable news websites."\n\n<strong>Examiner:</strong> "What are the risks of getting news from social media?"\n\n<strong>Candidate:</strong> "Misinformation spreads quickly, and algorithms may create echo chambers limiting diverse perspectives."',
+        instructions: 'Discuss social media as a news source.',
+        emphasis: 'Use media vocabulary and risk assessment language'
+      },
+      {
+        id: 59,
+        page: 3,
+        category: 'speaking',
+        title: 'Technology and Communication',
+        dialogue: '<strong>Examiner:</strong> "How has technology changed how we communicate?"\n\n<strong>Candidate:</strong> "Instant messaging and video calls have made communication faster but sometimes less personal than face-to-face talks."\n\n<strong>Examiner:</strong> "Do these changes improve relationships?"\n\n<strong>Candidate:</strong> "They help maintain long-distance relationships but may reduce the quality of local social interactions."',
+        instructions: 'Discuss technology impact on communication quality.',
+        emphasis: 'Use communication vocabulary and relationship terms'
+      },
+      {
+        id: 60,
+        page: 3,
+        category: 'speaking',
+        title: 'Future Technology',
+        dialogue: '<strong>Examiner:</strong> "What technology are you most excited about for the future?"\n\n<strong>Candidate:</strong> "Renewable energy technology and medical advancements that could solve environmental and health challenges."\n\n<strong>Examiner:</strong> "How should society prepare for rapid technological changes?"\n\n<strong>Candidate:</strong> "Through education reform, ethical guidelines, and ensuring technology benefits are distributed fairly across society."',
+        instructions: 'Discuss future technology and societal preparation.',
+        emphasis: 'Use future tense and societal impact vocabulary'
+      }
+    ];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'ielts_b1_speaking_page3_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('ielts_b1_speaking_page3_answers', JSON.stringify(completionData));
+    }
+    
+    // Speech recognition system
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {};
+    let finalResultTimeout = {};
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      if (wordCount === 0) {
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+      
+      // Store scores in localStorage for results page
+      localStorage.setItem(`ielts_b1_speaking_page3_task${taskIndex}_grammar`, grammarScore);
+      localStorage.setItem(`ielts_b1_speaking_page3_task${taskIndex}_pronunciation`, pronunciationScore);
+      localStorage.setItem(`ielts_b1_speaking_page3_task${taskIndex}_fluency`, fluencyScore);
+      localStorage.setItem(`ielts_b1_speaking_page3_task${taskIndex}_coherence`, coherenceScore);
+
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // Technology specific feedback
+        feedbackText += `<br><br><strong>🎯 Technology Vocabulary:</strong><br>`;
+        
+        const techKeywords = ['digital', 'online', 'technology', 'innovation', 'efficiency', 'convenience', 'security', 'privacy', 'accessibility', 'automation'];
+        const foundKeywords = techKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Good use of technology vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more tech terms like "digital", "efficiency", "security", "automation"<br>`;
+        }
+        
+        // Check for balanced discussion of pros and cons
+        const positiveWords = ['benefit', 'advantage', 'improve', 'efficient', 'convenient'];
+        const negativeWords = ['risk', 'disadvantage', 'concern', 'challenge', 'problem'];
+        const hasBothPerspectives = positiveWords.some(word => transcript.toLowerCase().includes(word)) && 
+                                  negativeWords.some(word => transcript.toLowerCase().includes(word));
+        
+        if (hasBothPerspectives) {
+          feedbackText += `• Good balanced discussion of technology pros and cons<br>`;
+        } else {
+          feedbackText += `• Discuss both advantages and disadvantages of technology for balanced arguments<br>`;
+        }
+        
+        // Check for future-oriented language
+        const futureWords = ['will', 'going to', 'could', 'might', 'potential', 'future'];
+        const hasFutureDiscussion = futureWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasFutureDiscussion) {
+          feedbackText += `• Good consideration of future technology implications<br>`;
+        } else {
+          feedbackText += `• Include future perspectives when discussing technology development<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      if (Object.keys(completed).length === totalTasks) {
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initSpeechRecognition();
+      saveCompletion();
+    });
+  </script>
+</body>
+</html>

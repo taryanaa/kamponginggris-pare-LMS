@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Basic English Reading Practice | kamponginggrispare.com">
+  <meta name="keywords" content="basic english, reading practice, english test">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basic English - Reading (4/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold">
+        Basic English - Reading Test (4/5)
+      </div>
+      <progress id="progressBar" max="1800" value="1800"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" id="countdownText">
+        Duration 30 minutes<br />
+        <span id="timeDisplay">0Hours 30Minutes 0Seconds</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="basic_reading5.html" id="nextBtn" class="btn-animate inline-block text-center">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 9,
+        title: "The Importance of Exercise",
+        text: `Regular exercise is essential for maintaining good health. Physical activity helps strengthen muscles and bones, improves cardiovascular health, and boosts the immune system. Exercise also releases endorphins, which are natural mood elevators that can reduce stress and anxiety. People who exercise regularly tend to have better sleep patterns and more energy throughout the day. Even moderate activities like walking, swimming, or cycling can provide significant health benefits. It's recommended to get at least 30 minutes of exercise most days of the week. Finding activities you enjoy makes it easier to maintain a consistent exercise routine. Remember that any movement is better than none, so start with what you can manage and gradually increase intensity.`,
+        questions: [
+          {
+            id: 41,
+            text: "What does regular exercise help strengthen?",
+            options: ["Only muscles", "Only bones", "Muscles and bones", "Only the heart"],
+            correct: 2
+          },
+          {
+            id: 42,
+            text: "What are endorphins?",
+            options: ["Harmful chemicals", "Natural mood elevators", "Types of exercises", "Sleep patterns"],
+            correct: 1
+          },
+          {
+            id: 43,
+            text: "How much exercise is recommended most days?",
+            options: ["15 minutes", "30 minutes", "60 minutes", "90 minutes"],
+            correct: 1
+          },
+          {
+            id: 44,
+            text: "What makes it easier to maintain exercise?",
+            options: ["Expensive equipment", "Finding activities you enjoy", "Exercising alone", "Only intense workouts"],
+            correct: 1
+          },
+          {
+            id: 45,
+            text: "What is better than no exercise?",
+            options: ["Only intense exercise", "Any movement", "Only team sports", "Only gym workouts"],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 10,
+        title: "Environmental Protection",
+        text: `Protecting our environment is crucial for future generations. Human activities have caused significant damage to ecosystems worldwide. Pollution from factories, vehicles, and waste disposal contaminates air, water, and soil. Deforestation destroys habitats and contributes to climate change. We can all help protect the environment through simple actions. Reducing energy consumption by turning off lights and electronics when not in use saves resources. Recycling paper, plastic, glass, and metal reduces waste in landfills. Using reusable bags, bottles, and containers minimizes single-use plastic waste. Supporting conservation efforts and planting trees helps restore natural habitats. Educating others about environmental issues creates more awareness and action. Every small effort contributes to a healthier planet for all living beings.`,
+        questions: [
+          {
+            id: 46,
+            text: "Why is environmental protection crucial?",
+            options: ["For economic growth only", "For future generations", "For industrial development", "For urban expansion"],
+            correct: 1
+          },
+          {
+            id: 47,
+            text: "What has caused damage to ecosystems?",
+            options: ["Natural disasters only", "Human activities", "Animal behavior only", "Climate patterns only"],
+            correct: 1
+          },
+          {
+            id: 48,
+            text: "What does pollution contaminate?",
+            options: ["Only air", "Only water", "Air, water, and soil", "Only soil"],
+            correct: 2
+          },
+          {
+            id: 49,
+            text: "What destroys habitats and contributes to climate change?",
+            options: ["Recycling", "Deforestation", "Planting trees", "Using reusable items"],
+            correct: 1
+          },
+          {
+            id: 50,
+            text: "How can we reduce energy consumption?",
+            options: ["By using more electronics", "By turning off lights when not in use", "By keeping devices on standby", "By using more appliances"],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 11,
+        title: "Healthy Eating Habits",
+        text: `Developing healthy eating habits is fundamental to overall well-being. A balanced diet provides the necessary nutrients for the body to function properly. It should include a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats. Eating regular meals helps maintain stable energy levels throughout the day. Breakfast is particularly important as it breaks the overnight fasting period and provides energy for the morning activities. Drinking plenty of water is essential for hydration and helps with digestion. Limiting processed foods, sugary drinks, and excessive salt can prevent various health problems. Cooking meals at home allows better control over ingredients and portion sizes. Mindful eating, which involves paying attention to hunger cues and eating slowly, can prevent overeating. Remember that healthy eating is not about strict diets but about making sustainable choices that support long-term health.`,
+        questions: [
+          {
+            id: 51,
+            text: "What is fundamental to overall well-being?",
+            options: ["Only exercise", "Healthy eating habits", "Only sleep", "Only meditation"],
+            correct: 1
+          },
+          {
+            id: 52,
+            text: "What does a balanced diet provide?",
+            options: ["Only energy", "Only vitamins", "Necessary nutrients", "Only minerals"],
+            correct: 2
+          },
+          {
+            id: 53,
+            text: "What should a balanced diet include?",
+            options: ["Only fruits", "Only vegetables", "Variety of fruits, vegetables, whole grains, proteins, and fats", "Only proteins"],
+            correct: 2
+          },
+          {
+            id: 54,
+            text: "Why is breakfast important?",
+            options: ["It breaks overnight fasting", "It's the smallest meal", "It should be skipped", "It's only for children"],
+            correct: 0
+          },
+          {
+            id: 55,
+            text: "What is essential for hydration?",
+            options: ["Sugary drinks", "Drinking plenty of water", "Only juice", "Only milk"],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 12,
+        title: "The Benefits of Reading",
+        text: `Reading regularly offers numerous benefits for personal development and mental well-being. It improves vocabulary and language skills by exposing readers to new words and sentence structures. Reading enhances concentration and focus as it requires sustained attention to follow narratives or understand information. It stimulates imagination and creativity, allowing readers to visualize scenes and characters from descriptions. Regular reading also develops critical thinking skills by presenting different perspectives and complex ideas. Knowledge gained from reading can be applied to various aspects of life, from problem-solving to cultural understanding. Reading reduces stress by providing an escape from daily pressures and transporting readers to different worlds. It improves memory and cognitive function by exercising the brain and creating new neural connections. Whether reading fiction or non-fiction, the habit contributes to lifelong learning and personal growth. Even just 15-20 minutes of daily reading can make a significant difference over time.`,
+        questions: [
+          {
+            id: 56,
+            text: "What does reading improve?",
+            options: ["Only vocabulary", "Vocabulary and language skills", "Only grammar", "Only spelling"],
+            correct: 1
+          },
+          {
+            id: 57,
+            text: "What does reading enhance?",
+            options: ["Only memory", "Concentration and focus", "Only speed", "Only comprehension"],
+            correct: 1
+          },
+          {
+            id: 58,
+            text: "What does reading stimulate?",
+            options: ["Only emotions", "Imagination and creativity", "Only logic", "Only analysis"],
+            correct: 1
+          },
+          {
+            id: 59,
+            text: "What skills does reading develop?",
+            options: ["Only reading skills", "Critical thinking skills", "Only writing skills", "Only speaking skills"],
+            correct: 1
+          },
+          {
+            id: 60,
+            text: "What can knowledge from reading be applied to?",
+            options: ["Only academic purposes", "Various aspects of life", "Only work", "Only tests"],
+            correct: 1
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('basic_english_reading_4_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('basic_english_reading_4_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      displayQuestions(selectedReading.questions);
+      localStorage.setItem('basic_english_reading_4_questions', JSON.stringify(selectedReading.questions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            Basic English Reading Test
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 30 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Hours ${minutes}Minutes ${seconds}Seconds`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        localStorage.setItem('basic_english_reading_4_answers', JSON.stringify({ correct, total }));
+        
+        calculateTotalScore();
+      }
+    });
+
+    function calculateTotalScore() {
+      let totalCorrect = 0;
+      let totalQuestions = 0;
+      
+      for (let i = 1; i <= 5; i++) {
+        const stored = localStorage.getItem(`basic_english_reading_${i}_answers`);
+        if (stored) {
+          const result = JSON.parse(stored);
+          totalCorrect += result.correct;
+          totalQuestions += result.total;
+        }
+      }
+      
+      localStorage.setItem('basic_english_reading_final_score', JSON.stringify({
+        correct: totalCorrect,
+        total: totalQuestions,
+        percentage: Math.round((totalCorrect / totalQuestions) * 100)
+      }));
+    }
+  </script>
+</body>
+</html>

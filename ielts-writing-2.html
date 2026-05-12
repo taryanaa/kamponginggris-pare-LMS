@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="IELTS A2 Writing Practice - Opinion & Discussion | kamponginggrispare.com">
+  <meta name="keywords" content="IELTS writing, A2 English, essay writing, opinion discussion">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS A2 Writing - Opinion & Discussion | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Same CSS as previous file */
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.75rem; color: #1e293b; line-height: 1.3; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .writing-prompt { margin-bottom: 1.5rem; }
+    .writing-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+    textarea { width: 100%; min-height: 200px; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem; font-family: "Roboto", sans-serif; font-size: 0.875rem; resize: vertical; }
+    .word-count { font-size: 0.75rem; color: #6b7280; text-align: right; margin-top: 0.25rem; }
+    .score-display { background-color: #f0f9ff; border: 1px solid #bae6fd; border-radius: 0.5rem; padding: 1rem; margin-top: 1rem; }
+    .score-value { font-weight: bold; color: #0369a1; }
+    .relevance-indicator { margin-top: 0.5rem; padding: 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; }
+    .relevance-high { background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .relevance-medium { background-color: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+    .relevance-low { background-color: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+    .keyword-match { display: inline-block; background-color: #dbeafe; padding: 0.125rem 0.375rem; border-radius: 0.25rem; margin: 0.125rem; font-size: 0.7rem; }
+    .test-info { background: #f8fafc; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; }
+    .prompt-counter { font-size: 0.75rem; color: #64748b; text-align: center; margin-top: 0.5rem; }
+    .refresh-btn { background: #f59e0b; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; font-size: 0.75rem; margin-left: 0.5rem; }
+    .refresh-btn:hover { background: #d97706; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="IELTS test title">
+        IELTS A2 Writing Test - Opinion & Discussion
+      </div>
+      <progress id="progressBar" max="3600" value="3600" aria-label="IELTS test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="3600" aria-valuenow="3600"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 60 menit<br />
+        <span id="timeDisplay" style="">0Jam 60Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Writing Instructions section" id="mainCard">
+      <!-- Writing content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Writing prompts will be dynamically inserted here -->
+    <div id="prompts-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="ielts-writing-3.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next page">
+      Next Page
+    </a>
+  </div>
+
+  <script>
+    // Writing prompts database - 20 prompts for Opinion & Discussion
+    const writingPrompts = [
+      "Do you think students should wear school uniforms? Why or why not?",
+      "What is your opinion about social media?",
+      "Do you think homework is necessary for students?",
+      "What is your view on video games for children?",
+      "Do you think people should learn a second language?",
+      "What is your opinion about fast food?",
+      "Do you think money can buy happiness?",
+      "What is your view on keeping animals in zoos?",
+      "Do you think technology makes people lazy?",
+      "What is your opinion about online shopping?",
+      "Do you think children should have smartphones?",
+      "What is your view on climate change?",
+      "Do you think everyone should go to university?",
+      "What is your opinion about recycling?",
+      "Do you think people should travel more?",
+      "What is your view on public transportation?",
+      "Do you think sports are important for children?",
+      "What is your opinion about reading books?",
+      "Do you think people should eat less meat?",
+      "What is your view on space exploration?"
+    ];
+
+    // Complete keyword database for relevance detection
+    const promptKeywords = {
+      "Do you think students should wear school uniforms? Why or why not?": ["uniform", "school", "student", "dress", "clothes", "wear", "opinion", "think", "advantage", "disadvantage"],
+      "What is your opinion about social media?": ["social media", "facebook", "instagram", "twitter", "online", "internet", "opinion", "connect", "privacy", "addiction"],
+      "Do you think homework is necessary for students?": ["homework", "student", "study", "learn", "school", "necessary", "important", "practice", "time", "stress"],
+      "What is your view on video games for children?": ["video games", "games", "children", "kids", "play", "entertainment", "view", "addiction", "education", "violence"],
+      "Do you think people should learn a second language?": ["language", "second", "learn", "bilingual", "speak", "foreign", "culture", "communication", "opportunity"],
+      "What is your opinion about fast food?": ["fast food", "restaurant", "healthy", "unhealthy", "nutrition", "convenient", "taste", "health", "diet"],
+      "Do you think money can buy happiness?": ["money", "happiness", "rich", "poor", "satisfaction", "material", "emotional", "relationship", "experience"],
+      "What is your view on keeping animals in zoos?": ["zoo", "animal", "captivity", "wild", "conservation", "education", "freedom", "protection", "ethical"],
+      "Do you think technology makes people lazy?": ["technology", "lazy", "convenient", "effort", "automation", "productivity", "dependence", "innovation"],
+      "What is your opinion about online shopping?": ["online shopping", "internet", "convenient", "delivery", "price", "quality", "security", "traditional", "store"],
+      "Do you think children should have smartphones?": ["children", "smartphone", "phone", "technology", "safety", "communication", "addiction", "appropriate"],
+      "What is your view on climate change?": ["climate change", "environment", "global warming", "pollution", "future", "action", "responsibility", "planet"],
+      "Do you think everyone should go to university?": ["university", "college", "education", "degree", "career", "opportunity", "necessary", "alternative"],
+      "What is your opinion about recycling?": ["recycling", "environment", "waste", "sustainable", "planet", "responsibility", "reuse", "reduce"],
+      "Do you think people should travel more?": ["travel", "more", "experience", "culture", "learn", "broaden", "perspective", "adventure"],
+      "What is your view on public transportation?": ["public transportation", "bus", "train", "convenient", "environment", "cost", "efficient", "traffic"],
+      "Do you think sports are important for children?": ["sports", "children", "important", "health", "exercise", "teamwork", "discipline", "development"],
+      "What is your opinion about reading books?": ["reading", "books", "knowledge", "imagination", "learn", "entertainment", "habit", "benefit"],
+      "Do you think people should eat less meat?": ["meat", "less", "health", "environment", "vegetarian", "diet", "sustainable", "nutrition"],
+      "What is your view on space exploration?": ["space", "exploration", "universe", "science", "discovery", "future", "cost", "benefit"]
+    };
+
+    // Current selected prompts
+    let selectedPrompts = [];
+    let userResponses = {};
+    let wordCounts = {};
+    let relevanceScores = {};
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      // Get or generate random prompts for this page
+      const storedPrompts = localStorage.getItem('ielts_writing_opinion_prompts');
+      if (storedPrompts) {
+        selectedPrompts = JSON.parse(storedPrompts);
+      } else {
+        selectedPrompts = selectRandomPrompts(5);
+        localStorage.setItem('ielts_writing_opinion_prompts', JSON.stringify(selectedPrompts));
+      }
+      
+      // Load stored data
+      loadStoredData();
+      
+      displayWritingInstructions();
+      displayPrompts();
+      updateValidation();
+    }
+
+    function loadStoredData() {
+      // Get stored responses
+      const storedResponses = localStorage.getItem('ielts_writing_opinion_responses');
+      if (storedResponses) {
+        userResponses = JSON.parse(storedResponses);
+      }
+      
+      // Get stored word counts
+      const storedWordCounts = localStorage.getItem('ielts_writing_opinion_wordcounts');
+      if (storedWordCounts) {
+        wordCounts = JSON.parse(storedWordCounts);
+      }
+      
+      // Get stored relevance scores
+      const storedRelevance = localStorage.getItem('ielts_writing_opinion_relevance');
+      if (storedRelevance) {
+        relevanceScores = JSON.parse(storedRelevance);
+      }
+    }
+
+    function savePageProgress() {
+      // Save current page data
+      localStorage.setItem('ielts_writing_opinion_responses', JSON.stringify(userResponses));
+      localStorage.setItem('ielts_writing_opinion_wordcounts', JSON.stringify(wordCounts));
+      localStorage.setItem('ielts_writing_opinion_relevance', JSON.stringify(relevanceScores));
+    }
+
+    function selectRandomPrompts(count) {
+      const prompts = [...writingPrompts];
+      
+      // Shuffle array
+      for (let i = prompts.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [prompts[i], prompts[j]] = [prompts[j], prompts[i]];
+      }
+      
+      return prompts.slice(0, count);
+    }
+
+    function refreshPrompts() {
+      if (confirm("Are you sure you want to refresh the prompts? Your current progress will be lost.")) {
+        // Clear stored data
+        localStorage.removeItem('ielts_writing_opinion_prompts');
+        localStorage.removeItem('ielts_writing_opinion_responses');
+        localStorage.removeItem('ielts_writing_opinion_wordcounts');
+        localStorage.removeItem('ielts_writing_opinion_relevance');
+        
+        // Reset variables
+        userResponses = {};
+        wordCounts = {};
+        relevanceScores = {};
+        
+        // Generate new prompts
+        selectedPrompts = selectRandomPrompts(5);
+        localStorage.setItem('ielts_writing_opinion_prompts', JSON.stringify(selectedPrompts));
+        
+        // Refresh display
+        displayPrompts();
+        updateValidation();
+      }
+    }
+
+    function displayWritingInstructions() {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const writingElement = document.createElement('div');
+      writingElement.className = 'writing-prompt';
+      writingElement.innerHTML = `
+        <div class="inner-card">
+          <div class="flex justify-between items-center mb-3">
+            <p class="font-bold text-center mb-1 text-lg">
+              IELTS A2 Writing - Opinion & Discussion
+            </p>
+            <button class="refresh-btn" onclick="refreshPrompts()">
+              <i class="fas fa-sync-alt mr-1"></i>Refresh Prompts
+            </button>
+          </div>
+          <div class="test-info">
+            <p class="text-center mb-3">
+              <strong>Write an essay for each of the 5 prompts below.</strong><br>
+              Each essay should be at least 150 words. You have 60 minutes to complete all 5 essays.
+            </p>
+            <p class="prompt-counter">
+              Showing 5 random prompts from ${writingPrompts.length} available prompts
+            </p>
+          </div>
+          <p class="text-xs text-gray-600 mt-2">
+            <strong>Instructions:</strong> Read each prompt carefully and write your response in the text area provided. Your writing will be evaluated based on relevance to the prompt, vocabulary, grammar, and organization.
+          </p>
+          <div class="mt-3 text-xs">
+            <p><strong>Relevance Indicator:</strong></p>
+            <div class="flex items-center mt-1 flex-wrap gap-1">
+              <div class="relevance-indicator relevance-high">High Relevance</div>
+              <div class="relevance-indicator relevance-medium">Medium Relevance</div>
+              <div class="relevance-indicator relevance-low">Low Relevance</div>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(writingElement);
+    }
+
+    // The rest of the JavaScript functions (displayPrompts, updateWordCountAndRelevance, calculateRelevance, etc.)
+    // are exactly the same as in the first file, just with different localStorage keys
+
+    function displayPrompts() {
+      const container = document.getElementById('prompts-container');
+      container.innerHTML = '';
+      
+      selectedPrompts.forEach((prompt, index) => {
+        const promptElement = document.createElement('section');
+        promptElement.className = 'card rounded-xl mt-6 question-card';
+        promptElement.setAttribute('aria-label', `Writing Prompt ${index + 1}`);
+        
+        const promptId = `prompt_${index}`;
+        const storedResponse = userResponses[promptId] || '';
+        const wordCount = wordCounts[promptId] || 0;
+        const relevanceScore = relevanceScores[promptId] || 0;
+        
+        // Get relevance display
+        const relevanceDisplay = getRelevanceDisplay(relevanceScore, promptId);
+        
+        promptElement.innerHTML = `
+          <div class="flex justify-between items-start mb-2">
+            <p class="text-[10px] font-semibold">
+              ${index + 1}. ${prompt}
+            </p>
+            <span class="text-[8px] bg-blue-100 text-blue-800 px-2 py-1 rounded">Prompt ${index + 1}/5</span>
+          </div>
+          <div class="mt-3">
+            <textarea 
+              id="${promptId}" 
+              placeholder="Write your essay here (minimum 150 words)..." 
+              rows="8"
+              oninput="updateWordCountAndRelevance('${promptId}', '${prompt}')"
+            >${storedResponse}</textarea>
+            <div class="word-count" id="wordCount_${promptId}">Words: ${wordCount}</div>
+          </div>
+          ${wordCount >= 150 ? 
+            `<div class="score-display">
+              <p class="text-sm">Essay length: <span class="score-value">Good</span> (${wordCount} words)</p>
+              ${relevanceDisplay}
+            </div>` : 
+            `<div class="score-display" style="background-color: #fef2f2; border-color: #fecaca;">
+              <p class="text-sm">Essay length: <span class="score-value" style="color: #dc2626;">Too Short</span> (${wordCount} words)</p>
+              <p class="text-xs mt-1">Your essay needs to be at least 150 words.</p>
+            </div>`
+          }
+        `;
+        
+        container.appendChild(promptElement);
+      });
+    }
+
+    function updateWordCountAndRelevance(promptId, promptText) {
+      const textarea = document.getElementById(promptId);
+      const wordCountElement = document.getElementById(`wordCount_${promptId}`);
+      
+      if (textarea && wordCountElement) {
+        const text = textarea.value.trim();
+        const words = text === '' ? 0 : text.split(/\s+/).length;
+        
+        wordCountElement.textContent = `Words: ${words}`;
+        wordCounts[promptId] = words;
+        userResponses[promptId] = textarea.value;
+        
+        // Calculate relevance score
+        const relevance = calculateRelevance(text, promptText);
+        relevanceScores[promptId] = relevance;
+        
+        // Save to localStorage
+        savePageProgress();
+        
+        // Update the score display dynamically
+        updateScoreDisplay(promptId, words, relevance);
+        
+        // Update relevance display
+        updateRelevanceDisplay(promptId, relevance, promptText, text);
+        
+        updateValidation();
+      }
+    }
+
+    function calculateRelevance(text, prompt) {
+      if (!text || text.trim().length === 0) return 0;
+      
+      // Convert to lowercase for case-insensitive matching
+      const lowerText = text.toLowerCase();
+      const lowerPrompt = prompt.toLowerCase();
+      
+      // Get keywords for this prompt
+      const keywords = promptKeywords[prompt] || extractKeywordsFromPrompt(prompt);
+      
+      // Calculate keyword matches
+      let matches = 0;
+      let matchedKeywords = [];
+      
+      keywords.forEach(keyword => {
+        const regex = new RegExp(`\\b${keyword.toLowerCase()}\\b`, 'gi');
+        const keywordMatches = (lowerText.match(regex) || []).length;
+        if (keywordMatches > 0) {
+          matches += keywordMatches;
+          matchedKeywords.push(keyword);
+        }
+      });
+      
+      // Calculate relevance score (0-100)
+      // Base score on keyword matches and text length
+      const baseScore = Math.min((matches / Math.max(keywords.length, 1)) * 70, 70);
+      
+      // Bonus for text length (encourage longer, more detailed responses)
+      const wordCount = text.split(/\s+/).length;
+      const lengthBonus = Math.min((wordCount / 200) * 30, 30);
+      
+      const totalScore = Math.min(baseScore + lengthBonus, 100);
+      
+      // Store matched keywords for display
+      relevanceScores[`${prompt}_keywords`] = matchedKeywords;
+      
+      return Math.round(totalScore);
+    }
+
+    function extractKeywordsFromPrompt(prompt) {
+      // Simple keyword extraction for prompts without predefined keywords
+      const stopWords = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'your', 'you', 'should', 'why', 'what', 'how', 'describe', 'write', 'about', 'think', 'opinion', 'view'];
+      
+      return prompt
+        .toLowerCase()
+        .replace(/[^\w\s]/g, '')
+        .split(/\s+/)
+        .filter(word => word.length > 2 && !stopWords.includes(word));
+    }
+
+    function getRelevanceDisplay(score, promptId) {
+      let relevanceClass = 'relevance-low';
+      let relevanceText = 'Low Relevance';
+      
+      if (score >= 70) {
+        relevanceClass = 'relevance-high';
+        relevanceText = 'High Relevance';
+      } else if (score >= 40) {
+        relevanceClass = 'relevance-medium';
+        relevanceText = 'Medium Relevance';
+      }
+      
+      return `
+        <div class="mt-2">
+          <p class="text-sm">Relevance to prompt: <span class="score-value">${score}% - ${relevanceText}</span></p>
+          <div class="relevance-indicator ${relevanceClass} mt-1" id="relevance_${promptId}">
+            ${relevanceText} (${score}%)
+          </div>
+        </div>
+      `;
+    }
+
+    function updateScoreDisplay(promptId, wordCount, relevanceScore) {
+      // Find the prompt element
+      const promptElement = document.getElementById(promptId);
+      if (!promptElement) return;
+      
+      const parentCard = promptElement.closest('.card');
+      if (!parentCard) return;
+      
+      // Find or create score display
+      let scoreDisplay = parentCard.querySelector('.score-display');
+      
+      if (!scoreDisplay) {
+        scoreDisplay = document.createElement('div');
+        scoreDisplay.className = 'score-display';
+        const textareaContainer = parentCard.querySelector('textarea').parentElement;
+        textareaContainer.parentElement.appendChild(scoreDisplay);
+      }
+      
+      // Get relevance display HTML
+      const relevanceDisplay = getRelevanceDisplay(relevanceScore, promptId);
+      
+      // Update score display content
+      if (wordCount >= 150) {
+        scoreDisplay.style.backgroundColor = '#f0f9ff';
+        scoreDisplay.style.borderColor = '#bae6fd';
+        scoreDisplay.innerHTML = `
+          <p class="text-sm">Essay length: <span class="score-value">Good</span> (${wordCount} words)</p>
+          ${relevanceDisplay}
+        `;
+      } else {
+        scoreDisplay.style.backgroundColor = '#fef2f2';
+        scoreDisplay.style.borderColor = '#fecaca';
+        scoreDisplay.innerHTML = `
+          <p class="text-sm">Essay length: <span class="score-value" style="color: #dc2626;">Too Short</span> (${wordCount} words)</p>
+          <p class="text-xs mt-1">Your essay needs to be at least 150 words.</p>
+        `;
+      }
+    }
+
+    function updateRelevanceDisplay(promptId, score, promptText, text) {
+      const relevanceElement = document.getElementById(`relevance_${promptId}`);
+      if (!relevanceElement) return;
+      
+      let relevanceClass = 'relevance-low';
+      let relevanceText = 'Low Relevance';
+      
+      if (score >= 70) {
+        relevanceClass = 'relevance-high';
+        relevanceText = 'High Relevance';
+      } else if (score >= 40) {
+        relevanceClass = 'relevance-medium';
+        relevanceText = 'Medium Relevance';
+      }
+      
+      relevanceElement.className = `relevance-indicator ${relevanceClass} mt-1`;
+      
+      // Show matched keywords if available
+      const matchedKeywords = relevanceScores[`${promptText}_keywords`] || [];
+      let keywordsHTML = '';
+      
+      if (matchedKeywords.length > 0) {
+        const keywordsDisplay = matchedKeywords.map(kw => 
+          `<span class="keyword-match">${kw}</span>`
+        ).join('');
+        
+        keywordsHTML = `
+          <div class="mt-1 text-xs">
+            Matched keywords: ${keywordsDisplay}
+          </div>
+        `;
+      }
+      
+      relevanceElement.innerHTML = `
+        ${relevanceText} (${score}%)
+        ${score < 70 ? `<div class="mt-1 text-xs">Tip: Try to use more keywords related to the prompt.</div>` : ''}
+        ${keywordsHTML}
+      `;
+    }
+
+    function updateValidation() {
+      // No validation - allow users to skip writing test
+      let completedCount = 0;
+      
+      selectedPrompts.forEach((prompt, index) => {
+        const promptId = `prompt_${index}`;
+        const wordCount = wordCounts[promptId] || 0;
+        const relevanceScore = relevanceScores[promptId] || 0;
+        
+        // Count completed for progress indicator only
+        if (wordCount >= 150 && relevanceScore >= 40) {
+          completedCount++;
+        }
+      });
+      
+      // Next button always enabled - no restrictions
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        nextBtn.removeAttribute('data-disabled');
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+      }
+      
+      updateProgressIndicator(completedCount);
+    }
+
+    function updateProgressIndicator(completedCount) {
+      let progressIndicator = document.querySelector('.progress-indicator');
+      
+      if (!progressIndicator) {
+        progressIndicator = document.createElement('div');
+        progressIndicator.className = 'progress-indicator';
+        document.body.appendChild(progressIndicator);
+      }
+      
+      progressIndicator.innerHTML = `<span id="progress-text">Progress: ${completedCount}/5</span>`;
+      
+      if (completedCount === 5) {
+        progressIndicator.classList.add('complete');
+        progressIndicator.innerHTML += ' ✓';
+      } else {
+        progressIndicator.classList.remove('complete');
+      }
+    }
+
+    // Validation removed - users can skip writing test
+    // document.addEventListener('click', ...) - REMOVED
+
+    function initializeCountdown() {
+      const totalSeconds = 60 * 60; // 60 minutes
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+
+    // Save responses when moving to next page
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (!this.hasAttribute('data-disabled')) {
+        savePageProgress();
+        
+        // Calculate scores for this page
+        let pageScore = 0;
+        let maxScore = 5;
+        
+        selectedPrompts.forEach((prompt, index) => {
+          const promptId = `prompt_${index}`;
+          const wordCount = wordCounts[promptId] || 0;
+          const relevanceScore = relevanceScores[promptId] || 0;
+          
+          if (wordCount >= 150 && relevanceScore >= 40) {
+            pageScore++;
+          }
+        });
+        
+        // Save page score
+        localStorage.setItem('ielts_writing_opinion_score', JSON.stringify({
+          score: pageScore,
+          maxScore: maxScore,
+          percentage: Math.round((pageScore / maxScore) * 100),
+          relevanceScores: relevanceScores
+        }));
+      }
+    });
+  </script>
+</body>
+</html>

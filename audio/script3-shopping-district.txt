@@ -1,0 +1,31 @@
+Tourist: Excuse me, I'm looking for several shops in this shopping district. Could you help me?
+
+Shopkeeper: Of course! What shops are you looking for?
+
+Tourist: I need to find a bookstore, a pharmacy, and an Italian restaurant.
+
+Shopkeeper: Ah, I can help you with all of those. Let's start with the bookstore.
+
+Tourist: Yes, please.
+
+Shopkeeper: The bookstore is on Pine Street, next to the coffee shop. From here, walk straight for about 5 minutes, then turn right onto Pine Street.
+
+Tourist: Next to the coffee shop on Pine Street. Got it. What about the pharmacy?
+
+Shopkeeper: The pharmacy is much closer. Just walk straight from here for about 2 minutes, and you'll see it on your left. It's opposite the post office on Elm Street.
+
+Tourist: That's very close! And the Italian restaurant?
+
+Shopkeeper: For the restaurant, you need to look for a large fountain. The restaurant is right behind it. Walk to the main square - you'll see the fountain in the center.
+
+Tourist: Behind the fountain in the main square. How long does it take to walk there?
+
+Shopkeeper: About 8 minutes from here. Just follow the signs to the main square.
+
+Tourist: What if I get lost?
+
+Shopkeeper: Don't worry! If you get lost, just return to the main square and start again. There's also an information center there that can help you.
+
+Tourist: Thank you so much! You've been incredibly helpful.
+
+Shopkeeper: My pleasure! Enjoy your shopping and dining!

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Business Speaking - Negotiating Skills - IELTS Practice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold">
+        IELTS Speaking Practice - Negotiating Skills (B1-B2 Level)
+      </div>
+      <progress id="progressBar" max="100" value="10"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" id="countdownText">
+        Questions 1-5 of 20 (Random Selection)<br />
+        <span id="timeDisplay">Negotiating Skills Practice</span>
+      </p>
+    </section>
+
+    <!-- Tasks will be dynamically inserted here -->
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="#" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    const allTasks = [
+  {
+    "id": 81,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Revenue Share",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Revenue Share, we propose 50-50 split to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 60-40 split would be more appropriate given higher investment.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement performance metrics to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With performance metrics, 60-40 split works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 82,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Exclusivity Period",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Exclusivity Period, we propose 5 years to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 3 years would be more appropriate given market conditions.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement review clause to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With review clause, 3 years works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 83,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Territory Rights",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Territory Rights, we propose global to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but regional would be more appropriate given market maturity.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement expansion option to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With expansion option, regional works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 84,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Intellectual Property",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Intellectual Property, we propose full ownership to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but shared ownership would be more appropriate given development costs.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement licensing terms to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With licensing terms, shared ownership works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 85,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Decision Making",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Decision Making, we propose unanimous to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but majority vote would be more appropriate given operational efficiency.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement veto rights to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With veto rights, majority vote works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 86,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Investment Commitment",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Investment Commitment, we propose $5M to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but $3M would be more appropriate given phased funding.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement milestone-based to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With milestone-based, $3M works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 87,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Profit Distribution",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Profit Distribution, we propose quarterly to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but annual would be more appropriate given cash flow.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement reinvestment priority to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With reinvestment priority, annual works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 88,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Exit Strategy",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Exit Strategy, we propose 5-year lockup to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 3-year lockup would be more appropriate given liquidity needs.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement buyout terms to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With buyout terms, 3-year lockup works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 89,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Governance Structure",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Governance Structure, we propose equal board seats to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but proportional seats would be more appropriate given expertise balance.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement advisory roles to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With advisory roles, proportional seats works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 90,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Non-Compete",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Non-Compete, we propose 5 years to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 2 years would be more appropriate given industry norms.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement geographic limits to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With geographic limits, 2 years works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 91,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Performance Targets",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Performance Targets, we propose aggressive growth to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but sustainable growth would be more appropriate given market reality.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement bonus structure to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With bonus structure, sustainable growth works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 92,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Resource Allocation",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Resource Allocation, we propose 50-50 split to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but need-based would be more appropriate given project requirements.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement efficiency focus to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With efficiency focus, need-based works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 93,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Brand Usage",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Brand Usage, we propose co-branding to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but separate brands would be more appropriate given market positioning.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement licensing fees to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With licensing fees, separate brands works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 94,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Technology Access",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Technology Access, we propose full access to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but limited access would be more appropriate given competitive advantage.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement development rights to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With development rights, limited access works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 95,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Customer Ownership",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Customer Ownership, we propose shared database to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but separate databases would be more appropriate given data privacy.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement referral system to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With referral system, separate databases works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 96,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Dispute Resolution",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Dispute Resolution, we propose litigation to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but arbitration would be more appropriate given cost efficiency.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement confidentiality to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With confidentiality, arbitration works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 97,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Reporting Requirements",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Reporting Requirements, we propose monthly detailed to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but quarterly summary would be more appropriate given management time.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement key metrics to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With key metrics, quarterly summary works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 98,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Expansion Rights",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Expansion Rights, we propose automatic to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but negotiated would be more appropriate given market assessment.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement investment capacity to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With investment capacity, negotiated works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 99,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Termination Clause",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Termination Clause, we propose 6-month notice to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but 3-month notice would be more appropriate given business continuity.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement transition support to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With transition support, 3-month notice works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  },
+  {
+    "id": 100,
+    "page": 5,
+    "category": "negotiating",
+    "title": "Partnership Terms - Renewal Terms",
+    "dialogue": "<strong>Partner A:</strong> \"Regarding Renewal Terms, we propose automatic renewal to ensure commitment and alignment.\"\n\n<strong>Partner B:</strong> \"We appreciate that, but mutual agreement would be more appropriate given performance review.\"\n\n<strong>Partner A:</strong> \"I see your point. What if we implement market conditions to address both concerns?\"\n\n<strong>Partner B:</strong> \"That's a fair compromise. With market conditions, mutual agreement works well and protects both parties' interests.\"\n",
+    "instructions": "Read this partnership negotiation. Show mutual benefit and long-term thinking.",
+    "emphasis": "Highlight win-win solutions and trust-building"
+  }
+];
+    
+    // Random selection logic
+    function selectRandomTasks(allTasks, count) {
+      const shuffled = [...allTasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    // Check if we already have selected tasks
+    const storageKey = 'business_negotiating_page5_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      const storedIds = JSON.parse(stored);
+      selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks
+    function renderTasks() {
+      const container = document.getElementById('tasksContainer');
+      container.innerHTML = '';
+      
+      selectedTasks.forEach((task, index) => {
+        const taskHtml = `
+          <section class="card rounded-xl mb-6" id="task${index + 1}Card">
+            <div class="inner-card">
+              <div class="speaking-interface">
+                <p class="text-sm font-semibold mb-2">ðŸŽ¤ Speaking Task ${index + 1} - Read Aloud</p>
+                <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4 text-left">
+                  <p class="text-sm font-semibold mb-2">${task.title}</p>
+                  <div class="text-sm leading-relaxed">${task.dialogue}</div>
+                </div>
+                <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+                
+                <button id="micButton${index + 1}" class="microphone-button" onclick="toggleRecording(${index + 1})">
+                  <i class="fas fa-microphone"></i>
+                </button>
+                
+                <div id="recordingStatus${index + 1}" class="recording-status">
+                  Click the microphone to start recording
+                </div>
+                
+                <div id="transcript${index + 1}" class="transcript-display">
+                  Your speech will appear here as you speak...
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+        container.innerHTML += taskHtml;
+      });
+    }
+    
+    renderTasks();
+    
+    // Completion tracking
+    let completedTasks = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completedTasks).length,
+        total: totalTasks,
+        tasks: completedTasks,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('business_negotiating_page5_answers', JSON.stringify(completionData));
+      console.log('Saved completion for business_negotiating_page5:', completionData);
+    }
+    
+    window.markTaskComplete = function(taskNumber) {
+      completedTasks[`task${taskNumber}`] = {
+        completed: true,
+        taskId: selectedTasks[taskNumber - 1].id,
+        timestamp: new Date().toISOString()
+      };
+      saveCompletion();
+    };
+    
+    window.toggleRecording = function(taskNumber) {
+      setTimeout(() => {
+        markTaskComplete(taskNumber);
+      }, 1000);
+    };
+    
+    // Load saved completion
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedData = localStorage.getItem('business_negotiating_page5_answers');
+      if (savedData) {
+        try {
+          const data = JSON.parse(savedData);
+          completedTasks = data.tasks || {};
+        } catch (e) {
+          console.error('Error loading saved completion:', e);
+        }
+      }
+    });
+    
+    // Page protection
+    (function() {
+      const testSequence = [
+        'page3.html',
+        'speaking-negotiating-1.html', 'speaking-negotiating-2.html', 'speaking-negotiating-3.html',
+        'speaking-negotiating-4.html', 'speaking-negotiating-5.html',
+        'speaking-issues-options-1.html', 'speaking-issues-options-2.html', 'speaking-issues-options-3.html',
+        'speaking-issues-options-4.html', 'speaking-issues-options-5.html',
+        'speaking-meeting-summary-1.html', 'speaking-meeting-summary-2.html', 'speaking-meeting-summary-3.html',
+        'speaking-meeting-summary-4.html', 'speaking-meeting-summary-5.html',
+        'speaking-business-results.html'
+      ];
+      
+      const currentPage = window.location.pathname.split('/').pop();
+      const testStarted = localStorage.getItem('business_test_started');
+      const selectedProgram = localStorage.getItem('selectedProgram');
+      
+      if (testSequence.includes(currentPage)) {
+        if (!testStarted || selectedProgram !== 'business-speaking') {
+          alert('Anda harus memulai tes dari halaman pendaftaran!');
+          window.location.href = 'page2.html';
+          return;
+        }
+        
+        const currentPageIndex = testSequence.indexOf(currentPage);
+        const allowedPage = localStorage.getItem('business_current_page');
+        const allowedPageIndex = testSequence.indexOf(allowedPage);
+        
+        if (currentPageIndex > allowedPageIndex) {
+          alert('Anda harus mengerjakan soal secara berurutan!');
+          window.location.href = allowedPage;
+          return;
+        }
+      }
+      
+      window.addEventListener('beforeunload', function() {
+        const nextPageIndex = testSequence.indexOf(currentPage) + 1;
+        if (nextPageIndex < testSequence.length) {
+          localStorage.setItem('business_current_page', testSequence[nextPageIndex]);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

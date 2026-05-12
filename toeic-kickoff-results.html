@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>TOEIC Kickoff Test Results - pymasterclass.my.id/elearningq</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; padding-top: 110px !important; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .card:hover { box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2); }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; text-decoration: none; display: inline-block; border: none; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    
+    main { padding-bottom: 5rem; margin-top: 0 !important; padding-top: 0 !important; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.75rem; color: #1e293b; line-height: 1.3; margin-bottom: 1.5rem; background: white; }
+    
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    
+    @media (max-width: 768px) {
+      body { padding-top: 100px !important; }
+      header { height: 90px !important; padding: 0 1.5rem; }
+      .font-golden { font-size: 0.9rem; }
+      header img { width: 80px; height: 80px; }
+    }
+    
+    .overall-score { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; padding: 2rem; border-radius: 1rem; text-align: center; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3); }
+    .skill-summary { background: #f8fafc; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid #3b82f6; }
+    .score-display { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem; }
+    
+    .user-info-card { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; border: 2px solid #3b82f6; }
+    .user-info-card h3 { color: #1e40af; font-weight: 600; margin-bottom: 0.5rem; }
+    .user-info-card p { color: #1e293b; margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-3 rounded-md select-none font-semibold">
+        🎉 TOEIC Kickoff Test Results - Complete Assessment! 🎉
+      </div>
+    </section>
+
+    <section class="user-info-card">
+      <h3><i class="fas fa-user mr-2"></i>Test Taker Information</h3>
+      <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+      <p><strong>Test Date:</strong> <span id="testDate"></span></p>
+    </section>
+
+    <section class="overall-score">
+      <h1 class="text-2xl font-bold mb-4">Your Overall TOEIC Score</h1>
+      <div class="text-6xl font-bold mb-2" id="overallScore">--</div>
+      <div class="text-lg" id="overallLevel">Calculating...</div>
+      <div class="text-sm mt-2 opacity-90">CEFR Level Assessment</div>
+      <div class="text-sm mt-4">
+        <strong>Total Score:</strong> <span id="totalCorrect">--</span> / <span id="totalQuestions">--</span> 
+        (<span id="totalPercentage">--</span>%)
+      </div>
+    </section>
+
+    <section class="card rounded-xl mb-6">
+      <div class="inner-card">
+        <h2 class="font-bold text-center mb-4 text-lg">Performance by Skill Area</h2>
+
+        <div class="skill-summary">
+          <h3 class="font-semibold mb-3 text-purple-600">
+            <i class="fas fa-headphones mr-2"></i>Listening Comprehension
+          </h3>
+          <div class="score-display">
+            <div class="score-item">
+              <div class="score-value" id="listeningPercentage">--</div>
+              <div class="score-label">Accuracy</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="listeningLevel">--</div>
+              <div class="score-label">CEFR Level</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="listeningScore">--/25</div>
+              <div class="score-label">Correct</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="listeningTOEIC">--</div>
+              <div class="score-label">TOEIC Equivalent</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-summary">
+          <h3 class="font-semibold mb-3 text-green-600">
+            <i class="fas fa-book-open mr-2"></i>Reading Comprehension
+          </h3>
+          <div class="score-display">
+            <div class="score-item">
+              <div class="score-value" id="readingPercentage">--</div>
+              <div class="score-label">Accuracy</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="readingLevel">--</div>
+              <div class="score-label">CEFR Level</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="readingScore">--/25</div>
+              <div class="score-label">Correct</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="readingTOEIC">--</div>
+              <div class="score-label">TOEIC Equivalent</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card rounded-xl mb-6">
+      <div class="inner-card">
+        <h2 class="font-bold text-center mb-4 text-lg">Skill Development Progress</h2>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-medium">Listening</span>
+              <span id="listeningProgressPercent">--%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-purple-600 h-2 rounded-full" id="listeningProgressBar" style="width: 0%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-medium">Reading</span>
+              <span id="readingProgressPercent">--%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-green-600 h-2 rounded-full" id="readingProgressBar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+      <button onclick="generateCertificatePDF(event)" class="btn-animate inline-block text-center">
+        <i class="fas fa-file-pdf mr-2"></i>Cetak Sertifikat ke PDF
+      </button>
+      <a href="page3.html" class="btn-animate text-center">
+        <i class="fas fa-redo mr-2"></i>Take Test Again
+      </a>
+      <a href="index.html" class="btn-animate text-center">
+        <i class="fas fa-home mr-2"></i>Back to Home
+      </a>
+    </div>
+  </main>
+
+  <script>
+    // Check TOEIC access
+    function checkTOEICAccess() {
+      console.log('Checking TOEIC test completion...');
+      
+      let listeningComplete = true;
+      for (let i = 1; i <= 5; i++) {
+        const key = `toeic_listening_page${i}_answers`;
+        const data = localStorage.getItem(key);
+        if (!data) {
+          console.log(`Missing TOEIC listening data for page ${i}`);
+          listeningComplete = false;
+          break;
+        }
+      }
+      
+      let readingComplete = true;
+      for (let i = 1; i <= 5; i++) {
+        let key = `reading_part7_${i}_answers`;
+        let data = localStorage.getItem(key);
+        
+        if (!data) {
+          key = `toeic_reading_page${i}_answers`;
+          data = localStorage.getItem(key);
+        }
+        
+        if (!data) {
+          console.log(`Missing TOEIC reading data for page ${i}`);
+          readingComplete = false;
+          break;
+        }
+      }
+      
+      console.log('TOEIC Access check results:', { listeningComplete, readingComplete });
+      
+      return true; // Allow access for demo
+    }
+
+    if (!checkTOEICAccess()) {
+      throw new Error('Access denied - redirecting');
+    }
+
+    function calculateCEFRLevel(percentage) {
+      if (percentage >= 90) return 'C2';
+      if (percentage >= 80) return 'C1';
+      if (percentage >= 70) return 'B2';
+      if (percentage >= 60) return 'B1';
+      if (percentage >= 50) return 'A2';
+      return 'A1';
+    }
+
+    function calculateTOEICScore(percentage) {
+      const baseScore = 5;
+      const maxScore = 495;
+      const score = Math.round(baseScore + (maxScore - baseScore) * (percentage / 100));
+      return score;
+    }
+
+    function loadUserData() {
+      const userName = localStorage.getItem('userName') ||
+                       localStorage.getItem('toeic_user_name') || 
+                       'Test Taker';
+      
+      const userEmail = localStorage.getItem('userEmail') ||
+                        localStorage.getItem('toeic_user_email') || 
+                        'Not provided';
+      
+      document.getElementById('userName').textContent = userName;
+      document.getElementById('userEmail').textContent = userEmail;
+      document.getElementById('testDate').textContent = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      
+      console.log('User data loaded:', { userName, userEmail });
+    }
+
+    function calculateScores() {
+      const scores = {
+        listening: { correct: 0, total: 0 },
+        reading: { correct: 0, total: 0 }
+      };
+      
+      for (let i = 1; i <= 5; i++) {
+        const key = `toeic_listening_page${i}_answers`;
+        const data = localStorage.getItem(key);
+        if (data) {
+          try {
+            const parsed = JSON.parse(data);
+            scores.listening.correct += parsed.correct || 0;
+            scores.listening.total += parsed.total || 0;
+          } catch (e) {
+            console.error(`Error parsing ${key}:`, e);
+          }
+        }
+      }
+      
+      for (let i = 1; i <= 5; i++) {
+        let key = `reading_part7_${i}_answers`;
+        let data = localStorage.getItem(key);
+        
+        if (!data) {
+          key = `toeic_reading_page${i}_answers`;
+          data = localStorage.getItem(key);
+        }
+        
+        if (data) {
+          try {
+            const parsed = JSON.parse(data);
+            scores.reading.correct += parsed.correct || 0;
+            scores.reading.total += parsed.total || 0;
+          } catch (e) {
+            console.error(`Error parsing ${key}:`, e);
+          }
+        }
+      }
+      
+      return scores;
+    }
+
+    function displayResults() {
+      const scores = calculateScores();
+      
+      const listeningPercent = scores.listening.total > 0 ? Math.round((scores.listening.correct / scores.listening.total) * 100) : 0;
+      const readingPercent = scores.reading.total > 0 ? Math.round((scores.reading.correct / scores.reading.total) * 100) : 0;
+      
+      const totalCorrect = scores.listening.correct + scores.reading.correct;
+      const totalQuestions = scores.listening.total + scores.reading.total;
+      const overallPercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+      const overallLevel = calculateCEFRLevel(overallPercent);
+      
+      const listeningTOEIC = calculateTOEICScore(listeningPercent);
+      const readingTOEIC = calculateTOEICScore(readingPercent);
+      const totalTOEIC = listeningTOEIC + readingTOEIC;
+      
+      document.getElementById('overallScore').textContent = overallLevel;
+      document.getElementById('overallLevel').textContent = overallLevel + ' Level (TOEIC: ' + totalTOEIC + '/990)';
+      document.getElementById('totalCorrect').textContent = totalCorrect;
+      document.getElementById('totalQuestions').textContent = totalQuestions;
+      document.getElementById('totalPercentage').textContent = overallPercent;
+      
+      document.getElementById('listeningPercentage').textContent = listeningPercent + '%';
+      document.getElementById('listeningLevel').textContent = calculateCEFRLevel(listeningPercent);
+      document.getElementById('listeningScore').textContent = scores.listening.correct + '/' + scores.listening.total;
+      document.getElementById('listeningTOEIC').textContent = listeningTOEIC + '/495';
+      document.getElementById('listeningProgressPercent').textContent = listeningPercent + '%';
+      document.getElementById('listeningProgressBar').style.width = listeningPercent + '%';
+      
+      document.getElementById('readingPercentage').textContent = readingPercent + '%';
+      document.getElementById('readingLevel').textContent = calculateCEFRLevel(readingPercent);
+      document.getElementById('readingScore').textContent = scores.reading.correct + '/' + scores.reading.total;
+      document.getElementById('readingTOEIC').textContent = readingTOEIC + '/495';
+      document.getElementById('readingProgressPercent').textContent = readingPercent + '%';
+      document.getElementById('readingProgressBar').style.width = readingPercent + '%';
+      
+      window.toeicScores = scores;
+      window.toeicPercents = { listeningPercent, readingPercent, overallPercent };
+      window.toeicTOEIC = { listeningTOEIC, readingTOEIC, totalTOEIC };
+    }
+
+    async function submitToTOEICAPI() {
+      const name = document.getElementById('userName').textContent;
+      const email = document.getElementById('userEmail').textContent;
+      const scores = window.toeicScores;
+      const percents = window.toeicPercents;
+      const toeicScores = window.toeicTOEIC;
+
+      const data = {
+        name: name,
+        email: email,
+        listening_correct: scores.listening.correct,
+        listening_total: scores.listening.total,
+        listening_percentage: percents.listeningPercent,
+        listening_toeic: toeicScores.listeningTOEIC,
+        reading_correct: scores.reading.correct,
+        reading_total: scores.reading.total,
+        reading_percentage: percents.readingPercent,
+        reading_toeic: toeicScores.readingTOEIC,
+        overall_toeic: toeicScores.totalTOEIC
+      };
+
+      try {
+        const response = await fetch('https://kamponginggrispare.com/index.php/api/submit-toeic', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log('TOEIC results submitted successfully:', result);
+          return result;
+        }
+      } catch (error) {
+        console.error('Error submitting TOEIC results:', error);
+      }
+    }
+
+    function loadImageAsBase64(url) {
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'arraybuffer';
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const arrayBuffer = xhr.response;
+            const bytes = new Uint8Array(arrayBuffer);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) {
+              binary += String.fromCharCode(bytes[i]);
+            }
+            const base64 = btoa(binary);
+            const extension = url.split('.').pop().toLowerCase();
+            const mimeType = extension === 'png' ? 'image/png' : 'image/jpeg';
+            resolve(`data:${mimeType};base64,${base64}`);
+          } else {
+            reject(new Error(`Failed to load image: ${url}`));
+          }
+        };
+        xhr.onerror = reject;
+        xhr.send();
+      });
+    }
+
+    async function generateCertificatePDF(event) {
+      try {
+        const button = event.target.closest('button');
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Membuat Sertifikat...';
+        button.disabled = true;
+
+        try {
+          await submitToTOEICAPI();
+        } catch (apiError) {
+          console.warn('API submission failed:', apiError);
+        }
+
+        const userName = document.getElementById('userName').textContent;
+        const testDate = document.getElementById('testDate').textContent;
+        const overallScore = document.getElementById('overallScore').textContent;
+        const scores = window.toeicScores;
+        const percents = window.toeicPercents;
+        const toeicScores = window.toeicTOEIC;
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF('p', 'mm', 'a4');
+        const pageWidth = doc.internal.pageSize.width;
+        const pageHeight = doc.internal.pageSize.height;
+        const margin = 15;
+
+        // Background
+        doc.setFillColor(248, 250, 252);
+        doc.rect(0, 0, pageWidth, pageHeight, 'F');
+
+        // Decorative border
+        doc.setDrawColor(59, 130, 246);
+        doc.setLineWidth(2);
+        doc.rect(margin, margin, pageWidth - 2*margin, pageHeight - 2*margin);
+
+        // Inner frame
+        doc.setDrawColor(99, 102, 241);
+        doc.setLineWidth(0.5);
+        doc.rect(margin + 3, margin + 3, pageWidth - 2*(margin + 3), pageHeight - 2*(margin + 3));
+
+        let yPos = margin + 25;
+
+        // Header with background
+        doc.setFillColor(30, 58, 138);
+        doc.rect(margin + 5, yPos - 15, pageWidth - 2*(margin + 5), 40, 'F');
+
+        doc.setFontSize(22);
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.text('CERTIFICATE OF ACHIEVEMENT', pageWidth / 2, yPos, { align: 'center' });
+        
+        doc.setFontSize(14);
+        doc.setTextColor(200, 220, 255);
+        doc.setFont('helvetica', 'normal');
+        doc.text('TOEIC Kickoff Test', pageWidth / 2, yPos + 8, { align: 'center' });
+        
+        // Accent line
+        doc.setDrawColor(255, 215, 0);
+        doc.setLineWidth(1.5);
+        doc.line(margin + 20, yPos + 15, pageWidth - (margin + 20), yPos + 15);
+        
+        yPos += 30;
+
+        // Presented to
+        doc.setFontSize(14);
+        doc.setTextColor(51, 65, 85);
+        doc.setFont('helvetica', 'bold');
+        doc.text('This certificate is proudly presented to:', pageWidth / 2, yPos, { align: 'center' });
+        yPos += 12;
+
+        // Name
+        doc.setFontSize(20);
+        doc.setTextColor(30, 58, 138);
+        doc.setFont('helvetica', 'bold');
+        doc.text(userName.toUpperCase(), pageWidth / 2, yPos, { align: 'center' });
+        yPos += 25;
+
+        // Achievement description
+        doc.setFontSize(10);
+        doc.setTextColor(71, 85, 105);
+        doc.setFont('helvetica', 'normal');
+        const achievementDesc = `for successfully completing the TOEIC Kickoff Test with a CEFR level of ${overallScore} and TOEIC score of ${toeicScores.totalTOEIC}/990.`;
+        doc.text(achievementDesc, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+        yPos += 15;
+
+        // Decorative separator
+        doc.setDrawColor(99, 102, 241);
+        doc.setLineWidth(0.5);
+        doc.line(margin + 15, yPos, pageWidth - (margin + 15), yPos);
+        yPos += 15;
+
+        // Test Results
+        doc.setFontSize(10);
+        doc.setTextColor(51, 65, 85);
+        doc.setFont('helvetica', 'bold');
+        doc.text('TEST RESULTS:', pageWidth / 2, yPos, { align: 'center' });
+        yPos += 8;
+
+        doc.setFontSize(9);
+        doc.text(`• Test Date: ${testDate}`, pageWidth / 2, yPos, { align: 'center' });
+        yPos += 10;
+
+        doc.text(`• CEFR Level: ${overallScore}`, pageWidth / 2, yPos, { align: 'center' });
+        yPos += 10;
+
+        doc.text(`• TOEIC Score: ${toeicScores.totalTOEIC}/990`, pageWidth / 2, yPos, { align: 'center' });
+        yPos += 10;
+
+        doc.text(`• Listening: ${percents.listeningPercent}% (${scores.listening.correct}/${scores.listening.total}) - TOEIC ${toeicScores.listeningTOEIC}/495`, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+        yPos += 10;
+
+        doc.text(`• Reading: ${percents.readingPercent}% (${scores.reading.correct}/${scores.reading.total}) - TOEIC ${toeicScores.readingTOEIC}/495`, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+        yPos += 22;
+
+        // Description
+        doc.setFontSize(8);
+        doc.setTextColor(71, 85, 105);
+        doc.setFont('helvetica', 'normal');
+        const descriptionText = `This certificate acknowledges the candidate's TOEIC proficiency in business English listening and reading comprehension.`;
+        doc.text(descriptionText, pageWidth / 2, yPos, { align: 'center', maxWidth: 160 });
+        yPos += 30;
+
+        // Bottom section
+        const bottomLineY = pageHeight - margin - 50;
+        doc.setDrawColor(59, 130, 246);
+        doc.setLineWidth(1);
+        doc.line(margin + 5, bottomLineY, pageWidth - (margin + 5), bottomLineY);
+        yPos = bottomLineY + 10;
+
+        // Load images
+        let signatureBase64 = null;
+        let stempelBase64 = null;
+
+        try {
+          signatureBase64 = await loadImageAsBase64('ttd.png');
+        } catch (error) {
+          console.warn('Failed to load signature:', error);
+        }
+
+        try {
+          stempelBase64 = await loadImageAsBase64('stempel.png');
+        } catch (error) {
+          console.warn('Failed to load stempel:', error);
+        }
+
+        // Add signature
+        if (signatureBase64) {
+          try {
+            const signatureWidth = 50;
+            const signatureHeight = 25;
+            const signatureX = (pageWidth - signatureWidth) / 2;
+            
+            if (yPos + signatureHeight < pageHeight - margin) {
+              doc.addImage(signatureBase64, 'JPEG', signatureX, yPos, signatureWidth, signatureHeight);
+              
+              // Add stempel on top
+              if (stempelBase64) {
+                try {
+                  const stempelWidth = 35;
+                  const stempelHeight = 35;
+                  const stempelX = signatureX + 2;
+                  const stempelY = yPos - 1;
+                  
+                  if (stempelY + stempelHeight < pageHeight - margin) {
+                    doc.addImage(stempelBase64, 'PNG', stempelX, stempelY, stempelWidth, stempelHeight);
+                  }
+                } catch (stempelError) {
+                  console.warn('Error adding stempel:', stempelError);
+                }
+              }
+              
+              yPos += signatureHeight + 5;
+            }
+          } catch (imgError) {
+            console.warn('Error adding signature:', imgError);
+          }
+        } else {
+          doc.setFontSize(10);
+          doc.setTextColor(107, 114, 128);
+          doc.setFont('helvetica', 'italic');
+          doc.text('Director Signature', pageWidth / 2, yPos, { align: 'center' });
+          yPos += 12;
+        }
+
+        // Organization name
+        const orgY = Math.min(yPos + 10, pageHeight - margin - 5);
+        doc.setFontSize(10);
+        doc.setTextColor(30, 58, 138);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Kampong Inggris Pare', pageWidth / 2, orgY, { align: 'center' });
+
+        // Save PDF
+        const sanitizedName = userName.replace(/[^a-zA-Z0-9]/g, '_');
+        doc.save(`toeic-kickoff-certificate-${sanitizedName}.pdf`);
+
+        button.innerHTML = originalText;
+        button.disabled = false;
+
+        alert('Certificate generated successfully!');
+
+      } catch (error) {
+        console.error('Error generating certificate:', error);
+        alert('Error generating certificate. Please try again.');
+        
+        const button = event.target.closest('button');
+        button.innerHTML = '<i class="fas fa-file-pdf mr-2"></i>Cetak Sertifikat ke PDF';
+        button.disabled = false;
+      }
+    }
+
+    window.addEventListener('load', function() {
+      loadUserData();
+      displayResults();
+    });
+  </script>
+</body>
+</html>

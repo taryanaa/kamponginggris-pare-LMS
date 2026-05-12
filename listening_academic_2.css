@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEIC Listening Practice - Island Economy | kamponginggrispare.com">
+  <meta name="keywords" content="TOEIC listening, academic English, island economy, listening comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEIC Listening Practice - Island Economy | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Same styles as previous listening page */
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow: 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    .audio-player { background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 0.75rem; padding: 1rem; margin: 1rem 0; text-align: center; }
+    .play-button { background: #10b981; color: white; border: none; border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; margin: 0 auto; }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.75rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.75rem; color: #1e293b; line-height: 1.3; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .listening-selection { margin-bottom: 1.5rem; }
+    .listening-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEIC test title">
+        TOEIC Listening Test - Island Economy (Page 2)
+      </div>
+      <progress id="progressBar" max="5400" value="5400" aria-label="TOEIC test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="5400" aria-valuenow="5400"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 90 menit<br />
+        <span id="timeDisplay" style="">1Jam 30Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Listening Comprehension section" id="mainCard">
+      <!-- Listening content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="listening_academic_3.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const listeningData = [
+      {
+        id: 1,
+        title: "Sustainable Tourism in Island Economies",
+        audioFile: "audio/island-tourism-sustainability.wav",
+        description: "An economics professor discusses sustainable tourism development strategies for small island nations facing environmental and economic challenges.",
+        questions: [
+          {
+            id: 1,
+            text: "What is the main economic challenge mentioned for island nations?",
+            options: [
+              "Limited natural resources",
+              "Overdependence on tourism",
+              "High transportation costs",
+              "Small domestic markets"
+            ],
+            correct: 1
+          },
+          {
+            id: 2,
+            text: "What sustainable practice is recommended?",
+            options: [
+              "Eco-certification for hotels",
+              "Carbon offset programs",
+              "Visitor number caps",
+              "All of the above"
+            ],
+            correct: 3
+          },
+          {
+            id: 3,
+            text: "What percentage of GDP does tourism represent in some islands?",
+            options: [
+              "Over 40%",
+              "Over 50%",
+              "Over 60%",
+              "Over 70%"
+            ],
+            correct: 2
+          },
+          {
+            id: 4,
+            text: "What environmental threat is specifically mentioned?",
+            options: [
+              "Deforestation",
+              "Coral reef degradation",
+              "Air pollution",
+              "Soil erosion"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "What alternative industry is suggested?",
+            options: [
+              "Marine biotechnology",
+              "Renewable energy exports",
+              "Digital services",
+              "Organic agriculture"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Climate Change Impacts on Island Economies",
+        audioFile: "audio/climate-change-islands.wav",
+        description: "A climate scientist presents research on how rising sea levels and extreme weather events affect economic stability in island nations.",
+        questions: [
+          {
+            id: 6,
+            text: "What is the projected sea level rise by 2050?",
+            options: [
+              "15-30 cm",
+              "20-40 cm",
+              "25-50 cm",
+              "30-60 cm"
+            ],
+            correct: 2
+          },
+          {
+            id: 7,
+            text: "Which economic sector is most vulnerable?",
+            options: [
+              "Agriculture",
+              "Tourism infrastructure",
+              "Fishing industry",
+              "Manufacturing"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What adaptation strategy is discussed?",
+            options: [
+              "Building sea walls",
+              "Coastal zone management",
+              "Relocation planning",
+              "All of the above"
+            ],
+            correct: 3
+          },
+          {
+            id: 9,
+            text: "What international fund is mentioned?",
+            options: [
+              "Green Climate Fund",
+              "World Bank Adaptation Fund",
+              "UN Development Programme",
+              "Global Environment Facility"
+            ],
+            correct: 0
+          },
+          {
+            id: 10,
+            text: "What is the estimated economic loss percentage?",
+            options: [
+              "5-10% of GDP",
+              "10-15% of GDP",
+              "15-20% of GDP",
+              "20-25% of GDP"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Blue Economy Development Strategies",
+        audioFile: "audio/blue-economy-strategies.wav",
+        description: "Marine economists discuss blue economy opportunities for islands, including sustainable fisheries and marine renewable energy.",
+        questions: [
+          {
+            id: 11,
+            text: "What is the 'blue economy' concept focused on?",
+            options: [
+              "Sustainable ocean resources",
+              "Marine tourism only",
+              "Deep sea mining",
+              "Naval transportation"
+            ],
+            correct: 0
+          },
+          {
+            id: 12,
+            text: "What renewable energy source has most potential?",
+            options: [
+              "Offshore wind",
+              "Wave energy",
+              "Ocean thermal",
+              "Tidal power"
+            ],
+            correct: 2
+          },
+          {
+            id: 13,
+            text: "What fisheries management approach is recommended?",
+            options: [
+              "Individual transferable quotas",
+              "Seasonal closures",
+              "Marine protected areas",
+              "Gear restrictions"
+            ],
+            correct: 0
+          },
+          {
+            id: 14,
+            text: "What percentage of global GDP comes from oceans?",
+            options: [
+              "2.5%",
+              "3.5%",
+              "4.5%",
+              "5.5%"
+            ],
+            correct: 1
+          },
+          {
+            id: 15,
+            text: "What research investment is needed?",
+            options: [
+              "Marine biotechnology",
+              "Aquaculture development",
+              "Coastal engineering",
+              "All of the above"
+            ],
+            correct: 3
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Digital Transformation in Remote Islands",
+        audioFile: "audio/digital-transformation-islands.wav",
+        description: "Technology experts discuss how digital connectivity can overcome geographical isolation and create new economic opportunities.",
+        questions: [
+          {
+            id: 16,
+            text: "What is the main barrier to digital connectivity?",
+            options: [
+              "High costs",
+              "Limited infrastructure",
+              "Small population",
+              "All of the above"
+            ],
+            correct: 3
+          },
+          {
+            id: 17,
+            text: "What technology solution is emphasized?",
+            options: [
+              "Satellite internet",
+              "Submarine cables",
+              "5G networks",
+              "Wireless mesh"
+            ],
+            correct: 1
+          },
+          {
+            id: 18,
+            text: "What new economic opportunity is created?",
+            options: [
+              "Remote work services",
+              "E-commerce platforms",
+              "Digital education",
+              "All of the above"
+            ],
+            correct: 3
+          },
+          {
+            id: 19,
+            text: "What investment is required for digital transformation?",
+            options: [
+              "$50-100 million",
+              "$100-200 million",
+              "$200-300 million",
+              "$300-400 million"
+            ],
+            correct: 1
+          },
+          {
+            id: 20,
+            text: "What partnership model is suggested?",
+            options: [
+              "Public-private partnerships",
+              "International aid",
+              "Community cooperatives",
+              "Corporate investment"
+            ],
+            correct: 0
+          }
+        ]
+      }
+    ];
+
+    // Same JavaScript functions as previous listening page
+    let currentAudio = null;
+    let playCount = 0;
+    const maxPlays = 3;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedListening = localStorage.getItem('toeic_academic_listening_2_selected');
+      
+      let selectedListening;
+      if (storedListening) {
+        selectedListening = listeningData.find(listening => listening.id === parseInt(storedListening));
+      } else {
+        const randomListeningIndex = Math.floor(Math.random() * listeningData.length);
+        selectedListening = listeningData[randomListeningIndex];
+        localStorage.setItem('toeic_academic_listening_2_selected', selectedListening.id.toString());
+      }
+      
+      displayListening(selectedListening);
+      const selectedQuestions = selectRandomQuestions(selectedListening.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toeic_academic_listening_2_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayListening(listening) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const listeningElement = document.createElement('div');
+      listeningElement.className = 'listening-selection';
+      listeningElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEIC Listening Comprehension - Island Economy (B2)
+          </p>
+          <p class="text-center mb-3">
+            Listen to the academic discussion and answer questions 1-5. You can play the audio up to 3 times.
+          </p>
+          <p class="listening-title">${listening.title}</p>
+          
+          <div class="audio-player">
+            <p class="text-sm font-semibold mb-2">🎧 Audio: ${listening.title}</p>
+            <div class="audio-controls">
+              <button id="playButton" class="play-button" onclick="playAudio()">
+                <i class="fas fa-play"></i>
+              </button>
+              <div class="text-sm mt-2">
+                <div id="audioDuration">Duration: 2:45</div>
+                <div id="playCount" class="play-count">Plays remaining: 3/3</div>
+              </div>
+            </div>
+
+            <div class="audio-progress-container" style="width: 100%; margin: 1rem 0;">
+              <div class="audio-progress-bar" style="width: 100%; height: 6px; background-color: #e2e8f0; border-radius: 3px; overflow: hidden;">
+                <div id="audioProgress" style="width: 0%; height: 100%; background-color: #3b82f6; transition: width 0.1s ease;"></div>
+              </div>
+              <div class="audio-time-display" style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.75rem; color: #64748b;">
+                <span id="currentTime">0:00</span>
+                <span id="totalTime">2:45</span>
+              </div>
+            </div>
+
+            <audio id="audioPlayer" preload="metadata">
+              <source src="${listening.audioFile}" type="audio/wav">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <p class="text-xs text-gray-600 mt-2">
+            <strong>Context:</strong> ${listening.description}
+          </p>
+        </div>
+      `;
+      
+      mainCard.appendChild(listeningElement);
+      initializeAudioPlayer();
+    }
+
+    function initializeAudioPlayer() {
+      const playCountDisplay = document.getElementById('playCount');
+      const storedPlayCount = localStorage.getItem('toeic_academic_listening_2_playcount');
+      playCount = storedPlayCount ? parseInt(storedPlayCount) : 0;
+      updatePlayCount();
+    }
+
+    function playAudio() {
+      if (playCount >= maxPlays) {
+        alert('You have reached the maximum number of plays (3 times).');
+        return;
+      }
+      
+      playCount++;
+      localStorage.setItem('toeic_academic_listening_2_playcount', playCount.toString());
+      updatePlayCount();
+      
+      const playButton = document.getElementById('playButton');
+      const audioProgress = document.getElementById('audioProgress');
+      const currentTimeDisplay = document.getElementById('currentTime');
+      
+      playButton.innerHTML = '<i class="fas fa-pause"></i>';
+      
+      let currentTime = 0;
+      const totalTime = 165;
+      
+      const interval = setInterval(() => {
+        currentTime++;
+        const progress = (currentTime / totalTime) * 100;
+        audioProgress.style.width = progress + '%';
+        
+        const minutes = Math.floor(currentTime / 60);
+        const seconds = currentTime % 60;
+        currentTimeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (currentTime >= totalTime) {
+          clearInterval(interval);
+          playButton.innerHTML = '<i class="fas fa-play"></i>';
+          audioProgress.style.width = '0%';
+          currentTimeDisplay.textContent = '0:00';
+        }
+      }, 1000);
+    }
+
+    function updatePlayCount() {
+      const playCountDisplay = document.getElementById('playCount');
+      if (playCountDisplay) {
+        const remaining = maxPlays - playCount;
+        playCountDisplay.textContent = `Plays remaining: ${remaining}/${maxPlays}`;
+        if (remaining === 0) {
+          playCountDisplay.style.color = '#dc2626';
+        }
+      }
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    // Validation functions
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 90 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  </script>
+</body>
+</html>

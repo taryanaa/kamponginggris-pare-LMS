@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Basic English Grammar Practice | kamponginggrispare.com">
+  <meta name="keywords" content="basic english, grammar practice, english test">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basic English - Grammar (3/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Same styles as your uploaded files */
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="Test title">
+        Basic English - Grammar Test (3/5)
+      </div>
+      <progress id="progressBar" max="1800" value="1800" aria-label="Test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="1800" aria-valuenow="1800"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Duration 30 minutes<br />
+        <span id="timeDisplay" style="">0Hours 30Minutes 0Seconds</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Grammar Test section">
+      <div class="inner-card">
+        <p class="font-bold text-center mb-1">
+          Basic English Grammar Test
+        </p>
+        <p class="text-center mb-3">
+          Choose the correct answer for each question.
+        </p>
+        <p class="text-sm text-gray-600 text-center">
+          Questions 1-5: Complete the sentences with the correct grammar
+        </p>
+      </div>
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="basic_grammer4.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next page">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const grammarQuestions = [
+      {
+        id: 31,
+        text: "I ___ my keys at home this morning.",
+        options: ["leave", "leaved", "left", "leaving"],
+        correct: 2
+      },
+      {
+        id: 32,
+        text: "She ___ to the gym three times a week.",
+        options: ["go", "goes", "going", "went"],
+        correct: 1
+      },
+      {
+        id: 33,
+        text: "They ___ already finished their work.",
+        options: ["have", "has", "had", "having"],
+        correct: 0
+      },
+      {
+        id: 34,
+        text: "This is the ___ movie I have ever seen.",
+        options: ["good", "better", "best", "well"],
+        correct: 2
+      },
+      {
+        id: 35,
+        text: "He ___ be at home now. I saw him leave.",
+        options: ["mustn't", "can't", "shouldn't", "won't"],
+        correct: 1
+      },
+      {
+        id: 36,
+        text: "We ___ for the test since last week.",
+        options: ["study", "studied", "have been studying", "studying"],
+        correct: 2
+      },
+      {
+        id: 37,
+        text: "If I ___ you, I would take that job.",
+        options: ["am", "was", "were", "be"],
+        correct: 2
+      },
+      {
+        id: 38,
+        text: "The children ___ playing in the park.",
+        options: ["is", "am", "are", "be"],
+        correct: 2
+      },
+      {
+        id: 39,
+        text: "She speaks English ___ than her brother.",
+        options: ["more fluent", "fluently", "fluenter", "more fluently"],
+        correct: 3
+      },
+      {
+        id: 40,
+        text: "I ___ to the supermarket when I met John.",
+        options: ["go", "was going", "went", "have gone"],
+        correct: 1
+      },
+      {
+        id: 41,
+        text: "You ___ wear a seatbelt while driving.",
+        options: ["must", "can", "may", "would"],
+        correct: 0
+      },
+      {
+        id: 42,
+        text: "They have lived here ___ 2010.",
+        options: ["for", "since", "from", "during"],
+        correct: 1
+      },
+      {
+        id: 43,
+        text: "The cake ___ by my mother.",
+        options: ["made", "was made", "makes", "is making"],
+        correct: 1
+      },
+      {
+        id: 44,
+        text: "I'm looking forward ___ you soon.",
+        options: ["to see", "seeing", "to seeing", "see"],
+        correct: 2
+      },
+      {
+        id: 45,
+        text: "He is too young ___ drive a car.",
+        options: ["to", "for", "that", "so"],
+        correct: 0
+      },
+      {
+        id: 46,
+        text: "We ___ our homework before dinner.",
+        options: ["finish", "finished", "have finished", "had finished"],
+        correct: 3
+      },
+      {
+        id: 47,
+        text: "She ___ her phone everywhere but couldn't find it.",
+        options: ["looked for", "looked after", "looked up", "looked at"],
+        correct: 0
+      },
+      {
+        id: 48,
+        text: "There isn't ___ milk in the fridge.",
+        options: ["many", "much", "some", "few"],
+        correct: 1
+      },
+      {
+        id: 49,
+        text: "I used to ___ tennis when I was younger.",
+        options: ["play", "playing", "played", "plays"],
+        correct: 0
+      },
+      {
+        id: 50,
+        text: "The meeting was postponed ___ the bad weather.",
+        options: ["because", "because of", "although", "despite"],
+        correct: 1
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedQuestions = localStorage.getItem('basic_english_grammar_3_questions');
+      
+      let selectedQuestions;
+      if (storedQuestions) {
+        const questionIds = JSON.parse(storedQuestions);
+        selectedQuestions = questionIds.map(id => 
+          grammarQuestions.find(q => q.id === id)
+        );
+      } else {
+        selectedQuestions = selectRandomQuestions(grammarQuestions, 5);
+        localStorage.setItem('basic_english_grammar_3_questions', 
+          JSON.stringify(selectedQuestions.map(q => q.id))
+        );
+      }
+      
+      displayQuestions(selectedQuestions);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 30 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Hours ${minutes}Minutes ${seconds}Seconds`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        localStorage.setItem('basic_english_grammar_3_answers', JSON.stringify({ correct, total }));
+        
+        // Calculate total score for all grammar pages
+        calculateTotalScore();
+      }
+    });
+
+    function calculateTotalScore() {
+      let totalCorrect = 0;
+      let totalQuestions = 0;
+      
+      for (let i = 1; i <= 5; i++) {
+        const stored = localStorage.getItem(`basic_english_grammar_${i}_answers`);
+        if (stored) {
+          const result = JSON.parse(stored);
+          totalCorrect += result.correct;
+          totalQuestions += result.total;
+        }
+      }
+      
+      localStorage.setItem('basic_english_grammar_final_score', JSON.stringify({
+        correct: totalCorrect,
+        total: totalQuestions,
+        percentage: Math.round((totalCorrect / totalQuestions) * 100)
+      }));
+    }
+  </script>
+</body>
+</html>

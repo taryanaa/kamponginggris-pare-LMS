@@ -1,0 +1,70 @@
+IELTS A2 Listening Test - The World of Animals (Part 3)
+
+[Audio Script - Duration: approximately 2-3 minutes]
+
+Narrator: You will hear a conversation between Sarah and Dr. Brown, a marine biologist, about sea animals. Listen carefully and answer questions 11-15.
+
+Sarah: Hello Dr. Brown! Thank you for meeting with me today. I'm very interested in learning about sea animals.
+
+Dr. Brown: Hello Sarah! I'm happy to help. The ocean is full of amazing creatures. What would you like to know first?
+
+Sarah: I'm curious about dolphins. Are they really as intelligent as people say?
+
+Dr. Brown: Yes, dolphins are extremely intelligent! They can recognize themselves in mirrors, use tools, and even teach their babies how to hunt. They also have their own language with clicks and whistles.
+
+Sarah: That's incredible! How fast can dolphins swim?
+
+Dr. Brown: Dolphins can swim up to 35 kilometers per hour. They love to jump out of the water and play. They're very social animals and live in groups called pods.
+
+Sarah: What about whales? I heard they're the largest animals in the world.
+
+Dr. Brown: That's correct! The blue whale is the largest animal that has ever lived on Earth. It can grow up to 30 meters long and weigh as much as 200 tons. That's heavier than 30 elephants!
+
+Sarah: Wow! What do such huge animals eat?
+
+Dr. Brown: Surprisingly, blue whales eat very small creatures called krill. TheseSaya akan melanjutkan membuat script audio untuk halaman 3-5 dengan tema "The World of Animals" dan kemudian membuat file audio-nya.
+
+Berikut adalah script audio untuk halaman 3:
+
+<create_file>
+<path>audio/script-ielts-a2-animals-3.txt</path>
+<content>
+IELTS A2 Listening Test - The World of Animals (Part 3)
+
+[Audio Script - Duration: approximately 2-3 minutes]
+
+Narrator: You will hear a conversation between John and Mary at a wildlife sanctuary. They are talking about endangered animals. Listen carefully and answer questions 11-15.
+
+John: Mary, have you ever visited a wildlife sanctuary?
+
+Mary: Yes, John. I went to one last summer. It was amazing to see so many animals in their natural habitat.
+
+John: What kind of animals did you see?
+
+Mary: I saw some endangered animals like the Bengal tiger and the Asian elephant. They are protected in the sanctuary.
+
+John: Why are these animals endangered?
+
+Mary: Mainly because of habitat loss and poaching. People cut down forests and hunt animals illegally.
+
+John: That's sad. What is being done to protect them?
+
+Mary: The sanctuary has strict rules. They also have rangers who watch over the animals and prevent poaching.
+
+John: Are there any animals that have recovered because of these efforts?
+
+Mary: Yes! The population of the Indian rhinoceros has increased in recent years thanks to conservation programs.
+
+John: That's great news! What about birds? Are there any endangered birds?
+
+Mary: Yes, the Great Indian Bustard is very rare. It's one of the heaviest flying birds but its numbers are very low.
+
+John: How can people help protect these animals?
+
+Mary: People can support wildlife organizations, avoid buying products made from endangered animals, and spread awareness.
+
+John: I hope more people learn about this. Animals are important for our planet.
+
+Mary: Absolutely! We must all do our part to protect wildlife.
+
+[End of recording]

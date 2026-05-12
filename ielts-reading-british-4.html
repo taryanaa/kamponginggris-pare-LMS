@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="IELTS A2 Reading Practice - British Culture | kamponginggrispare.com">
+  <meta name="keywords" content="IELTS reading, A2 English, British culture, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS A2 Reading - British Culture (4/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="IELTS test title">
+        IELTS A2 Reading Test - British Culture (4/5)
+      </div>
+      <progress id="progressBar" max="1800" value="1800" aria-label="IELTS test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="1800" aria-valuenow="1800"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 30 menit<br />
+        <span id="timeDisplay" style="">0Jam 30Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="ielts-reading-british-5.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "British Media and Television",
+        text: `British media includes television, radio, newspapers, and online content. The BBC (British Broadcasting Corporation) is the world's oldest national broadcasting organization and is funded by a television license fee paid by households. The BBC is known for its impartial news coverage and quality programming.
+
+British television has several main channels: BBC One, BBC Two, ITV, Channel 4, and Channel 5. Popular British TV shows include dramas, comedies, and reality programs. Soap operas like EastEnders and Coronation Street have been running for decades and attract millions of viewers.
+
+The British newspaper market is divided into broadsheets (serious newspapers like The Times and The Guardian) and tabloids (more popular newspapers like The Sun and Daily Mail). Many people now get their news online through websites and social media.
+
+British radio remains popular, with BBC Radio stations offering various music genres, news, and talk shows. BBC Radio 4 is known for its speech-based programming, including news, drama, and comedy.`,
+        questions: [
+          {
+            id: 1,
+            text: "How is the BBC funded?",
+            options: [
+              "By advertising",
+              "By television license fee",
+              "By government taxes",
+              "By donations"
+            ],
+            correct: 1
+          },
+          {
+            id: 2,
+            text: "What are EastEnders and Coronation Street?",
+            options: [
+              "News programs",
+              "Soap operas",
+              "Documentaries",
+              "Game shows"
+            ],
+            correct: 1
+          },
+          {
+            id: 3,
+            text: "What is the difference between broadsheets and tabloids?",
+            options: [
+              "Broadsheets are more serious",
+              "Tabloids are larger in size",
+              "Broadsheets have more pictures",
+              "Tabloids cost more money"
+            ],
+            correct: 0
+          },
+          {
+            id: 4,
+            text: "What type of programming does BBC Radio 4 offer?",
+            options: [
+              "Only music",
+              "Speech-based programming",
+              "Sports coverage",
+              "Children's shows"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "How do many people get news today?",
+            options: [
+              "Only from newspapers",
+              "Only from television",
+              "Online through websites",
+              "Only from radio"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "UK Government and Politics",
+        text: `The United Kingdom is a constitutional monarchy with a parliamentary democracy. This means the country has a king or queen as head of state, but the government is elected by the people. The current monarch is King Charles III.
+
+Parliament is the supreme legislative body and consists of two houses: the House of Commons and the House of Lords. The House of Commons has 650 elected Members of Parliament (MPs) who represent constituencies across the UK. The House of Lords is made up of appointed members.
+
+The Prime Minister is the head of the government and is usually the leader of the political party with the most seats in the House of Commons. The Prime Minister lives at 10 Downing Street in London.
+
+General elections are held at least every five years, when British citizens aged 18 and over can vote for their local MP. The main political parties are the Conservative Party, Labour Party, and Liberal Democrats.`,
+        questions: [
+          {
+            id: 6,
+            text: "What type of government does the UK have?",
+            options: [
+              "Absolute monarchy",
+              "Constitutional monarchy",
+              "Republic",
+              "Dictatorship"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "How many houses are in the UK Parliament?",
+            options: [
+              "One",
+              "Two",
+              "Three",
+              "Four"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "Where does the Prime Minister live?",
+            options: [
+              "Buckingham Palace",
+              "10 Downing Street",
+              "Windsor Castle",
+              "The House of Commons"
+            ],
+            correct: 1
+          },
+          {
+            id: 9,
+            text: "How often are general elections held?",
+            options: [
+              "Every year",
+              "Every two years",
+              "Every five years",
+              "Every ten years"
+            ],
+            correct: 2
+          },
+          {
+            id: 10,
+            text: "What is the minimum voting age in the UK?",
+            options: [
+              "16",
+              "18",
+              "21",
+              "25"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "British Cities and Regions",
+        text: `The United Kingdom consists of four countries: England, Scotland, Wales, and Northern Ireland. Each has its own distinct culture and traditions. London is the capital city of both England and the UK, with a population of over 9 million people.
+
+Other major British cities include Birmingham, Manchester, Glasgow, and Cardiff. Birmingham is known for its industrial heritage and diverse culture. Manchester is famous for its music scene and football clubs. Glasgow is Scotland's largest city, known for its architecture and friendly people. Cardiff is the capital of Wales and features Cardiff Castle and the Millennium Stadium.
+
+Regional differences are noticeable in accents, traditions, and even food preferences. For example, haggis is associated with Scotland, while Welsh cakes are popular in Wales. The Lake District in northwest England is famous for its beautiful lakes and mountains, attracting many visitors.
+
+Despite being a relatively small country, the UK has diverse landscapes from the Scottish Highlands to the rolling hills of southern England and the coastal cliffs of Wales.`,
+        questions: [
+          {
+            id: 11,
+            text: "How many countries make up the United Kingdom?",
+            options: [
+              "Two",
+              "Three",
+              "Four",
+              "Five"
+            ],
+            correct: 2
+          },
+          {
+            id: 12,
+            text: "Which city is known for its music scene and football clubs?",
+            options: [
+              "Birmingham",
+              "Manchester",
+              "Glasgow",
+              "Cardiff"
+            ],
+            correct: 1
+          },
+          {
+            id: 13,
+            text: "What is the capital of Wales?",
+            options: [
+              "Edinburgh",
+              "Cardiff",
+              "Belfast",
+              "London"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "Which food is associated with Scotland?",
+            options: [
+              "Welsh cakes",
+              "Haggis",
+              "Cornish pasties",
+              "Yorkshire pudding"
+            ],
+            correct: 1
+          },
+          {
+            id: 15,
+            text: "Where is the Lake District located?",
+            options: [
+              "Scotland",
+              "Wales",
+              "Northern Ireland",
+              "Northwest England"
+            ],
+            correct: 3
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "British Healthcare System",
+        text: `The National Health Service (NHS) is the publicly funded healthcare system in the United Kingdom. It was established in 1948 and provides healthcare to all permanent residents of the UK, mostly free at the point of use. The NHS is funded through general taxation.
+
+Most people in the UK are registered with a local GP (General Practitioner) who is their first point of contact for non-emergency medical care. For emergencies, people can go to hospital Accident and Emergency (A&E) departments.
+
+The NHS employs over 1.5 million people, making it one of the world's largest employers. It includes doctors, nurses, midwives, and many other healthcare professionals. Dental care and prescriptions require small charges, though many groups are exempt from these fees.
+
+The NHS is a cherished British institution and is often at the center of political debates about funding and organization. Despite challenges, it remains a source of national pride for providing healthcare based on clinical need rather than ability to pay.`,
+        questions: [
+          {
+            id: 16,
+            text: "When was the NHS established?",
+            options: [
+              "1928",
+              "1948",
+              "1968",
+              "1988"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "How is the NHS funded?",
+            options: [
+              "Through private insurance",
+              "Through general taxation",
+              "Through patient fees",
+              "Through donations"
+            ],
+            correct: 1
+          },
+          {
+            id: 18,
+            text: "What is a GP?",
+            options: [
+              "General Practitioner",
+              "Government Physician",
+              "General Patient",
+              "Government Professional"
+            ],
+            correct: 0
+          },
+          {
+            id: 19,
+            text: "Where do people go for emergency medical care?",
+            options: [
+              "GP surgery",
+              "Pharmacy",
+              "A&E department",
+              "Dentist"
+            ],
+            correct: 2
+          },
+          {
+            id: 20,
+            text: "What requires small charges in the NHS?",
+            options: [
+              "All treatments",
+              "Only emergency care",
+              "Dental care and prescriptions",
+              "No charges at all"
+            ],
+            correct: 2
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('ielts_british_reading_4_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('ielts_british_reading_4_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('ielts_british_reading_4_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            IELTS A2 Reading - British Culture
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 16-20.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 16}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 16}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 30 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save score with standardized key
+        const storageKey = 'ielts_a2_reading_4_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

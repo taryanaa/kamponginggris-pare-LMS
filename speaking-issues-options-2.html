@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Speaking - Issues, Options & Actions - Page 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        Business Speaking - Issues, Options & Actions - Page 2/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="speaking-issues-options-3.html" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    // All 20 tasks
+ const allTasks = [
+  {
+    id: 21,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Product Returns',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Product Returns. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: quality inspection, customer education, or warranty extension.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"customer education can be implemented immediately and will reduce returns while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 22,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Service Complaints',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Service Complaints. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: staff retraining, process review, or compensation policy.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"process review can be implemented immediately and will improve satisfaction while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 23,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Delivery Delays',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Delivery Delays. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: logistics partner, inventory buffer, or communication system.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"inventory buffer can be implemented immediately and will ensure timeliness while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 24,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Pricing Concerns',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Pricing Concerns. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: value communication, loyalty program, or flexible payment.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"loyalty program can be implemented immediately and will justify pricing while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 25,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Website Usability',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Website Usability. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: user testing, redesign, or help resources.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"redesign can be implemented immediately and will enhance experience while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 26,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Payment Issues',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Payment Issues. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: payment options, system upgrade, or customer support.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"system upgrade can be implemented immediately and will facilitate transactions while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 27,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Product Availability',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Product Availability. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: demand forecasting, supplier diversity, or pre-orders.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"supplier diversity can be implemented immediately and will ensure stock while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 28,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Technical Support',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Technical Support. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: knowledge base, chatbot, or extended hours.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"chatbot can be implemented immediately and will improve assistance while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 29,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Account Management',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Account Management. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: self-service portal, dedicated manager, or automated alerts.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"dedicated manager can be implemented immediately and will enhance control while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 30,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Billing Errors',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Billing Errors. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: system audit, verification process, or clear invoicing.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"verification process can be implemented immediately and will ensure accuracy while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 31,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Response Time',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Response Time. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: staffing increase, priority system, or automation.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"priority system can be implemented immediately and will reduce wait while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 32,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Product Information',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Product Information. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: detailed descriptions, video demos, or comparison tools.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"video demos can be implemented immediately and will inform decisions while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 33,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Shipping Costs',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Shipping Costs. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: free shipping threshold, multiple carriers, or local pickup.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"multiple carriers can be implemented immediately and will reduce costs while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 34,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Return Policy',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Return Policy. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: extended window, easier process, or clear guidelines.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"easier process can be implemented immediately and will improve flexibility while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 35,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Loyalty Rewards',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Loyalty Rewards. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: points system, exclusive offers, or tiered benefits.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"exclusive offers can be implemented immediately and will increase retention while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 36,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Mobile Experience',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Mobile Experience. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: app development, responsive design, or mobile features.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"responsive design can be implemented immediately and will enhance accessibility while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 37,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Personalization',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Personalization. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: recommendation engine, customer profiles, or targeted offers.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"customer profiles can be implemented immediately and will improve relevance while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 38,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Feedback Collection',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Feedback Collection. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: surveys, review system, or focus groups.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"review system can be implemented immediately and will gather insights while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 39,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Complaint Resolution',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Complaint Resolution. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: escalation process, empowerment, or follow-up system.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"empowerment can be implemented immediately and will ensure satisfaction while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  },
+  {
+    id: 40,
+    page: 2,
+    category: 'issues',
+    title: 'Customer Issue - Communication Frequency',
+    dialogue: '<strong>Customer Service Manager:</strong> \"We\'re receiving feedback about Communication Frequency. We need solutions.\"\n\n<strong>Operations Manager:</strong> \"Three options: preference center, relevant content, or multiple channels.\"\n\n<strong>Customer Service Manager:</strong> \"Which would have the fastest impact?\"\n\n<strong>Operations Manager:</strong> \"relevant content can be implemented immediately and will optimize engagement while we work on longer-term solutions.\"\n',
+    instructions: 'Read this customer issue discussion. Show customer-centric thinking.',
+    emphasis: 'Focus on impact and implementation speed'
+  }
+];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'business_issues_page2_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('business_issues_page1_answers', JSON.stringify(completionData));
+      console.log('Saved completion:', completionData);
+    }
+    
+    // Speech recognition
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {}; // Track if waiting for final transcript
+    let finalResultTimeout = {}; // Timeout for final result
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          // Accumulate final transcripts
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          // If waiting for final result and got one, proceed with feedback
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            console.log('Final result received for task', currentTask);
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        // Still mark as complete for testing
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      // Stop other recordings
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        // Auto-stop after 2 minutes
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      // Periksa apakah ada transcript yang valid
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      // Jika tidak ada speech yang berarti, langsung proses feedback
+      if (wordCount === 0) {
+        console.log('No substantial speech detected, proceeding directly to feedback');
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      // Tunggu hasil final dengan timeout yang lebih pendek
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        console.log('Processing timeout reached for task', taskIndex);
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      // Add small delay to ensure UI updates
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      // Analisis transcript yang lebih akurat
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      console.log(`Task ${taskIndex} - Words: ${wordCount}, Sentences: ${sentenceCount}, AvgWordLen: ${avgWordLength.toFixed(1)}`);
+
+      // Scoring yang lebih realistis berdasarkan konten
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        // Tidak ada speech yang terdeteksi
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        // Speech sangat minimal
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        // Scoring normal berdasarkan kualitas dan kuantitas speech
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        // Grammar: berdasarkan variasi struktur kalimat
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        // Pronunciation: estimasi berdasarkan panjang kata rata-rata dan variasi
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        // Fluency: berdasarkan rasio kata per kalimat
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        // Coherence: berdasarkan kompleksitas respons
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      // Terapkan scores
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+
+      // Feedback detail yang lebih spesifik
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • Adequate response length<br>
+            • Clear communication<br>
+            • Continue practicing for improvement
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Comprehensive answer<br>
+            • Good fluency and coherence<br>
+            • Strong speaking performance
+          `;
+        }
+
+        // Tambahkan analisis spesifik berdasarkan scores
+        feedbackText += `<br><strong>Detailed Analysis:</strong><br>`;
+        
+        if (grammarScore >= 7) {
+          feedbackText += `• Grammar: Strong sentence structure<br>`;
+        } else if (grammarScore >= 5) {
+          feedbackText += `• Grammar: Good, with minor errors<br>`;
+        } else {
+          feedbackText += `• Grammar: Needs improvement<br>`;
+        }
+
+        if (pronunciationScore >= 7) {
+          feedbackText += `• Pronunciation: Clear and understandable<br>`;
+        } else if (pronunciationScore >= 5) {
+          feedbackText += `• Pronunciation: Mostly clear<br>`;
+        } else {
+          feedbackText += `• Pronunciation: Practice clarity<br>`;
+        }
+
+        if (fluencyScore >= 7) {
+          feedbackText += `• Fluency: Smooth and natural flow<br>`;
+        } else if (fluencyScore >= 5) {
+          feedbackText += `• Fluency: Generally fluent<br>`;
+        } else {
+          feedbackText += `• Fluency: Work on pacing<br>`;
+        }
+
+        if (coherenceScore >= 7) {
+          feedbackText += `• Coherence: Well-organized thoughts<br>`;
+        } else if (coherenceScore >= 5) {
+          feedbackText += `• Coherence: Logical progression<br>`;
+        } else {
+          feedbackText += `• Coherence: Improve organization<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[`task${taskIndex}`] = {
+        completed: true,
+        taskId: selectedTasks[taskIndex].id,
+        transcript: transcripts[taskIndex] || '',
+        timestamp: new Date().toISOString()
+      };
+      saveCompletion();
+    }
+    
+    // Load saved completion
+    const savedData = localStorage.getItem('business_issues_page2_answers');
+    if (savedData) {
+      try {
+        const data = JSON.parse(savedData);
+        completed = data.tasks || {};
+        
+        // Restore completed states
+        Object.keys(completed).forEach(key => {
+          const index = parseInt(key.replace('task', ''));
+          const button = document.getElementById(`micButton${index}`);
+          if (button) button.classList.add('completed');
+        });
+      } catch (e) {}
+    }
+    
+    // Initialize speech recognition
+    initSpeechRecognition();
+  </script>
+</body>
+</html>

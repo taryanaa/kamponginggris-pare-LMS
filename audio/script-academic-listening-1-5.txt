@@ -1,0 +1,17 @@
+Academic Listening Script: Research Survey Methodology - Part 5
+
+Professor Martinez: Before we conclude our discussion on survey methodology, let's talk about data quality checks. What measures do you recommend for ensuring response validity?
+
+Dr. Chen: I always include attention check questions - simple items like "Please select 'agree' for this question" scattered throughout the survey. They help identify respondents who aren't paying attention or are responding randomly.
+
+Professor Martinez: That's essential. I also recommend including reverse-coded items to check for response bias. If someone strongly agrees with "I enjoy learning" they should strongly disagree with "I dislike learning new things."
+
+Dr. Chen: What about dealing with missing data? It's inevitable in any survey research.
+
+Professor Martinez: The key is understanding why data is missing. Is it random, or are certain types of respondents more likely to skip specific questions? For random missing data, multiple imputation works well. But if the missingness is systematic, you need to address the underlying cause.
+
+Dr. Chen: Excellent advice. I think we should also emphasize to students the importance of pre-registering their survey studies, especially if they plan to publish the results.
+
+Professor Martinez: Absolutely. Pre-registration helps prevent data dredging and increases the credibility of findings. It's becoming standard practice in many academic journals.
+
+Dr. Chen: This has been a very productive discussion. Proper survey methodology is truly fundamental to producing reliable academic research.

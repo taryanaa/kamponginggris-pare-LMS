@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="IELTS B1 Reading Practice - Forest Conservation | kamponginggrispare.com">
+  <meta name="keywords" content="IELTS reading, B1 English, forest conservation, reading comprehension">
+  <meta name="author" content="kamponginggrispare.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS B1 Reading - Forest Conservation (2/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="IELTS test title">
+        IELTS B1 Reading Test - Forest Conservation (2/5)
+      </div>
+      <progress id="progressBar" max="5400" value="5400" aria-label="IELTS test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="5400" aria-valuenow="5400"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 90 menit<br />
+        <span id="timeDisplay" style="">1Jam 30Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      
+    </section>
+    
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="ielts-b1-reading-1-3.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "Deforestation and Its Impacts",
+        text: `Deforestation, the large-scale removal of forests, is a major environmental issue. Forests are cleared for agriculture, logging, and urban development, leading to habitat loss for countless species. Tropical rainforests, which are home to more than half of the world's plant and animal species, are particularly affected.
+
+The loss of forests contributes to climate change as trees absorb carbon dioxide from the atmosphere. When forests are cleared, this stored carbon is released, increasing greenhouse gas concentrations. Deforestation also disrupts water cycles, increases soil erosion, and reduces biodiversity.
+
+Efforts to combat deforestation include sustainable forestry practices, reforestation programs, and the establishment of protected areas. International agreements and certification systems like the Forest Stewardship Council (FSC) promote responsible forest management. Consumer awareness about choosing wood products from sustainable sources also plays a crucial role.`,
+        questions: [
+          {
+            id: 1,
+            text: "What is NOT mentioned as a reason for deforestation?",
+            options: [
+              "Agriculture",
+              "Logging",
+              "Urban development",
+              "Climate change"
+            ],
+            correct: 3
+          },
+          {
+            id: 2,
+            text: "How much of the world's plant and animal species live in tropical rainforests?",
+            options: [
+              "Less than a quarter",
+              "About one-third",
+              "More than half",
+              "Almost all"
+            ],
+            correct: 2
+          },
+          {
+            id: 3,
+            text: "How does deforestation contribute to climate change?",
+            options: [
+              "By releasing stored carbon dioxide",
+              "By increasing oxygen levels",
+              "By reducing sunlight reflection",
+              "By creating more clouds"
+            ],
+            correct: 0
+          },
+          {
+            id: 4,
+            text: "What does the Forest Stewardship Council (FSC) promote?",
+            options: [
+              "Increased logging",
+              "Responsible forest management",
+              "Urban development",
+              "Agricultural expansion"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "What role do consumers play in combating deforestation?",
+            options: [
+              "Choosing wood products from sustainable sources",
+              "Buying more forest products",
+              "Clearing forests for agriculture",
+              "Supporting urban development"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Forest Fires and Prevention",
+        text: `Forest fires can occur naturally or be caused by human activities. While some fires are part of natural forest cycles, uncontrolled fires can devastate ecosystems, destroy habitats, and release large amounts of carbon into the atmosphere. Climate change has increased the frequency and intensity of forest fires in many regions.
+
+Prevention strategies include creating firebreaks, conducting controlled burns to reduce fuel loads, and implementing early warning systems. Public education campaigns teach people about fire safety, especially in fire-prone areas. Advanced technologies like satellite monitoring and drones help detect fires early and track their spread.
+
+Firefighting efforts involve ground crews, aircraft, and specialized equipment. After fires, restoration programs help ecosystems recover through reseeding and soil stabilization. Community involvement in fire prevention and preparedness is essential for reducing fire risks.`,
+        questions: [
+          {
+            id: 6,
+            text: "What can uncontrolled forest fires release into the atmosphere?",
+            options: [
+              "Large amounts of oxygen",
+              "Large amounts of carbon",
+              "Large amounts of nitrogen",
+              "Large amounts of water vapor"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "What has increased the frequency and intensity of forest fires?",
+            options: [
+              "Urban development",
+              "Climate change",
+              "Agricultural expansion",
+              "Tourism"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What is NOT mentioned as a forest fire prevention strategy?",
+            options: [
+              "Creating firebreaks",
+              "Conducting controlled burns",
+              "Implementing early warning systems",
+              "Building more roads"
+            ],
+            correct: 3
+          },
+          {
+            id: 9,
+            text: "What technologies help detect fires early?",
+            options: [
+              "Satellite monitoring and drones",
+              "Weather balloons and radar",
+              "Underwater sensors and buoys",
+              "Seismic monitors and thermometers"
+            ],
+            correct: 0
+          },
+          {
+            id: 10,
+            text: "What is essential for reducing fire risks according to the text?",
+            options: [
+              "Community involvement",
+              "Government regulations only",
+              "International agreements",
+              "Private company initiatives"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Sustainable Forest Management",
+        text: `Sustainable forest management aims to balance environmental, social, and economic needs. This approach ensures that forests can continue to provide resources while maintaining biodiversity and ecosystem services. Selective logging, where only certain trees are harvested, helps preserve forest structure and function.
+
+Certification systems verify that wood products come from sustainably managed forests. These systems consider factors like wildlife protection, water quality, and the rights of local communities. Agroforestry, which combines trees with crops or livestock, provides economic benefits while maintaining forest cover.
+
+Research and monitoring help improve forest management practices. Remote sensing technology tracks forest health and changes over time. Community-based forest management empowers local people to manage forest resources, often leading to better conservation outcomes.`,
+        questions: [
+          {
+            id: 11,
+            text: "What does sustainable forest management aim to balance?",
+            options: [
+              "Environmental, social, and economic needs",
+              "Agricultural and industrial needs",
+              "Urban and rural development",
+              "Local and international interests"
+            ],
+            correct: 0
+          },
+          {
+            id: 12,
+            text: "What is selective logging?",
+            options: [
+              "Harvesting only certain trees",
+              "Clearing entire forest areas",
+              "Planting new trees only",
+              "Protecting all trees from logging"
+            ],
+            correct: 0
+          },
+          {
+            id: 13,
+            text: "What do certification systems verify?",
+            options: [
+              "That wood products come from sustainably managed forests",
+              "That forests are completely protected from logging",
+              "That all trees are the same species",
+              "That forests are only for tourism"
+            ],
+            correct: 0
+          },
+          {
+            id: 14,
+            text: "What is agroforestry?",
+            options: [
+              "Combining trees with crops or livestock",
+              "Growing only agricultural crops",
+              "Raising only livestock in forests",
+              "Protecting forests from any use"
+            ],
+            correct: 0
+          },
+          {
+            id: 15,
+            text: "What helps improve forest management practices?",
+            options: [
+              "Research and monitoring",
+              "Increased logging",
+              "Reduced regulations",
+              "Elimination of protected areas"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Urban Forests and Green Spaces",
+        text: `Urban forests include trees, parks, and green spaces in cities and towns. These areas provide numerous benefits, including improved air quality, reduced urban heat island effect, and enhanced mental well-being for residents. Trees absorb pollutants and provide shade, cooling urban areas during hot weather.
+
+Planning and maintaining urban forests requires careful species selection, considering factors like climate adaptability, size, and maintenance needs. Community involvement in tree planting and care fosters a sense of ownership and responsibility. Green infrastructure, such as green roofs and vertical gardens, complements traditional urban forests.
+
+Challenges include limited space, soil compaction, and pollution stress. Despite these challenges, cities worldwide are increasing their green cover through initiatives like million-tree campaigns. Research shows that well-planned urban forests contribute to more resilient and livable cities.`,
+        questions: [
+          {
+            id: 16,
+            text: "What is NOT mentioned as a benefit of urban forests?",
+            options: [
+              "Improved air quality",
+              "Reduced urban heat island effect",
+              "Enhanced mental well-being",
+              "Increased property taxes"
+            ],
+            correct: 3
+          },
+          {
+            id: 17,
+            text: "How do trees help cool urban areas?",
+            options: [
+              "By providing shade",
+              "By releasing cool air",
+              "By absorbing heat directly",
+              "By creating wind"
+            ],
+            correct: 0
+          },
+          {
+            id: 18,
+            text: "What does careful species selection consider?",
+            options: [
+              "Climate adaptability, size, and maintenance needs",
+              "Only the appearance of trees",
+              "Only the cost of trees",
+              "Only the height of trees"
+            ],
+            correct: 0
+          },
+          {
+            id: 19,
+            text: "What complements traditional urban forests?",
+            options: [
+              "Green infrastructure like green roofs",
+              "More buildings and roads",
+              "Parking lots and shopping malls",
+              "Industrial areas and factories"
+            ],
+            correct: 0
+          },
+          {
+            id: 20,
+            text: "What do initiatives like million-tree campaigns aim to do?",
+            options: [
+              "Increase urban green cover",
+              "Remove trees from cities",
+              "Replace parks with buildings",
+              "Reduce maintenance costs"
+            ],
+            correct: 0
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('ielts_b1_reading_2_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('ielts_b1_reading_2_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('ielts_b1_reading_2_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            IELTS B1 Reading - Forest Conservation
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 90 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save score with standardized key
+        const storageKey = 'ielts_b1_reading_2_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+Tourist: Excuse me, could you help me? I'm looking for the city center. I'm a bit lost.
+
+Local Person: Of course! You're not too far away. The city center is about a 15-minute walk from here.
+
+Tourist: That sounds perfect. Could you give me directions?
+
+Local Person: Sure. First, you need to walk straight down this street until you see a large bank on your right. That's the first landmark.
+
+Tourist: Okay, straight down until I see the bank. Got it.
+
+Local Person: Right. Then, when you reach the bank, turn left at the traffic lights. You'll see a red church on the corner - you can't miss it.
+
+Tourist: Turn left at the traffic lights near the red church. What's next?
+
+Local Person: After turning left, walk for about 5 minutes until you reach a small park. The city center starts right after the park.
+
+Tourist: So it's straight down, left at the traffic lights, then past the park?
+
+Local Person: Exactly! And if you get lost, just ask someone else for directions to the city center. Everyone knows where it is.
+
+Tourist: Thank you so much for your help! You've been very kind.
+
+Local Person: You're welcome! Enjoy your visit to our city center.

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Business Speaking - Issues, Options & Actions - IELTS Practice</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold">
+        IELTS Speaking Practice - Issues, Options & Actions (B1-B2 Level)
+      </div>
+      <progress id="progressBar" max="100" value="10"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" id="countdownText">
+        Questions 1-5 of 20 (Random Selection)<br />
+        <span id="timeDisplay">Issues, Options & Actions Practice</span>
+      </p>
+    </section>
+
+    <!-- Tasks will be dynamically inserted here -->
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="#" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    const allTasks = [
+  {
+    "id": 81,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 1",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 82,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 2",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 83,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 3",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 84,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 4",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 85,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 5",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 86,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 6",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 87,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 7",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 88,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 8",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 89,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 9",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 90,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 10",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 91,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 11",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 92,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 12",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 93,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 13",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 94,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 14",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 95,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 15",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 96,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 16",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 97,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 17",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 98,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 18",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 99,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 19",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  },
+  {
+    "id": 100,
+    "page": 5,
+    "category": "issues",
+    "title": "Crisis Situation 20",
+    "dialogue": "<strong>Crisis Manager:</strong> \"We have an urgent situation requiring immediate action. What's our response plan?\"\n\n<strong>Response Team Lead:</strong> \"Three immediate actions: stakeholder communication, damage control, and recovery planning.\"\n\n<strong>Crisis Manager:</strong> \"Priority order?\"\n\n<strong>Response Team Lead:</strong> \"Stakeholder communication first to maintain trust, then parallel damage control and recovery planning.\"\n",
+    "instructions": "Read this crisis management discussion. Show urgency and decisiveness.",
+    "emphasis": "Highlight prioritization and swift action"
+  }
+];
+    
+    // Random selection logic
+    function selectRandomTasks(allTasks, count) {
+      const shuffled = [...allTasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    // Check if we already have selected tasks
+    const storageKey = 'business_issues_page5_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      const storedIds = JSON.parse(stored);
+      selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks
+    function renderTasks() {
+      const container = document.getElementById('tasksContainer');
+      container.innerHTML = '';
+      
+      selectedTasks.forEach((task, index) => {
+        const taskHtml = `
+          <section class="card rounded-xl mb-6" id="task${index + 1}Card">
+            <div class="inner-card">
+              <div class="speaking-interface">
+                <p class="text-sm font-semibold mb-2">ðŸŽ¤ Speaking Task ${index + 1} - Read Aloud</p>
+                <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4 text-left">
+                  <p class="text-sm font-semibold mb-2">${task.title}</p>
+                  <div class="text-sm leading-relaxed">${task.dialogue}</div>
+                </div>
+                <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+                
+                <button id="micButton${index + 1}" class="microphone-button" onclick="toggleRecording(${index + 1})">
+                  <i class="fas fa-microphone"></i>
+                </button>
+                
+                <div id="recordingStatus${index + 1}" class="recording-status">
+                  Click the microphone to start recording
+                </div>
+                
+                <div id="transcript${index + 1}" class="transcript-display">
+                  Your speech will appear here as you speak...
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+        container.innerHTML += taskHtml;
+      });
+    }
+    
+    renderTasks();
+    
+    // Completion tracking
+    let completedTasks = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completedTasks).length,
+        total: totalTasks,
+        tasks: completedTasks,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('business_issues_page5_answers', JSON.stringify(completionData));
+      console.log('Saved completion for business_issues_page5:', completionData);
+    }
+    
+    window.markTaskComplete = function(taskNumber) {
+      completedTasks[`task${taskNumber}`] = {
+        completed: true,
+        taskId: selectedTasks[taskNumber - 1].id,
+        timestamp: new Date().toISOString()
+      };
+      saveCompletion();
+    };
+    
+    window.toggleRecording = function(taskNumber) {
+      setTimeout(() => {
+        markTaskComplete(taskNumber);
+      }, 1000);
+    };
+    
+    // Load saved completion
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedData = localStorage.getItem('business_issues_page5_answers');
+      if (savedData) {
+        try {
+          const data = JSON.parse(savedData);
+          completedTasks = data.tasks || {};
+        } catch (e) {
+          console.error('Error loading saved completion:', e);
+        }
+      }
+    });
+    
+    // Page protection
+    (function() {
+      const testSequence = [
+        'page3.html',
+        'speaking-negotiating-1.html', 'speaking-negotiating-2.html', 'speaking-negotiating-3.html',
+        'speaking-negotiating-4.html', 'speaking-negotiating-5.html',
+        'speaking-issues-options-1.html', 'speaking-issues-options-2.html', 'speaking-issues-options-3.html',
+        'speaking-issues-options-4.html', 'speaking-issues-options-5.html',
+        'speaking-meeting-summary-1.html', 'speaking-meeting-summary-2.html', 'speaking-meeting-summary-3.html',
+        'speaking-meeting-summary-4.html', 'speaking-meeting-summary-5.html',
+        'speaking-business-results.html'
+      ];
+      
+      const currentPage = window.location.pathname.split('/').pop();
+      const testStarted = localStorage.getItem('business_test_started');
+      const selectedProgram = localStorage.getItem('selectedProgram');
+      
+      if (testSequence.includes(currentPage)) {
+        if (!testStarted || selectedProgram !== 'business-speaking') {
+          alert('Anda harus memulai tes dari halaman pendaftaran!');
+          window.location.href = 'page2.html';
+          return;
+        }
+        
+        const currentPageIndex = testSequence.indexOf(currentPage);
+        const allowedPage = localStorage.getItem('business_current_page');
+        const allowedPageIndex = testSequence.indexOf(allowedPage);
+        
+        if (currentPageIndex > allowedPageIndex) {
+          alert('Anda harus mengerjakan soal secara berurutan!');
+          window.location.href = allowedPage;
+          return;
+        }
+      }
+      
+      window.addEventListener('beforeunload', function() {
+        const nextPageIndex = testSequence.indexOf(currentPage) + 1;
+        if (nextPageIndex < testSequence.length) {
+          localStorage.setItem('business_current_page', testSequence[nextPageIndex]);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

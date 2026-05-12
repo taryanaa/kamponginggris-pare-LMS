@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEFL Reading Practice - Academic Topics | kamponginggrispare.com">
+  <meta name="keywords" content="TOEFL reading, academic reading, reading comprehension">
+  <meta name="author" content="kamponginggrispare.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEFL Reading - Academic Topics (3/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#dc2626] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEFL test title">
+        TOEFL Reading Test - Academic Topics (3/5)
+      </div>
+      <progress id="progressBar" max="3600" value="3600" aria-label="TOEFL test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="3600" aria-valuenow="3600"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 60 menit<br />
+        <span id="timeDisplay" style="">1Jam 0Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      
+    </section>
+    
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="toefl-reading-4.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "Plate Tectonics and Geological Processes",
+        text: `Plate tectonics is the unifying theory of geology that explains the large-scale motions of Earth's lithosphere. The theory proposes that Earth's outer shell is divided into several plates that glide over the mantle, the rocky inner layer above the core. This movement occurs through three main types of plate boundaries: divergent boundaries where plates move apart, convergent boundaries where plates collide, and transform boundaries where plates slide past each other.
+
+At divergent boundaries, such as mid-ocean ridges, magma rises from the mantle to create new crust, causing seafloor spreading. Convergent boundaries result in subduction zones where one plate moves under another, often creating volcanic arcs and mountain ranges like the Andes and Himalayas. Transform boundaries, such as the San Andreas Fault, are associated with earthquakes as plates grind against each other.
+
+Plate tectonics explains numerous geological phenomena, including the distribution of earthquakes and volcanoes, the formation of mountain ranges, and the evolution of continents through the supercontinent cycle. The theory also provides insights into long-term climate change through its influence on ocean currents, atmospheric circulation, and the carbon cycle.
+
+Understanding plate tectonics is crucial for assessing geological hazards, locating mineral and energy resources, and reconstructing Earth's geological history. The theory continues to evolve as new technologies improve our ability to study Earth's interior and plate movements.`,
+        questions: [
+          {
+            id: 1,
+            text: "What are the three main types of plate boundaries?",
+            options: [
+              "Divergent, convergent, and transform",
+              "Horizontal, vertical, and diagonal",
+              "Oceanic, continental, and mixed",
+              "Active, passive, and dormant"
+            ],
+            correct: 0
+          },
+          {
+            id: 2,
+            text: "What occurs at divergent boundaries?",
+            options: [
+              "Plates collide and form mountains",
+              "Plates move apart and create new crust",
+              "Plates slide past each other causing earthquakes",
+              "Plates sink into the mantle"
+            ],
+            correct: 1
+          },
+          {
+            id: 3,
+            text: "What geological features are created at convergent boundaries?",
+            options: [
+              "Mid-ocean ridges and rift valleys",
+              "Volcanic arcs and mountain ranges",
+              "Transform faults and strike-slip earthquakes",
+              "Hot spots and shield volcanoes"
+            ],
+            correct: 1
+          },
+          {
+            id: 4,
+            text: "What does plate tectonics help explain?",
+            options: [
+              "Distribution of earthquakes and volcanoes",
+              "Formation of hurricanes and tornadoes",
+              "Migration patterns of birds",
+              "Seasonal weather changes"
+            ],
+            correct: 0
+          },
+          {
+            id: 5,
+            text: "Why is understanding plate tectonics important?",
+            options: [
+              "For assessing geological hazards",
+              "For predicting weather patterns",
+              "For studying marine biology",
+              "For understanding astronomy"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "The Renaissance and Cultural Transformation",
+        text: `The Renaissance, meaning "rebirth," was a period of cultural, artistic, political, and economic transformation in Europe between the 14th and 17th centuries. Beginning in Italy and later spreading throughout Europe, this era marked the transition from the Middle Ages to modernity and was characterized by a renewed interest in classical learning and values.
+
+Humanism emerged as a dominant intellectual movement, emphasizing the study of classical texts, human potential, and individual achievement. This shift from medieval scholasticism encouraged critical thinking, scientific inquiry, and artistic innovation. The invention of the printing press by Johannes Gutenberg around 1440 facilitated the rapid spread of new ideas, making knowledge more accessible.
+
+Artistic achievements flourished during the Renaissance, with artists like Leonardo da Vinci, Michelangelo, and Raphael creating works that demonstrated mastery of perspective, anatomy, and human emotion. Patronage from wealthy families like the Medici in Florence supported artistic and architectural projects that transformed European cities.
+
+The Renaissance also saw significant scientific advances, with figures like Copernicus challenging geocentric models of the universe and Galileo pioneering experimental science. This period laid the groundwork for the Scientific Revolution and Enlightenment, establishing principles of observation, evidence, and reason that continue to shape modern thought.`,
+        questions: [
+          {
+            id: 6,
+            text: "What does 'Renaissance' mean?",
+            options: [
+              "Revolution",
+              "Rebirth",
+              "Reformation",
+              "Rediscovery"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "What intellectual movement emphasized classical texts and human potential?",
+            options: [
+              "Scholasticism",
+              "Humanism",
+              "Existentialism",
+              "Rationalism"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What invention facilitated the spread of Renaissance ideas?",
+            options: [
+              "The telescope",
+              "The printing press",
+              "The compass",
+              "The steam engine"
+            ],
+            correct: 1
+          },
+          {
+            id: 9,
+            text: "Which family is mentioned as patrons of Renaissance art?",
+            options: [
+              "The Borgias",
+              "The Medicis",
+              "The Sforzas",
+              "The Viscontis"
+            ],
+            correct: 1
+          },
+          {
+            id: 10,
+            text: "What did Copernicus challenge?",
+            options: [
+              "Aristotelian physics",
+              "Geocentric models of the universe",
+              "Biblical interpretations",
+              "Artistic conventions"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Urbanization and Sustainable Cities",
+        text: `Urbanization—the increasing concentration of human populations in discrete areas—is one of the most significant demographic trends of the modern era. Currently, more than half the world's population lives in urban areas, with projections suggesting this will rise to nearly 70% by 2050. This rapid urban growth presents both opportunities and challenges for sustainable development.
+
+Cities generate economic productivity and innovation but also face issues such as housing shortages, traffic congestion, pollution, and inadequate infrastructure. The concept of sustainable urban development seeks to address these challenges through integrated planning that balances economic, social, and environmental considerations.
+
+Key strategies for sustainable cities include promoting public transportation and non-motorized mobility, developing green buildings and energy-efficient infrastructure, creating green spaces that enhance biodiversity and recreational opportunities, and implementing waste reduction and recycling programs. Smart city technologies that use data and digital innovation can optimize resource use and improve service delivery.
+
+Urban resilience—the capacity of cities to withstand and adapt to shocks like natural disasters, economic crises, and pandemics—has become increasingly important. Successful urban governance requires participatory approaches that engage diverse stakeholders in planning and decision-making processes.`,
+        questions: [
+          {
+            id: 11,
+            text: "What percentage of the world's population is projected to live in urban areas by 2050?",
+            options: [
+              "Approximately 50%",
+              "Approximately 60%",
+              "Nearly 70%",
+              "Over 80%"
+            ],
+            correct: 2
+          },
+          {
+            id: 12,
+            text: "What does sustainable urban development balance?",
+            options: [
+              "Economic, social, and environmental considerations",
+              "Private and public interests only",
+              "Local and global priorities",
+              "Historical preservation and modern development"
+            ],
+            correct: 0
+          },
+          {
+            id: 13,
+            text: "Which strategy is mentioned for sustainable cities?",
+            options: [
+              "Expanding highway networks",
+              "Promoting public transportation",
+              "Increasing parking availability",
+              "Reducing green spaces"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "What can smart city technologies optimize?",
+            options: [
+              "Political systems",
+              "Resource use and service delivery",
+              "Cultural activities",
+              "Social relationships"
+            ],
+            correct: 1
+          },
+          {
+            id: 15,
+            text: "What is urban resilience?",
+            options: [
+              "The economic growth of cities",
+              "The cultural diversity of urban populations",
+              "The capacity to withstand and adapt to shocks",
+              "The architectural style of modern buildings"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "The Human Immune System",
+        text: `The human immune system is a complex network of cells, tissues, and organs that work together to defend the body against pathogens such as bacteria, viruses, fungi, and parasites. This defense system comprises two main components: innate immunity, which provides immediate but non-specific protection, and adaptive immunity, which develops specific responses to particular pathogens.
+
+Innate immunity includes physical barriers like skin and mucous membranes, chemical barriers such as stomach acid and enzymes, and cellular defenses like phagocytes that engulf invaders. The inflammatory response—characterized by redness, swelling, heat, and pain—is also part of innate immunity, helping to isolate and eliminate pathogens while initiating tissue repair.
+
+Adaptive immunity involves lymphocytes (B cells and T cells) that recognize specific antigens. B cells produce antibodies that neutralize pathogens, while T cells directly destroy infected cells or coordinate immune responses. Immunological memory allows the adaptive system to mount faster and stronger responses upon subsequent exposures to the same pathogen.
+
+Vaccination works by stimulating adaptive immunity without causing disease, creating immunological memory that provides protection against future infections. Disorders of the immune system include allergies (overreaction to harmless substances), autoimmune diseases (attacking the body's own tissues), and immunodeficiency (weakened immune function).`,
+        questions: [
+          {
+            id: 16,
+            text: "What are the two main components of the immune system?",
+            options: [
+              "Innate and adaptive immunity",
+              "Physical and chemical immunity",
+              "Cellular and humoral immunity",
+              "Primary and secondary immunity"
+            ],
+            correct: 0
+          },
+          {
+            id: 17,
+            text: "What is included in innate immunity?",
+            options: [
+              "Antibody production",
+              "Immunological memory",
+              "Physical barriers and phagocytes",
+              "Vaccine responses"
+            ],
+            correct: 2
+          },
+          {
+            id: 18,
+            text: "What do B cells produce?",
+            options: [
+              "Antigens",
+              "Antibodies",
+              "Hormones",
+              "Enzymes"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "How does vaccination work?",
+            options: [
+              "By directly killing pathogens",
+              "By stimulating adaptive immunity without causing disease",
+              "By strengthening physical barriers",
+              "By reducing inflammatory responses"
+            ],
+            correct: 1
+          },
+          {
+            id: 20,
+            text: "What are autoimmune diseases?",
+            options: [
+              "Overreaction to harmless substances",
+              "Weakened immune function",
+              "Attacking the body's own tissues",
+              "Inability to form immunological memory"
+            ],
+            correct: 2
+          }
+        ]
+      }
+    ];
+
+    // Same JavaScript functions as previous pages
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('toefl_reading_3_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('toefl_reading_3_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toefl_reading_3_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    // Rest of the JavaScript functions remain the same as previous pages
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEFL Reading - Academic Topics
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 60 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        const storageKey = 'toefl_reading_3_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

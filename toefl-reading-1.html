@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEFL Reading Practice - Academic Topics | kamponginggrispare.com">
+  <meta name="keywords" content="TOEFL reading, academic reading, reading comprehension">
+  <meta name="author" content="kamponginggrispare.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEFL Reading - Academic Topics (1/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#dc2626] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEFL test title">
+        TOEFL Reading Test - Academic Topics (1/5)
+      </div>
+      <progress id="progressBar" max="3600" value="3600" aria-label="TOEFL test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="3600" aria-valuenow="3600"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 60 menit<br />
+        <span id="timeDisplay" style="">1Jam 0Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      
+    </section>
+    
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="toefl-reading-2.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "Climate Change and Its Global Impact",
+        text: `Climate change represents one of the most pressing challenges facing humanity today. Scientific consensus confirms that Earth's climate is warming at an unprecedented rate, primarily due to human activities such as burning fossil fuels, deforestation, and industrial processes that release greenhouse gases into the atmosphere.
+
+The consequences of climate change are far-reaching and include rising global temperatures, melting polar ice caps, sea-level rise, and more frequent extreme weather events. These changes threaten ecosystems, biodiversity, food security, and human settlements, particularly in coastal regions and small island nations.
+
+International efforts to address climate change have led to agreements like the Paris Agreement, which aims to limit global warming to well below 2 degrees Celsius above pre-industrial levels. However, achieving these targets requires substantial reductions in greenhouse gas emissions and a transition to renewable energy sources such as solar, wind, and hydropower.
+
+Adaptation strategies are also crucial, including developing climate-resilient infrastructure, implementing sustainable agricultural practices, and protecting natural ecosystems that serve as carbon sinks. Public awareness and individual actions, combined with government policies and technological innovations, are essential components of an effective response to climate change.`,
+        questions: [
+          {
+            id: 1,
+            text: "What is identified as the primary cause of current climate change?",
+            options: [
+              "Natural climate cycles",
+              "Human activities releasing greenhouse gases",
+              "Volcanic eruptions",
+              "Solar radiation variations"
+            ],
+            correct: 1
+          },
+          {
+            id: 2,
+            text: "Which of the following is NOT mentioned as a consequence of climate change?",
+            options: [
+              "Rising sea levels",
+              "More frequent extreme weather",
+              "Increased volcanic activity",
+              "Melting polar ice caps"
+            ],
+            correct: 2
+          },
+          {
+            id: 3,
+            text: "What is the target temperature limit set by the Paris Agreement?",
+            options: [
+              "Below 1 degree Celsius",
+              "Below 2 degrees Celsius",
+              "Below 3 degrees Celsius",
+              "Below 4 degrees Celsius"
+            ],
+            correct: 1
+          },
+          {
+            id: 4,
+            text: "What do adaptation strategies for climate change include?",
+            options: [
+              "Developing climate-resilient infrastructure",
+              "Increasing fossil fuel production",
+              "Reducing international cooperation",
+              "Limiting scientific research"
+            ],
+            correct: 0
+          },
+          {
+            id: 5,
+            text: "According to the passage, what are natural ecosystems that serve as carbon sinks?",
+            options: [
+              "Important adaptation components",
+              "Primary causes of climate change",
+              "Sources of greenhouse gases",
+              "Obstacles to renewable energy"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "The Industrial Revolution and Modern Society",
+        text: `The Industrial Revolution, which began in Britain in the late 18th century, marked a fundamental transformation in human history. This period saw the transition from agrarian, handicraft economies to industrial, machine-based manufacturing. Key inventions such as the steam engine, spinning jenny, and power loom revolutionized production methods and dramatically increased output.
+
+The factory system emerged as the dominant mode of production, leading to urbanization as people moved from rural areas to cities in search of employment. This migration created crowded urban centers with new social challenges, including poor working conditions, child labor, and inadequate housing. However, it also stimulated technological innovation and economic growth.
+
+The Industrial Revolution had profound social consequences, including the rise of a new middle class and the development of organized labor movements. It also accelerated global trade and colonialism, as industrialized nations sought raw materials and new markets for their manufactured goods.
+
+While the Industrial Revolution brought unprecedented material prosperity and technological advancement, it also initiated environmental degradation and social inequalities that continue to influence contemporary society. Understanding this historical period is essential for comprehending the origins of modern economic systems and environmental challenges.`,
+        questions: [
+          {
+            id: 6,
+            text: "Where and when did the Industrial Revolution begin?",
+            options: [
+              "Britain in the late 18th century",
+              "France in the early 19th century",
+              "United States in the mid-18th century",
+              "Germany in the late 17th century"
+            ],
+            correct: 0
+          },
+          {
+            id: 7,
+            text: "What was a major social consequence of urbanization during the Industrial Revolution?",
+            options: [
+              "Improved working conditions for all",
+              "Development of crowded urban centers with social challenges",
+              "Elimination of social classes",
+              "Decreased population growth"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "Which invention is NOT mentioned as revolutionizing production methods?",
+            options: [
+              "Steam engine",
+              "Spinning jenny",
+              "Telephone",
+              "Power loom"
+            ],
+            correct: 2
+          },
+          {
+            id: 9,
+            text: "What did industrialized nations seek through global trade and colonialism?",
+            options: [
+              "Cultural exchange",
+              "Raw materials and new markets",
+              "Technological knowledge",
+              "Agricultural workers"
+            ],
+            correct: 1
+          },
+          {
+            id: 10,
+            text: "What ongoing issues did the Industrial Revolution initiate?",
+            options: [
+              "Environmental degradation and social inequalities",
+              "Complete social equality",
+              "Elimination of poverty",
+              "Solution to all environmental problems"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Cognitive Development in Early Childhood",
+        text: `Early childhood represents a critical period for cognitive development, during which children acquire fundamental skills and knowledge that form the foundation for future learning. Jean Piaget's theory of cognitive development identifies several stages through which children progress, each characterized by distinct ways of thinking and understanding the world.
+
+During the sensorimotor stage (birth to 2 years), infants learn about the world through sensory experiences and physical actions. They develop object permanence—the understanding that objects continue to exist even when they cannot be seen. The preoperational stage (2 to 7 years) is marked by symbolic thinking and language development, though children at this stage typically exhibit egocentrism and struggle with logical reasoning.
+
+More recent research has built upon Piaget's work, emphasizing the importance of social interaction in cognitive development. Lev Vygotsky proposed that learning occurs through social collaboration and that the "zone of proximal development" represents the range of tasks that children can accomplish with guidance but cannot yet perform independently.
+
+Quality early childhood education programs that provide stimulating environments, responsive caregivers, and opportunities for play-based learning can significantly enhance cognitive development. These experiences help children develop executive functions such as attention control, working memory, and cognitive flexibility, which are crucial for academic success and lifelong learning.`,
+        questions: [
+          {
+            id: 11,
+            text: "According to Piaget, what do infants develop during the sensorimotor stage?",
+            options: [
+              "Abstract reasoning skills",
+              "Object permanence",
+              "Advanced language abilities",
+              "Social collaboration skills"
+            ],
+            correct: 1
+          },
+          {
+            id: 12,
+            text: "What characterizes the preoperational stage?",
+            options: [
+              "Logical reasoning and problem-solving",
+              "Symbolic thinking and language development",
+              "Abstract scientific thinking",
+              "Mature social understanding"
+            ],
+            correct: 1
+          },
+          {
+            id: 13,
+            text: "What did Vygotsky emphasize in his theory of cognitive development?",
+            options: [
+              "Biological maturation",
+              "Social interaction and collaboration",
+              "Independent discovery",
+              "Genetic determinants"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "What is the 'zone of proximal development'?",
+            options: [
+              "Tasks children can do independently",
+              "Tasks beyond children's capability even with help",
+              "Tasks children can do with guidance but not alone",
+              "Tasks requiring advanced cognitive skills"
+            ],
+            correct: 2
+          },
+          {
+            id: 15,
+            text: "What executive functions are mentioned as crucial for academic success?",
+            options: [
+              "Attention control, working memory, and cognitive flexibility",
+              "Physical coordination and athletic ability",
+              "Musical talent and artistic skills",
+              "Social popularity and leadership"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Renewable Energy Technologies",
+        text: `The transition to renewable energy sources is essential for addressing climate change and achieving energy sustainability. Solar power, harnessed through photovoltaic cells, converts sunlight directly into electricity and has become increasingly cost-competitive with conventional energy sources. Solar farms and rooftop installations are expanding globally, though challenges remain regarding energy storage and intermittency.
+
+Wind energy utilizes turbines to convert kinetic energy from wind into electrical power. Both onshore and offshore wind farms have seen significant growth, with technological advances leading to larger, more efficient turbines. However, wind power also faces challenges related to visual impact, noise, and effects on wildlife, particularly birds and bats.
+
+Hydropower, generated from flowing water, remains the largest source of renewable electricity worldwide. While large-scale hydroelectric dams provide substantial power, they can have significant environmental and social impacts, including habitat destruction and community displacement. Small-scale hydro projects offer alternatives with reduced ecological footprints.
+
+Emerging technologies such as tidal and geothermal energy show promise for providing consistent, reliable power. The integration of various renewable sources through smart grids and improved energy storage systems will be crucial for creating resilient, sustainable energy networks that can meet global demand while minimizing environmental impact.`,
+        questions: [
+          {
+            id: 16,
+            text: "What is a challenge mentioned regarding solar power?",
+            options: [
+              "High installation costs only",
+              "Energy storage and intermittency",
+              "Limited sunlight availability worldwide",
+              "Technical complexity beyond current capabilities"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "What technological advance is mentioned for wind energy?",
+            options: [
+              "Smaller, quieter turbines",
+              "Larger, more efficient turbines",
+              "Turbines that don't require wind",
+              "Underground wind farms"
+            ],
+            correct: 1
+          },
+          {
+            id: 18,
+            text: "What environmental impact is associated with large-scale hydropower?",
+            options: [
+              "Air pollution",
+              "Noise pollution",
+              "Habitat destruction",
+              "Radioactive waste"
+            ],
+            correct: 2
+          },
+          {
+            id: 19,
+            text: "Which renewable energy source is mentioned as the largest worldwide?",
+            options: [
+              "Solar power",
+              "Wind energy",
+              "Hydropower",
+              "Geothermal energy"
+            ],
+            correct: 2
+          },
+          {
+            id: 20,
+            text: "What will be crucial for integrating various renewable energy sources?",
+            options: [
+              "Government subsidies only",
+              "Public acceptance",
+              "Smart grids and improved energy storage",
+              "Reduced energy consumption"
+            ],
+            correct: 2
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('toefl_reading_1_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('toefl_reading_1_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toefl_reading_1_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEFL Reading - Academic Topics
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 60 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save score with standardized key
+        const storageKey = 'toefl_reading_1_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

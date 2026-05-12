@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="IELTS B1 Reading Practice - Wildlife Protection | kamponginggrispare.com">
+  <meta name="keywords" content="IELTS reading, B1 English, wildlife protection, reading comprehension">
+  <meta name="author" content="kamponginggrispare.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS B1 Reading - Wildlife Protection (4/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="IELTS test title">
+        IELTS B1 Reading Test - Wildlife Protection (4/5)
+      </div>
+      <progress id="progressBar" max="5400" value="5400" aria-label="IELTS test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="5400" aria-valuenow="5400"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 90 menit<br />
+        <span id="timeDisplay" style="">1Jam 30Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      
+    </section>
+    
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="ielts-b1-reading-1-5.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "Endangered Species Protection",
+        text: `Many species around the world are threatened with extinction due to habitat loss, poaching, climate change, and other human activities. Conservation efforts focus on protecting these endangered species through various strategies.
+
+Protected areas like national parks and wildlife reserves provide safe habitats where species can live without human interference. Anti-poaching patrols help combat illegal hunting, while breeding programs in captivity aim to increase population numbers for eventual reintroduction into the wild.
+
+International agreements such as CITES (Convention on International Trade in Endangered Species) regulate trade in endangered species and their products. Public education campaigns raise awareness about the importance of biodiversity and the threats facing endangered species. Community-based conservation programs involve local people in protection efforts, providing economic incentives for conservation.`,
+        questions: [
+          {
+            id: 1,
+            text: "What is NOT mentioned as a threat to endangered species?",
+            options: [
+              "Habitat loss",
+              "Poaching",
+              "Climate change",
+              "Natural selection"
+            ],
+            correct: 3
+          },
+          {
+            id: 2,
+            text: "What do protected areas provide for endangered species?",
+            options: [
+              "Safe habitats without human interference",
+              "Food sources",
+              "Medical treatment",
+              "Migration routes"
+            ],
+            correct: 0
+          },
+          {
+            id: 3,
+            text: "What do anti-poaching patrols help combat?",
+            options: [
+              "Habitat destruction",
+              "Illegal hunting",
+              "Climate change",
+              "Disease outbreaks"
+            ],
+            correct: 1
+          },
+          {
+            id: 4,
+            text: "What does CITES regulate?",
+            options: [
+              "Tourism in protected areas",
+              "Trade in endangered species",
+              "Hunting licenses",
+              "Conservation funding"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "What do community-based conservation programs provide?",
+            options: [
+              "Economic incentives for conservation",
+              "Free housing for local people",
+              "Hunting rights",
+              "Agricultural equipment"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Human-Wildlife Conflict",
+        text: `As human populations expand and natural habitats shrink, conflicts between people and wildlife are increasing. Animals may raid crops, prey on livestock, or occasionally threaten human safety, leading to retaliation against wildlife.
+
+Solutions to human-wildlife conflict include building physical barriers like fences to protect crops and livestock, using deterrents such as lights or noise to scare animals away, and developing early warning systems to alert communities to wildlife presence.
+
+Compensation schemes help farmers recover losses from wildlife damage, reducing incentives to harm animals. Land-use planning that designates wildlife corridors can help animals move between habitat patches without entering human settlements. Education programs teach communities how to coexist safely with wildlife and understand the ecological benefits of conservation.`,
+        questions: [
+          {
+            id: 6,
+            text: "What is causing increasing conflicts between people and wildlife?",
+            options: [
+              "Expanding human populations and shrinking habitats",
+              "Increasing wildlife populations",
+              "Decreasing food sources for wildlife",
+              "Climate change only"
+            ],
+            correct: 0
+          },
+          {
+            id: 7,
+            text: "What is NOT mentioned as a solution to human-wildlife conflict?",
+            options: [
+              "Building physical barriers",
+              "Using deterrents",
+              "Developing early warning systems",
+              "Relocating all wildlife"
+            ],
+            correct: 3
+          },
+          {
+            id: 8,
+            text: "What do compensation schemes help with?",
+            options: [
+              "Helping farmers recover losses from wildlife damage",
+              "Paying for wildlife relocation",
+              "Funding conservation research",
+              "Building new habitats"
+            ],
+            correct: 0
+          },
+          {
+            id: 9,
+            text: "What can land-use planning designate to help animals move between habitats?",
+            options: [
+              "Wildlife corridors",
+              "Agricultural zones",
+              "Urban areas",
+              "Industrial zones"
+            ],
+            correct: 0
+          },
+          {
+            id: 10,
+            text: "What do education programs teach communities?",
+            options: [
+              "How to hunt wildlife safely",
+              "How to coexist safely with wildlife",
+              "How to build better fences",
+              "How to farm more efficiently"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Wildlife Trafficking",
+        text: `Illegal wildlife trade is a major threat to many species, driven by demand for pets, traditional medicine, trophies, and other products. This illicit trade is often connected to organized crime and threatens biodiversity while undermining conservation efforts.
+
+Enforcement measures include increased patrols in protected areas, intelligence-led operations to dismantle trafficking networks, and stricter penalties for wildlife crimes. Technology such as DNA analysis helps track the origin of illegal wildlife products.
+
+International cooperation is crucial since wildlife trafficking often crosses borders. Organizations like INTERPOL and the World Customs Organization work together to combat this trade. Reducing demand through public awareness campaigns that highlight the ecological and ethical issues of wildlife trafficking is also important.`,
+        questions: [
+          {
+            id: 11,
+            text: "What is NOT mentioned as a driver of illegal wildlife trade?",
+            options: [
+              "Demand for pets",
+              "Traditional medicine",
+              "Trophies",
+              "Scientific research"
+            ],
+            correct: 3
+          },
+          {
+            id: 12,
+            text: "What is wildlife trafficking often connected to?",
+            options: [
+              "Organized crime",
+              "Government agencies",
+              "Research institutions",
+              "Tourism companies"
+            ],
+            correct: 0
+          },
+          {
+            id: 13,
+            text: "What enforcement measure uses intelligence to dismantle trafficking networks?",
+            options: [
+              "Intelligence-led operations",
+              "Public awareness campaigns",
+              "Community patrols",
+              "Habitat restoration"
+            ],
+            correct: 0
+          },
+          {
+            id: 14,
+            text: "What technology helps track the origin of illegal wildlife products?",
+            options: [
+              "DNA analysis",
+              "Satellite imaging",
+              "Radio tracking",
+              "Camera traps"
+            ],
+            correct: 0
+          },
+          {
+            id: 15,
+            text: "Which organizations work together to combat wildlife trafficking?",
+            options: [
+              "INTERPOL and the World Customs Organization",
+              "WHO and UNESCO",
+              "FAO and IMF",
+              "UNICEF and World Bank"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Conservation Technology",
+        text: `Technology plays an increasingly important role in wildlife conservation. Camera traps automatically photograph animals, providing data on species presence, population size, and behavior without human disturbance. Satellite imagery helps monitor habitat changes and detect illegal activities like deforestation.
+
+Acoustic monitoring devices record animal sounds, helping researchers study species that are difficult to observe directly. Drones can survey large areas quickly, monitoring wildlife and detecting poachers. GPS tracking collars provide detailed information on animal movements, migration patterns, and habitat use.
+
+Genetic analysis helps identify individual animals, determine population relationships, and combat wildlife trafficking. Conservation apps allow citizen scientists to report wildlife sightings, expanding data collection capabilities. These technologies enhance conservation efforts while reducing costs and human resource requirements.`,
+        questions: [
+          {
+            id: 16,
+            text: "What do camera traps provide data on?",
+            options: [
+              "Species presence and population size",
+              "Weather patterns",
+              "Soil composition",
+              "Water quality"
+            ],
+            correct: 0
+          },
+          {
+            id: 17,
+            text: "What can satellite imagery help detect?",
+            options: [
+              "Illegal activities like deforestation",
+              "Animal sounds",
+              "Genetic information",
+              "Water temperature"
+            ],
+            correct: 0
+          },
+          {
+            id: 18,
+            text: "What do acoustic monitoring devices record?",
+            options: [
+              "Animal sounds",
+              "Weather data",
+              "Soil vibrations",
+              "Water currents"
+            ],
+            correct: 0
+          },
+          {
+            id: 19,
+            text: "What information do GPS tracking collars provide?",
+            options: [
+              "Animal movements and migration patterns",
+              "Animal diet",
+              "Animal age",
+              "Animal health"
+            ],
+            correct: 0
+          },
+          {
+            id: 20,
+            text: "What do conservation apps allow citizen scientists to do?",
+            options: [
+              "Report wildlife sightings",
+              "Track poachers",
+              "Analyze DNA",
+              "Manage protected areas"
+            ],
+            correct: 0
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('ielts_b1_reading_4_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('ielts_b1_reading_4_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('ielts_b1_reading_4_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            IELTS B1 Reading - Wildlife Protection
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 90 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save score with standardized key
+        const storageKey = 'ielts_b1_reading_4_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

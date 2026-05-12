@@ -1,0 +1,31 @@
+Visitor: Hello, I'm looking for the History Museum. Could you help me find it?
+
+Museum Staff: Certainly! Are you starting from the main entrance here?
+
+Visitor: Yes, I just came in through the main entrance.
+
+Museum Staff: Perfect. From here, you need to walk straight ahead until you see the café on your left.
+
+Visitor: Okay, straight to the café.
+
+Museum Staff: Right. Then turn left at the café and go up the stairs to the second floor.
+
+Visitor: Up the stairs to the second floor. And then?
+
+Museum Staff: Once you're on the second floor, turn right and walk down the corridor. The History Museum is at the end of the corridor.
+
+Visitor: What time does it close today?
+
+Museum Staff: The History Museum closes at 6 PM today, so you have plenty of time.
+
+Visitor: Great! And is there parking available?
+
+Museum Staff: Yes, there's parking in the underground garage. The entrance is behind the main building.
+
+Visitor: One more question - do I need to buy a ticket first?
+
+Museum Staff: Yes, I'd recommend buying a ticket at the information desk first. It's right over there, and they can also give you a map of the museum.
+
+Visitor: Perfect! Thank you so much for all the information.
+
+Museum Staff: You're very welcome! Enjoy your visit to the History Museum.

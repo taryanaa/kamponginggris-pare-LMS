@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="TOEIC Reading Practice - Digital Literacy | kamponginggrispare.com">
+  <meta name="keywords" content="TOEIC reading, academic English, digital literacy, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOEIC Reading Practice - Digital Literacy | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Same styles as previous reading pages */
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow: 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color = '#10b981'; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; }
+    .reading-content { margin-bottom: 1rem; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+    .reading-content, .question-card { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="TOEIC Reading test title">
+        TOEIC Reading Practice - Digital Literacy (4/5)
+      </div>
+      <progress id="progressBar" max="4500" value="0" aria-label="TOEIC Reading test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="4500" aria-valuenow="0"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 75 menit<br />
+        <span id="timeDisplay" style="">1Jam 15Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="reading_academic_5.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next reading section">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "The Evolution of Digital Literacy",
+        content: `
+          <p>Digital literacy has evolved from basic computer skills to encompass a complex set of competencies necessary for effective participation in contemporary society. Initially focused on technical proficiency with hardware and software, the concept now includes critical thinking, information evaluation, and ethical considerations in digital environments.</p>
+          
+          <p>The European Digital Competence Framework identifies five key areas: information and data literacy, communication and collaboration, digital content creation, safety, and problem-solving. This comprehensive approach recognizes that digital literacy extends beyond technical skills to include cognitive and social dimensions. Research indicates that individuals with advanced digital literacy skills demonstrate 34% higher productivity in technology-rich work environments compared to those with basic skills.</p>
+          
+          <p>Educational institutions worldwide are integrating digital literacy across curricula rather than treating it as a separate subject. Finland's national curriculum, for example, embeds digital competencies throughout all subjects, recognizing that digital literacy intersects with traditional literacy, numeracy, and critical thinking skills. This integrated approach has shown promising results, with Finnish students consistently ranking among the top performers in international digital literacy assessments.</p>
+          
+          <p>The rapid pace of technological change presents ongoing challenges for digital literacy education. Skills that are relevant today may become obsolete within years, necessitating continuous learning and adaptation. This has led to increased emphasis on meta-cognitive skills and learning strategies that enable individuals to adapt to new technologies throughout their lives.</p>
+        `,
+        questions: [
+          {
+            id: 1,
+            text: "What is the main topic of this passage?",
+            options: [
+              "Computer hardware evolution",
+              "The evolution of digital literacy",
+              "Educational technology trends",
+              "International education rankings"
+            ],
+            correct: 1
+          },
+          {
+            id: 2,
+            text: "How many key areas does the European Digital Competence Framework identify?",
+            options: [
+              "Three areas",
+              "Four areas",
+              "Five areas",
+              "Six areas"
+            ],
+            correct: 2
+          },
+          {
+            id: 3,
+            text: "What productivity increase is associated with advanced digital literacy?",
+            options: [
+              "25% higher productivity",
+              "34% higher productivity",
+              "42% higher productivity",
+              "50% higher productivity"
+            ],
+            correct: 1
+          },
+          {
+            id: 4,
+            text: "Which country is mentioned for integrating digital literacy across curricula?",
+            options: [
+              "Finland",
+              "Singapore",
+              "Canada",
+              "South Korea"
+            ],
+            correct: 0
+          },
+          {
+            id: 5,
+            text: "What has increased emphasis due to rapid technological change?",
+            options: [
+              "Technical certification programs",
+              "Meta-cognitive skills and learning strategies",
+              "Specialized software training",
+              "Hardware maintenance skills"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "Digital Divide and Social Inequality",
+        content: `
+          <p>The digital divide refers to disparities in access to digital technologies and the skills to use them effectively. While basic internet access has expanded globally, significant inequalities persist in the quality of access, digital skills, and ability to leverage technology for social and economic advancement.</p>
+          
+          <p>Research by the OECD reveals that socioeconomic status remains the strongest predictor of digital literacy levels. Students from higher-income families demonstrate digital literacy scores 25% higher on average than their peers from lower-income backgrounds, even when school resources are comparable. This skills gap has profound implications for educational outcomes and future employment prospects in increasingly digitalized economies.</p>
+          
+          <p>Geographic disparities compound socioeconomic inequalities. Rural areas often face limited broadband infrastructure, with connection speeds 35% slower on average than urban areas in developed countries. In developing regions, the gap is even more pronounced, with mobile data costs consuming up to 8% of average monthly income in some African nations, compared to less than 1% in most developed countries.</p>
+          
+          <p>Bridging the digital divide requires multi-faceted approaches including infrastructure investment, affordable access programs, and targeted digital skills training. Successful initiatives often combine public and private sector efforts, such as Portugal's National Digital Skills Initiative which has trained over 100,000 adults in essential digital competencies since 2017.</p>
+        `,
+        questions: [
+          {
+            id: 6,
+            text: "What is the main focus of this passage?",
+            options: [
+              "Internet infrastructure development",
+              "Digital divide and social inequality",
+              "Mobile technology adoption",
+              "Educational technology funding"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "What is the strongest predictor of digital literacy levels?",
+            options: [
+              "Geographic location",
+              "Socioeconomic status",
+              "Educational attainment",
+              "Age demographic"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "How much higher are digital literacy scores for higher-income students?",
+            options: [
+              "15% higher",
+              "25% higher",
+              "35% higher",
+              "45% higher"
+            ],
+            correct: 1
+          },
+          {
+            id: 9,
+            text: "What percentage of income can mobile data cost in some African nations?",
+            options: [
+              "Up to 5%",
+              "Up to 8%",
+              "Up to 12%",
+              "Up to 15%"
+            ],
+            correct: 1
+          },
+          {
+            id: 10,
+            text: "Which country's digital skills initiative is mentioned?",
+            options: [
+              "Portugal",
+              "Brazil",
+              "India",
+              "Mexico"
+            ],
+            correct: 0
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "Critical Digital Literacy in Education",
+        content: `
+          <p>Critical digital literacy represents an advanced dimension of digital competence that emphasizes questioning, evaluating, and creating digital content rather than merely consuming it. This approach recognizes that digital environments are not neutral spaces but are shaped by commercial interests, algorithmic biases, and power structures.</p>
+          
+          <p>Educational approaches to critical digital literacy include teaching students to recognize persuasive design patterns in digital platforms, understand how algorithms shape information exposure, and identify misinformation and disinformation campaigns. Studies show that students who receive explicit instruction in critical digital literacy are 40% more likely to accurately identify fake news and biased information compared to those who don't.</p>
+          
+          <p>Media literacy education has expanded to include analysis of how digital platforms monetize attention and data. Students learn to recognize "dark patterns" in interface design that manipulate user behavior and understand the business models underlying "free" digital services. This critical perspective helps develop more conscious and intentional digital citizens.</p>
+          
+          <p>Assessment of critical digital literacy presents challenges, as traditional multiple-choice tests often fail to capture the nuanced judgment required. Performance-based assessments, such as analyzing real digital content or creating counter-narratives, provide more authentic measures of these competencies. However, these approaches require significant teacher training and resources to implement effectively at scale.</p>
+        `,
+        questions: [
+          {
+            id: 11,
+            text: "What is the primary focus of critical digital literacy?",
+            options: [
+              "Advanced programming skills",
+              "Questioning and evaluating digital content",
+              "Social media marketing",
+              "Hardware troubleshooting"
+            ],
+            correct: 1
+          },
+          {
+            id: 12,
+            text: "How much more likely are students to identify fake news with critical digital literacy training?",
+            options: [
+              "30% more likely",
+              "40% more likely",
+              "50% more likely",
+              "60% more likely"
+            ],
+            correct: 1
+          },
+          {
+            id: 13,
+            text: "What are 'dark patterns' in digital interfaces?",
+            options: [
+              "Designs that manipulate user behavior",
+              "Low-contrast color schemes",
+              "Complex navigation menus",
+              "Minimalist design approaches"
+            ],
+            correct: 0
+          },
+          {
+            id: 14,
+            text: "What challenge is mentioned for assessing critical digital literacy?",
+            options: [
+              "Lack of assessment tools",
+              "Traditional tests capture it well",
+              "Multiple-choice tests often fail to capture nuanced judgment",
+              "Students refuse to participate in assessments"
+            ],
+            correct: 2
+          },
+          {
+            id: 15,
+            text: "What do students learn about 'free' digital services?",
+            options: [
+              "Their technical architecture",
+              "Their underlying business models",
+              "Their development history",
+              "Their user statistics"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "Digital Literacy in the Workplace",
+        content: `
+          <p>The transformation of work through digital technologies has made digital literacy an essential employability skill across virtually all sectors. The World Economic Forum estimates that 50% of all employees will require significant reskilling by 2025 due to technological adoption, with digital literacy forming the foundation of these new skill requirements.</p>
+          
+          <p>Industry-specific digital competencies have emerged as critical differentiators in the job market. In healthcare, digital literacy includes electronic health records management and telemedicine platforms. In manufacturing, it encompasses operating digital twin simulations and industrial IoT systems. These specialized digital skills command wage premiums of 15-25% compared to similar roles without digital competency requirements.</p>
+          
+          <p>Corporate digital literacy training programs have shown significant returns on investment. A study of Fortune 500 companies found that comprehensive digital skills training resulted in 23% higher productivity and 31% lower error rates in digital workflow tasks. However, only 35% of organizations report having structured digital literacy development programs, creating competitive advantages for those that do.</p>
+          
+          <p>The COVID-19 pandemic accelerated digital transformation in workplaces, making remote collaboration tools and digital project management platforms standard requirements. This shift has particularly impacted mid-career workers, with 42% reporting the need to substantially upgrade their digital skills to remain employable in their current fields.</p>
+        `,
+        questions: [
+          {
+            id: 16,
+            text: "What percentage of employees will require significant reskilling by 2025?",
+            options: [
+              "40%",
+              "50%",
+              "60%",
+              "70%"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "What wage premium do specialized digital skills command?",
+            options: [
+              "5-15%",
+              "10-20%",
+              "15-25%",
+              "20-30%"
+            ],
+            correct: 2
+          },
+          {
+            id: 18,
+            text: "What productivity increase resulted from digital skills training in Fortune 500 companies?",
+            options: [
+              "18% higher productivity",
+              "23% higher productivity",
+              "28% higher productivity",
+              "33% higher productivity"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "What percentage of organizations have structured digital literacy programs?",
+            options: [
+              "25%",
+              "35%",
+              "45%",
+              "55%"
+            ],
+            correct: 1
+          },
+          {
+            id: 20,
+            text: "What percentage of mid-career workers need to upgrade digital skills?",
+            options: [
+              "35%",
+              "42%",
+              "48%",
+              "53%"
+            ],
+            correct: 1
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('toeic_academic_reading_4_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('toeic_academic_reading_4_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('toeic_academic_reading_4_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            TOEIC Reading Comprehension - Digital Literacy (B2)
+          </p>
+          <p class="text-center mb-3">
+            Read the following academic passage and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-content">
+            ${reading.content}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-sm font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    // Validation functions
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 75 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    // Save answers to localStorage when Next button is clicked
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      // Only save if all questions are answered
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save to localStorage with page-specific key
+        const pageNum = window.location.pathname.match(/reading_academic_(\d+)\.html/)[1];
+        const storageKey = pageNum === '1' ? 'academic_reading_1-1_answers' : `academic_reading_1-${pageNum}_answers`;
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+</script>
+</body>
+</html>

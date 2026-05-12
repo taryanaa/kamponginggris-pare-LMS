@@ -1,0 +1,31 @@
+Tourist: Excuse me, I'm trying to get to the old town, but there seems to be construction blocking the main road. Can you help?
+
+Local Resident: Oh yes, there's major construction work on Main Street. It's been going on for two weeks now.
+
+Tourist: How long will it continue?
+
+Local Resident: For another two weeks, I'm afraid. But don't worry, I can suggest a good alternative route.
+
+Tourist: That would be great! I really need to get there today.
+
+Local Resident: The best option is to use the metro and walk through the park. Take the metro to Central Station, then walk through Riverside Park.
+
+Tourist: Is that much longer than the normal route?
+
+Local Resident: It takes about the same time, maybe 5 minutes longer. But it's actually more scenic going through the park.
+
+Tourist: That sounds nice! Are there any other things I should know?
+
+Local Resident: Yes, I should mention that the metro service is reduced in the evening after 8 PM, so plan accordingly.
+
+Tourist: Good to know. Is there anything else I should be aware of?
+
+Local Resident: Well, some shops near the construction area may be closed due to the work, so if you're looking for specific stores, you might want to check first.
+
+Tourist: Thank you so much! You've been incredibly helpful. Do you have any other suggestions?
+
+Local Resident: Actually, there's a mobile app called CityNav that gives real-time updates about construction and alternative routes. You might find it useful.
+
+Tourist: Perfect! I'll download it right now. Thank you again!
+
+Local Resident: You're very welcome! Safe travels!

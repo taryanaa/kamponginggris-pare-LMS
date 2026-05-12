@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS B1 Speaking - Personal Experiences - Page 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        IELTS B1 Speaking - Personal Experiences - Page 1/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="ielts-b1-speaking-2.html" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    // All 20 tasks for IELTS B1 Speaking
+    const allTasks = [
+      {
+        id: 1,
+        page: 1,
+        category: 'speaking',
+        title: 'Hometown & Childhood',
+        dialogue: '<strong>Examiner:</strong> "Let\'s talk about your hometown. Where did you grow up and what was it like?"\n\n<strong>Candidate:</strong> "I grew up in a small town in Central Java. It was a peaceful place with friendly neighbors and traditional markets."\n\n<strong>Examiner:</strong> "What did you enjoy most about your childhood there?"\n\n<strong>Candidate:</strong> "I loved playing with friends in the rice fields and celebrating traditional festivals with my family."',
+        instructions: 'Answer the questions about your hometown and childhood experiences.',
+        emphasis: 'Focus on past tense and descriptive vocabulary'
+      },
+      {
+        id: 2,
+        page: 1,
+        category: 'speaking',
+        title: 'Daily Routine',
+        dialogue: '<strong>Examiner:</strong> "Can you describe your typical daily routine?"\n\n<strong>Candidate:</strong> "I usually wake up at 6 AM, have breakfast, then go to work or study. In the evening, I exercise and spend time with family."\n\n<strong>Examiner:</strong> "What part of your day do you enjoy the most?"\n\n<strong>Candidate:</strong> "I really enjoy the evenings when I can relax and pursue my hobbies like reading or watching movies."',
+        instructions: 'Describe your daily activities and preferences.',
+        emphasis: 'Use present simple tense and time expressions'
+      },
+      {
+        id: 3,
+        page: 1,
+        category: 'speaking',
+        title: 'Family & Relationships',
+        dialogue: '<strong>Examiner:</strong> "Tell me about your family."\n\n<strong>Candidate:</strong> "I come from a close-knit family. There are five of us - my parents, two siblings, and me."\n\n<strong>Examiner:</strong> "How important is family in your culture?"\n\n<strong>Candidate:</strong> "Family is extremely important. We often gather for meals and support each other through difficulties."',
+        instructions: 'Talk about your family and cultural values.',
+        emphasis: 'Use family vocabulary and comparative structures'
+      },
+      {
+        id: 4,
+        page: 1,
+        category: 'speaking',
+        title: 'Education & Learning',
+        dialogue: '<strong>Examiner:</strong> "What are you studying or what did you study?"\n\n<strong>Candidate:</strong> "I studied business administration at university. I found marketing and management particularly interesting."\n\n<strong>Examiner:</strong> "What was your favorite subject and why?"\n\n<strong>Candidate:</strong> "I really enjoyed economics because it helped me understand how businesses and markets work."',
+        instructions: 'Discuss your educational background and preferences.',
+        emphasis: 'Use academic vocabulary and reasons'
+      },
+      {
+        id: 5,
+        page: 1,
+        category: 'speaking',
+        title: 'Hobbies & Interests',
+        dialogue: '<strong>Examiner:</strong> "What do you like to do in your free time?"\n\n<strong>Candidate:</strong> "I\'m passionate about photography. I love capturing beautiful moments and landscapes."\n\n<strong>Examiner:</strong> "How did you become interested in this hobby?"\n\n<strong>Candidate:</strong> "My father gave me my first camera when I was 15, and I\'ve been hooked ever since."',
+        instructions: 'Talk about your hobbies and how you started them.',
+        emphasis: 'Use present perfect and passion vocabulary'
+      },
+      {
+        id: 6,
+        page: 1,
+        category: 'speaking',
+        title: 'Travel Experiences',
+        dialogue: '<strong>Examiner:</strong> "Have you traveled to any interesting places?"\n\n<strong>Candidate:</strong> "Yes, I visited Bali last year. The beaches and temples were absolutely breathtaking."\n\n<strong>Examiner:</strong> "What did you enjoy most about your trip?"\n\n<strong>Candidate:</strong> "I loved trying local cuisine and learning about Balinese culture and traditions."',
+        instructions: 'Describe your travel experiences and impressions.',
+        emphasis: 'Use past tense and descriptive adjectives'
+      },
+      {
+        id: 7,
+        page: 1,
+        category: 'speaking',
+        title: 'Food & Cooking',
+        dialogue: '<strong>Examiner:</strong> "What kind of food do you like?"\n\n<strong>Candidate:</strong> "I enjoy both traditional Indonesian food and international cuisine. Nasi goreng is my favorite."\n\n<strong>Examiner:</strong> "Do you like cooking? Why or why not?"\n\n<strong>Candidate:</strong> "I enjoy cooking because it\'s creative and I love sharing meals with friends and family."',
+        instructions: 'Discuss food preferences and cooking habits.',
+        emphasis: 'Use food vocabulary and reasons'
+      },
+      {
+        id: 8,
+        page: 1,
+        category: 'speaking',
+        title: 'Technology & Social Media',
+        dialogue: '<strong>Examiner:</strong> "How do you use technology in your daily life?"\n\n<strong>Candidate:</strong> "I use my smartphone for communication, navigation, and staying updated with news."\n\n<strong>Examiner:</strong> "What are the advantages and disadvantages of social media?"\n\n<strong>Candidate:</strong> "It helps people stay connected, but it can also be distracting and affect mental health."',
+        instructions: 'Talk about technology usage and opinions.',
+        emphasis: 'Use advantage/disadvantage structures'
+      },
+      {
+        id: 9,
+        page: 1,
+        category: 'speaking',
+        title: 'Sports & Fitness',
+        dialogue: '<strong>Examiner:</strong> "Do you play any sports or exercise regularly?"\n\n<strong>Candidate:</strong> "I go jogging three times a week and sometimes play badminton with friends."\n\n<strong>Examiner:</strong> "Why is physical activity important?"\n\n<strong>Candidate:</strong> "It keeps you healthy, reduces stress, and improves overall quality of life."',
+        instructions: 'Discuss sports activities and health benefits.',
+        emphasis: 'Use frequency adverbs and health vocabulary'
+      },
+      {
+        id: 10,
+        page: 1,
+        category: 'speaking',
+        title: 'Music & Entertainment',
+        dialogue: '<strong>Examiner:</strong> "What kind of music do you enjoy?"\n\n<strong>Candidate:</strong> "I listen to various genres, but I particularly like pop music and traditional Indonesian songs."\n\n<strong>Examiner:</strong> "How does music affect your mood?"\n\n<strong>Candidate:</strong> "Upbeat music energizes me, while calm music helps me relax after a long day."',
+        instructions: 'Talk about music preferences and effects.',
+        emphasis: 'Use mood vocabulary and cause-effect language'
+      },
+      {
+        id: 11,
+        page: 1,
+        category: 'speaking',
+        title: 'Work & Career',
+        dialogue: '<strong>Examiner:</strong> "What do you do for work?"\n\n<strong>Candidate:</strong> "I work as a customer service representative at a telecommunications company."\n\n<strong>Examiner:</strong> "What do you like about your job?"\n\n<strong>Candidate:</strong> "I enjoy helping customers solve problems and the opportunity to communicate with different people."',
+        instructions: 'Describe your job and what you enjoy about it.',
+        emphasis: 'Use work-related vocabulary and positive aspects'
+      },
+      {
+        id: 12,
+        page: 1,
+        category: 'speaking',
+        title: 'Weather & Seasons',
+        dialogue: '<strong>Examiner:</strong> "What\'s the weather like in your country?"\n\n<strong>Candidate:</strong> "We have a tropical climate with two main seasons - dry and rainy season."\n\n<strong>Examiner:</strong> "Which season do you prefer and why?"\n\n<strong>Candidate:</strong> "I prefer the dry season because the weather is more predictable and suitable for outdoor activities."',
+        instructions: 'Discuss climate and seasonal preferences.',
+        emphasis: 'Use weather vocabulary and comparative structures'
+      },
+      {
+        id: 13,
+        page: 1,
+        category: 'speaking',
+        title: 'Shopping Habits',
+        dialogue: '<strong>Examiner:</strong> "Do you enjoy shopping? Why or why not?"\n\n<strong>Candidate:</strong> "I like shopping for necessities, but I\'m not fond of crowded malls. I prefer online shopping."\n\n<strong>Examiner:</strong> "What do you usually buy when you go shopping?"\n\n<strong>Candidate:</strong> "I typically buy groceries, clothing, and sometimes electronics or books."',
+        instructions: 'Talk about shopping preferences and habits.',
+        emphasis: 'Use shopping vocabulary and frequency expressions'
+      },
+      {
+        id: 14,
+        page: 1,
+        category: 'speaking',
+        title: 'Future Plans',
+        dialogue: '<strong>Examiner:</strong> "What are your plans for the future?"\n\n<strong>Candidate:</strong> "I hope to continue my studies abroad and eventually start my own business."\n\n<strong>Examiner:</strong> "How do you plan to achieve these goals?"\n\n<strong>Candidate:</strong> "I\'m saving money and improving my English skills to prepare for these opportunities."',
+        instructions: 'Discuss your future goals and plans.',
+        emphasis: 'Use future tenses and goal-setting vocabulary'
+      },
+      {
+        id: 15,
+        page: 1,
+        category: 'speaking',
+        title: 'Books & Reading',
+        dialogue: '<strong>Examiner:</strong> "Do you enjoy reading? What kind of books?"\n\n<strong>Candidate:</strong> "Yes, I love reading. I particularly enjoy novels and self-improvement books."\n\n<strong>Examiner:</strong> "What was the last book you read?"\n\n<strong>Candidate:</strong> "I recently read a biography of a successful entrepreneur that was very inspiring."',
+        instructions: 'Talk about reading habits and preferences.',
+        emphasis: 'Use book genres and opinion vocabulary'
+      },
+      {
+        id: 16,
+        page: 1,
+        category: 'speaking',
+        title: 'Public Transportation',
+        dialogue: '<strong>Examiner:</strong> "What kind of public transportation do you use?"\n\n<strong>Candidate:</strong> "I usually take the bus or train for longer distances, and sometimes use ride-hailing apps."\n\n<strong>Examiner:</strong> "How could public transportation be improved in your area?"\n\n<strong>Candidate:</strong> "More frequent schedules and better maintenance would make it more reliable and comfortable."',
+        instructions: 'Discuss transportation usage and improvements.',
+        emphasis: 'Use transportation vocabulary and suggestions'
+      },
+      {
+        id: 17,
+        page: 1,
+        category: 'speaking',
+        title: 'Festivals & Celebrations',
+        dialogue: '<strong>Examiner:</strong> "What festivals are important in your culture?"\n\n<strong>Candidate:</strong> "Eid al-Fitr and Indonesian Independence Day are the most significant celebrations."\n\n<strong>Examiner:</strong> "How do people celebrate these festivals?"\n\n<strong>Candidate:</strong> "Families gather for special meals, wear traditional clothing, and visit relatives and friends."',
+        instructions: 'Describe cultural festivals and traditions.',
+        emphasis: 'Use celebration vocabulary and cultural terms'
+      },
+      {
+        id: 18,
+        page: 1,
+        category: 'speaking',
+        title: 'Environmental Issues',
+        dialogue: '<strong>Examiner:</strong> "What environmental problems concern you most?"\n\n<strong>Candidate:</strong> "Plastic pollution and air quality are serious issues that need immediate attention."\n\n<strong>Examiner:</strong> "What can individuals do to help the environment?"\n\n<strong>Candidate:</strong> "We can reduce plastic use, recycle properly, and use public transportation more often."',
+        instructions: 'Discuss environmental concerns and solutions.',
+        emphasis: 'Use environmental vocabulary and suggestions'
+      },
+      {
+        id: 19,
+        page: 1,
+        category: 'speaking',
+        title: 'Friendship',
+        dialogue: '<strong>Examiner:</strong> "What qualities are important in a friend?"\n\n<strong>Candidate:</strong> "Honesty, loyalty, and a good sense of humor are the most important qualities for me."\n\n<strong>Examiner:</strong> "How do you maintain friendships?"\n\n<strong>Candidate:</strong> "I make time to meet regularly, stay in touch through social media, and remember important dates."',
+        instructions: 'Talk about friendship qualities and maintenance.',
+        emphasis: 'Use personality adjectives and relationship terms'
+      },
+      {
+        id: 20,
+        page: 1,
+        category: 'speaking',
+        title: 'Learning English',
+        dialogue: '<strong>Examiner:</strong> "Why are you learning English?"\n\n<strong>Candidate:</strong> "I want to improve my career opportunities and be able to communicate when traveling abroad."\n\n<strong>Examiner:</strong> "What is the most challenging aspect of learning English?"\n\n<strong>Candidate:</strong> "Pronunciation and using the correct tenses can be difficult, but practice helps a lot."',
+        instructions: 'Discuss your English learning journey.',
+        emphasis: 'Use language learning vocabulary and challenges'
+      }
+    ];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'ielts_b1_speaking_page1_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('ielts_b1_speaking_page1_answers', JSON.stringify(completionData));
+      console.log('Saved completion:', completionData);
+    }
+    
+    // Speech recognition
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {};
+    let finalResultTimeout = {};
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            console.log('Final result received for task', currentTask);
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      if (wordCount === 0) {
+        console.log('No substantial speech detected, proceeding directly to feedback');
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        console.log('Processing timeout reached for task', taskIndex);
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      console.log(`Task ${taskIndex} - Words: ${wordCount}, Sentences: ${sentenceCount}, AvgWordLen: ${avgWordLength.toFixed(1)}`);
+
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+      
+      // Store scores in localStorage for results page
+      localStorage.setItem(`ielts_b1_speaking_page1_task${taskIndex}_grammar`, grammarScore);
+      localStorage.setItem(`ielts_b1_speaking_page1_task${taskIndex}_pronunciation`, pronunciationScore);
+      localStorage.setItem(`ielts_b1_speaking_page1_task${taskIndex}_fluency`, fluencyScore);
+      localStorage.setItem(`ielts_b1_speaking_page1_task${taskIndex}_coherence`, coherenceScore);
+
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // IELTS B1 specific feedback
+        feedbackText += `<br><br><strong>🎯 IELTS B1 Speaking Focus:</strong><br>`;
+        
+        const ieltsKeywords = ['describe', 'explain', 'discuss', 'opinion', 'experience', 'prefer', 'enjoy', 'important', 'challenge', 'benefit'];
+        const foundKeywords = ieltsKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Good use of B1 level vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more B1 level words like "describe", "explain", "prefer", "experience"<br>`;
+        }
+        
+        // Check for appropriate tense usage
+        const hasPastTense = /(ed\b|was|were|had|did)/i.test(transcript);
+        const hasPresentTense = /(am|is|are|do|does|have|has)/i.test(transcript);
+        const hasFutureTense = /(will|going to|plan to|hope to)/i.test(transcript);
+        
+        if (hasPastTense && hasPresentTense) {
+          feedbackText += `• Good use of different tenses<br>`;
+        } else {
+          feedbackText += `• Practice using past, present and future tenses appropriately<br>`;
+        }
+        
+        // Check for connectors
+        const connectors = ['and', 'but', 'because', 'so', 'however', 'although', 'also'];
+        const foundConnectors = connectors.filter(connector => 
+          transcript.toLowerCase().includes(connector.toLowerCase())
+        );
+        
+        if (foundConnectors.length >= 2) {
+          feedbackText += `• Good use of connectors to link ideas<br>`;
+        } else {
+          feedbackText += `• Use more connectors like "and", "but", "because" to improve coherence<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      if (Object.keys(completed).length === totalTasks) {
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }  
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initSpeechRecognition();
+      saveCompletion();
+    });
+  </script>
+</body>
+</html>

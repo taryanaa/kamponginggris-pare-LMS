@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Speaking - Negotiating Skills - Page 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        Business Speaking - Negotiating Skills - Page 2/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="speaking-negotiating-3.html" id="nextBtn" class="btn-animate inline-block text-center">Next</a>
+  </div>
+
+  <script>
+    // All 20 tasks
+    const allTasks = [
+  {
+    id: 21,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Software Implementation',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Software Implementation services, but the proposed timeline of 4 months seems too long. Our deadline is 3 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 3 months, we\'d need additional resources. Alternatively, we could use phased delivery.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with phased delivery, we can deliver within 3 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 22,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Construction Project',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Construction Project services, but the proposed timeline of 12 months seems too long. Our deadline is 10 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 10 months, we\'d need overtime work. Alternatively, we could use scope adjustment.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with scope adjustment, we can deliver within 10 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 23,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Marketing Campaign',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Marketing Campaign services, but the proposed timeline of 6 months seems too long. Our deadline is 4 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 4 months, we\'d need larger team. Alternatively, we could use focused objectives.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with focused objectives, we can deliver within 4 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 24,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - IT Infrastructure',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your IT Infrastructure services, but the proposed timeline of 8 months seems too long. Our deadline is 6 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 6 months, we\'d need parallel workstreams. Alternatively, we could use priority features.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with priority features, we can deliver within 6 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 25,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Training Program',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Training Program services, but the proposed timeline of 3 months seems too long. Our deadline is 2 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 2 months, we\'d need intensive schedule. Alternatively, we could use core modules only.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with core modules only, we can deliver within 2 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 26,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Product Development',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Product Development services, but the proposed timeline of 18 months seems too long. Our deadline is 15 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 15 months, we\'d need agile methodology. Alternatively, we could use MVP approach.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with MVP approach, we can deliver within 15 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 27,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Consulting Engagement',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Consulting Engagement services, but the proposed timeline of 9 months seems too long. Our deadline is 7 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 7 months, we\'d need dedicated team. Alternatively, we could use key deliverables.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with key deliverables, we can deliver within 7 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 28,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - System Migration',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your System Migration services, but the proposed timeline of 5 months seems too long. Our deadline is 4 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 4 months, we\'d need weekend work. Alternatively, we could use critical systems first.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with critical systems first, we can deliver within 4 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 29,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Audit Services',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Audit Services services, but the proposed timeline of 2 months seems too long. Our deadline is 6 weeks.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 6 weeks, we\'d need additional auditors. Alternatively, we could use focused scope.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with focused scope, we can deliver within 6 weeks at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 30,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Research Project',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Research Project services, but the proposed timeline of 12 months seems too long. Our deadline is 10 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 10 months, we\'d need concurrent phases. Alternatively, we could use preliminary findings.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with preliminary findings, we can deliver within 10 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 31,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Website Redesign',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Website Redesign services, but the proposed timeline of 4 months seems too long. Our deadline is 3 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 3 months, we\'d need template approach. Alternatively, we could use essential pages.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with essential pages, we can deliver within 3 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 32,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - ERP Implementation',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your ERP Implementation services, but the proposed timeline of 24 months seems too long. Our deadline is 20 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 20 months, we\'d need experienced team. Alternatively, we could use modular rollout.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with modular rollout, we can deliver within 20 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 33,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Compliance Review',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Compliance Review services, but the proposed timeline of 3 months seems too long. Our deadline is 2 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 2 months, we\'d need priority areas. Alternatively, we could use risk-based approach.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with risk-based approach, we can deliver within 2 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 34,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Brand Strategy',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Brand Strategy services, but the proposed timeline of 6 months seems too long. Our deadline is 5 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 5 months, we\'d need workshops. Alternatively, we could use core positioning.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with core positioning, we can deliver within 5 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 35,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Security Assessment',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Security Assessment services, but the proposed timeline of 2 months seems too long. Our deadline is 6 weeks.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 6 weeks, we\'d need automated tools. Alternatively, we could use critical assets.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with critical assets, we can deliver within 6 weeks at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 36,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Change Management',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Change Management services, but the proposed timeline of 8 months seems too long. Our deadline is 6 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 6 months, we\'d need accelerated training. Alternatively, we could use key stakeholders.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with key stakeholders, we can deliver within 6 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 37,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Data Analytics',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Data Analytics services, but the proposed timeline of 5 months seems too long. Our deadline is 4 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 4 months, we\'d need existing tools. Alternatively, we could use priority metrics.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with priority metrics, we can deliver within 4 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 38,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Process Optimization',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Process Optimization services, but the proposed timeline of 7 months seems too long. Our deadline is 5 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 5 months, we\'d need quick wins. Alternatively, we could use high-impact areas.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with high-impact areas, we can deliver within 5 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 39,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Quality Assurance',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Quality Assurance services, but the proposed timeline of 3 months seems too long. Our deadline is 2 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 2 months, we\'d need risk-based testing. Alternatively, we could use critical paths.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with critical paths, we can deliver within 2 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  },
+  {
+    id: 40,
+    page: 2,
+    category: 'negotiating',
+    title: 'Timeline Negotiation - Vendor Selection',
+    dialogue: '<strong>Client:</strong> \"We\'re interested in your Vendor Selection services, but the proposed timeline of 4 months seems too long. Our deadline is 3 months.\"\n\n<strong>Consultant:</strong> \"I appreciate the urgency. To meet 3 months, we\'d need pre-qualified vendors. Alternatively, we could use streamlined RFP.\"\n\n<strong>Client:</strong> \"The alternative sounds more feasible. Can we maintain the original budget?\"\n\n<strong>Consultant:</strong> \"Yes, with streamlined RFP, we can deliver within 3 months at the agreed price while ensuring quality.\"\n',
+    instructions: 'Read this timeline negotiation. Show flexibility and problem-solving tone.',
+    emphasis: 'Highlight compromises and solutions'
+  }
+];
+    
+    // Random selection
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'business_negotiating_page2_selected';
+    let selectedTasks;
+    
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('business_negotiating_page2_answers', JSON.stringify(completionData));
+      console.log('Saved completion:', completionData);
+    }
+    
+    // Speech recognition
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {}; // Track if waiting for final transcript
+    let finalResultTimeout = {}; // Timeout for final result
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          // Accumulate final transcripts
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          // If waiting for final result and got one, proceed with feedback
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            console.log('Final result received for task', currentTask);
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        // Still mark as complete for testing
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      // Stop other recordings
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) button.classList.add('recording');
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        // Auto-stop after 2 minutes
+        setTimeout(() => {
+          if (isRecording[taskIndex]) stopRecording(taskIndex);
+        }, 120000);
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      // Periksa apakah ada transcript yang valid
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      // Jika tidak ada speech yang berarti, langsung proses feedback
+      if (wordCount === 0) {
+        console.log('No substantial speech detected, proceeding directly to feedback');
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      // Tunggu hasil final dengan timeout yang lebih pendek
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        console.log('Processing timeout reached for task', taskIndex);
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 1500);
+    }
+    
+    function processFeedback(taskIndex) {
+      // Add small delay to ensure UI updates
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      // Analisis transcript yang lebih akurat
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      console.log(`Task ${taskIndex} - Words: ${wordCount}, Sentences: ${sentenceCount}, AvgWordLen: ${avgWordLength.toFixed(1)}`);
+
+      // Scoring yang lebih realistis berdasarkan konten
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        // Tidak ada speech yang terdeteksi
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        // Speech sangat minimal
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        // Scoring normal berdasarkan kualitas dan kuantitas speech
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        // Grammar: berdasarkan variasi struktur kalimat
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        // Pronunciation: estimasi berdasarkan panjang kata rata-rata dan variasi
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        // Fluency: berdasarkan rasio kata per kalimat
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        // Coherence: berdasarkan kompleksitas respons
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      // Terapkan scores
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+
+      // Feedback detail yang lebih spesifik
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // Tambahkan feedback spesifik untuk negotiation
+        feedbackText += `<br><br><strong>🎯 Negotiation Focus:</strong><br>`;
+        
+        // Analisis kata kunci negotiation
+        const negotiationKeywords = ['discuss', 'options', 'reasonable', 'partnership', 'adjust', 'terms', 'budget', 'proposal', 'concern', 'quality', 'service'];
+        const foundKeywords = negotiationKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Good use of negotiation vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more negotiation terms like "discuss options", "reasonable", "partnership"<br>`;
+        }
+        
+        // Check for polite language
+        const politeWords = ['thank', 'please', 'could', 'would', 'appreciate'];
+        const hasPoliteLanguage = politeWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasPoliteLanguage) {
+          feedbackText += `• Appropriate polite business language<br>`;
+        } else {
+          feedbackText += `• Add polite phrases like "Thank you", "Could we", "I appreciate"<br>`;
+        }
+        
+        // Check for problem-solving approach
+        const solutionWords = ['solution', 'option', 'alternative', 'adjust', 'flexible'];
+        const hasSolutions = solutionWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasSolutions) {
+          feedbackText += `• Good focus on finding solutions<br>`;
+        } else {
+          feedbackText += `• Emphasize finding mutually beneficial solutions<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      // Update next button jika semua task selesai
+      if (Object.keys(completed).length === totalTasks) {
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      initSpeechRecognition();
+      saveCompletion(); // Initialize storage
+    });
+  </script>
+</body>
+</html>

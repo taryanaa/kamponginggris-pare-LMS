@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS B1 Speaking - Social Issues & Community - Page 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="issues-options-styles.css">
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <style>
+    .recording { background: #dc2626 !important; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .processing { background: #f59e0b !important; }
+    .completed { background: #10b981 !important; }
+    .feedback-section { display: none; margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; }
+    .score-display { display: flex; justify-content: space-around; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; }
+    .microphone-button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      margin: 1rem auto;
+      display: block;
+    }
+    .microphone-button:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+    .recording-status {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin: 0.5rem 0;
+    }
+    .transcript-display {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      min-height: 80px;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+    }
+    .inner-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      background: #fafafa;
+    }
+    .next-button-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 50;
+    }
+    .btn-animate {
+      background: #3b82f6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+      transition: all 0.3s ease;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .btn-animate:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.4);
+    }
+    .btn-animate:active {
+      transform: translateY(0);
+    }
+    header {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-container img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .font-golden {
+      font-weight: 600;
+      color: #1f2937;
+      font-size: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <section class="mb-6">
+      <div class="bg-[#16a34a] text-white text-[10px] text-center py-1 rounded-md font-semibold">
+        IELTS B1 Speaking - Social Issues & Community - Page 2/5
+      </div>
+    </section>
+
+    <div id="tasksContainer"></div>
+  </main>
+
+  <div class="next-button-container">
+    <a href="ielts-b1-speaking-3.html" id="nextBtn" class="btn-animate inline-block text-center">Next Page</a>
+  </div>
+
+  <script>
+    // All 20 tasks for IELTS B1 Speaking - Social Issues & Community
+    const allTasks = [
+      {
+        id: 21,
+        page: 2,
+        category: 'speaking',
+        title: 'Community Service',
+        dialogue: '<strong>Examiner:</strong> "Have you ever participated in community service?"\n\n<strong>Candidate:</strong> "Yes, I volunteered at a local orphanage last year. We organized games and educational activities for the children."\n\n<strong>Examiner:</strong> "Why is community service important?"\n\n<strong>Candidate:</strong> "It helps build stronger communities and allows people to support those in need while developing empathy."',
+        instructions: 'Discuss your community service experiences and their importance.',
+        emphasis: 'Use past experiences and social responsibility vocabulary'
+      },
+      {
+        id: 22,
+        page: 2,
+        category: 'speaking',
+        title: 'Urban vs Rural Life',
+        dialogue: '<strong>Examiner:</strong> "What are the differences between urban and rural life?"\n\n<strong>Candidate:</strong> "Cities offer more job opportunities and entertainment, while rural areas have cleaner air and closer communities."\n\n<strong>Examiner:</strong> "Which do you prefer and why?"\n\n<strong>Candidate:</strong> "I prefer urban life because of the career opportunities and cultural diversity available in cities."',
+        instructions: 'Compare urban and rural lifestyles and state your preference.',
+        emphasis: 'Use comparative structures and preference language'
+      },
+      {
+        id: 23,
+        page: 2,
+        category: 'speaking',
+        title: 'Social Media Impact',
+        dialogue: '<strong>Examiner:</strong> "How has social media changed communication?"\n\n<strong>Candidate:</strong> "It allows instant communication across distances but can reduce face-to-face interaction quality."\n\n<strong>Examiner:</strong> "Do you think this change is positive?"\n\n<strong>Candidate:</strong> "It has both positive and negative aspects - great for staying connected but can affect social skills."',
+        instructions: 'Discuss the impact of social media on communication.',
+        emphasis: 'Use balanced arguments and technology vocabulary'
+      },
+      {
+        id: 24,
+        page: 2,
+        category: 'speaking',
+        title: 'Volunteering Benefits',
+        dialogue: '<strong>Examiner:</strong> "What are the benefits of volunteering?"\n\n<strong>Candidate:</strong> "Volunteering helps develop new skills, builds confidence, and provides valuable work experience."\n\n<strong>Examiner:</strong> "Would you recommend volunteering to others?"\n\n<strong>Candidate:</strong> "Absolutely, it\'s rewarding personally and professionally while making a positive impact."',
+        instructions: 'Talk about the advantages of volunteering.',
+        emphasis: 'Use benefit language and recommendation structures'
+      },
+      {
+        id: 25,
+        page: 2,
+        category: 'speaking',
+        title: 'Public Spaces',
+        dialogue: '<strong>Examiner:</strong> "What public spaces are important in your community?"\n\n<strong>Candidate:</strong> "Parks, libraries, and community centers are vital as they provide gathering spaces for everyone."\n\n<strong>Examiner:</strong> "How could these spaces be improved?"\n\n<strong>Candidate:</strong> "Better maintenance and more diverse activities would make them more attractive to different age groups."',
+        instructions: 'Discuss important public spaces and potential improvements.',
+        emphasis: 'Use community vocabulary and suggestion language'
+      },
+      {
+        id: 26,
+        page: 2,
+        category: 'speaking',
+        title: 'Generation Gap',
+        dialogue: '<strong>Examiner:</strong> "What differences exist between generations today?"\n\n<strong>Candidate:</strong> "Older generations value tradition and stability, while younger people embrace change and technology more readily."\n\n<strong>Examiner:</strong> "How can different generations understand each other better?"\n\n<strong>Candidate:</strong> "Regular communication and shared activities can bridge the gap and foster mutual understanding."',
+        instructions: 'Discuss generational differences and solutions.',
+        emphasis: 'Use comparison and problem-solving vocabulary'
+      },
+      {
+        id: 27,
+        page: 2,
+        category: 'speaking',
+        title: 'Local Festivals',
+        dialogue: '<strong>Examiner:</strong> "What local festivals are celebrated in your area?"\n\n<strong>Candidate:</strong> "We celebrate traditional harvest festivals and cultural events that showcase local arts and cuisine."\n\n<strong>Examiner:</strong> "Why are these festivals important?"\n\n<strong>Candidate:</strong> "They preserve cultural heritage and bring communities together, strengthening social bonds."',
+        instructions: 'Describe local festivals and their significance.',
+        emphasis: 'Use cultural vocabulary and importance expressions'
+      },
+      {
+        id: 28,
+        page: 2,
+        category: 'speaking',
+        title: 'Social Problems',
+        dialogue: '<strong>Examiner:</strong> "What social problems concern you in your community?"\n\n<strong>Candidate:</strong> "Unemployment and lack of affordable housing are significant issues that affect many families."\n\n<strong>Examiner:</strong> "How can these problems be addressed?"\n\n<strong>Candidate:</strong> "Government programs and community initiatives could provide training and support for those affected."',
+        instructions: 'Discuss social issues and potential solutions.',
+        emphasis: 'Use problem-solution structures and social vocabulary'
+      },
+      {
+        id: 29,
+        page: 2,
+        category: 'speaking',
+        title: 'Neighborhood Relationships',
+        dialogue: '<strong>Examiner:</strong> "How well do you know your neighbors?"\n\n<strong>Candidate:</strong> "I know my immediate neighbors quite well. We occasionally share meals and help each other when needed."\n\n<strong>Examiner:</strong> "Are neighborhood relationships important?"\n\n<strong>Candidate:</strong> "Yes, strong neighborhood bonds create safer and more supportive living environments."',
+        instructions: 'Talk about relationships with neighbors.',
+        emphasis: 'Use relationship vocabulary and frequency adverbs'
+      },
+      {
+        id: 30,
+        page: 2,
+        category: 'speaking',
+        title: 'Public Transportation',
+        dialogue: '<strong>Examiner:</strong> "How do people in your area typically travel?"\n\n<strong>Candidate:</strong> "Most people use motorcycles or public buses for daily commuting, while cars are less common."\n\n<strong>Examiner:</strong> "Is the public transportation system efficient?"\n\n<strong>Candidate:</strong> "It could be improved with more frequent schedules and better maintenance of vehicles."',
+        instructions: 'Discuss transportation habits and efficiency.',
+        emphasis: 'Use transportation vocabulary and evaluation language'
+      },
+      {
+        id: 31,
+        page: 2,
+        category: 'speaking',
+        title: 'Community Events',
+        dialogue: '<strong>Examiner:</strong> "What types of community events are organized where you live?"\n\n<strong>Candidate:</strong> "We have regular clean-up campaigns, cultural performances, and sports competitions throughout the year."\n\n<strong>Examiner:</strong> "Do you participate in these events?"\n\n<strong>Candidate:</strong> "Yes, I especially enjoy the cultural events as they showcase our local traditions and talents."',
+        instructions: 'Describe community events and your participation.',
+        emphasis: 'Use event vocabulary and participation expressions'
+      },
+      {
+        id: 32,
+        page: 2,
+        category: 'speaking',
+        title: 'Social Change',
+        dialogue: '<strong>Examiner:</strong> "How has your community changed in recent years?"\n\n<strong>Candidate:</strong> "There\'s been significant development with new buildings and businesses, but also more traffic congestion."\n\n<strong>Examiner:</strong> "Are these changes positive?"\n\n<strong>Candidate:</strong> "Mostly positive as they bring economic opportunities, though we need to manage the challenges."',
+        instructions: 'Discuss changes in your community and their impact.',
+        emphasis: 'Use change vocabulary and balanced evaluation'
+      },
+      {
+        id: 33,
+        page: 2,
+        category: 'speaking',
+        title: 'Youth Activities',
+        dialogue: '<strong>Examiner:</strong> "What activities are popular among young people in your area?"\n\n<strong>Candidate:</strong> "Sports, music, and online gaming are very popular. Many also join youth organizations and clubs."\n\n<strong>Examiner:</strong> "Are there enough facilities for young people?"\n\n<strong>Candidate:</strong> "We could use more sports facilities and safe spaces for teenagers to gather and socialize."',
+        instructions: 'Talk about youth activities and facilities.',
+        emphasis: 'Use youth vocabulary and suggestion language'
+      },
+      {
+        id: 34,
+        page: 2,
+        category: 'speaking',
+        title: 'Elderly Care',
+        dialogue: '<strong>Examiner:</strong> "How are elderly people cared for in your society?"\n\n<strong>Candidate:</strong> "Most elderly live with their families, and there\'s growing awareness about elderly care facilities."\n\n<strong>Examiner:</strong> "Is this system effective?"\n\n<strong>Candidate:</strong> "Family care works well, but professional support services could be expanded for better quality care."',
+        instructions: 'Discuss elderly care systems and effectiveness.',
+        emphasis: 'Use care vocabulary and evaluation structures'
+      },
+      {
+        id: 35,
+        page: 2,
+        category: 'speaking',
+        title: 'Local Businesses',
+        dialogue: '<strong>Examiner:</strong> "What types of local businesses are common in your area?"\n\n<strong>Candidate:</strong> "Small shops, food stalls, and service businesses like tailors and repair shops are very common."\n\n<strong>Examiner:</strong> "Do you support local businesses?"\n\n<strong>Candidate:</strong> "Yes, I prefer buying from local businesses as it supports the community and local economy."',
+        instructions: 'Talk about local businesses and your support.',
+        emphasis: 'Use business vocabulary and preference language'
+      },
+      {
+        id: 36,
+        page: 2,
+        category: 'speaking',
+        title: 'Community Safety',
+        dialogue: '<strong>Examiner:</strong> "How safe is your neighborhood?"\n\n<strong>Candidate:</strong> "It\'s generally safe, though we have neighborhood watch programs and security patrols for extra safety."\n\n<strong>Examiner:</strong> "What makes a community safe?"\n\n<strong>Candidate:</strong> "Good lighting, active community participation, and positive relationships among residents contribute to safety."',
+        instructions: 'Discuss neighborhood safety and factors.',
+        emphasis: 'Use safety vocabulary and causal language'
+      },
+      {
+        id: 37,
+        page: 2,
+        category: 'speaking',
+        title: 'Cultural Diversity',
+        dialogue: '<strong>Examiner:</strong> "Is your community culturally diverse?"\n\n<strong>Candidate:</strong> "Yes, we have people from different ethnic backgrounds and regions living together harmoniously."\n\n<strong>Examiner:</strong> "What are the benefits of cultural diversity?"\n\n<strong>Candidate:</strong> "It enriches our community with different perspectives, traditions, and culinary experiences."',
+        instructions: 'Discuss cultural diversity and its advantages.',
+        emphasis: 'Use diversity vocabulary and benefit language'
+      },
+      {
+        id: 38,
+        page: 2,
+        category: 'speaking',
+        title: 'Environmental Awareness',
+        dialogue: '<strong>Examiner:</strong> "Are people in your community environmentally conscious?"\n\n<strong>Candidate:</strong> "Awareness is growing, with more recycling initiatives and clean energy adoption in recent years."\n\n<strong>Examiner:</strong> "What more could be done?"\n\n<strong>Candidate:</strong> "Better waste management systems and environmental education in schools would help significantly."',
+        instructions: 'Discuss environmental awareness and improvements.',
+        emphasis: 'Use environmental vocabulary and suggestion structures'
+      },
+      {
+        id: 39,
+        page: 2,
+        category: 'speaking',
+        title: 'Public Health',
+        dialogue: '<strong>Examiner:</strong> "What health services are available in your community?"\n\n<strong>Candidate:</strong> "We have local clinics, hospitals, and recently established community health programs."\n\n<strong>Examiner:</strong> "Are these services adequate?"\n\n<strong>Candidate:</strong> "Basic services are available, but specialized care often requires traveling to larger cities."',
+        instructions: 'Discuss healthcare services and adequacy.',
+        emphasis: 'Use health vocabulary and evaluation language'
+      },
+      {
+        id: 40,
+        page: 2,
+        category: 'speaking',
+        title: 'Social Media Communities',
+        dialogue: '<strong>Examiner:</strong> "Do you belong to any online communities?"\n\n<strong>Candidate:</strong> "Yes, I\'m part of several hobby groups and local community forums on social media."\n\n<strong>Examiner:</strong> "How do these online communities help people?"\n\n<strong>Candidate:</strong> "They provide information sharing, emotional support, and opportunities to connect with like-minded people."',
+        instructions: 'Talk about online communities and their benefits.',
+        emphasis: 'Use online community vocabulary and advantage language'
+      }
+    ];
+    
+    // Random selection function
+    function selectRandomTasks(tasks, count) {
+      const shuffled = [...tasks].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+    
+    const storageKey = 'ielts_b1_speaking_page2_selected';
+    let selectedTasks;
+    
+    // Get or generate random tasks
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      try {
+        const storedIds = JSON.parse(stored);
+        selectedTasks = allTasks.filter(t => storedIds.includes(t.id));
+        if (selectedTasks.length !== 5) {
+          selectedTasks = selectRandomTasks(allTasks, 5);
+          localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+        }
+      } catch (e) {
+        selectedTasks = selectRandomTasks(allTasks, 5);
+        localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+      }
+    } else {
+      selectedTasks = selectRandomTasks(allTasks, 5);
+      localStorage.setItem(storageKey, JSON.stringify(selectedTasks.map(t => t.id)));
+    }
+    
+    // Render tasks with complete structure
+    const container = document.getElementById('tasksContainer');
+    selectedTasks.forEach((task, index) => {
+      const taskDiv = document.createElement('section');
+      taskDiv.className = 'card rounded-xl mb-6';
+      taskDiv.innerHTML = `
+        <div class="inner-card">
+          <div class="speaking-interface">
+            <p class="text-sm font-semibold mb-2">🎤 Task ${index + 1}/5 - ${task.title}</p>
+            <p class="text-sm mb-4"><strong>Instructions:</strong> ${task.instructions}</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <div class="text-sm leading-relaxed">${task.dialogue}</div>
+            </div>
+            <p class="text-xs text-blue-600 mb-4"><em>${task.emphasis}</em></p>
+            
+            <button id="micButton${index}" class="microphone-button" onclick="toggleRecording(${index})">
+              <i class="fas fa-microphone"></i>
+            </button>
+            
+            <div id="recordingStatus${index}" class="recording-status">
+              Click microphone to start recording
+            </div>
+            
+            <div id="transcript${index}" class="transcript-display">
+              Your speech will appear here...
+            </div>
+            
+            <div id="feedback${index}" class="feedback-section">
+              <h4 class="font-semibold mb-2">📊 Your Performance</h4>
+              <div class="score-display">
+                <div class="score-item">
+                  <div class="score-value" id="grammarScore${index}">-</div>
+                  <div class="score-label">Grammar</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="pronunciationScore${index}">-</div>
+                  <div class="score-label">Pronunciation</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="fluencyScore${index}">-</div>
+                  <div class="score-label">Fluency</div>
+                </div>
+                <div class="score-item">
+                  <div class="score-value" id="coherenceScore${index}">-</div>
+                  <div class="score-label">Coherence</div>
+                </div>
+              </div>
+              <div id="detailedFeedback${index}" class="text-sm text-gray-700"></div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(taskDiv);
+    });
+    
+    // Completion tracking
+    let completed = {};
+    const totalTasks = 5;
+    
+    function saveCompletion() {
+      const completionData = {
+        completed: Object.keys(completed).length,
+        total: totalTasks,
+        tasks: completed,
+        selectedIds: selectedTasks.map(t => t.id),
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('ielts_b1_speaking_page2_answers', JSON.stringify(completionData));
+      console.log('Progress saved:', completionData);
+    }
+    
+    // Speech recognition system
+    let recognition = null;
+    let isRecording = {};
+    let waitingForFinalResult = {};
+    let finalResultTimeout = {};
+    let transcripts = {};
+    
+    function initSpeechRecognition() {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech recognition not supported');
+        return false;
+      }
+      
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+      
+      recognition.onresult = (event) => {
+        let finalTranscript = '';
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscript += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          if (finalTranscript) {
+            if (!transcripts[currentTask]) {
+              transcripts[currentTask] = '';
+            }
+            transcripts[currentTask] += ' ' + finalTranscript;
+          }
+          
+          const transcriptDiv = document.getElementById(`transcript${currentTask}`);
+          if (transcriptDiv) {
+            const displayText = (transcripts[currentTask] || '') + ' ' + interimTranscript;
+            transcriptDiv.textContent = displayText.trim();
+          }
+          
+          if (waitingForFinalResult[currentTask] && finalTranscript) {
+            console.log('Final result received for task', currentTask);
+            if (finalResultTimeout[currentTask]) {
+              clearTimeout(finalResultTimeout[currentTask]);
+              delete finalResultTimeout[currentTask];
+            }
+            waitingForFinalResult[currentTask] = false;
+            processFeedback(currentTask);
+          }
+        }
+      };
+      
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error:', event.error);
+        const currentTask = getCurrentRecordingTask();
+        if (currentTask !== null) {
+          stopRecording(currentTask);
+        }
+      };
+      
+      recognition.onend = () => {
+        console.log('Speech recognition ended');
+      };
+      
+      return true;
+    }
+    
+    function getCurrentRecordingTask() {
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) return i;
+      }
+      return null;
+    }
+    
+    window.toggleRecording = function(taskIndex) {
+      if (!recognition && !initSpeechRecognition()) {
+        alert('Speech recognition not supported in this browser. Please use Chrome, Edge, or Safari.');
+        // Simulate completion for testing
+        markComplete(taskIndex);
+        return;
+      }
+      
+      if (isRecording[taskIndex]) {
+        stopRecording(taskIndex);
+      } else {
+        startRecording(taskIndex);
+      }
+    };
+    
+    function startRecording(taskIndex) {
+      // Stop other recordings
+      for (let i = 0; i < 5; i++) {
+        if (isRecording[i]) stopRecording(i);
+      }
+      
+      try {
+        recognition.start();
+        isRecording[taskIndex] = true;
+        
+        const button = document.getElementById(`micButton${taskIndex}`);
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        
+        if (button) {
+          button.classList.add('recording');
+          button.innerHTML = '<i class="fas fa-stop"></i>';
+        }
+        if (status) status.textContent = '🔴 Recording... Click to stop';
+        
+        // Auto-stop after 2 minutes
+        setTimeout(() => {
+          if (isRecording[taskIndex]) {
+            console.log('Auto-stopping recording for task', taskIndex);
+            stopRecording(taskIndex);
+          }
+        }, 120000);
+        
+      } catch (e) {
+        console.error('Error starting recording:', e);
+        isRecording[taskIndex] = false;
+        const status = document.getElementById(`recordingStatus${taskIndex}`);
+        if (status) status.textContent = '❌ Error starting recording';
+      }
+    }
+    
+    function stopRecording(taskIndex) {
+      if (recognition) {
+        try { 
+          recognition.stop(); 
+        } catch (e) {
+          console.log('Recognition already stopped:', e);
+        }
+      }
+      
+      isRecording[taskIndex] = false;
+      
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      
+      if (button) {
+        button.classList.remove('recording');
+        button.classList.add('processing');
+        button.innerHTML = '<i class="fas fa-microphone"></i>';
+      }
+      if (status) status.textContent = '⏳ Processing...';
+      
+      // Check if there's valid transcript
+      const currentTranscript = transcripts[taskIndex] || '';
+      const wordCount = currentTranscript.trim().split(/\s+/).filter(w => w.length > 0).length;
+      
+      // If no substantial speech detected, proceed directly to feedback
+      if (wordCount === 0) {
+        console.log('No substantial speech detected, proceeding directly to feedback');
+        processFeedback(taskIndex);
+        return;
+      }
+      
+      // Wait for final results with timeout
+      waitingForFinalResult[taskIndex] = true;
+      
+      finalResultTimeout[taskIndex] = setTimeout(() => {
+        console.log('Processing timeout reached for task', taskIndex);
+        if (waitingForFinalResult[taskIndex]) {
+          waitingForFinalResult[taskIndex] = false;
+          processFeedback(taskIndex);
+        }
+      }, 2000);
+    }
+    
+    function processFeedback(taskIndex) {
+      // Add small delay to ensure UI updates
+      setTimeout(() => {
+        showFeedback(taskIndex);
+        markComplete(taskIndex);
+      }, 500);
+    }
+    
+    function showFeedback(taskIndex) {
+      const button = document.getElementById(`micButton${taskIndex}`);
+      const status = document.getElementById(`recordingStatus${taskIndex}`);
+      const feedback = document.getElementById(`feedback${taskIndex}`);
+      const transcript = (transcripts[taskIndex] || '').trim();
+
+      if (button) {
+        button.classList.remove('processing');
+        button.classList.add('completed');
+      }
+      if (status) status.textContent = '✅ Recording complete!';
+      if (feedback) feedback.style.display = 'block';
+
+      // Analyze transcript for scoring
+      const wordCount = transcript.split(/\s+/).filter(w => w.length > 0).length;
+      const sentenceCount = transcript.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const avgWordLength = wordCount > 0 ? 
+        transcript.replace(/\s+/g, '').length / wordCount : 0;
+
+      console.log(`Task ${taskIndex} - Words: ${wordCount}, Sentences: ${sentenceCount}, AvgWordLen: ${avgWordLength.toFixed(1)}`);
+
+      // Calculate scores based on content quality
+      let grammarScore, pronunciationScore, fluencyScore, coherenceScore;
+
+      if (wordCount === 0) {
+        // No speech detected
+        grammarScore = 0;
+        pronunciationScore = 0;
+        fluencyScore = 0;
+        coherenceScore = 0;
+      } else if (wordCount < 5) {
+        // Very minimal speech
+        grammarScore = Math.min(3, Math.floor(wordCount * 0.6));
+        pronunciationScore = Math.min(3, Math.floor(wordCount * 0.5));
+        fluencyScore = Math.min(2, Math.floor(wordCount * 0.4));
+        coherenceScore = Math.min(2, Math.floor(wordCount * 0.3));
+      } else {
+        // Normal scoring based on quality and quantity
+        const baseScore = Math.min(9, Math.max(4, Math.floor(wordCount / 8)));
+        
+        // Grammar: based on sentence variety
+        grammarScore = Math.min(9, baseScore + Math.min(2, sentenceCount));
+        
+        // Pronunciation: estimation based on word complexity
+        const pronunciationBase = Math.min(8, baseScore + 1);
+        pronunciationScore = avgWordLength > 4 ? 
+          Math.min(9, pronunciationBase + 1) : pronunciationBase;
+        
+        // Fluency: based on words per sentence ratio
+        const wordsPerSentence = sentenceCount > 0 ? wordCount / sentenceCount : 0;
+        fluencyScore = wordsPerSentence > 5 ? 
+          Math.min(9, baseScore + 2) : baseScore;
+        
+        // Coherence: based on response complexity
+        coherenceScore = wordCount > 20 ? 
+          Math.min(9, baseScore + 1) : baseScore;
+      }
+
+      // Apply scores to display
+      document.getElementById(`grammarScore${taskIndex}`).textContent = grammarScore;
+      document.getElementById(`pronunciationScore${taskIndex}`).textContent = pronunciationScore;
+      document.getElementById(`fluencyScore${taskIndex}`).textContent = fluencyScore;
+      document.getElementById(`coherenceScore${taskIndex}`).textContent = coherenceScore;
+      
+      // Store scores in localStorage for results page
+      localStorage.setItem(`ielts_b1_speaking_page2_task${taskIndex}_grammar`, grammarScore);
+      localStorage.setItem(`ielts_b1_speaking_page2_task${taskIndex}_pronunciation`, pronunciationScore);
+      localStorage.setItem(`ielts_b1_speaking_page2_task${taskIndex}_fluency`, fluencyScore);
+      localStorage.setItem(`ielts_b1_speaking_page2_task${taskIndex}_coherence`, coherenceScore);
+
+      // Generate detailed feedback
+      const detailedFeedback = document.getElementById(`detailedFeedback${taskIndex}`);
+      if (detailedFeedback) {
+        let feedbackText = '';
+
+        if (wordCount === 0) {
+          feedbackText = `
+            <strong>⚠️ No Speech Detected</strong><br>
+            • Microphone may not be working properly<br>
+            • Please check browser permissions<br>
+            • Try speaking louder and clearer<br>
+            • Ensure microphone is not muted
+          `;
+        } else if (wordCount < 5) {
+          feedbackText = `
+            <strong>📝 Very Short Response</strong><br>
+            • Only ${wordCount} word(s) recorded<br>
+            • Try to speak for 15-30 seconds<br>
+            • Provide complete sentences<br>
+            • Expand on your thoughts more
+          `;
+        } else if (wordCount < 15) {
+          feedbackText = `
+            <strong>📊 Basic Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Good start, but could be more detailed<br>
+            • Try to use more complex sentences<br>
+            • Practice speaking for longer periods
+          `;
+        } else if (wordCount < 30) {
+          feedbackText = `
+            <strong>📈 Good Effort</strong><br>
+            • ${wordCount} words recorded<br>
+            • You're expressing ideas clearly<br>
+            • Good sentence structure<br>
+            • Continue practicing for fluency
+          `;
+        } else {
+          feedbackText = `
+            <strong>🎯 Excellent Response</strong><br>
+            • ${wordCount} words recorded<br>
+            • Strong vocabulary and structure<br>
+            • Good pacing and pronunciation<br>
+            • Well-developed thoughts
+          `;
+        }
+
+        // Social Issues specific feedback
+        feedbackText += `<br><br><strong>🎯 Social Issues Vocabulary Focus:</strong><br>`;
+        
+        const socialKeywords = ['community', 'society', 'problem', 'solution', 'improve', 'benefit', 'challenge', 'support', 'development', 'awareness'];
+        const foundKeywords = socialKeywords.filter(keyword => 
+          transcript.toLowerCase().includes(keyword.toLowerCase())
+        );
+        
+        if (foundKeywords.length >= 3) {
+          feedbackText += `• Good use of social issues vocabulary (${foundKeywords.length} keywords)<br>`;
+        } else {
+          feedbackText += `• Try to use more social terms like "community", "solution", "development", "awareness"<br>`;
+        }
+        
+        // Check for balanced arguments
+        const hasBothSides = /(however|although|on the other hand|while|but)/i.test(transcript);
+        if (hasBothSides) {
+          feedbackText += `• Good balanced discussion of different perspectives<br>`;
+        } else {
+          feedbackText += `• Practice presenting both sides of social issues for balanced arguments<br>`;
+        }
+        
+        // Check for solution-oriented language
+        const solutionWords = ['could', 'should', 'would', 'suggest', 'recommend', 'improve', 'better'];
+        const hasSolutions = solutionWords.some(word => 
+          transcript.toLowerCase().includes(word)
+        );
+        
+        if (hasSolutions) {
+          feedbackText += `• Good use of suggestion language for solutions<br>`;
+        } else {
+          feedbackText += `• Include more suggestions and recommendations when discussing social problems<br>`;
+        }
+
+        detailedFeedback.innerHTML = feedbackText;
+      }
+    }
+    
+    function markComplete(taskIndex) {
+      completed[taskIndex] = true;
+      saveCompletion();
+      
+      // Update next button if all tasks are completed
+      if (Object.keys(completed).length === totalTasks) {
+        const nextBtn = document.getElementById('nextBtn');
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.innerHTML = 'Next Page <i class="fas fa-arrow-right ml-2"></i>';
+        }
+      }
+    }
+    
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('IELTS B1 Speaking Page 2 initialized');
+      initSpeechRecognition();
+      saveCompletion(); // Initialize storage
+      
+      // Check if there's existing progress
+      const existingProgress = localStorage.getItem('ielts_b1_speaking_page2_answers');
+      if (existingProgress) {
+        try {
+          const progress = JSON.parse(existingProgress);
+          console.log('Loaded existing progress:', progress);
+        } catch (e) {
+          console.log('No existing progress found');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

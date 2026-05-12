@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="IELTS A2 Reading Practice - British Culture | kamponginggrispare.com">
+  <meta name="keywords" content="IELTS reading, A2 English, British culture, reading comprehension">
+  <meta name="author" content="MiniMax Agent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IELTS A2 Reading - British Culture (1/5) | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    main { padding-bottom: 5rem; }
+    form label { display: block; margin-left: 1.25rem; margin-bottom: 0.25rem; font-size: 0.875rem; color: #1e293b; cursor: pointer; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.875rem; color: #1e293b; line-height: 1.6; margin-bottom: 1.5rem; background: white; }
+    progress { -webkit-appearance: none; width: 100%; height: 0.25rem; border-radius: 9999px; margin-top: 0.25rem; margin-bottom: 0.5rem; }
+    progress::-webkit-progress-bar { background-color: #cbd5e1; }
+    progress::-webkit-progress-value { background-color: #2563eb; }
+    .next-button-container { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 20; }
+    @media (max-width: 640px) { .next-button-container { position: static; margin-top: 1rem; display: flex; justify-content: flex-end; padding-right: 1.5rem; } }
+    .question-card { transition: none !important; cursor: default !important; user-select: text !important; transform: none !important; }
+    .question-card:hover { box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1) !important; transform: none !important; }
+    .question-card form label:has(input[type="radio"]) { padding: 0.5rem !important; margin: 0.25rem 0 !important; display: block !important; cursor: pointer !important; border-radius: 0.25rem !important; font-size: 0.875rem !important; transition: background-color 0.2s ease !important; min-height: 44px; display: flex; align-items: center; }
+    .question-card form label:has(input[type="radio"]):hover { background-color: #f0f7ff !important; }
+    .question-card form input[type="radio"] { margin-right: 0.5rem !important; transform: scale(1.2) !important; }
+    body { padding-top: 110px !important; margin: 0 !important; }
+    main { margin-top: 0 !important; padding-top: 0 !important; }
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; -webkit-backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    @media (max-width: 768px) { body { padding-top: 100px !important; } header { height: 90px !important; padding: 0 1.5rem; } .font-golden { font-size: 0.9rem; } header img { width: 80px; height: 80px; } }
+    @media (max-width: 480px) { body { padding-top: 90px !important; } header { height: 80px !important; padding: 0 1rem; } .font-golden { font-size: 0.8rem; } header img { width: 60px; height: 60px; } }
+    .progress-indicator { position: fixed; bottom: 80px; left: 20px; background: white; padding: 8px 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); font-size: 12px; z-index: 1000; border-left: 3px solid #f59e0b; user-select: none; }
+    .progress-indicator.complete { border-left-color: #10b981; }
+    .reading-selection { margin-bottom: 1.5rem; }
+    .reading-title { font-weight: bold; margin-bottom: 0.5rem; color: #1e293b; font-size: 1.125rem; }
+    .reading-text { font-size: 0.875rem; line-height: 1.6; color: #334155; }
+    * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+    input, textarea { -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
+  </style>
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="kamponginggrispare.com logo" src="./img1.png" decoding="async" loading="lazy" />
+      <h1 class="font-golden">kamponginggrispare.com</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-[#2563eb] text-white text-[10px] text-center py-1 rounded-md select-none font-semibold" aria-label="IELTS test title">
+        IELTS A2 Reading Test - British Culture (1/5)
+      </div>
+      <progress id="progressBar" max="1800" value="1800" aria-label="IELTS test progress bar" role="progressbar" aria-valuemin="0" aria-valuemax="1800" aria-valuenow="1800"></progress>
+      <p class="text-[10px] text-center text-black/80 select-none leading-tight" aria-live="polite" aria-atomic="true" id="countdownText">
+        Durasi 30 menit<br />
+        <span id="timeDisplay" style="">0Jam 30Menit 0Detik</span>
+      </p>
+    </section>
+    
+    <section class="card rounded-xl" aria-label="Reading Comprehension section" id="mainCard">
+      <!-- Reading content will be dynamically inserted here -->
+    </section>
+    
+    <!-- Questions will be dynamically inserted here -->
+    <div id="questions-container"></div>
+  </main>
+  
+  <div class="next-button-container">
+    <a href="ielts-reading-british-2.html" id="nextBtn" class="btn-animate inline-block text-center" aria-label="Next question">
+      Next
+    </a>
+  </div>
+
+  <script>
+    const readingData = [
+      {
+        id: 1,
+        title: "British Food and Drink",
+        text: `British cuisine has a rich history and includes many traditional dishes. One of the most famous British meals is the full English breakfast, which typically includes eggs, bacon, sausages, baked beans, toast, mushrooms, and tomatoes. Fish and chips is another classic British dish, consisting of fried fish served with thick-cut potatoes. Sunday roast is a traditional meal eaten on Sundays, featuring roasted meat, potatoes, vegetables, and Yorkshire pudding.
+
+Tea is the most popular drink in Britain. British people often drink tea with milk and sometimes sugar. The tradition of afternoon tea started in the 1840s when the Duchess of Bedford began having tea and snacks in the afternoon. Today, many British people enjoy a cup of tea several times a day.
+
+Other popular British foods include shepherd's pie (made with minced meat and mashed potatoes), Cornish pasties (savory pastries filled with meat and vegetables), and scones (often eaten with jam and cream during afternoon tea). British cuisine has become more diverse in recent years, with influences from around the world.`,
+        questions: [
+          {
+            id: 1,
+            text: "What is included in a full English breakfast?",
+            options: [
+              "Pasta and salad",
+              "Eggs, bacon, sausages, and beans",
+              "Rice and curry",
+              "Pizza and chips"
+            ],
+            correct: 1
+          },
+          {
+            id: 2,
+            text: "When did afternoon tea tradition begin?",
+            options: [
+              "In the 1920s",
+              "In the 1840s",
+              "In the 1700s",
+              "In the 2000s"
+            ],
+            correct: 1
+          },
+          {
+            id: 3,
+            text: "What is fish and chips made of?",
+            options: [
+              "Fried fish and potatoes",
+              "Grilled fish and rice",
+              "Baked fish and vegetables",
+              "Steamed fish and bread"
+            ],
+            correct: 0
+          },
+          {
+            id: 4,
+            text: "How do British people usually drink tea?",
+            options: [
+              "With lemon",
+              "With milk",
+              "With honey",
+              "Without anything"
+            ],
+            correct: 1
+          },
+          {
+            id: 5,
+            text: "What is shepherd's pie made with?",
+            options: [
+              "Fish and potatoes",
+              "Minced meat and mashed potatoes",
+              "Chicken and rice",
+              "Vegetables and pasta"
+            ],
+            correct: 1
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: "British Holidays and Celebrations",
+        text: `Britain has many traditional holidays and celebrations throughout the year. Christmas is one of the most important holidays, celebrated on December 25th. British families often decorate Christmas trees, exchange gifts, and have a special Christmas dinner featuring turkey, roast potatoes, and Christmas pudding.
+
+Bonfire Night, also known as Guy Fawkes Night, is celebrated on November 5th. This tradition remembers the failed Gunpowder Plot of 1605. People light bonfires and watch fireworks displays. Traditionally, effigies of Guy Fawkes are burned on the bonfires.
+
+Easter is another significant holiday in Britain. It celebrates the resurrection of Jesus Christ. British traditions include Easter egg hunts, where children search for chocolate eggs hidden in gardens or parks. Hot cross buns, spiced sweet buns with a cross on top, are traditionally eaten on Good Friday.
+
+Other British celebrations include New Year's Eve, when people gather to count down to midnight, and Bank Holidays, which are public holidays when most people have a day off work. Summer bank holidays often involve outdoor activities and trips to the seaside.`,
+        questions: [
+          {
+            id: 6,
+            text: "When is Christmas celebrated in Britain?",
+            options: [
+              "December 24th",
+              "December 25th",
+              "January 1st",
+              "November 5th"
+            ],
+            correct: 1
+          },
+          {
+            id: 7,
+            text: "What is Bonfire Night also known as?",
+            options: [
+              "Fireworks Night",
+              "Guy Fawkes Night",
+              "November Night",
+              "Plot Night"
+            ],
+            correct: 1
+          },
+          {
+            id: 8,
+            text: "What do children search for during Easter?",
+            options: [
+              "Christmas presents",
+              "Chocolate eggs",
+              "Money",
+              "Hot cross buns"
+            ],
+            correct: 1
+          },
+          {
+            id: 9,
+            text: "What are Bank Holidays?",
+            options: [
+              "Days when banks are open late",
+              "Public holidays with day off work",
+              "Days for banking activities",
+              "Holidays only for bank workers"
+            ],
+            correct: 1
+          },
+          {
+            id: 10,
+            text: "What is traditionally eaten on Good Friday?",
+            options: [
+              "Christmas pudding",
+              "Turkey dinner",
+              "Hot cross buns",
+              "Fish and chips"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 3,
+        title: "British Royal Family",
+        text: `The British Royal Family plays an important role in the country's culture and traditions. The monarch is the head of state, and currently, that is King Charles III. The royal family lives in several palaces, including Buckingham Palace in London, which is the monarch's official residence.
+
+One of the most famous royal events is the Changing of the Guard ceremony at Buckingham Palace. This ceremony involves soldiers from the Queen's Guard exchanging duties with the new guard. Tourists often gather to watch this colorful ceremony.
+
+The royal family also participates in the State Opening of Parliament, where the monarch delivers the Queen's Speech outlining the government's plans for the coming year. Another important event is Trooping the Colour, which celebrates the monarch's official birthday with a military parade.
+
+The royal weddings and births are celebrated across the country. When a royal baby is born, an announcement is placed on an easel outside Buckingham Palace. The royal family represents Britain at home and abroad and supports many charitable organizations.`,
+        questions: [
+          {
+            id: 11,
+            text: "Who is the current British monarch?",
+            options: [
+              "Queen Elizabeth II",
+              "King Charles III",
+              "Prince William",
+              "Princess Diana"
+            ],
+            correct: 1
+          },
+          {
+            id: 12,
+            text: "Where is the Changing of the Guard ceremony held?",
+            options: [
+              "Windsor Castle",
+              "Buckingham Palace",
+              "Tower of London",
+              "Westminster Abbey"
+            ],
+            correct: 1
+          },
+          {
+            id: 13,
+            text: "What happens during Trooping the Colour?",
+            options: [
+              "Royal wedding ceremony",
+              "Military parade for monarch's birthday",
+              "Christmas celebration",
+              "Parliament opening"
+            ],
+            correct: 1
+          },
+          {
+            id: 14,
+            text: "Where is royal baby announcements displayed?",
+            options: [
+              "On television only",
+              "In newspapers",
+              "On easel outside Buckingham Palace",
+              "On social media"
+            ],
+            correct: 2
+          },
+          {
+            id: 15,
+            text: "What is the monarch's official residence?",
+            options: [
+              "Windsor Castle",
+              "Kensington Palace",
+              "Buckingham Palace",
+              "Tower of London"
+            ],
+            correct: 2
+          }
+        ]
+      },
+      {
+        id: 4,
+        title: "British Education System",
+        text: `The British education system is divided into several stages. Children typically start primary school at age 5 and continue until age 11. Then they move to secondary school, which lasts until age 16. At age 16, students take important exams called GCSEs (General Certificate of Secondary Education).
+
+After GCSEs, students can choose to continue their education. They may study for A-levels (Advanced Level qualifications) at a sixth form college or stay at their secondary school for two more years. A-levels are important for university entrance.
+
+University education in Britain typically takes three years for a bachelor's degree. The most famous universities are Oxford and Cambridge, often called Oxbridge. There are also many other excellent universities across the country.
+
+The school year in Britain is divided into three terms: autumn term (September to December), spring term (January to Easter), and summer term (Easter to July). Students have holidays at Christmas, Easter, and during the summer. There are also half-term breaks during each term.`,
+        questions: [
+          {
+            id: 16,
+            text: "At what age do children start primary school in Britain?",
+            options: [
+              "Age 3",
+              "Age 5",
+              "Age 7",
+              "Age 11"
+            ],
+            correct: 1
+          },
+          {
+            id: 17,
+            text: "What exams do students take at age 16?",
+            options: [
+              "A-levels",
+              "GCSEs",
+              "University exams",
+              "Primary exams"
+            ],
+            correct: 1
+          },
+          {
+            id: 18,
+            text: "How long does a bachelor's degree typically take in Britain?",
+            options: [
+              "Two years",
+              "Three years",
+              "Four years",
+              "Five years"
+            ],
+            correct: 1
+          },
+          {
+            id: 19,
+            text: "What are Oxford and Cambridge universities often called?",
+            options: [
+              "The Big Two",
+              "Oxbridge",
+              "The Ancient Universities",
+              "The Royal Universities"
+            ],
+            correct: 1
+          },
+          {
+            id: 20,
+            text: "How many terms are in the British school year?",
+            options: [
+              "Two terms",
+              "Three terms",
+              "Four terms",
+              "Five terms"
+            ],
+            correct: 1
+          }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeTest();
+      setTimeout(initValidation, 100);
+      initializeCountdown();
+      initializeTabSwitchDetection();
+      initializeProtection();
+    });
+
+    function initializeTest() {
+      const storedReading = localStorage.getItem('ielts_british_reading_1_selected');
+      
+      let selectedReading;
+      if (storedReading) {
+        selectedReading = readingData.find(reading => reading.id === parseInt(storedReading));
+      } else {
+        const randomReadingIndex = Math.floor(Math.random() * readingData.length);
+        selectedReading = readingData[randomReadingIndex];
+        localStorage.setItem('ielts_british_reading_1_selected', selectedReading.id.toString());
+      }
+      
+      displayReading(selectedReading);
+      const selectedQuestions = selectRandomQuestions(selectedReading.questions, 5);
+      displayQuestions(selectedQuestions);
+      localStorage.setItem('ielts_british_reading_1_questions', JSON.stringify(selectedQuestions.map(q => q.id)));
+    }
+
+    function displayReading(reading) {
+      const mainCard = document.getElementById('mainCard');
+      mainCard.innerHTML = '';
+      
+      const readingElement = document.createElement('div');
+      readingElement.className = 'reading-selection';
+      readingElement.innerHTML = `
+        <div class="inner-card">
+          <p class="font-bold text-center mb-1">
+            IELTS A2 Reading - British Culture
+          </p>
+          <p class="text-center mb-3">
+            Read the text and answer questions 1-5.
+          </p>
+          <p class="reading-title">${reading.title}</p>
+          
+          <div class="reading-text">
+            ${reading.text}
+          </div>
+        </div>
+      `;
+      
+      mainCard.appendChild(readingElement);
+    }
+
+    function selectRandomQuestions(questions, count) {
+      if (questions.length <= count) {
+        return [...questions];
+      }
+      
+      const shuffled = [...questions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      return shuffled.slice(0, count);
+    }
+
+    function displayQuestions(questions) {
+      const container = document.getElementById('questions-container');
+      container.innerHTML = '';
+      
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('section');
+        questionElement.className = 'card rounded-xl mt-6 question-card';
+        questionElement.setAttribute('aria-label', `Question ${index + 1}`);
+        
+        let optionsHTML = '';
+        question.options.forEach((option, optionIndex) => {
+          optionsHTML += `
+            <label>
+              <input class="mr-1" name="q${question.id}" type="radio" value="${option}" ${optionIndex === question.correct ? 'data-correct="true"' : ''} />
+              ${option}
+            </label>
+          `;
+        });
+        
+        questionElement.innerHTML = `
+          <p class="mb-2 text-[10px] font-semibold">
+            ${index + 1}. ${question.text}
+          </p>
+          <form>
+            ${optionsHTML}
+          </form>
+        `;
+        
+        container.appendChild(questionElement);
+      });
+    }
+
+    let questionCount = 0;
+    let answeredCount = 0;
+
+    function initValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) names.add(radio.name);
+        }
+      });
+
+      questionCount = names.size;
+      if (questionCount === 0) return;
+
+      radios.forEach(radio => {
+        radio.addEventListener('change', updateValidation);
+      });
+
+      addProgressIndicator();
+      updateValidation();
+    }
+
+    function updateValidation() {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const names = new Set();
+      const answered = new Set();
+
+      radios.forEach(radio => {
+        const section = radio.closest('section');
+        if (section && getComputedStyle(section).display !== 'none') {
+          if (radio.name) {
+            names.add(radio.name);
+            if (radio.checked) answered.add(radio.name);
+          }
+        }
+      });
+
+      answeredCount = answered.size;
+      updateProgressIndicator();
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        if (answeredCount === questionCount) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+          nextBtn.removeAttribute('data-disabled');
+        } else {
+          nextBtn.style.opacity = '0.6';
+          nextBtn.style.pointerEvents = 'none';
+          nextBtn.setAttribute('data-disabled', 'true');
+        }
+      }
+    }
+
+    function addProgressIndicator() {
+      if (document.querySelector('.progress-indicator')) return;
+
+      const progress = document.createElement('div');
+      progress.className = 'progress-indicator';
+      progress.innerHTML = `<span id="progress-text">Progress: 0/${questionCount}</span>`;
+      document.body.appendChild(progress);
+    }
+
+    function updateProgressIndicator() {
+      const text = document.getElementById('progress-text');
+      if (text) {
+        text.textContent = `Progress: ${answeredCount}/${questionCount}`;
+        const indicator = document.querySelector('.progress-indicator');
+        if (answeredCount === questionCount) {
+          indicator.style.borderLeftColor = '#10b981';
+          text.textContent += ' ✓';
+        }
+      }
+    }
+
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('#nextBtn[data-disabled="true"]');
+      if (target) {
+        e.preventDefault();
+        alert(`Please answer all questions before proceeding!\nRemaining: ${questionCount - answeredCount} questions.`);
+      }
+    });
+
+    function initializeCountdown() {
+      const totalSeconds = 30 * 60;
+      const progressBar = document.getElementById("progressBar");
+      const timeDisplay = document.getElementById("timeDisplay");
+
+      let remainingSeconds = totalSeconds;
+
+      function updateCountdown() {
+        if (remainingSeconds < 0) {
+          remainingSeconds = 0;
+          alert('Time is up! Test will end.');
+          return;
+        }
+
+        if (progressBar) {
+          progressBar.value = remainingSeconds;
+        }
+
+        if (timeDisplay) {
+          const hours = Math.floor(remainingSeconds / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          const seconds = remainingSeconds % 60;
+          timeDisplay.textContent = `${hours}Jam ${minutes}Menit ${seconds}Detik`;
+        }
+
+        remainingSeconds--;
+      }
+
+      if (progressBar && timeDisplay) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+    }
+
+    function initializeTabSwitchDetection() {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          setTimeout(() => {
+            if (document.hidden) {
+              alert('Warning: Please focus on the test page.');
+            }
+          }, 1000);
+        }
+      });
+    }
+
+    function initializeProtection() {
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    }
+  
+    document.getElementById('nextBtn').addEventListener('click', function(e) {
+      if (answeredCount === questionCount) {
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        let correct = 0;
+        let total = 0;
+        
+        radios.forEach(radio => {
+          total++;
+          if (radio.hasAttribute('data-correct')) {
+            correct++;
+          }
+        });
+        
+        // Save score with standardized key
+        const storageKey = 'ielts_a2_reading_1_score';
+        localStorage.setItem(storageKey, JSON.stringify({ correct, total }));
+        
+        console.log(`Saved ${storageKey}:`, { correct, total });
+      }
+    });
+  </script>
+</body>
+</html>

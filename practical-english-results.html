@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Practical English Test Results - Complete score analysis and certificate generation.">
+  <meta name="keywords" content="Practical English results, test scores, certificate, exam results">
+  <meta name="author" content="kamponginggrispare.com">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Practical English Results | kamponginggrispare.com</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <script src="anti-screenshot-ultimate-v2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    body { font-family: "Roboto", sans-serif; background-color: #f0f7ff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; padding-top: 110px !important; }
+    .card { transition: transform 0.2s ease, box-shadow 0.3s ease; border-radius: 1rem; background: white; box-shadow: 0 8px 15px rgba(59, 130, 246, 0.1); padding: 1.5rem; }
+    .card:hover { box-shadow: 0 8px 16px rgba(59, 130, 246, 0.2); }
+    .btn-animate { background-color: #3b82f6; color: white; font-weight: 600; padding: 0.75rem 1.25rem; font-size: 0.875rem; border-radius: 0.375rem; box-shadow: 0 6px 0 #1e40af; cursor: pointer; text-decoration: none; display: inline-block; border: none; }
+    .btn-animate:hover { background-color: #2563eb; box-shadow: 0 12px 0 #1e40af; transform: translateY(-4px); }
+    
+    main { padding-bottom: 5rem; margin-top: 0 !important; padding-top: 0 !important; }
+    .inner-card { border: 1px solid #334155; border-radius: 0.5rem; padding: 1rem; font-size: 0.75rem; color: #1e293b; line-height: 1.3; margin-bottom: 1.5rem; background: white; }
+    
+    .font-golden { font-weight: 600; color: #1e293b; font-size: 1rem; user-select: none; letter-spacing: -0.025em; font-family: 'Georgia', serif; margin: 0; }
+    header { position: fixed !important; top: 0 !important; left: 0 !important; z-index: 1000 !important; width: 100% !important; height: 100px !important; padding: 0 2rem; background: rgba(240, 247, 255, 0.85) !important; backdrop-filter: blur(10px) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: flex-start; align-items: center; }
+    header .logo-container { display: flex; align-items: center; gap: 1rem; }
+    header img { width: 140px; height: 140px; flex-shrink: 0; object-fit: contain; border-radius: 8px; }
+    
+    @media (max-width: 768px) {
+      body { padding-top: 100px !important; }
+      header { height: 90px !important; padding: 0 1.5rem; }
+      .font-golden { font-size: 0.9rem; }
+      header img { width: 80px; height: 80px; }
+    }
+    
+    .overall-score { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white; padding: 2rem; border-radius: 1rem; text-align: center; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3); }
+    .skill-summary { background: #f8fafc; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; border-left: 4px solid #3b82f6; }
+    .score-display { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .score-item { text-align: center; }
+    .score-value { font-size: 1.5rem; font-weight: bold; color: #2563eb; }
+    .score-label { font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem; }
+    
+    .user-info-card { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; border: 2px solid #3b82f6; }
+    .user-info-card h3 { color: #1e40af; font-weight: 600; margin-bottom: 0.5rem; }
+    .user-info-card p { color: #1e293b; margin: 0.25rem 0; }
+    
+    .message { 
+      position: fixed; 
+      top: 120px; 
+      right: 20px; 
+      padding: 15px 20px; 
+      border-radius: 8px; 
+      color: white; 
+      font-weight: bold; 
+      z-index: 9999; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+      transition: opacity 0.3s ease; 
+      max-width: 300px; 
+    }
+    .message.success { background-color: #10b981; }
+    .message.error { background-color: #ef4444; }
+    .message.info { background-color: #3b82f6; }
+    .message.warning { background-color: #f59e0b; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img alt="Kampong Inggris Pare logo" src="./img1.png" />
+      <h1 class="font-golden">Kampong Inggris Pare</h1>
+    </div>
+  </header>
+  
+  <main class="max-w-4xl mx-auto px-6 py-8 flex-grow">
+    <section class="mb-6">
+      <div class="bg-gradient-to-r from-green-600 to-blue-600 text-white text-center py-3 rounded-md select-none font-semibold">
+        🎉 Practical English Test Results - Complete Assessment! 🎉
+      </div>
+    </section>
+
+    
+    <section class="user-info-card">
+      <h3><i class="fas fa-user mr-2"></i>Test Taker Information</h3>
+      <p><strong>Name:</strong> <span id="userName">Loading...</span></p>
+      <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+      <p><strong>Test Date:</strong> <span id="testDate"></span></p>
+    </section>
+
+    
+    <section class="overall-score">
+      <h1 class="text-2xl font-bold mb-4">Your Overall Practical English Score</h1>
+      <div class="text-6xl font-bold mb-2" id="overallScore">--</div>
+      <div class="text-lg" id="overallLevel">Calculating...</div>
+      <div class="text-sm mt-2 opacity-90">CEFR Level Assessment</div>
+      <div class="text-sm mt-4">
+        <strong>Total Score:</strong> <span id="totalCorrect">--</span> / <span id="totalQuestions">--</span> 
+        (<span id="totalPercentage">--</span>%)
+      </div>
+    </section>
+
+    
+    <section class="card rounded-xl mb-6">
+      <div class="inner-card">
+        <h2 class="font-bold text-center mb-4 text-lg">Performance by Skill Area</h2>
+
+        
+        <div class="skill-summary">
+          <h3 class="font-semibold mb-3 text-green-600">
+            <i class="fas fa-book-open mr-2"></i>Reading Comprehension
+          </h3>
+          <div class="score-display">
+            <div class="score-item">
+              <div class="score-value" id="readingPercentage">--</div>
+              <div class="score-label">Accuracy</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="readingLevel">--</div>
+              <div class="score-label">Level</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="readingScore">--/25</div>
+              <div class="score-label">Correct</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="readingIELTS">--</div>
+              <div class="score-label">IELTS Equivalent</div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="skill-summary">
+          <h3 class="font-semibold mb-3 text-purple-600">
+            <i class="fas fa-headphones mr-2"></i>Listening Comprehension
+          </h3>
+          <div class="score-display">
+            <div class="score-item">
+              <div class="score-value" id="listeningPercentage">--</div>
+              <div class="score-label">Accuracy</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="listeningLevel">--</div>
+              <div class="score-label">Level</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="listeningScore">--/25</div>
+              <div class="score-label">Correct</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="listeningIELTS">--</div>
+              <div class="score-label">IELTS Equivalent</div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="skill-summary">
+          <h3 class="font-semibold mb-3 text-blue-600">
+            <i class="fas fa-book mr-2"></i>Grammar & Structure
+          </h3>
+          <div class="score-display">
+            <div class="score-item">
+              <div class="score-value" id="grammarPercentage">--</div>
+              <div class="score-label">Accuracy</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="grammarLevel">--</div>
+              <div class="score-label">Level</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="grammarScore">--/25</div>
+              <div class="score-label">Correct</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="grammarIELTS">--</div>
+              <div class="score-label">IELTS Equivalent</div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="skill-summary">
+          <h3 class="font-semibold mb-3 text-orange-600">
+            <i class="fas fa-microphone mr-2"></i>Speaking & Reading Aloud
+          </h3>
+          <div class="score-display">
+            <div class="score-item">
+              <div class="score-value" id="speakingCompleted">--/25</div>
+              <div class="score-label">Completed</div>
+            </div>
+            <div class="score-item">
+              <div class="score-value" id="speakingLevel">B2</div>
+              <div class="score-label">Level</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="card rounded-xl mb-6">
+      <div class="inner-card">
+        <h2 class="font-bold text-center mb-4 text-lg">Skill Development Progress</h2>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-medium">Reading</span>
+              <span id="readingProgressPercent">--%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-green-600 h-2 rounded-full" id="readingProgressBar" style="width: 0%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-medium">Listening</span>
+              <span id="listeningProgressPercent">--%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-purple-600 h-2 rounded-full" id="listeningProgressBar" style="width: 0%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="font-medium">Grammar</span>
+              <span id="grammarProgressPercent">--%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-blue-600 h-2 rounded-full" id="grammarProgressBar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+
+      <button onclick="downloadCertificate()" class="btn-animate inline-block text-center" style="background-color: #dc2626;">
+        <i class="fas fa-download mr-2"></i>Download Certificate
+      </button>
+      <a href="page3.html" class="btn-animate text-center">
+        <i class="fas fa-redo mr-2"></i>Take Test Again
+      </a>
+      <a href="index.html" class="btn-animate text-center">
+        <i class="fas fa-home mr-2"></i>Back to Home
+      </a>
+    </div>
+  </main>
+
+  
+  <script>
+    // Results Page Protection
+    (function() {
+      const testStarted = localStorage.getItem('practical_test_started');
+      const selectedProgram = localStorage.getItem('selectedProgram');
+      const currentPage = localStorage.getItem('practical_current_page');
+      
+      // Check if user has completed all tests
+      if (!testStarted || selectedProgram !== 'practical-english') {
+        alert('Anda harus memulai tes dari halaman pendaftaran!');
+        window.location.href = 'page2.html';
+        return;
+      }
+      
+      // Check if user has reached this page through proper sequence
+      if (currentPage !== 'practical-english-results.html') {
+        alert('Anda harus menyelesaikan semua soal terlebih dahulu!');
+        // Redirect to the current allowed page
+        window.location.href = currentPage || 'page3.html';
+        return;
+      }
+      
+      // Mark test as completed
+      localStorage.setItem('practical_test_completed', 'true');
+    })();
+  </script>
+  
+  <script>
+    // Calculate CEFR level
+    function calculateCEFRLevel(percentage) {
+      if (percentage >= 90) return 'C2';
+      if (percentage >= 80) return 'C1';
+      if (percentage >= 70) return 'B2';
+      if (percentage >= 60) return 'B1';
+      if (percentage >= 50) return 'A2';
+      return 'A1';
+    }
+
+    // Calculate IELTS equivalent
+    function calculateIELTS(percentage) {
+      if (percentage >= 90) return '8.5-9.0';
+      if (percentage >= 85) return '8.0-8.5';
+      if (percentage >= 80) return '7.5-8.0';
+      if (percentage >= 75) return '7.0-7.5';
+      if (percentage >= 70) return '6.5-7.0';
+      if (percentage >= 65) return '6.0-6.5';
+      if (percentage >= 60) return '5.5-6.0';
+      return '5.0-5.5';
+    }
+
+    // Load user data
+    function loadUserData() {
+      const userName = localStorage.getItem('practical_user_name') || 'Test Taker';
+      const userEmail = localStorage.getItem('practical_user_email') || 'Not provided';
+      
+      document.getElementById('userName').textContent = userName;
+      document.getElementById('userEmail').textContent = userEmail;
+      document.getElementById('testDate').textContent = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    // Calculate actual scores from localStorage
+    function calculateScores() {
+      const scores = {
+        reading: { correct: 0, total: 0 },
+        listening: { correct: 0, total: 0 },
+        grammar: { correct: 0, total: 0 },
+        speaking: { correct: 0, total: 0 }
+      };
+      
+      // Reading scores (page4-8)
+      for (let i = 4; i <= 8; i++) {
+        const key = `practical_reading_page${i}_answers`;
+        const data = localStorage.getItem(key);
+        if (data) {
+          try {
+            const parsed = JSON.parse(data);
+            scores.reading.correct += parsed.correct || 0;
+            scores.reading.total += parsed.total || 0;
+          } catch (e) {
+            console.error(`Error parsing ${key}:`, e);
+          }
+        }
+      }
+      
+      // Listening scores (page4-8)
+      for (let i = 4; i <= 8; i++) {
+        const key = `practical_listening_page${i}_answers`;
+        const data = localStorage.getItem(key);
+        if (data) {
+          try {
+            const parsed = JSON.parse(data);
+            scores.listening.correct += parsed.correct || 0;
+            scores.listening.total += parsed.total || 0;
+          } catch (e) {
+            console.error(`Error parsing ${key}:`, e);
+          }
+        }
+      }
+      
+      // Grammar scores (office-grammar 2-6)
+      for (let i = 2; i <= 6; i++) {
+        const key = `practical_grammar_page${i}_answers`;
+        const data = localStorage.getItem(key);
+        if (data) {
+          try {
+            const parsed = JSON.parse(data);
+            scores.grammar.correct += parsed.correct || 0;
+            scores.grammar.total += parsed.total || 0;
+          } catch (e) {
+            console.error(`Error parsing ${key}:`, e);
+          }
+        }
+      }
+      
+      // Speaking scores (station-speaking-reading 1-5)
+      // Speaking uses completion tracking instead of correct/incorrect
+      for (let i = 1; i <= 5; i++) {
+        const key = `practical_speaking_page${i}_answers`;
+        const data = localStorage.getItem(key);
+        if (data) {
+          try {
+            const parsed = JSON.parse(data);
+            // For speaking, 'completed' field shows how many tasks were completed
+            scores.speaking.correct += parsed.completed || 0;
+            scores.speaking.total += parsed.total || 0;
+          } catch (e) {
+            console.error(`Error parsing ${key}:`, e);
+          }
+        }
+      }
+      
+      console.log('Calculated scores from localStorage:', scores);
+      return scores;
+    }
+
+    // Display results
+    function displayResults() {
+      const scores = calculateScores();
+      
+      // Calculate percentages
+      const readingPercent = scores.reading.total > 0 ? Math.round((scores.reading.correct / scores.reading.total) * 100) : 0;
+      const listeningPercent = scores.listening.total > 0 ? Math.round((scores.listening.correct / scores.listening.total) * 100) : 0;
+      const grammarPercent = scores.grammar.total > 0 ? Math.round((scores.grammar.correct / scores.grammar.total) * 100) : 0;
+      const speakingPercent = scores.speaking.total > 0 ? Math.round((scores.speaking.correct / scores.speaking.total) * 100) : 0;
+      
+      // Calculate overall
+      const totalCorrect = scores.reading.correct + scores.listening.correct + scores.grammar.correct + scores.speaking.correct;
+      const totalQuestions = scores.reading.total + scores.listening.total + scores.grammar.total + scores.speaking.total;
+      const overallPercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+      const overallLevel = calculateCEFRLevel(overallPercent);
+      
+      // Update overall
+      document.getElementById('overallScore').textContent = overallLevel;
+      document.getElementById('overallLevel').textContent = overallLevel + ' Level';
+      document.getElementById('totalCorrect').textContent = totalCorrect;
+      document.getElementById('totalQuestions').textContent = totalQuestions;
+      document.getElementById('totalPercentage').textContent = overallPercent;
+      
+      // Update Reading
+      document.getElementById('readingPercentage').textContent = readingPercent + '%';
+      document.getElementById('readingLevel').textContent = calculateCEFRLevel(readingPercent);
+      document.getElementById('readingScore').textContent = scores.reading.correct + '/' + scores.reading.total;
+      document.getElementById('readingIELTS').textContent = calculateIELTS(readingPercent);
+      document.getElementById('readingProgressPercent').textContent = readingPercent + '%';
+      document.getElementById('readingProgressBar').style.width = readingPercent + '%';
+      
+      // Update Listening
+      document.getElementById('listeningPercentage').textContent = listeningPercent + '%';
+      document.getElementById('listeningLevel').textContent = calculateCEFRLevel(listeningPercent);
+      document.getElementById('listeningScore').textContent = scores.listening.correct + '/' + scores.listening.total;
+      document.getElementById('listeningIELTS').textContent = calculateIELTS(listeningPercent);
+      document.getElementById('listeningProgressPercent').textContent = listeningPercent + '%';
+      document.getElementById('listeningProgressBar').style.width = listeningPercent + '%';
+      
+      // Update Grammar
+      document.getElementById('grammarPercentage').textContent = grammarPercent + '%';
+      document.getElementById('grammarLevel').textContent = calculateCEFRLevel(grammarPercent);
+      document.getElementById('grammarScore').textContent = scores.grammar.correct + '/' + scores.grammar.total;
+      document.getElementById('grammarIELTS').textContent = calculateIELTS(grammarPercent);
+      document.getElementById('grammarProgressPercent').textContent = grammarPercent + '%';
+      document.getElementById('grammarProgressBar').style.width = grammarPercent + '%';
+      
+      // Update Speaking
+      document.getElementById('speakingCompleted').textContent = scores.speaking.correct + '/' + scores.speaking.total;
+      document.getElementById('speakingLevel').textContent = calculateCEFRLevel(speakingPercent);
+      
+      console.log('Results displayed:', {
+        reading: `${scores.reading.correct}/${scores.reading.total} (${readingPercent}%)`,
+        listening: `${scores.listening.correct}/${scores.listening.total} (${listeningPercent}%)`,
+        grammar: `${scores.grammar.correct}/${scores.grammar.total} (${grammarPercent}%)`,
+        speaking: `${scores.speaking.correct}/${scores.speaking.total} (${speakingPercent}%)`,
+        overall: `${totalCorrect}/${totalQuestions} (${overallPercent}%) - ${overallLevel}`
+      });
+    }
+
+    // Send results to email
+    async function sendResultsToEmail() {
+      const email = localStorage.getItem('practical_user_email');
+      if (!email || email === 'Not provided') {
+        alert('Email address not found. Please ensure you registered with an email.');
+        return;
+      }
+
+      const btn = document.getElementById('emailBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+
+      try {
+        const response = await fetch('send-results.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            name: localStorage.getItem('practical_user_name') || 'Test Taker',
+            results: {
+              overall: document.getElementById('overallScore').textContent,
+              reading: document.getElementById('readingScore').textContent,
+              listening: document.getElementById('listeningScore').textContent,
+              grammar: document.getElementById('grammarScore').textContent
+            }
+          })
+        });
+
+        if (response.ok) {
+          alert('Results sent successfully to ' + email);
+        } else {
+          alert('Failed to send email. Please try downloading the certificate instead.');
+        }
+      } catch (error) {
+        alert('Error sending email: ' + error.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-envelope mr-2"></i>Send Results to Email';
+      }
+    }
+
+    // Download results
+    function downloadResults() {
+      const results = `
+PRACTICAL ENGLISH TEST CERTIFICATE
+===================================
+
+Student: ${document.getElementById('userName').textContent}
+Email: ${document.getElementById('userEmail').textContent}
+Test Date: ${document.getElementById('testDate').textContent}
+
+OVERALL SCORE: ${document.getElementById('overallScore').textContent}
+Total: ${document.getElementById('totalCorrect').textContent}/${document.getElementById('totalQuestions').textContent} (${document.getElementById('totalPercentage').textContent}%)
+
+DETAILED SCORES:
+- Reading: ${document.getElementById('readingScore').textContent} (${document.getElementById('readingPercentage').textContent})
+- Listening: ${document.getElementById('listeningScore').textContent} (${document.getElementById('listeningPercentage').textContent})
+- Grammar: ${document.getElementById('grammarScore').textContent} (${document.getElementById('grammarPercentage').textContent})
+- Speaking: ${document.getElementById('speakingCompleted').textContent} passages completed
+
+Certificate issued by: //elearningq - Kampong Inggris Pare
+      `;
+
+      const blob = new Blob([results], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'practical-english-certificate.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+
+    // Show message function
+    function showMessage(message, type = 'info') {
+      const messageEl = document.createElement('div');
+      messageEl.className = `message ${type}`;
+      messageEl.textContent = message;
+      document.body.appendChild(messageEl);
+      
+      setTimeout(() => {
+        messageEl.style.opacity = '0';
+        setTimeout(() => {
+          document.body.removeChild(messageEl);
+        }, 300);
+      }, 3000);
+    }
+
+    // Download certificate as PDF with text wrapping to prevent overflow and submit data to API
+async function downloadCertificate() {
+  try {
+    // Show loading state
+    const button = document.querySelector('button[onclick="downloadCertificate()"]');
+    const originalText = button.innerHTML;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Membuat Sertifikat...';
+    button.disabled = true;
+
+    // Calculate scores
+    const scores = calculateScores();
+    const readingPercent = scores.reading.total > 0 ? Math.round((scores.reading.correct / scores.reading.total) * 100) : 0;
+    const listeningPercent = scores.listening.total > 0 ? Math.round((scores.listening.correct / scores.listening.total) * 100) : 0;
+    const grammarPercent = scores.grammar.total > 0 ? Math.round((scores.grammar.correct / scores.grammar.total) * 100) : 0;
+    const speakingPercent = scores.speaking.total > 0 ? Math.round((scores.speaking.correct / scores.speaking.total) * 100) : 0;
+    const totalCorrect = scores.reading.correct + scores.listening.correct + scores.grammar.correct + scores.speaking.correct;
+    const totalQuestions = scores.reading.total + scores.listening.total + scores.grammar.total + scores.speaking.total;
+    const overallPercent = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+    const overallLevel = calculateCEFRLevel(overallPercent);
+
+    // Get user data
+    const userName = localStorage.getItem('practical_user_name') || 'Test Taker';
+    const userEmail = localStorage.getItem('practical_user_email') || 'Not provided';
+    const whatsappNumber = localStorage.getItem('userWhatsapp') || localStorage.getItem('whatsapp_number') || '';
+
+    // Prepare data for API
+    const data = {
+      user_name: userName,
+      user_email: userEmail,
+      whatsapp_number: whatsappNumber,
+      test_date: new Date().toISOString().split('T')[0],
+      overall_score: overallLevel,
+      overall_level: overallLevel + ' Level (Practical English)',
+      total_correct: totalCorrect,
+      total_questions: totalQuestions,
+      total_percentage: overallPercent,
+      reading_score: scores.reading.correct,
+      reading_percentage: readingPercent,
+      reading_level: calculateCEFRLevel(readingPercent),
+      reading_ielts: calculateIELTS(readingPercent),
+      listening_score: scores.listening.correct,
+      listening_percentage: listeningPercent,
+      listening_level: calculateCEFRLevel(listeningPercent),
+      listening_ielts: calculateIELTS(listeningPercent),
+      grammar_score: scores.grammar.correct,
+      grammar_percentage: grammarPercent,
+      grammar_level: calculateCEFRLevel(grammarPercent),
+      grammar_ielts: calculateIELTS(grammarPercent),
+      speaking_completed: scores.speaking.correct,
+      speaking_level: calculateCEFRLevel(speakingPercent),
+      certificate_type: 'Practical English Proficiency Certificate'
+    };
+
+    console.log('📤 Sending Practical English data to API:', data);
+
+    // Try to submit data to API but don't fail if it doesn't work
+    try {
+      const response = await fetch('https://kamponginggrispare.com/index.php/api/submit-practical', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('✅ Practical results submitted successfully:', result);
+        showMessage('✅ Data berhasil disimpan! Sertifikat sedang dibuat...', 'success');
+      } else {
+        const errorText = await response.text();
+        console.error('❌ API Error response:', errorText);
+        showMessage('⚠️ Data tes berhasil, tetapi penyimpanan ke server gagal. Sertifikat tetap bisa diunduh.', 'info');
+      }
+    } catch (apiError) {
+      console.warn('⚠️ API submission failed, continuing with PDF generation:', apiError);
+      showMessage('⚠️ Koneksi server terganggu, tetapi sertifikat tetap bisa diunduh.', 'info');
+    }
+
+    // Now generate PDF with consistent design
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('p', 'mm', 'a4');
+    doc.setFillColor(248, 250, 252);
+    doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F');
+
+    // Decorative border
+    const margin = 15;
+    doc.setDrawColor(59, 130, 246);
+    doc.setLineWidth(2);
+    doc.rect(margin, margin, doc.internal.pageSize.width - 2*margin, doc.internal.pageSize.height - 2*margin);
+
+    // Inner frame
+    doc.setDrawColor(99, 102, 241);
+    doc.setLineWidth(0.5);
+    doc.rect(margin + 3, margin + 3, doc.internal.pageSize.width - 2*(margin + 3), doc.internal.pageSize.height - 2*(margin + 3));
+
+    // ========== PROFESSIONAL HEADER SECTION ==========
+    let yPos = margin + 25;
+
+    // Header background with gradient effect
+    doc.setFillColor(30, 58, 138);
+    doc.rect(margin + 5, yPos - 15, doc.internal.pageSize.width - 2*(margin + 5), 40, 'F');
+
+    // Main title with shadow effect
+    doc.setFontSize(22);
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.text('CERTIFICATE OF ACHIEVEMENT', doc.internal.pageSize.width / 2, yPos, { align: 'center' });
+    
+    // Subtitle
+    doc.setFontSize(14);
+    doc.setTextColor(200, 220, 255);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Practical English Proficiency Assessment', doc.internal.pageSize.width / 2, yPos + 8, { align: 'center' });
+    
+    // Accent line under header
+    doc.setDrawColor(255, 215, 0);
+    doc.setLineWidth(1.5);
+    doc.line(margin + 20, yPos + 15, doc.internal.pageSize.width - (margin + 20), yPos + 15);
+    
+    yPos += 30;
+    
+    // Presented to section
+    doc.setFontSize(12);
+    doc.setTextColor(51, 65, 85);
+    doc.setFont('helvetica', 'bold');
+    doc.text('This certificate is proudly presented to:', doc.internal.pageSize.width / 2, yPos, { align: 'center' });
+    yPos += 15;
+
+    // Name with elegant styling
+    doc.setFontSize(24);
+    doc.setTextColor(30, 58, 138);
+    doc.setFont('helvetica', 'bold');
+    
+    // Name with background highlight
+    const nameWidth = doc.getTextWidth(userName.toUpperCase());
+    const nameBackgroundWidth = nameWidth + 20;
+    const nameBackgroundX = (doc.internal.pageSize.width - nameBackgroundWidth) / 2;
+    
+    doc.setFillColor(240, 245, 255);
+    doc.roundedRect(nameBackgroundX, yPos - 12, nameBackgroundWidth, 20, 2, 2, 'F');
+    
+    doc.text(userName.toUpperCase(), doc.internal.pageSize.width / 2, yPos, { align: 'center' });
+    yPos += 30;
+
+    // Achievement description
+    doc.setFontSize(10);
+    doc.setTextColor(71, 85, 105);
+    doc.setFont('helvetica', 'normal');
+    const achievementDesc = `for successfully completing the Practical English Proficiency Test with proficiency at ${overallLevel} level.`;
+    doc.text(achievementDesc, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 15;
+
+    // Decorative separator
+    doc.setDrawColor(99, 102, 241);
+    doc.setLineWidth(0.5);
+    doc.line(margin + 15, yPos, doc.internal.pageSize.width - (margin + 15), yPos);
+    yPos += 14;
+
+    // Test Results
+    doc.setFontSize(10);
+    doc.setTextColor(51, 65, 85);
+    doc.setFont('helvetica', 'bold');
+    doc.text('TEST RESULTS:', doc.internal.pageSize.width / 2, yPos, { align: 'center' });
+    yPos += 8;
+
+    doc.setFontSize(9);
+    doc.setTextColor(51, 65, 85);
+    doc.setFont('helvetica', 'bold');
+
+    // Test date
+    const testDate = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    doc.text(`• Test Date: ${testDate}`, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 10;
+
+    // Overall score
+    doc.text(`• Overall Score: ${overallLevel} Level`, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 10;
+
+    // Total score
+    doc.text(`• Total Score: ${totalCorrect}/${totalQuestions} (${overallPercent}%)`, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 10;
+
+    // Reading score
+    const readingLevel = calculateCEFRLevel(readingPercent);
+    doc.text(`• Reading: ${scores.reading.correct}/${scores.reading.total} (${readingPercent}%) - ${readingLevel}`, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 10;
+
+    // Listening score
+    const listeningLevel = calculateCEFRLevel(listeningPercent);
+    doc.text(`• Listening: ${scores.listening.correct}/${scores.listening.total} (${listeningPercent}%) - ${listeningLevel}`, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 10;
+
+    // Grammar score
+    const grammarLevel = calculateCEFRLevel(grammarPercent);
+    doc.text(`• Grammar: ${scores.grammar.correct}/${scores.grammar.total} (${grammarPercent}%) - ${grammarLevel}`, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 10;
+
+    // Speaking score
+    const speakingLevel = calculateCEFRLevel(speakingPercent);
+    doc.text(`• Speaking: ${scores.speaking.correct}/${scores.speaking.total} completed - ${speakingLevel}`, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 25;
+
+    // Description
+    doc.setFontSize(8);
+    doc.setTextColor(71, 85, 105);
+    doc.setFont('helvetica', 'normal');
+    const descriptionText = `This certificate acknowledges the candidate's practical English language proficiency across multiple skills and serves as a reference for appropriate learning pathways.`;
+    doc.text(descriptionText, doc.internal.pageSize.width / 2, yPos, { align: 'center', maxWidth: 160 });
+    yPos += 30;
+
+    // Bottom section with signature
+    const bottomLineY = doc.internal.pageSize.height - margin - 50;
+    doc.setDrawColor(59, 130, 246);
+    doc.setLineWidth(1);
+    doc.line(margin + 5, bottomLineY, doc.internal.pageSize.width - (margin + 5), bottomLineY);
+    yPos = bottomLineY + 10;
+
+    // Load both images
+    let signatureBase64 = null;
+    let stempelBase64 = null;
+
+    try {
+      signatureBase64 = await loadImageAsBase64('ttd.png');
+    } catch (error) {
+      console.warn('Failed to load signature image:', error);
+    }
+
+    try {
+      stempelBase64 = await loadImageAsBase64('stempel.png');
+    } catch (error) {
+      console.warn('Failed to load stempel image:', error);
+    }
+
+    // Add signature image first (as background)
+    if (signatureBase64) {
+      try {
+        const signatureWidth = 50;
+        const signatureHeight = 25;
+        const signatureX = (doc.internal.pageSize.width - signatureWidth) / 2;
+        
+        if (yPos + signatureHeight < doc.internal.pageSize.height - margin) {
+          doc.addImage(signatureBase64, 'JPEG', signatureX, yPos, signatureWidth, signatureHeight);
+          console.log('Signature image added successfully');
+          
+          // Add stempel image on top of signature (covering only right part)
+          if (stempelBase64) {
+            try {
+              const stempelWidth = 35; // Smaller width
+              const stempelHeight = 35; // Smaller height
+              
+              // Position stempel to cover right part of signature
+              const stempelX = signatureX + 2; // Start from right part of signature
+              const stempelY = yPos - 1; // Position slightly above signature
+              
+              if (stempelY + stempelHeight < doc.internal.pageSize.height - margin) {
+                doc.addImage(stempelBase64, 'PNG', stempelX, stempelY, stempelWidth, stempelHeight);
+                console.log('Stempel image added successfully - covering right part of signature');
+              }
+            } catch (stempelError) {
+              console.warn('Error adding stempel to PDF:', stempelError);
+            }
+          }
+          
+          yPos += signatureHeight + 5;
+        }
+      } catch (imgError) {
+        console.warn('Error adding signature image to PDF:', imgError);
+      }
+    } else {
+      // If signature image failed to load, show text placeholder
+      doc.setFontSize(10);
+      doc.setTextColor(107, 114, 128);
+      doc.setFont('helvetica', 'italic');
+      doc.text('Director Signature', doc.internal.pageSize.width / 2, yPos, { align: 'center' });
+      yPos += 12;
+    }
+
+    // Organization name
+    const orgY = Math.min(yPos + 10, doc.internal.pageSize.height - margin - 5);
+    doc.setFontSize(10);
+    doc.setTextColor(30, 58, 138);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Kampong Inggris Pare', doc.internal.pageSize.width / 2, orgY, { align: 'center' });
+
+    // Save PDF
+    const sanitizedName = userName.replace(/[^a-zA-Z0-9]/g, '_');
+    doc.save(`practical-english-certificate-${sanitizedName}.pdf`);
+
+    // Restore button state
+    button.innerHTML = originalText;
+    button.disabled = false;
+
+    alert('Certificate generated successfully!');
+
+  } catch (error) {
+    console.error('Error generating certificate:', error);
+    alert('Error generating certificate. Please try again.');
+
+    const button = document.querySelector('button[onclick="downloadCertificate()"]');
+    button.innerHTML = '<i class="fas fa-download mr-2"></i>Download Certificate';
+    button.disabled = false;
+  }
+}
+
+// Helper function to load images as Base64
+function loadImageAsBase64(url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'blob';
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        const reader = new FileReader();
+        reader.onloadend = function() {
+          resolve(reader.result);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(xhr.response);
+      } else {
+        reject(new Error('Failed to load image: ' + url));
+      }
+    };
+    xhr.onerror = reject;
+    xhr.send();
+  });
+}
+
+// Helper function to show messages
+function showMessage(message, type) {
+  // You can implement your own message display system here
+  console.log(`${type}: ${message}`);
+}
+    // Initialize on page load
+    window.addEventListener('load', function() {
+      loadUserData();
+      displayResults();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Academic Listening Script: Research Survey Methodology - Part 4
+
+Dr. Chen: I've been wondering about online versus paper surveys. Do you see significant differences in response quality?
+
+Professor Martinez: That's an interesting question. Online surveys generally have higher completion rates and faster data collection, but paper surveys sometimes yield more thoughtful responses, especially for open-ended questions. The key is matching the medium to your target population's preferences and technological comfort level.
+
+Dr. Chen: What about question ordering? Does it really matter how we sequence our questions?
+
+Professor Martinez: Absolutely! Always start with easier, non-threatening questions to build rapport. Place sensitive or personal questions in the middle when respondents are engaged but not yet fatigued. End with demographic questions, as these are straightforward and help maintain completion rates even if respondents are getting tired.
+
+Dr. Chen: I've noticed some students struggle with creating effective Likert scales. Any advice?
+
+Professor Martinez: The most common mistake is using an even number of response options, which forces respondents to lean one way or another. I recommend 5 or 7-point scales with a clear neutral midpoint. Also, ensure your scale labels are balanced - if you have "strongly agree" on one end, you need "strongly disagree" on the other, not just "disagree."
+
+Dr. Chen: These are excellent points. I think we should incorporate all of this into our next research methods workshop.
